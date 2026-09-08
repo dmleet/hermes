@@ -1,31 +1,43 @@
-# Build and publish both images on every push to main:
-#   <namespace>/hermes        from ./Dockerfile
+# Build and publish the images on every push to main:
+#   <namespace>/hermes        from ./Dockerfile, on every push
 #   <namespace>/beets-hermes  from ./deploy/beets/Dockerfile (the pinned linuxserver beets
-#                             image plus the beets-hermes plugin)
+#                             image plus the beets-hermes plugin), only when the plugin or
+#                             the Dockerfile changed since the previous push
 #
 # Tags per image, per push:
-#   latest                    moves on every push (never pin a cluster to it)
-#   <version>                 from pyproject.toml; reused until the version is bumped, so it
-#                             is mutable and a node's image cache can shadow a rebuild
-#   <version>-<short sha>     immutable: what the cluster manifests pin to
-# The two images are built from the same commit and carry the same version, so
-# hermes:X.Y.Z-abc and beets-hermes:X.Y.Z-abc are known to work together. Hermes also
-# checks the agent's API version at runtime (agent_api in /healthz), so a mismatched pair
-# shows up red in /healthz and blocks imports rather than failing quietly.
+#   hermes:latest, hermes:<version>, hermes:<version>-<short sha>
+#     <version> is Hermes's, from pyproject.toml
+#   beets-hermes:latest, beets-hermes:<beets>, beets-hermes:<beets>-<short sha>
+#     <beets> is the beets release inside the image (`beet version`), read from the built
+#     image, so the tag says which beets you get; the plugin's identity is the commit
+#   latest moves on every build (never pin a cluster to it); the bare version tag is reused
+#   until the version changes, so it is mutable and a node's image cache can shadow a
+#   rebuild; the -<sha> tag is immutable and is what cluster manifests pin to.
+# Compatibility between the two images is not the tag: Hermes checks the agent's API
+# version at runtime (agent_api in /healthz) and a mismatch shows red in /healthz and blocks
+# imports rather than failing quietly. The plugin's tests run inside the beets image before
+# it is pushed, so a beets update that breaks the plugin fails here, not in the cluster.
+# A pull request (Dependabot bumping the base image) runs the tests and the beets build
+# without pushing anything.
 #
 # Secrets: DOCKERHUB_USERNAME (also the image namespace) and DOCKERHUB_TOKEN (an access
-# token with read/write scope). Switch registries by changing REGISTRY and the login step.
+# token with read/write scope). Switch registries by changing REGISTRY and the login steps.
 
 name: images
 
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 env:
   REGISTRY: docker.io
-  PLATFORMS: linux/amd64   # add linux/arm64 here if a node needs it (buildx handles both)
+  # Single platform on purpose: the beets job loads the image into the local daemon to read
+  # the beets version and run the plugin's tests, and `load` needs one platform. For a
+  # second architecture, build per platform and merge the manifests.
+  PLATFORMS: linux/amd64
 
 permissions:
   contents: write   # to create the v<version> tag on the first build of a version
@@ -51,8 +63,9 @@ jobs:
           uv sync --frozen
           uv run pytest -q
 
-  build:
+  hermes:
     needs: test
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -72,7 +85,6 @@ jobs:
           echo "sha=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
           echo "namespace=${{ secrets.DOCKERHUB_USERNAME }}" >> "$GITHUB_OUTPUT"
 
-      - uses: docker/setup-qemu-action@v3
       - uses: docker/setup-buildx-action@v3
       - uses: docker/login-action@v3
         with:
@@ -80,7 +92,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: hermes image
+      - name: Build and push
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -99,25 +111,6 @@ jobs:
           cache-from: type=gha,scope=hermes
           cache-to: type=gha,scope=hermes,mode=max
 
-      - name: beets-hermes image
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: deploy/beets/Dockerfile
-          platforms: ${{ env.PLATFORMS }}
-          push: true
-          tags: |
-            ${{ env.REGISTRY }}/${{ steps.meta.outputs.namespace }}/beets-hermes:latest
-            ${{ env.REGISTRY }}/${{ steps.meta.outputs.namespace }}/beets-hermes:${{ steps.meta.outputs.version }}
-            ${{ env.REGISTRY }}/${{ steps.meta.outputs.namespace }}/beets-hermes:${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.sha }}
-          labels: |
-            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
-            org.opencontainers.image.revision=${{ github.sha }}
-            org.opencontainers.image.version=${{ steps.meta.outputs.version }}
-            org.opencontainers.image.licenses=MIT
-          cache-from: type=gha,scope=beets-hermes
-          cache-to: type=gha,scope=beets-hermes,mode=max
-
       - name: Tag the first build of a version
         run: |
           TAG="v${{ steps.meta.outputs.version }}"
@@ -126,16 +119,99 @@ jobs:
           else
             git config user.name "github-actions"
             git config user.email "github-actions@users.noreply.github.com"
-            git tag -a "$TAG" -m "hermes and beets-hermes $TAG (images tagged ${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.sha }})"
+            git tag -a "$TAG" -m "hermes $TAG (image tagged ${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.sha }})"
             git push origin "$TAG"
           fi
 
       - name: Summary
         run: |
-          {
-            echo "### Images"
-            echo "- \`${{ steps.meta.outputs.namespace }}/hermes:${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.sha }}\`"
-            echo "- \`${{ steps.meta.outputs.namespace }}/beets-hermes:${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.sha }}\`"
-            echo
-            echo "Pin cluster manifests to the commit tags above."
-          } >> "$GITHUB_STEP_SUMMARY"
+          echo "- \`${{ steps.meta.outputs.namespace }}/hermes:${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.sha }}\`" >> "$GITHUB_STEP_SUMMARY"
+
+  beets:
+    # Runs on pull requests too (a Dependabot base-image bump), building and testing
+    # without pushing, so the in-image tests gate the merge.
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # to diff against the previous push
+
+      - name: Did the image's inputs change?
+        id: changed
+        run: |
+          case "${{ github.event_name }}" in
+            push) BEFORE="${{ github.event.before }}" ;;
+            pull_request) BEFORE="${{ github.event.pull_request.base.sha }}" ;;
+            *) BEFORE="" ;;
+          esac
+          if [ -z "$BEFORE" ] || ! git cat-file -e "$BEFORE" 2>/dev/null; then
+            echo "build=true" >> "$GITHUB_OUTPUT"   # manual run, first push, or history rewritten
+          elif [ -n "$(git diff --name-only "$BEFORE" "$GITHUB_SHA" -- beets-hermes deploy/beets/Dockerfile)" ]; then
+            echo "build=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "build=false" >> "$GITHUB_OUTPUT"
+            echo "beets-hermes unchanged since $BEFORE; keeping the previous image" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          echo "sha=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          echo "namespace=${{ secrets.DOCKERHUB_USERNAME }}" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-buildx-action@v3
+        if: steps.changed.outputs.build == 'true'
+
+      - name: Build
+        if: steps.changed.outputs.build == 'true'
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: deploy/beets/Dockerfile
+          platforms: ${{ env.PLATFORMS }}
+          load: true
+          tags: beets-hermes:ci
+          cache-from: type=gha,scope=beets-hermes
+          cache-to: type=gha,scope=beets-hermes,mode=max
+
+      - name: Read the beets version from the image
+        if: steps.changed.outputs.build == 'true'
+        id: beets
+        run: |
+          BEETS=$(docker run --rm --entrypoint beets-python beets-hermes:ci -c 'import beets; print(beets.__version__)')
+          echo "$BEETS" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$' || { echo "unexpected beets version '$BEETS'" >&2; exit 1; }
+          echo "version=$BEETS" >> "$GITHUB_OUTPUT"
+
+      - name: Plugin tests against the image's beets
+        if: steps.changed.outputs.build == 'true'
+        run: |
+          docker run --rm --entrypoint sh -v "$PWD/beets-hermes/tests:/tests:ro" beets-hermes:ci -c \
+            'beets-python -m pip install -q pytest && beets-python -m pytest -q -p no:cacheprovider /tests'
+
+      - uses: docker/login-action@v3
+        if: steps.changed.outputs.build == 'true' && github.event_name != 'pull_request'
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Push
+        if: steps.changed.outputs.build == 'true' && github.event_name != 'pull_request'
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: deploy/beets/Dockerfile
+          platforms: ${{ env.PLATFORMS }}
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ steps.changed.outputs.namespace }}/beets-hermes:latest
+            ${{ env.REGISTRY }}/${{ steps.changed.outputs.namespace }}/beets-hermes:${{ steps.beets.outputs.version }}
+            ${{ env.REGISTRY }}/${{ steps.changed.outputs.namespace }}/beets-hermes:${{ steps.beets.outputs.version }}-${{ steps.changed.outputs.sha }}
+          labels: |
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.version=${{ steps.beets.outputs.version }}
+            org.opencontainers.image.licenses=MIT
+          cache-from: type=gha,scope=beets-hermes
+
+      - name: Summary
+        if: steps.changed.outputs.build == 'true' && github.event_name != 'pull_request'
+        run: |
+          echo "- \`${{ steps.changed.outputs.namespace }}/beets-hermes:${{ steps.beets.outputs.version }}-${{ steps.changed.outputs.sha }}\` (beets ${{ steps.beets.outputs.version }})" >> "$GITHUB_STEP_SUMMARY"

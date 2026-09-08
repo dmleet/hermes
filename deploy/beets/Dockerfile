@@ -7,7 +7,12 @@
 #      that true even when the base image's entrypoint is bypassed).
 #   3. `beets-python` on PATH is the interpreter that owns `beet` (used by dev scripts).
 # Swap the FROM line for any other beets image and the rest still applies.
-FROM lscr.io/linuxserver/beets@sha256:a5523301ec16d8f6d1c6f917624c81b78b20b6b4a395de9d083821c64ddf354a
+#
+# The tag names the beets release and the digest pins the exact build; Dependabot
+# (.github/dependabot.yml) opens a PR when linuxserver publishes a new tag, and the images
+# workflow runs the plugin's tests inside the resulting image before pushing it. The pushed
+# image is tagged with the beets version it carries (`beet version`), not with Hermes's.
+FROM lscr.io/linuxserver/beets:2.14.0@sha256:bbd09e2b19a0903f3f916c26e9ae5c30004913b293228b422154c0f9fecb2cd9
 
 COPY beets-hermes /tmp/beets-hermes
 RUN set -eu; \

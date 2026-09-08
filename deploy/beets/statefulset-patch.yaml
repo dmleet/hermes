@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: beets
-          image: <namespace>/beets-hermes:0.5.0-<sha>   # the commit tag from the images workflow; never :latest or a bare version
+          image: <namespace>/beets-hermes:2.14.0-<sha>   # <beets release>-<commit> from the images workflow; never :latest or a bare version
           # The plugin's console script; deploy/beets/Dockerfile puts it on PATH regardless
           # of base image. Replaces the image's entrypoint (s6 init + web UI).
           command: ["hermes-agent", "--host", "0.0.0.0", "--port", "8338"]

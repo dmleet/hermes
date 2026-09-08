@@ -87,9 +87,11 @@ policy is `config.yaml`
 `deploy/beets/`, the image that adds the plugin to the linuxserver beets image, a
 StatefulSet patch that runs the agent as the pod's process, a Service, and a production
 beets config with each Hermes change and library-quality suggestion marked. The GitHub
-Actions workflow builds `<namespace>/hermes` and `<namespace>/beets-hermes` from every push to
-`main`, tagged `latest`, `<version>` and `<version>-<sha>`; cluster manifests pin the
-commit tag. The two images share one version and the agent reports an API version that
+Actions workflow builds `<namespace>/hermes` on every push to `main`, tagged `latest`,
+`<version>` and `<version>-<sha>`, and `<namespace>/beets-hermes` whenever the plugin or its
+Dockerfile changed, tagged with the beets release inside it (`2.14.0`, `2.14.0-<sha>`) after
+the plugin's tests have passed inside that image. Cluster manifests pin the commit tags.
+Dependabot proposes new linuxserver beets releases. The agent reports an API version that
 Hermes checks at startup.
 
 ## Status

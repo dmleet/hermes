@@ -142,10 +142,14 @@ One version for the whole repo, in `pyproject.toml`, `beets-hermes/pyproject.tom
 `hermes/__init__.py`; the images workflow fails if the two pyprojects disagree. Pre-1.0 it is
 `0.<milestone>.<patch>`: bump the minor when a milestone completes or when a change adds a
 config key, a migration or an agent route; bump the patch for fixes that need none of those;
-`1.0.0` when M6's live weeks pass. A push to `main` builds `<namespace>/hermes` and
-`<namespace>/beets-hermes` from that commit with tags `latest`, `<version>` and `<version>-<sha>`;
-cluster manifests pin the commit tag only (a reused version tag is served from the node
-cache). Compatibility between Hermes and the plugin is the integer `AGENT_API` in
+`1.0.0` when M6's live weeks pass. A push to `main` builds `<namespace>/hermes` with tags
+`latest`, `<version>` and `<version>-<sha>`. `<namespace>/beets-hermes` is beets plus the
+plugin, so it is tagged with the beets release it carries (`<beets>`, `<beets>-<sha>`, read
+from the built image) and only rebuilt when `beets-hermes/` or its Dockerfile changed; the
+plugin's tests run inside the image before it is pushed. The base image is pinned by tag
+and digest in `deploy/beets/Dockerfile` and bumped by Dependabot PRs. Cluster manifests
+pin commit tags only (a reused version tag is served from the node cache). Compatibility
+between Hermes and the plugin is the integer `AGENT_API` in
 `beetsplug/hermes.py` against `REQUIRED_AGENT_API` in `hermes/integrations/beets.py`: bump
 both when an agent route, body or response changes in a way an older Hermes would misread;
 a mismatch turns the beets health check red and `start_import` waits, naming the fix.

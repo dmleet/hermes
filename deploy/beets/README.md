@@ -5,9 +5,12 @@ to that repo. Three changes:
 
 1. **Image.** `Dockerfile` here builds on the pinned `lscr.io/linuxserver/beets` digest and
    installs `beets-hermes` into whichever Python environment owns `beet`. The GitHub Actions
-   workflow (`.github/workflows/images.yml`) builds and pushes it to Docker Hub on every push
-   to `main` as `<namespace>/beets-hermes:<version>-<sha>` (plus `:<version>` and `:latest`),
-   alongside `<namespace>/hermes` from the same commit. Point the StatefulSet at the commit tag. The image contract is
+   workflow (`.github/workflows/images.yml`) builds and pushes it to Docker Hub when a push
+   to `main` changed the plugin or the Dockerfile, as `<namespace>/beets-hermes:<beets>-<sha>`
+   (plus `:<beets>` and `:latest`), where `<beets>` is the beets release inside the image;
+   the plugin's tests run inside the image first. Point the StatefulSet at the commit tag.
+   Updating beets is a Dependabot PR that bumps the `FROM` tag and digest; beets migrates
+   `library.db` on first start, so snapshot `/config` before rolling it out. The image contract is
    only: `beet` works with `BEETSDIR`, and `hermes-agent` is on PATH. Change the `FROM` line
    to any other beets image (or your own) and nothing else needs to change.
 2. **The agent as the pod's process.** `statefulset-patch.yaml` keeps the pod's single

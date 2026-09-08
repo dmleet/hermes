@@ -1,0 +1,17 @@
+# Keeps the beets base image current. deploy/beets/Dockerfile pins
+# lscr.io/linuxserver/beets by tag and digest; Dependabot opens a PR when linuxserver
+# publishes a new tag, the PR runs the test job, and merging it triggers the images
+# workflow, which runs the plugin's tests inside the new image before pushing it as
+# beets-hermes:<beets version>-<sha>. Review the beets changelog before merging: beets
+# migrates library.db on first start and there is no downgrade.
+version: 2
+updates:
+  - package-ecosystem: docker
+    directory: /deploy/beets
+    schedule:
+      interval: weekly
+    labels: [beets]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly

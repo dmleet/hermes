@@ -1,0 +1,1210 @@
+[
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "age": 1014,
+  "ageHours": 24344.11223715325,
+  "ageMinutes": 1460646.7342291966,
+  "size": 2942448248,
+  "files": 21,
+  "grabs": 13,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Reissue Remastered 2021] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album reissue remastered 2021 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-11-28T10:43:30Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Reissue Remastered 2021] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 16,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Reissue Remastered 2021] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "age": 1173,
+  "ageHours": 28175.305014954138,
+  "ageMinutes": 1690518.30089725,
+  "size": 495503987,
+  "files": 16,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Reissue Remastered 2021] [FLAC Lossless / Vinyl]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album reissue remastered 2021 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-06-21T19:31:56Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Reissue Remastered 2021] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Reissue Remastered 2021] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "age": 1501,
+  "ageHours": 36039.51918162567,
+  "ageMinutes": 2162371.1508975415,
+  "size": 179575655,
+  "files": 13,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered, Reissue 2006] [MP3 320 / WEB]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album remastered reissue 2006 mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2022-07-29T03:19:05Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered, Reissue 2006] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered, Reissue 2006] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "age": 1501,
+  "ageHours": 36039.57084829611,
+  "ageMinutes": 2162374.2508977666,
+  "size": 160225851,
+  "files": 13,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered, Reissue 2006] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album remastered reissue 2006 mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2022-07-29T03:15:59Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered, Reissue 2006] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered, Reissue 2006] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=5",
+  "age": 1647,
+  "ageHours": 39550.63557052195,
+  "ageMinutes": 2373038.134231317,
+  "size": 1625614919,
+  "files": 17,
+  "grabs": 12,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Reissue Remastered 2021] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album reissue remastered 2021 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2022-03-04T20:12:06Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Reissue Remastered 2021] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=5",
+  "indexerFlags": [
+   "scene"
+  ],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 9,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Reissue Remastered 2021] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "age": 1929,
+  "ageHours": 46318.99418163683,
+  "ageMinutes": 2779139.65089821,
+  "size": 179628434,
+  "files": 16,
+  "grabs": 7,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered 2008] [MP3 320 / CD]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album remastered 2008 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2021-05-26T19:50:35Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered 2008] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered 2008] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "age": 2117,
+  "ageHours": 50823.641959417975,
+  "ageMinutes": 3049418.517565078,
+  "size": 480331401,
+  "files": 26,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered - Reissue 2006] [FLAC Lossless / Vinyl]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album remastered reissue 2006 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-11-20T03:11:43Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered - Reissue 2006] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered - Reissue 2006] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "age": 2808,
+  "ageHours": 67410.66501497688,
+  "ageMinutes": 4044639.9008986135,
+  "size": 498171775,
+  "files": 17,
+  "grabs": 197,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered 2008] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album remastered 2008 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-12-30T00:10:20Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered 2008] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 128,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered 2008] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "age": 2864,
+  "ageHours": 68736.49445942497,
+  "ageMinutes": 4124189.6675654985,
+  "size": 529573002,
+  "files": 13,
+  "grabs": 105,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered, Reissue 2006] [FLAC Lossless / WEB]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album remastered reissue 2006 flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-11-04T18:20:34Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered, Reissue 2006] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 55,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered, Reissue 2006] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "age": 3563,
+  "ageHours": 85523.92945942825,
+  "ageMinutes": 5131435.767565695,
+  "size": 158279380,
+  "files": 19,
+  "grabs": 18,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered 2008] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album remastered 2008 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-05T06:54:28Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered 2008] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 6,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered 2008] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "age": 3563,
+  "ageHours": 85529.46695943153,
+  "ageMinutes": 5131768.017565892,
+  "size": 1694380572,
+  "files": 21,
+  "grabs": 17,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-05T01:22:13Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 11,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=12",
+  "age": 3566,
+  "ageHours": 85590.78307054572,
+  "ageMinutes": 5135446.984232745,
+  "size": 448962939,
+  "files": 21,
+  "grabs": 8,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC Lossless / Vinyl]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-02T12:03:15Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=12",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=13",
+  "age": 3566,
+  "ageHours": 85593.51529277956,
+  "ageMinutes": 5135610.9175667735,
+  "size": 180933682,
+  "files": 20,
+  "grabs": 30,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [MP3 320 / CD]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-02T09:19:19Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=13",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 11,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=14",
+  "age": 3570,
+  "ageHours": 85701.29584833958,
+  "ageMinutes": 5142077.750900375,
+  "size": 1807515220,
+  "files": 26,
+  "grabs": 11,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered - Reissue 2006] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album remastered reissue 2006 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-27T21:32:29Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered - Reissue 2006] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=14",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [Remastered - Reissue 2006] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=15",
+  "age": 3572,
+  "ageHours": 85731.26473723236,
+  "ageMinutes": 5143875.884233941,
+  "size": 471923143,
+  "files": 21,
+  "grabs": 603,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T15:34:21Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=15",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 192,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=16",
+  "age": 3572,
+  "ageHours": 85745.93473723592,
+  "ageMinutes": 5144756.084234157,
+  "size": 1620266340,
+  "files": 21,
+  "grabs": 20,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T00:54:09Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=16",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 14,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=17",
+  "age": 3573,
+  "ageHours": 85752.72751501617,
+  "ageMinutes": 5145163.65090097,
+  "size": 144379146,
+  "files": 13,
+  "grabs": 8,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T18:06:35Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=17",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 7,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=18",
+  "age": 3573,
+  "ageHours": 85754.53307057422,
+  "ageMinutes": 5145271.984234453,
+  "size": 465550855,
+  "files": 21,
+  "grabs": 5,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC Lossless / Vinyl]",
+  "sortTitle": "aphex twin selected ambient works 85 92 1992 album flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T16:18:15Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=18",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 6,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Aphex Twin - Selected Ambient Works 85-92 (1992) [Album] [FLAC Lossless / Vinyl].torrent"
+ }
+]

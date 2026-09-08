@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% if refresh %}<meta http-equiv="refresh" content="{{ refresh }}">{% endif %}
+<title>{% block title %}Hermes{% endblock %}</title>
+<style>
+  :root { color-scheme: light dark; --bg:#fafafa; --card:#fff; --fg:#1b1b1b; --muted:#666; --line:#ddd; --ok:#1a7f37; --warn:#9a6700; --bad:#b42318; --acc:#0b5fff;
+          --ok-bg:#e6f4ea; --warn-bg:#fff3cd; --bad-bg:#fde8e8; --acc-bg:#e6f0ff; --pre:#f3f3f3; --notice-line:#b6d4fe; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#161719; --card:#1f2124; --fg:#e6e6e6; --muted:#9a9a9a; --line:#33363a; --ok:#57c26a; --warn:#e2b93b; --bad:#f28b82; --acc:#6ea8fe;
+            --ok-bg:#1d3a25; --warn-bg:#3d3212; --bad-bg:#4a1f1f; --acc-bg:#1e2d47; --pre:#111214; --notice-line:#2c4a7a; }
+  }
+  body { margin:0; font:14px/1.45 system-ui, sans-serif; color:var(--fg); background:var(--bg); }
+  header { display:flex; gap:1rem; align-items:baseline; padding:.75rem 1.25rem; border-bottom:1px solid var(--line); background:var(--card); flex-wrap:wrap; }
+  header a { color:var(--fg); text-decoration:none; font-weight:600; }
+  header .modes { margin-left:auto; display:flex; gap:.4rem; flex-wrap:wrap; }
+  header .mode { font-size:12px; padding:.15rem .5rem; border-radius:.5rem; background:var(--line); color:var(--muted); white-space:nowrap; }
+  header .mode.dry { background:var(--warn-bg); color:var(--warn); }
+  header .mode.live { background:var(--bad-bg); color:var(--bad); font-weight:600; }
+  main { max-width: 1100px; margin: 0 auto; padding: 1rem 1.25rem 3rem; }
+  h1 { font-size:20px; margin:1rem 0 .5rem; } h2 { font-size:16px; margin:1.5rem 0 .5rem; color:var(--muted); }
+  .notice { margin:.75rem 0; padding:.5rem .75rem; border:1px solid var(--notice-line); background:var(--acc-bg); border-radius:.4rem; }
+  .scroll { overflow-x:auto; }
+  table { width:100%; border-collapse:collapse; background:var(--card); }
+  td.nowrap, th.nowrap { white-space:nowrap; }
+  th, td { text-align:left; padding:.4rem .5rem; border-bottom:1px solid var(--line); vertical-align:top; }
+  th { font-size:12px; color:var(--muted); font-weight:600; white-space:nowrap; }
+  tr.rejected td { color:var(--muted); }
+  .state { display:inline-block; padding:.1rem .45rem; border-radius:.4rem; font-size:12px; font-weight:600; background:var(--line); white-space:nowrap; }
+  .state.AWAITING_APPROVAL, .state.NEEDS_REVIEW, .state.IMPORT_NEEDS_REVIEW, .state.STALLED { background:var(--warn-bg); color:var(--warn); }
+  .state.DOWNLOADING, .state.SUBMITTED, .state.IMPORTING, .state.SEARCHING { background:var(--acc-bg); color:var(--acc); }
+  .state.IMPORTED, .state.ALREADY_OWNED, .state.READY_FOR_BEETS { background:var(--ok-bg); color:var(--ok); }
+  .state.FAILED, .state.REJECTED, .state.NO_MATCH { background:var(--bad-bg); color:var(--bad); }
+  form.inline { display:inline; }
+  button, a.button { font:inherit; padding:.3rem .7rem; border:1px solid var(--line); border-radius:.4rem; background:var(--card); color:var(--fg); cursor:pointer; white-space:nowrap; }
+  button.primary { background:var(--acc); color:#fff; border-color:var(--acc); }
+  button.danger { color:var(--bad); }
+  button.small, a.button.small { padding:.15rem .5rem; font-size:12px; }
+  a.button { display:inline-block; text-decoration:none; line-height:1.45; box-sizing:border-box; }
+  input[type=text] { font:inherit; padding:.3rem .5rem; border:1px solid var(--line); border-radius:.4rem; min-width:14rem; background:var(--card); color:var(--fg); }
+  label.sr { position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
+  .muted { color:var(--muted); } .mono { font-family: ui-monospace, monospace; font-size:12px; }
+  .events li { margin:.15rem 0; } .events .warning { color:var(--warn); } .events .error { color:var(--bad); }
+  details summary { cursor:pointer; color:var(--muted); }
+  pre { background:var(--pre); padding:.5rem; overflow:auto; font-size:12px; }
+  a { color:var(--acc); }
+  a.row { color:var(--fg); text-decoration:none; } a.row:hover { text-decoration:underline; }
+  .hint { color:var(--muted); font-size:13px; margin:.25rem 0 .75rem; }
+  .small { font-size:12px; }
+  .filters { display:flex; gap:.4rem; flex-wrap:wrap; align-items:center; margin:.25rem 0 .5rem; font-size:12px; }
+  .chip { padding:.15rem .5rem; border:1px solid var(--line); border-radius:1rem; color:var(--fg); text-decoration:none; background:var(--card); }
+  .chip.on { border-color:var(--acc); color:var(--acc); }
+  button[disabled] { opacity:.6; cursor:wait; }
+</style>
+</head>
+<body>
+<header>
+  <a href="/">Hermes</a>
+  <span class="muted">acquisition queue</span>
+  <a href="/docs" class="muted" style="font-weight:400">API</a>
+  <span class="modes">
+    {% if dry_run %}<span class="mode dry">dry run: nothing is grabbed</span>{% else %}<span class="mode live">live: approvals grab from trackers</span>{% endif %}
+    {% if timid %}<span class="mode">timid: every grab needs your approval</span>{% else %}<span class="mode">auto-approve rules on</span>{% endif %}
+  </span>
+</header>
+<main>
+{% if notice %}<div class="notice">{{ notice }}</div>{% endif %}
+{% block content %}{% endblock %}
+</main>
+<script>
+// The only script on the site besides confirm(): a submit that waits on MusicBrainz and
+// the tracker takes seconds, so say so and stop a second click from sending a second request.
+document.addEventListener("submit", function (e) {
+  var b = e.target.querySelector("button");
+  if (b) setTimeout(function () { b.disabled = true; b.textContent = "Working…"; }, 0);
+});
+</script>
+</body>
+</html>

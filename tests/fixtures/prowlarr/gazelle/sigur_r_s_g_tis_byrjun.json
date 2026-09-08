@@ -1,0 +1,1744 @@
+[
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "age": 67,
+  "ageHours": 1617.5418502923055,
+  "ageMinutes": 97052.51101753833,
+  "size": 141800052,
+  "files": 13,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [Iceland 1999] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album iceland 1999 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-07-02T09:17:30Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [Iceland 1999] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [Iceland 1999] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "age": 118,
+  "ageHours": 2854.602405874111,
+  "ageMinutes": 171276.14435244666,
+  "size": 418423169,
+  "files": 14,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-05-11T20:13:52Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "age": 672,
+  "ageHours": 16148.478516995945,
+  "ageMinutes": 968908.7110197566,
+  "size": 141616692,
+  "files": 11,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-11-03T22:21:18Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "age": 672,
+  "ageHours": 16148.479072555361,
+  "ageMinutes": 968908.7443533216,
+  "size": 172797842,
+  "files": 11,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [MP3 320 / WEB]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-11-03T22:21:16Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=5",
+  "age": 1009,
+  "ageHours": 24216.448239224945,
+  "ageMinutes": 1452986.8943534966,
+  "size": 419682339,
+  "files": 11,
+  "grabs": 11,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [FLAC Lossless / WEB]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-03T18:23:07Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=5",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 10,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "age": 1009,
+  "ageHours": 24216.48851700564,
+  "ageMinutes": 1452989.3110203384,
+  "size": 379298536,
+  "files": 10,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [DMM Remaster 2009] [FLAC Lossless / Vinyl]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album dmm remaster 2009 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-03T18:20:42Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [DMM Remaster 2009] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [DMM Remaster 2009] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "age": 1009,
+  "ageHours": 24216.506572564223,
+  "ageMinutes": 1452990.3943538533,
+  "size": 1417966263,
+  "files": 10,
+  "grabs": 7,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [DMM Remaster 2009] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album dmm remaster 2009 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-03T18:19:37Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [DMM Remaster 2009] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 7,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [DMM Remaster 2009] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "age": 1009,
+  "ageHours": 24216.576572567195,
+  "ageMinutes": 1452994.5943540316,
+  "size": 383132919,
+  "files": 12,
+  "grabs": 15,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [FLAC Lossless / Vinyl]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-03T18:15:25Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 6,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "age": 1522,
+  "ageHours": 36543.05101701445,
+  "ageMinutes": 2192583.0610208665,
+  "size": 172931354,
+  "files": 13,
+  "grabs": 7,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [Iceland 1999] [MP3 320 / CD]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album iceland 1999 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2022-07-08T03:46:57Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [Iceland 1999] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [Iceland 1999] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "age": 2122,
+  "ageHours": 50937.19601701739,
+  "ageMinutes": 3056231.761021043,
+  "size": 419570547,
+  "files": 13,
+  "grabs": 80,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [Iceland 1999] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album iceland 1999 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-11-15T09:38:15Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [Iceland 1999] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 41,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [Iceland 1999] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "age": 2301,
+  "ageHours": 55224.869628131775,
+  "ageMinutes": 3313492.1776879067,
+  "size": 631042901,
+  "files": 43,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [MP3 320 / CD]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album 20th anniversary deluxe edition 2019 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-05-20T17:57:50Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=12",
+  "age": 2301,
+  "ageHours": 55224.92435035711,
+  "ageMinutes": 3313495.4610214285,
+  "size": 515168161,
+  "files": 43,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album 20th anniversary deluxe edition 2019 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-05-20T17:54:33Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=12",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=13",
+  "age": 2531,
+  "ageHours": 60747.091850360164,
+  "ageMinutes": 3644825.51102161,
+  "size": 264773057,
+  "files": 18,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [US Edition 2001] [MP3 320 / CD]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album us edition 2001 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-10-03T15:44:30Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [US Edition 2001] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=13",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [US Edition 2001] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=14",
+  "age": 2531,
+  "ageHours": 60747.1010170295,
+  "ageMinutes": 3644826.06102177,
+  "size": 233654886,
+  "files": 18,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [US Edition 2001] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album us edition 2001 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-10-03T15:43:57Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [US Edition 2001] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=14",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [US Edition 2001] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=15",
+  "age": 2545,
+  "ageHours": 61080.637405921276,
+  "ageMinutes": 3664838.2443552767,
+  "size": 1559256807,
+  "files": 43,
+  "grabs": 52,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album 20th anniversary deluxe edition 2019 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-09-19T18:11:46Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=15",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 29,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=16",
+  "age": 2620,
+  "ageHours": 62887.602128146944,
+  "ageMinutes": 3773256.127688818,
+  "size": 521471176,
+  "files": 35,
+  "grabs": 31,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album 20th anniversary deluxe edition 2019 mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-07-06T11:13:53Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=16",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 9,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=17",
+  "age": 2621,
+  "ageHours": 62909.99490592792,
+  "ageMinutes": 3774599.694355675,
+  "size": 2708730704,
+  "files": 35,
+  "grabs": 91,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [FLAC 24bit Lossless / WEB]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album 20th anniversary deluxe edition 2019 flac 24bit lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-07-05T12:50:19Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [FLAC 24bit Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=17",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 37,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [FLAC 24bit Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=18",
+  "age": 2622,
+  "ageHours": 62933.64768370864,
+  "ageMinutes": 3776018.8610225185,
+  "size": 1576900924,
+  "files": 35,
+  "grabs": 111,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [FLAC Lossless / WEB]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album 20th anniversary deluxe edition 2019 flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-07-04T13:11:09Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=18",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 22,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [20th Anniversary Deluxe Edition 2019] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=19",
+  "age": 2794,
+  "ageHours": 67073.6793503782,
+  "ageMinutes": 4024420.7610226916,
+  "size": 418240771,
+  "files": 14,
+  "grabs": 24,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-01-13T01:09:15Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=19",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 11,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=20",
+  "age": 2834,
+  "ageHours": 68018.77407260341,
+  "ageMinutes": 4081126.444356205,
+  "size": 510663912,
+  "files": 19,
+  "grabs": 168,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [US Edition 2001] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album us edition 2001 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-12-04T16:03:34Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [US Edition 2001] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=20",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 89,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [US Edition 2001] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=21",
+  "age": 2866,
+  "ageHours": 68801.73573927316,
+  "ageMinutes": 4128104.144356392,
+  "size": 141654640,
+  "files": 12,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [European Edition 2008] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album european edition 2008 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-11-02T01:05:52Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [European Edition 2008] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=21",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [European Edition 2008] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=22",
+  "age": 2866,
+  "ageHours": 68801.73601705422,
+  "ageMinutes": 4128104.161023253,
+  "size": 172826724,
+  "files": 12,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [European Edition 2008] [MP3 320 / CD]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album european edition 2008 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-11-02T01:05:51Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [European Edition 2008] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=22",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [European Edition 2008] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=23",
+  "age": 3523,
+  "ageHours": 84561.85573927945,
+  "ageMinutes": 5073711.344356767,
+  "size": 433935989,
+  "files": 22,
+  "grabs": 40,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [Canadian Edition 2001] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album canadian edition 2001 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2017-01-14T08:58:40Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [Canadian Edition 2001] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=23",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 14,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [Canadian Edition 2001] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=24",
+  "age": 3540,
+  "ageHours": 84965.55435039353,
+  "ageMinutes": 5097933.261023612,
+  "size": 1417966263,
+  "files": 10,
+  "grabs": 27,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [UK Edition 2000] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album uk edition 2000 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-28T13:16:45Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [UK Edition 2000] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=24",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 12,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [UK Edition 2000] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=25",
+  "age": 3554,
+  "ageHours": 85311.83601706331,
+  "ageMinutes": 5118710.161023798,
+  "size": 758235933,
+  "files": 11,
+  "grabs": 10,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [UK Edition 2000] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album uk edition 2000 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-14T02:59:51Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [UK Edition 2000] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=25",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [UK Edition 2000] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=26",
+  "age": 3571,
+  "ageHours": 85718.77907262184,
+  "ageMinutes": 5143126.74435731,
+  "size": 398176751,
+  "files": 10,
+  "grabs": 8,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Sigur Rós - Ágætis byrjun (1999) [Album] [UK DMM Reissue 2013] [FLAC Lossless / Vinyl]",
+  "sortTitle": "sigur rós ágætis byrjun 1999 album uk dmm reissue 2013 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-27T04:03:16Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Sigur Rós - Ágætis byrjun (1999) [Album] [UK DMM Reissue 2013] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=26",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 5,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Sigur Rós - Ágætis byrjun (1999) [Album] [UK DMM Reissue 2013] [FLAC Lossless / Vinyl].torrent"
+ }
+]

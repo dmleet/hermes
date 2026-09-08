@@ -1,0 +1,1141 @@
+[
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "age": 80,
+  "ageHours": 1935.0262004709166,
+  "ageMinutes": 116101.57202825666,
+  "size": 174254537,
+  "files": 28,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 320 / CD]",
+  "sortTitle": "boards canada music has right to children 1998 album mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-06-19T03:48:43Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "age": 283,
+  "ageHours": 6808.897589383417,
+  "ageMinutes": 408533.855363005,
+  "size": 649828445,
+  "files": 23,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / Vinyl]",
+  "sortTitle": "boards canada music has right to children 1998 album flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-11-28T01:56:26Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "age": 375,
+  "ageHours": 9002.35703383286,
+  "ageMinutes": 540141.4220299716,
+  "size": 170765103,
+  "files": 20,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 320 / CD]",
+  "sortTitle": "boards canada music has right to children 1998 album mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-08-28T16:28:52Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "age": 378,
+  "ageHours": 9075.902589392223,
+  "ageMinutes": 544554.155363535,
+  "size": 2626326709,
+  "files": 25,
+  "grabs": 16,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "boards canada music has right to children 1998 album flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-08-25T14:56:08Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 15,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=5",
+  "age": 1185,
+  "ageHours": 28460.194811618083,
+  "ageMinutes": 1707611.688697085,
+  "size": 139988180,
+  "files": 19,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "boards canada music has right to children 1998 album mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-06-09T22:38:36Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=5",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "age": 2343,
+  "ageHours": 56253.769256066305,
+  "ageMinutes": 3375226.15536398,
+  "size": 369806825,
+  "files": 19,
+  "grabs": 38,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / WEB]",
+  "sortTitle": "boards canada music has right to children 1998 album flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-04-07T21:04:08Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 26,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "age": 2571,
+  "ageHours": 61714.23064495853,
+  "ageMinutes": 3702853.8386975117,
+  "size": 324338464,
+  "files": 20,
+  "grabs": 374,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "boards canada music has right to children 1998 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-08-24T08:36:27Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 252,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "age": 2841,
+  "ageHours": 68193.35953385111,
+  "ageMinutes": 4091601.5720310668,
+  "size": 375558565,
+  "files": 29,
+  "grabs": 114,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "boards canada music has right to children 1998 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-11-27T09:28:43Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 90,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "age": 3557,
+  "ageHours": 85390.62175607713,
+  "ageMinutes": 5123437.30536463,
+  "size": 338468860,
+  "files": 20,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [Repress 2004] [FLAC Lossless / Vinyl]",
+  "sortTitle": "boards canada music has right to children 1998 album repress 2004 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-10T20:12:59Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [Repress 2004] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [Repress 2004] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "age": 3563,
+  "ageHours": 85524.66370052496,
+  "ageMinutes": 5131479.8220315,
+  "size": 139927321,
+  "files": 20,
+  "grabs": 11,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "boards canada music has right to children 1998 album mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-05T06:10:28Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 5,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "age": 3563,
+  "ageHours": 85524.78564497297,
+  "ageMinutes": 5131487.138698379,
+  "size": 147909917,
+  "files": 27,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "boards canada music has right to children 1998 album mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-05T06:03:09Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=12",
+  "age": 3565,
+  "ageHours": 85575.49036719775,
+  "ageMinutes": 5134529.422031865,
+  "size": 340336004,
+  "files": 26,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [2004 Repress 2004] [FLAC Lossless / Vinyl]",
+  "sortTitle": "boards canada music has right to children 1998 album 2004 repress 2004 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-03T03:20:52Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [2004 Repress 2004] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=12",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [2004 Repress 2004] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=13",
+  "age": 3572,
+  "ageHours": 85742.42925608931,
+  "ageMinutes": 5144545.755365359,
+  "size": 1293937374,
+  "files": 26,
+  "grabs": 44,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [2004 Repress 2004] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "boards canada music has right to children 1998 album 2004 repress 2004 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T04:24:32Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [2004 Repress 2004] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=13",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 20,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [2004 Repress 2004] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=14",
+  "age": 3572,
+  "ageHours": 85743.15758942533,
+  "ageMinutes": 5144589.455365522,
+  "size": 370483567,
+  "files": 20,
+  "grabs": 223,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "boards canada music has right to children 1998 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T03:40:50Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=14",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 88,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=15",
+  "age": 3572,
+  "ageHours": 85745.238978317,
+  "ageMinutes": 5144714.33869902,
+  "size": 1270167997,
+  "files": 21,
+  "grabs": 22,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [Repress 2004] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "boards canada music has right to children 1998 album repress 2004 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T01:35:57Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [Repress 2004] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=15",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [Repress 2004] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=16",
+  "age": 3573,
+  "ageHours": 85753.25370054197,
+  "ageMinutes": 5145195.222032518,
+  "size": 151581667,
+  "files": 20,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 320 / CD]",
+  "sortTitle": "boards canada music has right to children 1998 album mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T17:35:04Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=16",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=17",
+  "age": 3573,
+  "ageHours": 85753.25370054458,
+  "ageMinutes": 5145195.222032675,
+  "size": 124107609,
+  "files": 20,
+  "grabs": 18,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "boards canada music has right to children 1998 album mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T17:35:04Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=17",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 17,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Boards of Canada - Music Has the Right to Children (1998) [Album] [MP3 V0 (VBR) / CD].torrent"
+ }
+]

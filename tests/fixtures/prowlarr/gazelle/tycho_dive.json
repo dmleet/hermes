@@ -1,0 +1,672 @@
+[
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "age": 523,
+  "ageHours": 12555.36192793939,
+  "ageMinutes": 753321.715676365,
+  "size": 299999450,
+  "files": 11,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tycho - Dive (2011) [Album] [FLAC Lossless / Vinyl]",
+  "sortTitle": "tycho dive 2011 album flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-04-02T15:29:19Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tycho - Dive (2011) [Album] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tycho - Dive (2011) [Album] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=2",
+  "age": 1741,
+  "ageHours": 41784.99220573833,
+  "ageMinutes": 2507099.5323443,
+  "size": 115943308,
+  "files": 4,
+  "grabs": 7,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tycho - Dive (2012) [Single] [FLAC Lossless / WEB]",
+  "sortTitle": "tycho dive 2012 single flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2021-12-01T17:51:30Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tycho - Dive (2012) [Single] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=2",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 7,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tycho - Dive (2012) [Single] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "age": 2407,
+  "ageHours": 57788.17137240914,
+  "ageMinutes": 3467290.2823445485,
+  "size": 318043802,
+  "files": 14,
+  "grabs": 85,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tycho - Dive (2011) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "tycho dive 2011 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-02-03T22:40:45Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tycho - Dive (2011) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 75,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tycho - Dive (2011) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "age": 2535,
+  "ageHours": 60860.79776130175,
+  "ageMinutes": 3651647.865678105,
+  "size": 162003306,
+  "files": 11,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tycho - Dive (2011) [Album] [MP3 320 / WEB]",
+  "sortTitle": "tycho dive 2011 album mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-09-28T22:03:10Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tycho - Dive (2011) [Album] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tycho - Dive (2011) [Album] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=5",
+  "age": 3421,
+  "ageHours": 82117.21276130494,
+  "ageMinutes": 4927032.765678297,
+  "size": 317982876,
+  "files": 11,
+  "grabs": 29,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tycho - Dive (2011) [Album] [FLAC Lossless / WEB]",
+  "sortTitle": "tycho dive 2011 album flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2017-04-26T05:38:16Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tycho - Dive (2011) [Album] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=5",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 8,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tycho - Dive (2011) [Album] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "age": 3563,
+  "ageHours": 85529.93887241922,
+  "ageMinutes": 5131796.332345153,
+  "size": 181534698,
+  "files": 15,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tycho - Dive (2011) [Album] [Deluxe Edition 2012] [MP3 320 / WEB]",
+  "sortTitle": "tycho dive 2011 album deluxe edition 2012 mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-05T00:54:42Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tycho - Dive (2011) [Album] [Deluxe Edition 2012] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tycho - Dive (2011) [Album] [Deluxe Edition 2012] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "age": 3563,
+  "ageHours": 85529.9972057558,
+  "ageMinutes": 5131799.832345349,
+  "size": 151281232,
+  "files": 15,
+  "grabs": 13,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tycho - Dive (2011) [Album] [Deluxe Edition 2012] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "tycho dive 2011 album deluxe edition 2012 mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-05T00:51:12Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tycho - Dive (2011) [Album] [Deluxe Edition 2012] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tycho - Dive (2011) [Album] [Deluxe Edition 2012] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "age": 3571,
+  "ageHours": 85721.02081687028,
+  "ageMinutes": 5143261.249012217,
+  "size": 470953491,
+  "files": 15,
+  "grabs": 109,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tycho - Dive (2011) [Album] [Deluxe Edition 2012] [FLAC Lossless / WEB]",
+  "sortTitle": "tycho dive 2011 album deluxe edition 2012 flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-27T01:49:47Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tycho - Dive (2011) [Album] [Deluxe Edition 2012] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 61,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tycho - Dive (2011) [Album] [Deluxe Edition 2012] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "age": 3572,
+  "ageHours": 85742.50553909573,
+  "ageMinutes": 5144550.332345744,
+  "size": 1031815677,
+  "files": 11,
+  "grabs": 19,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tycho - Dive (2011) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "tycho dive 2011 album flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T04:20:42Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tycho - Dive (2011) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 7,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tycho - Dive (2011) [Album] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "age": 3572,
+  "ageHours": 85743.79720576569,
+  "ageMinutes": 5144627.832345943,
+  "size": 91815909,
+  "files": 11,
+  "grabs": 22,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tycho - Dive (2011) [Album] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "tycho dive 2011 album mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T03:03:12Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tycho - Dive (2011) [Album] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 13,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tycho - Dive (2011) [Album] [MP3 V0 (VBR) / CD].torrent"
+ }
+]

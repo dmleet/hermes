@@ -1,0 +1,873 @@
+[
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "age": 188,
+  "ageHours": 4529.859612804806,
+  "ageMinutes": 271791.57676829,
+  "size": 230402618,
+  "files": 19,
+  "grabs": 12,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [US Edition 2000] [MP3 320 / CD]",
+  "sortTitle": "godspeed you black emperor lift your skinny fists like antennas to heaven 2000 album us edition 2000 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-03-03T00:58:46Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [US Edition 2000] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 8,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [US Edition 2000] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "age": 231,
+  "ageHours": 5544.606835048667,
+  "ageMinutes": 332676.41010292,
+  "size": 170164511,
+  "files": 5,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Reissue 2015] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "godspeed you black emperor lift your skinny fists like antennas to heaven 2000 album reissue 2015 mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-01-19T18:13:56Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Reissue 2015] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Reissue 2015] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "age": 231,
+  "ageHours": 5562.027112831361,
+  "ageMinutes": 333721.6267698833,
+  "size": 210432283,
+  "files": 5,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Reissue 2015] [MP3 320 / WEB]",
+  "sortTitle": "godspeed you black emperor lift your skinny fists like antennas to heaven 2000 album reissue 2015 mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-01-19T00:48:43Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Reissue 2015] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Reissue 2015] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "age": 1014,
+  "ageHours": 24339.46377950211,
+  "ageMinutes": 1460367.8267701266,
+  "size": 651548258,
+  "files": 19,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Canada Double LP 2000] [FLAC Lossless / Vinyl / Cue]",
+  "sortTitle": "godspeed you black emperor lift your skinny fists like antennas to heaven 2000 album canada double lp 2000 flac lossless vinyl cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-11-28T15:22:31Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Canada Double LP 2000] [FLAC Lossless / Vinyl / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 5,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Canada Double LP 2000] [FLAC Lossless / Vinyl / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=5",
+  "age": 1014,
+  "ageHours": 24339.47794617303,
+  "ageMinutes": 1460368.6767703816,
+  "size": 1957050986,
+  "files": 20,
+  "grabs": 11,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Canada Double LP 2000] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "godspeed you black emperor lift your skinny fists like antennas to heaven 2000 album canada double lp 2000 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-11-28T15:21:40Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Canada Double LP 2000] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=5",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 6,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Canada Double LP 2000] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "age": 1093,
+  "ageHours": 26252.26044617714,
+  "ageMinutes": 1575135.6267706284,
+  "size": 218316402,
+  "files": 12,
+  "grabs": 7,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [MP3 320 / Vinyl]",
+  "sortTitle": "godspeed you black emperor lift your skinny fists like antennas to heaven 2000 album mp3 320 vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-09-09T22:34:43Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [MP3 320 / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [MP3 320 / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "age": 2373,
+  "ageHours": 56970.397946180834,
+  "ageMinutes": 3418223.87677085,
+  "size": 3289758638,
+  "files": 4,
+  "grabs": 17,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "godspeed you black emperor lift your skinny fists like antennas to heaven 2000 album flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-03-09T00:26:28Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 14,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "age": 2627,
+  "ageHours": 63055.23127951761,
+  "ageMinutes": 3783313.8767710584,
+  "size": 486742908,
+  "files": 5,
+  "grabs": 75,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Reissue 2015] [FLAC Lossless / WEB]",
+  "sortTitle": "godspeed you black emperor lift your skinny fists like antennas to heaven 2000 album reissue 2015 flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-06-29T11:36:28Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Reissue 2015] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 35,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [Reissue 2015] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "age": 2858,
+  "ageHours": 68593.65044618794,
+  "ageMinutes": 4115619.0267712767,
+  "size": 501932639,
+  "files": 19,
+  "grabs": 454,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [US Edition 2000] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "godspeed you black emperor lift your skinny fists like antennas to heaven 2000 album us edition 2000 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-11-10T17:11:19Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [US Edition 2000] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 187,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [US Edition 2000] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "age": 3558,
+  "ageHours": 85402.13405730325,
+  "ageMinutes": 5124128.043438195,
+  "size": 495955855,
+  "files": 13,
+  "grabs": 31,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [FLAC Lossless / Vinyl]",
+  "sortTitle": "godspeed you black emperor lift your skinny fists like antennas to heaven 2000 album flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-10T08:42:18Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 10,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "age": 3564,
+  "ageHours": 85543.92766841808,
+  "ageMinutes": 5132635.660105085,
+  "size": 1600632619,
+  "files": 13,
+  "grabs": 32,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "godspeed you black emperor lift your skinny fists like antennas to heaven 2000 album flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-04T10:54:41Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 10,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=12",
+  "age": 3570,
+  "ageHours": 85700.99350175489,
+  "ageMinutes": 5142059.610105295,
+  "size": 169525727,
+  "files": 4,
+  "grabs": 8,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [MP3 V0 (VBR) / Vinyl]",
+  "sortTitle": "godspeed you black emperor lift your skinny fists like antennas to heaven 2000 album mp3 v0 vbr vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-27T21:50:44Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [MP3 V0 (VBR) / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=12",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [MP3 V0 (VBR) / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=13",
+  "age": 3573,
+  "ageHours": 85756.16100175833,
+  "ageMinutes": 5145369.6601055,
+  "size": 159011423,
+  "files": 10,
+  "grabs": 41,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [US Edition 2000] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "godspeed you black emperor lift your skinny fists like antennas to heaven 2000 album us edition 2000 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T14:40:41Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [US Edition 2000] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=13",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 19,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Godspeed You! Black Emperor - Lift Your Skinny Fists Like Antennas to Heaven (2000) [Album] [US Edition 2000] [MP3 V0 (VBR) / CD].torrent"
+ }
+]

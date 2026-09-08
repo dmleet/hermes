@@ -1,0 +1,99 @@
+{
+ "artist-credit": [
+  {
+   "joinphrase": "",
+   "artist": {
+    "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+    "type": "Person",
+    "country": "DE",
+    "disambiguation": "",
+    "id": "0d10d859-50a4-4cb1-9412-31fb02795f9c",
+    "sort-name": "Parra for Cuva",
+    "name": "Parra for Cuva"
+   },
+   "name": "Parra for Cuva"
+  }
+ ],
+ "id": "503ea09d-91b5-467c-b030-8677da9656d6",
+ "length": 321000,
+ "first-release-date": "2021-07-16",
+ "video": false,
+ "releases": [
+  {
+   "title": "Juno",
+   "release-events": [
+    {
+     "area": {
+      "iso-3166-1-codes": [
+       "XW"
+      ],
+      "name": "[Worldwide]",
+      "sort-name": "[Worldwide]",
+      "id": "525d4e18-3d00-31b9-a58b-a146a916de8f",
+      "disambiguation": "",
+      "type": null,
+      "type-id": null
+     },
+     "date": "2021-07-16"
+    }
+   ],
+   "country": "XW",
+   "disambiguation": "",
+   "text-representation": {
+    "language": "eng",
+    "script": "Latn"
+   },
+   "date": "2021-07-16",
+   "status-id": "4e304316-386d-3409-af2e-78857eec5cfe",
+   "packaging-id": "119eba76-b343-3e02-a292-f0f00644bb9b",
+   "release-group": {
+    "title": "Juno",
+    "releases": [],
+    "secondary-types": [],
+    "disambiguation": "",
+    "secondary-type-ids": [],
+    "first-release-date": "2021-07-16",
+    "primary-type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+    "primary-type": "Album",
+    "artist-credit": [
+     {
+      "name": "Parra for Cuva",
+      "artist": {
+       "sort-name": "Parra for Cuva",
+       "id": "0d10d859-50a4-4cb1-9412-31fb02795f9c",
+       "name": "Parra for Cuva",
+       "type": "Person",
+       "disambiguation": "",
+       "country": "DE",
+       "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df"
+      },
+      "joinphrase": ""
+     }
+    ],
+    "id": "e3146a45-0834-44ad-a8cc-92c37930bec8"
+   },
+   "packaging": "None",
+   "barcode": "195497541270",
+   "quality": "normal",
+   "status": "Official",
+   "artist-credit": [
+    {
+     "joinphrase": "",
+     "artist": {
+      "name": "Parra for Cuva",
+      "id": "0d10d859-50a4-4cb1-9412-31fb02795f9c",
+      "sort-name": "Parra for Cuva",
+      "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+      "type": "Person",
+      "country": "DE",
+      "disambiguation": ""
+     },
+     "name": "Parra for Cuva"
+    }
+   ],
+   "id": "0043020f-376b-4898-a3ff-6d45664fd0a1"
+  }
+ ],
+ "disambiguation": "",
+ "title": "Her Entrance"
+}

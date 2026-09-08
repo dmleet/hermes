@@ -1,0 +1,13 @@
+.git
+.venv
+.idea
+.pytest_cache
+.ruff_cache
+.mypy_cache
+__pycache__
+data
+*.db
+.env
+beets-hermes/.venv
+deploy
+tests

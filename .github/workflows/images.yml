@@ -1,0 +1,141 @@
+# Build and publish both images on every push to main:
+#   <namespace>/hermes        from ./Dockerfile
+#   <namespace>/beets-hermes  from ./deploy/beets/Dockerfile (the pinned linuxserver beets
+#                             image plus the beets-hermes plugin)
+#
+# Tags per image, per push:
+#   latest                    moves on every push (never pin a cluster to it)
+#   <version>                 from pyproject.toml; reused until the version is bumped, so it
+#                             is mutable and a node's image cache can shadow a rebuild
+#   <version>-<short sha>     immutable: what the cluster manifests pin to
+# The two images are built from the same commit and carry the same version, so
+# hermes:X.Y.Z-abc and beets-hermes:X.Y.Z-abc are known to work together. Hermes also
+# checks the agent's API version at runtime (agent_api in /healthz), so a mismatched pair
+# shows up red in /healthz and blocks imports rather than failing quietly.
+#
+# Secrets: DOCKERHUB_USERNAME (also the image namespace) and DOCKERHUB_TOKEN (an access
+# token with read/write scope). Switch registries by changing REGISTRY and the login step.
+
+name: images
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+  REGISTRY: docker.io
+  PLATFORMS: linux/amd64   # add linux/arm64 here if a node needs it (buildx handles both)
+
+permissions:
+  contents: write   # to create the v<version> tag on the first build of a version
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - name: Hermes checks
+        run: |
+          uv sync --frozen
+          uv run ruff check .
+          uv run ruff format --check .
+          uv run mypy hermes
+          uv run pytest -q
+      - name: beets-hermes checks
+        working-directory: beets-hermes
+        run: |
+          uv sync --frozen
+          uv run pytest -q
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # tags, for the version-tag step
+
+      - name: Version and revision
+        id: meta
+        run: |
+          VERSION=$(python3 -c 'import tomllib; print(tomllib.load(open("pyproject.toml","rb"))["project"]["version"])')
+          PLUGIN=$(python3 -c 'import tomllib; print(tomllib.load(open("beets-hermes/pyproject.toml","rb"))["project"]["version"])')
+          if [ "$VERSION" != "$PLUGIN" ]; then
+            echo "pyproject.toml ($VERSION) and beets-hermes/pyproject.toml ($PLUGIN) disagree; bump both" >&2
+            exit 1
+          fi
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "sha=${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          echo "namespace=${{ secrets.DOCKERHUB_USERNAME }}" >> "$GITHUB_OUTPUT"
+
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: hermes image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile
+          platforms: ${{ env.PLATFORMS }}
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ steps.meta.outputs.namespace }}/hermes:latest
+            ${{ env.REGISTRY }}/${{ steps.meta.outputs.namespace }}/hermes:${{ steps.meta.outputs.version }}
+            ${{ env.REGISTRY }}/${{ steps.meta.outputs.namespace }}/hermes:${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.sha }}
+          labels: |
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.version=${{ steps.meta.outputs.version }}
+            org.opencontainers.image.licenses=MIT
+          cache-from: type=gha,scope=hermes
+          cache-to: type=gha,scope=hermes,mode=max
+
+      - name: beets-hermes image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: deploy/beets/Dockerfile
+          platforms: ${{ env.PLATFORMS }}
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ steps.meta.outputs.namespace }}/beets-hermes:latest
+            ${{ env.REGISTRY }}/${{ steps.meta.outputs.namespace }}/beets-hermes:${{ steps.meta.outputs.version }}
+            ${{ env.REGISTRY }}/${{ steps.meta.outputs.namespace }}/beets-hermes:${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.sha }}
+          labels: |
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.version=${{ steps.meta.outputs.version }}
+            org.opencontainers.image.licenses=MIT
+          cache-from: type=gha,scope=beets-hermes
+          cache-to: type=gha,scope=beets-hermes,mode=max
+
+      - name: Tag the first build of a version
+        run: |
+          TAG="v${{ steps.meta.outputs.version }}"
+          if git rev-parse -q --verify "refs/tags/$TAG" >/dev/null; then
+            echo "$TAG exists; this push is a rebuild of that version (pin by commit tag)"
+          else
+            git config user.name "github-actions"
+            git config user.email "github-actions@users.noreply.github.com"
+            git tag -a "$TAG" -m "hermes and beets-hermes $TAG (images tagged ${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.sha }})"
+            git push origin "$TAG"
+          fi
+
+      - name: Summary
+        run: |
+          {
+            echo "### Images"
+            echo "- \`${{ steps.meta.outputs.namespace }}/hermes:${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.sha }}\`"
+            echo "- \`${{ steps.meta.outputs.namespace }}/beets-hermes:${{ steps.meta.outputs.version }}-${{ steps.meta.outputs.sha }}\`"
+            echo
+            echo "Pin cluster manifests to the commit tags above."
+          } >> "$GITHUB_STEP_SUMMARY"

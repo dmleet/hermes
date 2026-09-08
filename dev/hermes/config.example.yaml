@@ -1,0 +1,31 @@
+# Hermes policy for the compose stack; scripts/dev-init.sh copies this to config.yaml, which is
+# gitignored so your ListenBrainz name and playlists stay local. Everything not listed keeps the
+# defaults from config.example.yaml. dry_run stays true until a download test is intended; the only
+# tracker is PandaCD (Creative Commons music) and the only Deluge is the local one.
+dry_run: true
+
+# Discovery in dev: no ListenBrainz user (Weekly Exploration recommendations are rarely on
+# PandaCD). Instead list a public, hand-built playlist of Creative Commons recordings that
+# exist on PandaCD (see docs/plan.md M5); uncomment once it exists.
+# listenbrainz:
+#   user: ""                      # your ListenBrainz name, for a real Weekly Exploration in dry run
+#   extra_playlists:
+#     <playlist MBID>: acquire     # a public playlist of CC recordings that exist on PandaCD
+
+beets:
+  agent_url: http://beets:8338
+
+deluge:
+  instances:
+    dev:
+      url: http://deluge:8112
+      indexers: [PandaCD]   # the Prowlarr indexer name set by scripts/dev-prowlarr-setup.py
+  default_instance: dev
+  pending_root: /downloads/pending/hermes
+  completed_root: /downloads/complete/hermes
+  poll_seconds: 10
+  stall_hours: 1
+
+paths:
+  deluge_root: /downloads/complete
+  beets_root: /downloads

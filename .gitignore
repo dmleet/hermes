@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE
+.idea/
+.vscode/
+
+# Local runtime data (CLAUDE.local.md holds machine-specific paths for Claude Code)
+CLAUDE.local.md
+data/
+config.yaml
+*.db
+*.sqlite
+*.log
+.env
+
+# Compose development stack (see PLAN.md A12); templates and fixtures are tracked
+dev/data/
+dev/music/
+dev/downloads/
+dev/deluge/config/
+dev/beets/*
+!dev/beets/config.yaml
+!dev/hermes/config.example.yaml
+
+dev/prowlarr/config/

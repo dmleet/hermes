@@ -1,0 +1,1543 @@
+[
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "age": 320,
+  "ageHours": 7680.719718804361,
+  "ageMinutes": 460843.18312826165,
+  "size": 69467005,
+  "files": 7,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2002) [Single] [Promo 2002] [MP3 320 / CD]",
+  "sortTitle": "tool lateralus 2002 single promo 2002 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-10-22T18:07:30Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2002) [Single] [Promo 2002] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2002) [Single] [Promo 2002] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "age": 320,
+  "ageHours": 7680.729163275222,
+  "ageMinutes": 460843.74979651335,
+  "size": 65459568,
+  "files": 7,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2002) [Single] [Promo 2002] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "tool lateralus 2002 single promo 2002 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-10-22T18:06:56Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2002) [Single] [Promo 2002] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2002) [Single] [Promo 2002] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=3",
+  "age": 526,
+  "ageHours": 12626.629441057334,
+  "ageMinutes": 757597.7664634417,
+  "size": 189812208,
+  "files": 16,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [HDCD Reissue 2003] [MP3 320 / CD]",
+  "sortTitle": "tool lateralus 2001 album hdcd reissue 2003 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-03-30T16:12:55Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [HDCD Reissue 2003] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=3",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [HDCD Reissue 2003] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=4",
+  "age": 526,
+  "ageHours": 12626.652774394166,
+  "ageMinutes": 757599.1664636517,
+  "size": 154789586,
+  "files": 16,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [HDCD Reissue 2003] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "tool lateralus 2001 album hdcd reissue 2003 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-03-30T16:11:31Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [HDCD Reissue 2003] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=4",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [HDCD Reissue 2003] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=5",
+  "age": 798,
+  "ageHours": 19172.625552175305,
+  "ageMinutes": 1150357.5331305184,
+  "size": 188365888,
+  "files": 15,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [Limited Edition 2020] [MP3 320 / Vinyl]",
+  "sortTitle": "tool lateralus 2001 album limited edition 2020 mp3 320 vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-06-30T22:13:09Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [Limited Edition 2020] [MP3 320 / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=5",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 0,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [Limited Edition 2020] [MP3 320 / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=6",
+  "age": 798,
+  "ageHours": 19173.06221884525,
+  "ageMinutes": 1150383.733130715,
+  "size": 505433754,
+  "files": 16,
+  "grabs": 3,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [Limited Edition / 180g 2020] [FLAC Lossless / Vinyl]",
+  "sortTitle": "tool lateralus 2001 album limited edition 180g 2020 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-06-30T21:46:57Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [Limited Edition / 180g 2020] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=6",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [Limited Edition / 180g 2020] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "age": 852,
+  "ageHours": 20462.212496626445,
+  "ageMinutes": 1227732.7497975866,
+  "size": 109233899,
+  "files": 7,
+  "grabs": 14,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2002) [Single] [Promo 2002] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "tool lateralus 2002 single promo 2002 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-05-08T04:37:56Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2002) [Single] [Promo 2002] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 7,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2002) [Single] [Promo 2002] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=8",
+  "age": 935,
+  "ageHours": 22454.874718852585,
+  "ageMinutes": 1347292.483131155,
+  "size": 476147255,
+  "files": 17,
+  "grabs": 30,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [HDCD Reissue 2003] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "tool lateralus 2001 album hdcd reissue 2003 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-02-15T03:58:12Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [HDCD Reissue 2003] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=8",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 27,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [HDCD Reissue 2003] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=9",
+  "age": 977,
+  "ageHours": 23469.953052188863,
+  "ageMinutes": 1408197.1831313316,
+  "size": 464952758,
+  "files": 29,
+  "grabs": 8,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [Limited Edition 2020] [FLAC Lossless / Vinyl]",
+  "sortTitle": "tool lateralus 2001 album limited edition 2020 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-01-03T20:53:30Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [Limited Edition 2020] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=9",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 8,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [Limited Edition 2020] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=10",
+  "age": 977,
+  "ageHours": 23469.970274413583,
+  "ageMinutes": 1408198.216464815,
+  "size": 1715557320,
+  "files": 29,
+  "grabs": 9,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [Limited Edition 2020] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "tool lateralus 2001 album limited edition 2020 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-01-03T20:52:28Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [Limited Edition 2020] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=10",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 6,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [Limited Edition 2020] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=11",
+  "age": 980,
+  "ageHours": 23531.098885527168,
+  "ageMinutes": 1411865.93313163,
+  "size": 190595054,
+  "files": 16,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [Canada 2001] [MP3 320 / CD]",
+  "sortTitle": "tool lateralus 2001 album canada 2001 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-01-01T07:44:45Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [Canada 2001] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=11",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [Canada 2001] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=12",
+  "age": 1786,
+  "ageHours": 42887.99582997414,
+  "ageMinutes": 2573279.7497984483,
+  "size": 475634305,
+  "files": 17,
+  "grabs": 19,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [Canada 2001] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "tool lateralus 2001 album canada 2001 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2021-10-16T18:50:56Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [Canada 2001] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=12",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 8,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [Canada 2001] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=13",
+  "age": 1903,
+  "ageHours": 45692.7836077545,
+  "ageMinutes": 2741567.01646527,
+  "size": 3254325659,
+  "files": 16,
+  "grabs": 21,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [Limited Edition / 180g 2020] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "tool lateralus 2001 album limited edition 180g 2020 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2021-06-21T22:03:40Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [Limited Edition / 180g 2020] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=13",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 13,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [Limited Edition / 180g 2020] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=14",
+  "age": 2592,
+  "ageHours": 62223.798885534976,
+  "ageMinutes": 3733427.9331321,
+  "size": 185132171,
+  "files": 14,
+  "grabs": 21,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [Remaster 2019] [MP3 320 / WEB]",
+  "sortTitle": "tool lateralus 2001 album remaster 2019 mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-08-03T03:02:45Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [Remaster 2019] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=14",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 5,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [Remaster 2019] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=15",
+  "age": 2592,
+  "ageHours": 62223.80916331522,
+  "ageMinutes": 3733428.5497989133,
+  "size": 154443889,
+  "files": 14,
+  "grabs": 73,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [Remaster 2019] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "tool lateralus 2001 album remaster 2019 mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-08-03T03:02:08Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [Remaster 2019] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=15",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 11,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [Remaster 2019] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=16",
+  "age": 2592,
+  "ageHours": 62223.81527442875,
+  "ageMinutes": 3733428.916465725,
+  "size": 501397675,
+  "files": 14,
+  "grabs": 217,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [Remaster 2019] [FLAC Lossless / WEB]",
+  "sortTitle": "tool lateralus 2001 album remaster 2019 flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-08-03T03:01:46Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [Remaster 2019] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=16",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 85,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [Remaster 2019] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=17",
+  "age": 2593,
+  "ageHours": 62239.88110776447,
+  "ageMinutes": 3734392.86646587,
+  "size": 1659502590,
+  "files": 14,
+  "grabs": 448,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [Remaster 2019] [FLAC 24bit Lossless / WEB]",
+  "sortTitle": "tool lateralus 2001 album remaster 2019 flac 24bit lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-08-02T10:57:49Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [Remaster 2019] [FLAC 24bit Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=17",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 144,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [Remaster 2019] [FLAC 24bit Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=18",
+  "age": 2798,
+  "ageHours": 67161.60777443345,
+  "ageMinutes": 4029696.466466007,
+  "size": 2990217113,
+  "files": 23,
+  "grabs": 41,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "tool lateralus 2001 album flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-01-09T09:14:13Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=18",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 9,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=19",
+  "age": 3562,
+  "ageHours": 85499.76082999141,
+  "ageMinutes": 5129985.649799485,
+  "size": 450004117,
+  "files": 13,
+  "grabs": 10,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [FLAC Lossless / Vinyl]",
+  "sortTitle": "tool lateralus 2001 album flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-06T07:05:02Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=19",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=20",
+  "age": 3572,
+  "ageHours": 85738.48138554925,
+  "ageMinutes": 5144308.883132955,
+  "size": 1676809575,
+  "files": 37,
+  "grabs": 32,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "tool lateralus 2001 album flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T08:21:48Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=20",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 6,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=21",
+  "age": 3572,
+  "ageHours": 85741.78277444039,
+  "ageMinutes": 5144506.966466423,
+  "size": 190975405,
+  "files": 13,
+  "grabs": 30,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [MP3 320 / CD]",
+  "sortTitle": "tool lateralus 2001 album mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T05:03:43Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=21",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 5,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=22",
+  "age": 3573,
+  "ageHours": 85759.89249666492,
+  "ageMinutes": 5145593.549799897,
+  "size": 476276386,
+  "files": 16,
+  "grabs": 582,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "tool lateralus 2001 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T10:57:08Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=22",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 213,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=23",
+  "age": 3573,
+  "ageHours": 85767.9483300008,
+  "ageMinutes": 5146076.899800048,
+  "size": 150385498,
+  "files": 17,
+  "grabs": 69,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Tool - Lateralus (2001) [Album] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "tool lateralus 2001 album mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T02:53:47Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Tool - Lateralus (2001) [Album] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=23",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 14,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Tool - Lateralus (2001) [Album] [MP3 V0 (VBR) / CD].torrent"
+ }
+]

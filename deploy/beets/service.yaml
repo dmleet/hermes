@@ -1,0 +1,15 @@
+# Service for the beets StatefulSet. It already declares `serviceName: beets-web` but no
+# Service exists; the name is kept so the StatefulSet needs no change. Only the agent port
+# is exposed: the web plugin is not used and nothing listens on 8337 any more.
+# Add to clusters/home/beets/kustomization.yaml resources in the flux repo.
+apiVersion: v1
+kind: Service
+metadata:
+  name: beets-web
+spec:
+  selector:
+    app.kubernetes.io/name: beets
+  ports:
+    - name: agent
+      port: 8338
+      targetPort: agent

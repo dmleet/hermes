@@ -1,0 +1,2481 @@
+[
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "age": 118,
+  "ageHours": 2839.2224054904445,
+  "ageMinutes": 170353.34432942834,
+  "size": 373637289,
+  "files": 14,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [US 1998] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "massive attack mezzanine 1998 album us 1998 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-05-12T11:37:17Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [US 1998] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [US 1998] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=2",
+  "age": 193,
+  "ageHours": 4655.631294404084,
+  "ageMinutes": 279337.877664245,
+  "size": 156029219,
+  "files": 14,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine: The Remixes (2006) [Remix] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "massive attack mezzanine remixes 2006 remix mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-02-25T19:12:45Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine: The Remixes (2006) [Remix] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=2",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine: The Remixes (2006) [Remix] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "age": 231,
+  "ageHours": 5544.6924055198615,
+  "ageMinutes": 332681.5443311933,
+  "size": 216665212,
+  "files": 19,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "massive attack mezzanine 1998 album mezzanine xx 2019 mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-01-19T18:09:05Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "age": 231,
+  "ageHours": 5562.156294412444,
+  "ageMinutes": 333729.37766474666,
+  "size": 269086679,
+  "files": 19,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [MP3 320 / WEB]",
+  "sortTitle": "massive attack mezzanine 1998 album mezzanine xx 2019 mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-01-19T00:41:15Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=3&torrentid=5",
+  "age": 319,
+  "ageHours": 7670.119072193666,
+  "ageMinutes": 460207.14433162,
+  "size": 323242167,
+  "files": 10,
+  "grabs": 21,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine Concert Broadcast (2020) [Bootleg] [FLAC Lossless / WEB]",
+  "sortTitle": "massive attack mezzanine concert broadcast 2020 bootleg flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-10-23T04:43:29Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine Concert Broadcast (2020) [Bootleg] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=3&torrentid=5",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 16,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine Concert Broadcast (2020) [Bootleg] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=6",
+  "age": 474,
+  "ageHours": 11388.8224055305,
+  "ageMinutes": 683329.34433183,
+  "size": 186270429,
+  "files": 14,
+  "grabs": 3,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine: The Remixes (2006) [Remix] [MP3 320 / WEB]",
+  "sortTitle": "massive attack mezzanine remixes 2006 remix mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-05-21T06:01:17Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine: The Remixes (2006) [Remix] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=6",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine: The Remixes (2006) [Remix] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "age": 1003,
+  "ageHours": 24079.640461089584,
+  "ageMinutes": 1444778.427665375,
+  "size": 2461347449,
+  "files": 19,
+  "grabs": 8,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [2 LP 1998] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "massive attack mezzanine 1998 album 2 lp 1998 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-09T11:12:12Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [2 LP 1998] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 16,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [2 LP 1998] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "age": 1072,
+  "ageHours": 25734.219905537335,
+  "ageMinutes": 1544053.19433224,
+  "size": 1468561500,
+  "files": 21,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [180g Repress 2014] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "massive attack mezzanine 1998 album 180g repress 2014 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-10-01T12:37:26Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [180g Repress 2014] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [180g Repress 2014] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "age": 1702,
+  "ageHours": 40871.97573887389,
+  "ageMinutes": 2452318.5443324335,
+  "size": 2685833707,
+  "files": 21,
+  "grabs": 15,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [180g Repress 2014] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "massive attack mezzanine 1998 album 180g repress 2014 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2022-01-08T18:52:05Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [180g Repress 2014] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 15,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [180g Repress 2014] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=3&torrentid=10",
+  "age": 1843,
+  "ageHours": 44237.63768332139,
+  "ageMinutes": 2654258.260999285,
+  "size": 124625989,
+  "files": 11,
+  "grabs": 14,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine Concert Broadcast (2020) [Bootleg] [MP3 320 / WEB]",
+  "sortTitle": "massive attack mezzanine concert broadcast 2020 bootleg mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2021-08-21T13:12:22Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine Concert Broadcast (2020) [Bootleg] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=3&torrentid=10",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine Concert Broadcast (2020) [Bootleg] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "age": 2243,
+  "ageHours": 53834.581294435695,
+  "ageMinutes": 3230074.8776661432,
+  "size": 475986131,
+  "files": 20,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [180g Repress 2014] [FLAC Lossless / Vinyl]",
+  "sortTitle": "massive attack mezzanine 1998 album 180g repress 2014 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-07-17T16:15:45Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [180g Repress 2014] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [180g Repress 2014] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=4&torrentid=12",
+  "age": 2516,
+  "ageHours": 60400.38184999439,
+  "ageMinutes": 3624022.910999663,
+  "size": 96180144,
+  "files": 9,
+  "grabs": 10,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Mad Professor and Massive Attack - Massive Attack V Mad Professor Part II (Mezzanine Remix Tapes '98) (2019) [Remix] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "mad professor massive attack massive attack v mad professor part ii mezzanine remix tapes 98 2019 remix mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-10-18T02:27:43Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Mad Professor and Massive Attack - Massive Attack V Mad Professor Part II (Mezzanine Remix Tapes '98) (2019) [Remix] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=4&torrentid=12",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Mad Professor and Massive Attack - Massive Attack V Mad Professor Part II (Mezzanine Remix Tapes '98) (2019) [Remix] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=4&torrentid=13",
+  "age": 2531,
+  "ageHours": 60744.89323888742,
+  "ageMinutes": 3644693.594333245,
+  "size": 307077993,
+  "files": 9,
+  "grabs": 131,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Mad Professor and Massive Attack - Massive Attack V Mad Professor Part II (Mezzanine Remix Tapes '98) (2019) [Remix] [FLAC Lossless / WEB]",
+  "sortTitle": "mad professor massive attack massive attack v mad professor part ii mezzanine remix tapes 98 2019 remix flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-10-03T17:57:02Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Mad Professor and Massive Attack - Massive Attack V Mad Professor Part II (Mezzanine Remix Tapes '98) (2019) [Remix] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=4&torrentid=13",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 31,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Mad Professor and Massive Attack - Massive Attack V Mad Professor Part II (Mezzanine Remix Tapes '98) (2019) [Remix] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=14",
+  "age": 2573,
+  "ageHours": 61753.68518333578,
+  "ageMinutes": 3705221.111000148,
+  "size": 269755847,
+  "files": 20,
+  "grabs": 7,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [MP3 320 / CD]",
+  "sortTitle": "massive attack mezzanine 1998 album mezzanine xx 2019 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-08-22T17:09:31Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=14",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=15",
+  "age": 2573,
+  "ageHours": 61753.68518333919,
+  "ageMinutes": 3705221.1110003535,
+  "size": 216778449,
+  "files": 20,
+  "grabs": 36,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "massive attack mezzanine 1998 album mezzanine xx 2019 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-08-22T17:09:31Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=15",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 7,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=16",
+  "age": 2573,
+  "ageHours": 61753.68546112028,
+  "ageMinutes": 3705221.1276672166,
+  "size": 676185873,
+  "files": 24,
+  "grabs": 283,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "massive attack mezzanine 1998 album mezzanine xx 2019 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-08-22T17:09:30Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=16",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 131,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=17",
+  "age": 2573,
+  "ageHours": 61755.51712779064,
+  "ageMinutes": 3705331.027667438,
+  "size": 681314310,
+  "files": 19,
+  "grabs": 98,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [FLAC Lossless / WEB]",
+  "sortTitle": "massive attack mezzanine 1998 album mezzanine xx 2019 flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-08-22T15:19:36Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=17",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 34,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [Mezzanine XX 2019] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=18",
+  "age": 2821,
+  "ageHours": 67708.00796112714,
+  "ageMinutes": 4062480.4776676283,
+  "size": 133255388,
+  "files": 15,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [Japanese Edition 2002] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "massive attack mezzanine 1998 album japanese edition 2002 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-12-17T14:50:09Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [Japanese Edition 2002] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=18",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [Japanese Edition 2002] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=19",
+  "age": 2840,
+  "ageHours": 68172.74240557414,
+  "ageMinutes": 4090364.5443344484,
+  "size": 408641984,
+  "files": 16,
+  "grabs": 78,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [Japanese Edition 2002] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "massive attack mezzanine 1998 album japanese edition 2002 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-11-28T06:06:05Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [Japanese Edition 2002] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=19",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 49,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [Japanese Edition 2002] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=20",
+  "age": 2858,
+  "ageHours": 68596.13990557678,
+  "ageMinutes": 4115768.394334608,
+  "size": 1312777634,
+  "files": 25,
+  "grabs": 15,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "massive attack mezzanine 1998 album flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-11-10T14:42:14Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=20",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=21",
+  "age": 2865,
+  "ageHours": 68762.05712780141,
+  "ageMinutes": 4125723.427668085,
+  "size": 382675632,
+  "files": 17,
+  "grabs": 73,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [Limited Edition 1998] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "massive attack mezzanine 1998 album limited edition 1998 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-11-03T16:47:12Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [Limited Edition 1998] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=21",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 39,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [Limited Edition 1998] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=22",
+  "age": 3569,
+  "ageHours": 85656.54601669297,
+  "ageMinutes": 5139392.7610015785,
+  "size": 1263693927,
+  "files": 36,
+  "grabs": 43,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [EU Reissue 2013] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "massive attack mezzanine 1998 album eu reissue 2013 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-29T18:17:52Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [EU Reissue 2013] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=22",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 27,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [EU Reissue 2013] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=23",
+  "age": 3569,
+  "ageHours": 85671.69768336219,
+  "ageMinutes": 5140301.861001732,
+  "size": 153396319,
+  "files": 15,
+  "grabs": 8,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [Limited Edition 1998] [MP3 320 / CD]",
+  "sortTitle": "massive attack mezzanine 1998 album limited edition 1998 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-29T03:08:46Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [Limited Edition 1998] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=23",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 14,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [Limited Edition 1998] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=24",
+  "age": 3571,
+  "ageHours": 85721.71935003126,
+  "ageMinutes": 5143303.161001875,
+  "size": 120840578,
+  "files": 13,
+  "grabs": 32,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "massive attack mezzanine 1998 album mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-27T01:07:28Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=24",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 16,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=25",
+  "age": 3571,
+  "ageHours": 85723.56296114472,
+  "ageMinutes": 5143413.777668684,
+  "size": 156283291,
+  "files": 11,
+  "grabs": 24,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [MP3 320 / WEB]",
+  "sortTitle": "massive attack mezzanine 1998 album mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T23:16:51Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=25",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 18,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=26",
+  "age": 3571,
+  "ageHours": 85726.36685003592,
+  "ageMinutes": 5143582.011002157,
+  "size": 500405366,
+  "files": 14,
+  "grabs": 39,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine: The Remixes (2006) [Remix] [FLAC Lossless / WEB]",
+  "sortTitle": "massive attack mezzanine remixes 2006 remix flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T20:28:37Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine: The Remixes (2006) [Remix] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=26",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 15,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine: The Remixes (2006) [Remix] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=27",
+  "age": 3572,
+  "ageHours": 85739.39823892733,
+  "ageMinutes": 5144363.89433564,
+  "size": 337453695,
+  "files": 13,
+  "grabs": 21,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [FLAC Lossless / Vinyl]",
+  "sortTitle": "massive attack mezzanine 1998 album flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T07:26:44Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=27",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 27,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=28",
+  "age": 3572,
+  "ageHours": 85739.39823892964,
+  "ageMinutes": 5144363.894335778,
+  "size": 156915996,
+  "files": 12,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [MP3 320 / Vinyl]",
+  "sortTitle": "massive attack mezzanine 1998 album mp3 320 vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T07:26:44Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [MP3 320 / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=28",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 11,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [MP3 320 / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=29",
+  "age": 3572,
+  "ageHours": 85739.65157226525,
+  "ageMinutes": 5144379.094335915,
+  "size": 152085212,
+  "files": 12,
+  "grabs": 3,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [EU Reissue 2013] [MP3 320 / Vinyl]",
+  "sortTitle": "massive attack mezzanine 1998 album eu reissue 2013 mp3 320 vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T07:11:32Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [EU Reissue 2013] [MP3 320 / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=29",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 13,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [EU Reissue 2013] [MP3 320 / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=30",
+  "age": 3572,
+  "ageHours": 85740.10129448997,
+  "ageMinutes": 5144406.077669398,
+  "size": 165426909,
+  "files": 12,
+  "grabs": 3,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [Japanese Edition 1998] [MP3 320 / CD]",
+  "sortTitle": "massive attack mezzanine 1998 album japanese edition 1998 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T06:44:33Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [Japanese Edition 1998] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=30",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 14,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [Japanese Edition 1998] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=31",
+  "age": 3572,
+  "ageHours": 85740.1012944923,
+  "ageMinutes": 5144406.077669539,
+  "size": 120854344,
+  "files": 12,
+  "grabs": 5,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [Japanese Edition 1998] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "massive attack mezzanine 1998 album japanese edition 1998 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T06:44:33Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [Japanese Edition 1998] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=31",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 14,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [Japanese Edition 1998] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=32",
+  "age": 3572,
+  "ageHours": 85743.77435005025,
+  "ageMinutes": 5144626.461003017,
+  "size": 103542168,
+  "files": 12,
+  "grabs": 7,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [EU Reissue 2013] [MP3 V0 (VBR) / Vinyl]",
+  "sortTitle": "massive attack mezzanine 1998 album eu reissue 2013 mp3 v0 vbr vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T03:04:10Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [EU Reissue 2013] [MP3 V0 (VBR) / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=32",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 15,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [EU Reissue 2013] [MP3 V0 (VBR) / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=33",
+  "age": 3572,
+  "ageHours": 85743.77518338608,
+  "ageMinutes": 5144626.511003165,
+  "size": 333338032,
+  "files": 12,
+  "grabs": 11,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [EU Reissue 2013] [FLAC Lossless / Vinyl]",
+  "sortTitle": "massive attack mezzanine 1998 album eu reissue 2013 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T03:04:07Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [EU Reissue 2013] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=33",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 21,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [EU Reissue 2013] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=34",
+  "age": 3572,
+  "ageHours": 85745.02657227764,
+  "ageMinutes": 5144701.594336659,
+  "size": 116133892,
+  "files": 13,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [MP3 V0 (VBR) / Vinyl]",
+  "sortTitle": "massive attack mezzanine 1998 album mp3 v0 vbr vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T01:49:02Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [MP3 V0 (VBR) / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=34",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 6,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [MP3 V0 (VBR) / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=35",
+  "age": 3573,
+  "ageHours": 85754.1624056133,
+  "ageMinutes": 5145249.744336799,
+  "size": 1219448771,
+  "files": 14,
+  "grabs": 38,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "massive attack mezzanine 1998 album flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T16:40:53Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=35",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 34,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=36",
+  "age": 3573,
+  "ageHours": 85761.8096278378,
+  "ageMinutes": 5145708.577670269,
+  "size": 121020264,
+  "files": 16,
+  "grabs": 11,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [Limited Edition 1998] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "massive attack mezzanine 1998 album limited edition 1998 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T09:02:03Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [Limited Edition 1998] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=36",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 25,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [Limited Edition 1998] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=37",
+  "age": 3573,
+  "ageHours": 85762.01712784017,
+  "ageMinutes": 5145721.027670411,
+  "size": 375156480,
+  "files": 13,
+  "grabs": 151,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Massive Attack - Mezzanine (1998) [Album] [FLAC Lossless / WEB]",
+  "sortTitle": "massive attack mezzanine 1998 album flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T08:49:36Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Massive Attack - Mezzanine (1998) [Album] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=37",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 93,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Massive Attack - Mezzanine (1998) [Album] [FLAC Lossless / WEB].torrent"
+ }
+]

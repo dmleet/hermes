@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config>
+  <BindAddress>*</BindAddress>
+  <Port>9696</Port>
+  <SslPort>6969</SslPort>
+  <EnableSsl>False</EnableSsl>
+  <LaunchBrowser>False</LaunchBrowser>
+  <ApiKey>__PROWLARR_API_KEY__</ApiKey>
+  <AuthenticationMethod>External</AuthenticationMethod>
+  <AuthenticationRequired>DisabledForLocalAddresses</AuthenticationRequired>
+  <Branch>master</Branch>
+  <LogLevel>info</LogLevel>
+  <UrlBase></UrlBase>
+  <InstanceName>Prowlarr (hermes dev)</InstanceName>
+  <AnalyticsEnabled>False</AnalyticsEnabled>
+  <UpdateMechanism>Docker</UpdateMechanism>
+</Config>

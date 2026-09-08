@@ -1,0 +1,2012 @@
+[
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "age": 69,
+  "ageHours": 1658.396472486861,
+  "ageMinutes": 99503.78834921334,
+  "size": 172588463,
+  "files": 21,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 320 / CD]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-06-30T16:26:40Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "age": 69,
+  "ageHours": 1658.4006391794167,
+  "ageMinutes": 99504.038350765,
+  "size": 132310744,
+  "files": 21,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-06-30T16:26:25Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "age": 69,
+  "ageHours": 1667.3295280730279,
+  "ageMinutes": 100039.77168438166,
+  "size": 335656133,
+  "files": 31,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [MP3 320 / WEB]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack expanded edition 2020 mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-06-30T07:30:41Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "age": 72,
+  "ageHours": 1745.4770280772223,
+  "ageMinutes": 104728.62168463333,
+  "size": 232867728,
+  "files": 25,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 320 / WEB]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-06-27T01:21:50Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=5",
+  "age": 78,
+  "ageHours": 1895.865639191889,
+  "ageMinutes": 113751.93835151334,
+  "size": 406576826,
+  "files": 26,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / WEB]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-06-20T18:58:31Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=5",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "age": 112,
+  "ageHours": 2693.866472528639,
+  "ageMinutes": 161631.98835171832,
+  "size": 327408375,
+  "files": 19,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / Vinyl]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-05-18T12:58:28Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "age": 358,
+  "ageHours": 8594.707583643221,
+  "ageMinutes": 515682.45501859335,
+  "size": 305832138,
+  "files": 22,
+  "grabs": 5,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-09-14T16:08:00Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 5,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "age": 489,
+  "ageHours": 11753.479250313556,
+  "ageMinutes": 705208.755018815,
+  "size": 1441385945,
+  "files": 19,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-05-06T01:21:42Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "age": 489,
+  "ageHours": 11753.479250317056,
+  "ageMinutes": 705208.7550190233,
+  "size": 174786609,
+  "files": 16,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 320 / Vinyl]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack mp3 320 vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-05-06T01:21:42Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 320 / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 320 / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "age": 489,
+  "ageHours": 11753.479250320333,
+  "ageMinutes": 705208.75501922,
+  "size": 133188952,
+  "files": 16,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 V0 (VBR) / Vinyl]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack mp3 v0 vbr vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-05-06T01:21:42Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 V0 (VBR) / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 V0 (VBR) / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "age": 733,
+  "ageHours": 17607.359528101555,
+  "ageMinutes": 1056441.5716860932,
+  "size": 417183154,
+  "files": 27,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / WEB]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-09-04T03:28:53Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=12",
+  "age": 757,
+  "ageHours": 18178.51063921589,
+  "ageMinutes": 1090710.6383529534,
+  "size": 448838486,
+  "files": 42,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Promo, For Your Consideration 2015] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack promo for your consideration 2015 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-08-11T08:19:49Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Promo, For Your Consideration 2015] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=12",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Promo, For Your Consideration 2015] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=13",
+  "age": 990,
+  "ageHours": 23760.040083664167,
+  "ageMinutes": 1425602.40501985,
+  "size": 420172443,
+  "files": 27,
+  "grabs": 9,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Deluxe Edition 2019] [FLAC Lossless / WEB]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack deluxe edition 2019 flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-22T18:48:03Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Deluxe Edition 2019] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=13",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 12,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Deluxe Edition 2019] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=14",
+  "age": 1022,
+  "ageHours": 24548.307305890055,
+  "ageMinutes": 1472898.4383534032,
+  "size": 319655798,
+  "files": 33,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Illuminated Star Projection Edition 2014] [MP3 320 / CD]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack illuminated star projection edition 2014 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-11-19T22:32:01Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Illuminated Star Projection Edition 2014] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=14",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Illuminated Star Projection Edition 2014] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=15",
+  "age": 1124,
+  "ageHours": 26986.63758367136,
+  "ageMinutes": 1619198.2550202834,
+  "size": 339552724,
+  "files": 17,
+  "grabs": 6,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / WEB]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-08-10T08:12:12Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=15",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 9,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=16",
+  "age": 1247,
+  "ageHours": 29948.410639230027,
+  "ageMinutes": 1796904.6383538034,
+  "size": 258099341,
+  "files": 31,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack expanded edition 2020 mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-04-08T22:25:49Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=16",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=17",
+  "age": 1247,
+  "ageHours": 29948.417861455695,
+  "ageMinutes": 1796905.0716873417,
+  "size": 592971690,
+  "files": 31,
+  "grabs": 13,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [FLAC Lossless / WEB]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack expanded edition 2020 flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-04-08T22:25:23Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=17",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 8,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=18",
+  "age": 1353,
+  "ageHours": 32494.629250348222,
+  "ageMinutes": 1949677.7550208934,
+  "size": 58733383,
+  "files": 3,
+  "grabs": 12,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer - Interstellar Suite (2022) [Single] [FLAC Lossless / WEB]",
+  "sortTitle": "hans zimmer interstellar suite 2022 single flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2022-12-23T20:12:42Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer - Interstellar Suite (2022) [Single] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=18",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 5,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer - Interstellar Suite (2022) [Single] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=19",
+  "age": 2113,
+  "ageHours": 50729.33786146269,
+  "ageMinutes": 3043760.2716877633,
+  "size": 1331737204,
+  "files": 31,
+  "grabs": 92,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [FLAC 24bit Lossless / WEB]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack expanded edition 2020 flac 24bit lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-11-24T01:30:11Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [FLAC 24bit Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=19",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 54,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [FLAC 24bit Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=20",
+  "age": 2125,
+  "ageHours": 51000.1828614655,
+  "ageMinutes": 3060010.97168793,
+  "size": 605422280,
+  "files": 43,
+  "grabs": 79,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack expanded edition 2020 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-11-12T18:39:29Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=20",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 55,
+  "leechers": 1,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Expanded Edition 2020] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=21",
+  "age": 2513,
+  "ageHours": 60320.95897257958,
+  "ageMinutes": 3619257.538354777,
+  "size": 933377957,
+  "files": 27,
+  "grabs": 14,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC 24bit Lossless / WEB]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack flac 24bit lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-10-21T09:52:55Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC 24bit Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=21",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 13,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC 24bit Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=22",
+  "age": 3550,
+  "ageHours": 85200.9023059155,
+  "ageMinutes": 5112054.13835493,
+  "size": 132096973,
+  "files": 16,
+  "grabs": 20,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-18T17:56:19Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=22",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 8,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=23",
+  "age": 3550,
+  "ageHours": 85200.90258369586,
+  "ageMinutes": 5112054.155021751,
+  "size": 172334851,
+  "files": 16,
+  "grabs": 9,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 320 / CD]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-18T17:56:18Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=23",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=24",
+  "age": 3550,
+  "ageHours": 85200.99702814291,
+  "ageMinutes": 5112059.821688575,
+  "size": 304509035,
+  "files": 18,
+  "grabs": 83,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-18T17:50:38Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=24",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 39,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=25",
+  "age": 3557,
+  "ageHours": 85385.37202814563,
+  "ageMinutes": 5123122.32168874,
+  "size": 361578203,
+  "files": 43,
+  "grabs": 6,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / Vinyl / Cue]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack flac lossless vinyl cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-11T01:28:08Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / Vinyl / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=25",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC Lossless / Vinyl / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=26",
+  "age": 3560,
+  "ageHours": 85445.70175037067,
+  "ageMinutes": 5126742.10502224,
+  "size": 178174879,
+  "files": 25,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-08T13:08:21Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=26",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=27",
+  "age": 3572,
+  "ageHours": 85738.7939725955,
+  "ageMinutes": 5144327.63835573,
+  "size": 938362876,
+  "files": 26,
+  "grabs": 58,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC 24bit Lossless / WEB]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack flac 24bit lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T08:02:49Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC 24bit Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=27",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 21,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC 24bit Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=28",
+  "age": 3572,
+  "ageHours": 85743.73480593137,
+  "ageMinutes": 5144624.088355882,
+  "size": 1454551347,
+  "files": 43,
+  "grabs": 37,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC 24bit Lossless / Vinyl / Cue]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack flac 24bit lossless vinyl cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T03:06:22Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC 24bit Lossless / Vinyl / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=28",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 10,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [FLAC 24bit Lossless / Vinyl / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=29",
+  "age": 3572,
+  "ageHours": 85744.08563926739,
+  "ageMinutes": 5144645.138356043,
+  "size": 244834008,
+  "files": 31,
+  "grabs": 7,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Illuminated Star Projection Edition 2014] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack illuminated star projection edition 2014 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T02:45:19Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Illuminated Star Projection Edition 2014] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=29",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Illuminated Star Projection Edition 2014] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=30",
+  "age": 3572,
+  "ageHours": 85750.30008371464,
+  "ageMinutes": 5145018.005022879,
+  "size": 689351574,
+  "files": 48,
+  "grabs": 102,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Illuminated Star Projection Edition 2014] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "hans zimmer performed by hans zimmer interstellar original motion picture soundtrack 2014 soundtrack illuminated star projection edition 2014 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T20:32:27Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Illuminated Star Projection Edition 2014] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=30",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 43,
+  "leechers": 1,
+  "protocol": "torrent",
+  "fileName": "Hans Zimmer performed by Hans Zimmer - Interstellar: Original Motion Picture Soundtrack (2014) [Soundtrack] [Illuminated Star Projection Edition 2014] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ }
+]

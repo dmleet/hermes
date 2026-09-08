@@ -1,0 +1,6369 @@
+[
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "age": 3,
+  "ageHours": 94.18854543427778,
+  "ageMinutes": 5651.312726058333,
+  "size": 256912864,
+  "files": 35,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Deluxe Edition 2004] [MP3 320 / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album deluxe edition 2004 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-09-03T20:39:12Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Deluxe Edition 2004] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 5,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Deluxe Edition 2004] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "age": 118,
+  "ageHours": 2837.7427121241944,
+  "ageMinutes": 170264.56272745167,
+  "size": 263943318,
+  "files": 15,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-05-12T13:05:57Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 0,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "age": 118,
+  "ageHours": 2839.39882324,
+  "ageMinutes": 170363.92939440167,
+  "size": 275021296,
+  "files": 23,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [West Germany 1984] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album west germany 1984 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-05-12T11:26:35Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [West Germany 1984] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [West Germany 1984] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "age": 230,
+  "ageHours": 5530.968545466,
+  "ageMinutes": 331858.1127279617,
+  "size": 308970243,
+  "files": 31,
+  "grabs": 11,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Japan Remaster 2011] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album japan remaster 2011 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-01-20T07:52:24Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Japan Remaster 2011] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 13,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Japan Remaster 2011] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=5",
+  "age": 281,
+  "ageHours": 6759.642156580583,
+  "ageMinutes": 405578.529394835,
+  "size": 338138516,
+  "files": 13,
+  "grabs": 8,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Various Artists - Legacy: A Tribute To Fleetwood Mac's Rumours (1998) [Compilation] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "various artists legacy tribute to fleetwood mac s rumours 1998 compilation flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-11-30T03:11:59Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Various Artists - Legacy: A Tribute To Fleetwood Mac's Rumours (1998) [Compilation] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=5",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 7,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Various Artists - Legacy: A Tribute To Fleetwood Mac's Rumours (1998) [Compilation] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "age": 286,
+  "ageHours": 6868.871323251222,
+  "ageMinutes": 412132.27939507336,
+  "size": 2671696666,
+  "files": 13,
+  "grabs": 7,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / BD]",
+  "sortTitle": "fleetwood mac rumours 1977 album flac 24bit lossless bd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-11-25T13:58:14Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / BD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 9,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / BD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "age": 286,
+  "ageHours": 6868.889934365833,
+  "ageMinutes": 412133.39606195,
+  "size": 706837114,
+  "files": 12,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / BD]",
+  "sortTitle": "fleetwood mac rumours 1977 album flac lossless bd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-11-25T13:57:07Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / BD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / BD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "age": 310,
+  "ageHours": 7440.513823257889,
+  "ageMinutes": 446430.82939547335,
+  "size": 249324909,
+  "files": 13,
+  "grabs": 11,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-11-01T18:19:41Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 9,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "age": 447,
+  "ageHours": 10730.100489927861,
+  "ageMinutes": 643806.0293956733,
+  "size": 1620232288,
+  "files": 13,
+  "grabs": 5,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [FLAC 24bit Lossless / SACD]",
+  "sortTitle": "fleetwood mac rumours 1977 album japanese hybrid remaster 2011 flac 24bit lossless sacd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-06-17T16:44:29Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [FLAC 24bit Lossless / SACD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [FLAC 24bit Lossless / SACD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "age": 528,
+  "ageHours": 12689.64021215364,
+  "ageMinutes": 761378.4127292184,
+  "size": 196119460,
+  "files": 26,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Japan Reissue 1997] [MP3 320 / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album japan reissue 1997 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-03-28T01:12:06Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Japan Reissue 1997] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Japan Reissue 1997] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "age": 528,
+  "ageHours": 12689.660212156889,
+  "ageMinutes": 761379.6127294133,
+  "size": 177048026,
+  "files": 26,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Japan Reissue 1997] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album japan reissue 1997 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-03-28T01:10:54Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Japan Reissue 1997] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Japan Reissue 1997] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=12",
+  "age": 563,
+  "ageHours": 13532.78437882689,
+  "ageMinutes": 811967.0627296134,
+  "size": 79378144,
+  "files": 21,
+  "grabs": 3,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-02-20T22:03:27Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=12",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=13",
+  "age": 563,
+  "ageHours": 13532.784656608028,
+  "ageMinutes": 811967.0793964816,
+  "size": 97363836,
+  "files": 21,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [MP3 320 / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-02-20T22:03:26Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=13",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 0,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=14",
+  "age": 626,
+  "ageHours": 15029.37243438875,
+  "ageMinutes": 901762.3460633267,
+  "size": 666820730,
+  "files": 37,
+  "grabs": 16,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Deluxe Edition 2004] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album deluxe edition 2004 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-12-20T13:28:10Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Deluxe Edition 2004] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=14",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 12,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Deluxe Edition 2004] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=15",
+  "age": 683,
+  "ageHours": 16415.92465661439,
+  "ageMinutes": 984955.4793968634,
+  "size": 4925979847,
+  "files": 38,
+  "grabs": 24,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [High Fidelity Pure Audio 2024] [FLAC 24bit Lossless / BD]",
+  "sortTitle": "fleetwood mac rumours 1977 album high fidelity pure audio 2024 flac 24bit lossless bd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-10-23T18:55:02Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [High Fidelity Pure Audio 2024] [FLAC 24bit Lossless / BD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=15",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 14,
+  "leechers": 1,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [High Fidelity Pure Audio 2024] [FLAC 24bit Lossless / BD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=16",
+  "age": 683,
+  "ageHours": 16415.924656617583,
+  "ageMinutes": 984955.479397055,
+  "size": 1873006253,
+  "files": 38,
+  "grabs": 7,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [High Fidelity Pure Audio 2024] [FLAC Lossless / BD]",
+  "sortTitle": "fleetwood mac rumours 1977 album high fidelity pure audio 2024 flac lossless bd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-10-23T18:55:02Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [High Fidelity Pure Audio 2024] [FLAC Lossless / BD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=16",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [High Fidelity Pure Audio 2024] [FLAC Lossless / BD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=17",
+  "age": 715,
+  "ageHours": 17161.956601065445,
+  "ageMinutes": 1029717.3960639266,
+  "size": 546962250,
+  "files": 66,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Deluxe Edition Box (4CD+DVD) 2013] [MP3 320 / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album 35th anniversary deluxe edition box 4cddvd 2013 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-09-22T16:53:07Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Deluxe Edition Box (4CD+DVD) 2013] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=17",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Deluxe Edition Box (4CD+DVD) 2013] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=18",
+  "age": 715,
+  "ageHours": 17162.047156624445,
+  "ageMinutes": 1029722.8293974684,
+  "size": 431870642,
+  "files": 66,
+  "grabs": 3,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Deluxe Edition Box (4CD+DVD) 2013] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album 35th anniversary deluxe edition box 4cddvd 2013 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-09-22T16:47:41Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Deluxe Edition Box (4CD+DVD) 2013] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=18",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Deluxe Edition Box (4CD+DVD) 2013] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=19",
+  "age": 715,
+  "ageHours": 17162.236323294528,
+  "ageMinutes": 1029734.1793976717,
+  "size": 206472138,
+  "files": 22,
+  "grabs": 3,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [West German 1st Target 1983] [MP3 320 / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album west german 1st target 1983 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-09-22T16:36:20Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [West German 1st Target 1983] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=19",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [West German 1st Target 1983] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=20",
+  "age": 715,
+  "ageHours": 17162.252989964585,
+  "ageMinutes": 1029735.1793978767,
+  "size": 185368218,
+  "files": 22,
+  "grabs": 5,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [West German 1st Target 1983] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album west german 1st target 1983 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-09-22T16:35:20Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [West German 1st Target 1983] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=20",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [West German 1st Target 1983] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=21",
+  "age": 745,
+  "ageHours": 17882.849656633807,
+  "ageMinutes": 1072970.97939803,
+  "size": 225259471,
+  "files": 12,
+  "grabs": 3,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [The Alternate Rumours/Record Store Day Limited Edition 2020] [FLAC Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album alternate rumoursrecord store day limited edition 2020 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-08-23T15:59:32Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [The Alternate Rumours/Record Store Day Limited Edition 2020] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=21",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [The Alternate Rumours/Record Store Day Limited Edition 2020] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=22",
+  "age": 793,
+  "ageHours": 19046.23271219228,
+  "ageMinutes": 1142773.9627315367,
+  "size": 349310381,
+  "files": 27,
+  "grabs": 11,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Japan Reissue 1997] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album japan reissue 1997 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-07-06T04:36:33Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Japan Reissue 1997] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=22",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 10,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Japan Reissue 1997] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=23",
+  "age": 907,
+  "ageHours": 21779.765212195165,
+  "ageMinutes": 1306785.91273171,
+  "size": 325450732,
+  "files": 23,
+  "grabs": 61,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [West German 1st Target 1983] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album west german 1st target 1983 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-03-14T07:04:36Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [West German 1st Target 1983] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=23",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 39,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [West German 1st Target 1983] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=24",
+  "age": 977,
+  "ageHours": 23462.694656642332,
+  "ageMinutes": 1407761.67939854,
+  "size": 96652945,
+  "files": 18,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Reel-To-Reel, 7 ½ ips, ¼\", 4-Track Stereo, 7\" Cine Reel, Album, Dolby System 1977] [MP3 320 / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album reel to reel 7 ips 4 track stereo 7 cine reel album dolby system 1977 mp3 320 vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-01-04T04:08:50Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Reel-To-Reel, 7 ½ ips, ¼\", 4-Track Stereo, 7\" Cine Reel, Album, Dolby System 1977] [MP3 320 / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=24",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Reel-To-Reel, 7 ½ ips, ¼\", 4-Track Stereo, 7\" Cine Reel, Album, Dolby System 1977] [MP3 320 / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=25",
+  "age": 1009,
+  "ageHours": 24221.910767758833,
+  "ageMinutes": 1453314.64606553,
+  "size": 231264051,
+  "files": 15,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-03T12:55:52Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=25",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=26",
+  "age": 1009,
+  "ageHours": 24221.92715665022,
+  "ageMinutes": 1453315.6293990132,
+  "size": 780778556,
+  "files": 15,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-03T12:54:53Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=26",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=27",
+  "age": 1009,
+  "ageHours": 24221.949101097056,
+  "ageMinutes": 1453316.9460658233,
+  "size": 1612236868,
+  "files": 15,
+  "grabs": 8,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-03T12:53:34Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=27",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 11,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=28",
+  "age": 1009,
+  "ageHours": 24222.071045543777,
+  "ageMinutes": 1453324.2627326266,
+  "size": 223810244,
+  "files": 12,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Europe 2011] [FLAC Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album europe 2011 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-03T12:46:15Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Europe 2011] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=28",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Europe 2011] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=29",
+  "age": 1009,
+  "ageHours": 24222.11465665728,
+  "ageMinutes": 1453326.8793994368,
+  "size": 783755734,
+  "files": 12,
+  "grabs": 9,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [5.1 Multichannel 2001] [FLAC Lossless / DVD]",
+  "sortTitle": "fleetwood mac rumours 1977 album 5 1 multichannel 2001 flac lossless dvd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-03T12:43:38Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [5.1 Multichannel 2001] [FLAC Lossless / DVD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=29",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 7,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [5.1 Multichannel 2001] [FLAC Lossless / DVD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=30",
+  "age": 1009,
+  "ageHours": 24222.18604554886,
+  "ageMinutes": 1453331.1627329316,
+  "size": 1489354238,
+  "files": 19,
+  "grabs": 9,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Japan 1977] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album japan 1977 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-03T12:39:21Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Japan 1977] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=30",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 8,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Japan 1977] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=3&torrentid=31",
+  "age": 1009,
+  "ageHours": 24226.543823329055,
+  "ageMinutes": 1453592.6293997434,
+  "size": 183584089,
+  "files": 19,
+  "grabs": 3,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours Live (2023) [Live album] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "fleetwood mac rumours live 2023 live album mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-03T08:17:53Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours Live (2023) [Live album] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=3&torrentid=31",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours Live (2023) [Live album] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=3&torrentid=32",
+  "age": 1009,
+  "ageHours": 24226.56771222039,
+  "ageMinutes": 1453594.0627332234,
+  "size": 212003696,
+  "files": 19,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours Live (2023) [Live album] [MP3 320 / CD]",
+  "sortTitle": "fleetwood mac rumours live 2023 live album mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-03T08:16:27Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours Live (2023) [Live album] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=3&torrentid=32",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours Live (2023) [Live album] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=3&torrentid=33",
+  "age": 1009,
+  "ageHours": 24226.579378889528,
+  "ageMinutes": 1453594.7627333717,
+  "size": 637062203,
+  "files": 25,
+  "grabs": 63,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours Live (2023) [Live album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours live 2023 live album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-12-03T08:15:45Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours Live (2023) [Live album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=3&torrentid=33",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 31,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours Live (2023) [Live album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=4&torrentid=34",
+  "age": 1036,
+  "ageHours": 24866.738823336666,
+  "ageMinutes": 1492004.3294002,
+  "size": 92451908,
+  "files": 12,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Vitamin String Quartet - VSQ Performs Fleetwood Mac: Rumours (2000) [Album] [MP3 320 / WEB]",
+  "sortTitle": "vitamin string quartet vsq performs fleetwood mac rumours 2000 album mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-11-06T16:06:11Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Vitamin String Quartet - VSQ Performs Fleetwood Mac: Rumours (2000) [Album] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=4&torrentid=34",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Vitamin String Quartet - VSQ Performs Fleetwood Mac: Rumours (2000) [Album] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=4&torrentid=35",
+  "age": 1036,
+  "ageHours": 24866.771601116943,
+  "ageMinutes": 1492006.2960670183,
+  "size": 72455779,
+  "files": 12,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Vitamin String Quartet - VSQ Performs Fleetwood Mac: Rumours (2000) [Album] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "vitamin string quartet vsq performs fleetwood mac rumours 2000 album mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-11-06T16:04:13Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Vitamin String Quartet - VSQ Performs Fleetwood Mac: Rumours (2000) [Album] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=4&torrentid=35",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Vitamin String Quartet - VSQ Performs Fleetwood Mac: Rumours (2000) [Album] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=3&torrentid=36",
+  "age": 1037,
+  "ageHours": 24902.151323341805,
+  "ageMinutes": 1494129.07940051,
+  "size": 202950299,
+  "files": 24,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours Live (2023) [Live album] [Optimal Media Pressing 2023] [MP3 V0 (VBR) / Vinyl]",
+  "sortTitle": "fleetwood mac rumours live 2023 live album optimal media pressing 2023 mp3 v0 vbr vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-11-05T04:41:26Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours Live (2023) [Live album] [Optimal Media Pressing 2023] [MP3 V0 (VBR) / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=3&torrentid=36",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours Live (2023) [Live album] [Optimal Media Pressing 2023] [MP3 V0 (VBR) / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=3&torrentid=37",
+  "age": 1037,
+  "ageHours": 24902.164934455668,
+  "ageMinutes": 1494129.89606734,
+  "size": 239888171,
+  "files": 24,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours Live (2023) [Live album] [Optimal Media Pressing 2023] [MP3 320 / Vinyl]",
+  "sortTitle": "fleetwood mac rumours live 2023 live album optimal media pressing 2023 mp3 320 vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-11-05T04:40:37Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours Live (2023) [Live album] [Optimal Media Pressing 2023] [MP3 320 / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=3&torrentid=37",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours Live (2023) [Live album] [Optimal Media Pressing 2023] [MP3 320 / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=3&torrentid=38",
+  "age": 1037,
+  "ageHours": 24902.186045569306,
+  "ageMinutes": 1494131.1627341583,
+  "size": 655861613,
+  "files": 24,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours Live (2023) [Live album] [Optimal Media Pressing 2023] [FLAC Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours live 2023 live album optimal media pressing 2023 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-11-05T04:39:21Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours Live (2023) [Live album] [Optimal Media Pressing 2023] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=3&torrentid=38",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours Live (2023) [Live album] [Optimal Media Pressing 2023] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=3&torrentid=39",
+  "age": 1037,
+  "ageHours": 24902.245490016277,
+  "ageMinutes": 1494134.7294009766,
+  "size": 2043504853,
+  "files": 24,
+  "grabs": 8,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours Live (2023) [Live album] [Optimal Media Pressing 2023] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours live 2023 live album optimal media pressing 2023 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-11-05T04:35:47Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours Live (2023) [Live album] [Optimal Media Pressing 2023] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=3&torrentid=39",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours Live (2023) [Live album] [Optimal Media Pressing 2023] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=4&torrentid=40",
+  "age": 1073,
+  "ageHours": 25765.29910112986,
+  "ageMinutes": 1545917.9460677917,
+  "size": 242097042,
+  "files": 12,
+  "grabs": 6,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Vitamin String Quartet - VSQ Performs Fleetwood Mac: Rumours (2000) [Album] [FLAC Lossless / WEB]",
+  "sortTitle": "vitamin string quartet vsq performs fleetwood mac rumours 2000 album flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-09-30T05:32:34Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Vitamin String Quartet - VSQ Performs Fleetwood Mac: Rumours (2000) [Album] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=4&torrentid=40",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 5,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Vitamin String Quartet - VSQ Performs Fleetwood Mac: Rumours (2000) [Album] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=41",
+  "age": 1087,
+  "ageHours": 26105.467712243444,
+  "ageMinutes": 1566328.0627346067,
+  "size": 271268276,
+  "files": 12,
+  "grabs": 6,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Remaster 2001] [FLAC Lossless / WEB]",
+  "sortTitle": "fleetwood mac rumours 1977 album remaster 2001 flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-09-16T01:22:27Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Remaster 2001] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=41",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 1,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Remaster 2001] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=42",
+  "age": 1087,
+  "ageHours": 26105.51215669036,
+  "ageMinutes": 1566330.7294014217,
+  "size": 852214845,
+  "files": 12,
+  "grabs": 12,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Remaster 2001] [FLAC 24bit Lossless / WEB]",
+  "sortTitle": "fleetwood mac rumours 1977 album remaster 2001 flac 24bit lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-09-16T01:19:47Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Remaster 2001] [FLAC 24bit Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=42",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 6,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Remaster 2001] [FLAC 24bit Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=3&torrentid=43",
+  "age": 1096,
+  "ageHours": 26309.94604558161,
+  "ageMinutes": 1578596.7627348984,
+  "size": 182642018,
+  "files": 19,
+  "grabs": 23,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours Live (2023) [Live album] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "fleetwood mac rumours live 2023 live album mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-09-07T12:53:45Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours Live (2023) [Live album] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=3&torrentid=43",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 6,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours Live (2023) [Live album] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=3&torrentid=44",
+  "age": 1096,
+  "ageHours": 26309.946601139556,
+  "ageMinutes": 1578596.7960683734,
+  "size": 635488578,
+  "files": 19,
+  "grabs": 53,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours Live (2023) [Live album] [FLAC Lossless / WEB]",
+  "sortTitle": "fleetwood mac rumours live 2023 live album flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-09-07T12:53:43Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours Live (2023) [Live album] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=3&torrentid=44",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 15,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours Live (2023) [Live album] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=3&torrentid=45",
+  "age": 1096,
+  "ageHours": 26309.947434475194,
+  "ageMinutes": 1578596.8460685117,
+  "size": 211145791,
+  "files": 19,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours Live (2023) [Live album] [MP3 320 / WEB]",
+  "sortTitle": "fleetwood mac rumours live 2023 live album mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-09-07T12:53:40Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours Live (2023) [Live album] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=3&torrentid=45",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours Live (2023) [Live album] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=3&torrentid=46",
+  "age": 1096,
+  "ageHours": 26309.978267810835,
+  "ageMinutes": 1578598.69606865,
+  "size": 2172922346,
+  "files": 21,
+  "grabs": 39,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours Live (2023) [Live album] [FLAC 24bit Lossless / WEB]",
+  "sortTitle": "fleetwood mac rumours live 2023 live album flac 24bit lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-09-07T12:51:49Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours Live (2023) [Live album] [FLAC 24bit Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=3&torrentid=46",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 15,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours Live (2023) [Live album] [FLAC 24bit Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=47",
+  "age": 1455,
+  "ageHours": 34920.826323368725,
+  "ageMinutes": 2095249.5794021233,
+  "size": 85918752,
+  "files": 20,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Columbia House / Canada 1990] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album columbia house canada 1990 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2022-09-13T18:00:56Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Columbia House / Canada 1990] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=47",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 0,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Columbia House / Canada 1990] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=48",
+  "age": 1592,
+  "ageHours": 38213.24937892686,
+  "ageMinutes": 2292794.9627356115,
+  "size": 281850288,
+  "files": 22,
+  "grabs": 31,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2022-04-29T13:35:33Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=48",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 24,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=49",
+  "age": 1637,
+  "ageHours": 39298.454934484806,
+  "ageMinutes": 2357907.2960690884,
+  "size": 294742763,
+  "files": 45,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [3CD Expanded Edition 2013] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album 3cd expanded edition 2013 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2022-03-15T08:23:13Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [3CD Expanded Edition 2013] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=49",
+  "indexerFlags": [
+   "scene"
+  ],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [3CD Expanded Edition 2013] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=50",
+  "age": 1637,
+  "ageHours": 39298.63104559836,
+  "ageMinutes": 2357917.8627359015,
+  "size": 211563065,
+  "files": 38,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Deluxe Edition 2004] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album deluxe edition 2004 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2022-03-15T08:12:39Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Deluxe Edition 2004] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=50",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Deluxe Edition 2004] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=5&torrentid=51",
+  "age": 1727,
+  "ageHours": 41469.26549004511,
+  "ageMinutes": 2488155.9294027067,
+  "size": 84448888,
+  "files": 12,
+  "grabs": 3,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Various Artists - Rumours Revisited (A Tribute To Fleetwood Mac's Classic 1977 Album) (2012) [Compilation] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "various artists rumours revisited tribute to fleetwood mac s classic 1977 album 2012 compilation mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2021-12-14T21:34:35Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Various Artists - Rumours Revisited (A Tribute To Fleetwood Mac's Classic 1977 Album) (2012) [Compilation] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=5&torrentid=51",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Various Artists - Rumours Revisited (A Tribute To Fleetwood Mac's Classic 1977 Album) (2012) [Compilation] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=52",
+  "age": 1877,
+  "ageHours": 45066.013823381305,
+  "ageMinutes": 2703960.82940288,
+  "size": 967847286,
+  "files": 13,
+  "grabs": 10,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [DVD-Audio 2001] [FLAC Lossless / DVD]",
+  "sortTitle": "fleetwood mac rumours 1977 album dvd audio 2001 flac lossless dvd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2021-07-18T00:49:41Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [DVD-Audio 2001] [FLAC Lossless / DVD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=52",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [DVD-Audio 2001] [FLAC Lossless / DVD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=53",
+  "age": 2079,
+  "ageHours": 49901.61799005044,
+  "ageMinutes": 2994097.0794030265,
+  "size": 811392067,
+  "files": 13,
+  "grabs": 7,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Original Japanese Pressing 1977] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album original japanese pressing 1977 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-12-28T13:13:26Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Original Japanese Pressing 1977] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=53",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 8,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Original Japanese Pressing 1977] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=54",
+  "age": 2126,
+  "ageHours": 51040.516601164025,
+  "ageMinutes": 3062430.9960698416,
+  "size": 243466959,
+  "files": 19,
+  "grabs": 6,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Reel-To-Reel, 7 ½ ips, ¼\", 4-Track Stereo, 7\" Cine Reel, Album, Dolby System 1977] [FLAC Lossless / Vinyl / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album reel to reel 7 ips 4 track stereo 7 cine reel album dolby system 1977 flac lossless vinyl cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-11-11T02:19:31Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Reel-To-Reel, 7 ½ ips, ¼\", 4-Track Stereo, 7\" Cine Reel, Album, Dolby System 1977] [FLAC Lossless / Vinyl / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=54",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Reel-To-Reel, 7 ½ ips, ¼\", 4-Track Stereo, 7\" Cine Reel, Album, Dolby System 1977] [FLAC Lossless / Vinyl / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=55",
+  "age": 2137,
+  "ageHours": 51298.18771228619,
+  "ageMinutes": 3077891.2627371717,
+  "size": 86181961,
+  "files": 19,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Reel-To-Reel, 7 ½ ips, ¼\", 4-Track Stereo, 7\" Cine Reel, Album, Dolby System 1977] [MP3 V0 (VBR) / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album reel to reel 7 ips 4 track stereo 7 cine reel album dolby system 1977 mp3 v0 vbr vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-10-31T08:39:15Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Reel-To-Reel, 7 ½ ips, ¼\", 4-Track Stereo, 7\" Cine Reel, Album, Dolby System 1977] [MP3 V0 (VBR) / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=55",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Reel-To-Reel, 7 ½ ips, ¼\", 4-Track Stereo, 7\" Cine Reel, Album, Dolby System 1977] [MP3 V0 (VBR) / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=56",
+  "age": 2138,
+  "ageHours": 51312.67632340297,
+  "ageMinutes": 3078760.5794041785,
+  "size": 852066861,
+  "files": 19,
+  "grabs": 41,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Reel-To-Reel, 7 ½ ips, ¼\", 4-Track Stereo, 7\" Cine Reel, Album, Dolby System 1977] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album reel to reel 7 ips 4 track stereo 7 cine reel album dolby system 1977 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-10-30T18:09:56Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Reel-To-Reel, 7 ½ ips, ¼\", 4-Track Stereo, 7\" Cine Reel, Album, Dolby System 1977] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=56",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 16,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Reel-To-Reel, 7 ½ ips, ¼\", 4-Track Stereo, 7\" Cine Reel, Album, Dolby System 1977] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=57",
+  "age": 2171,
+  "ageHours": 52105.86854562933,
+  "ageMinutes": 3126352.11273776,
+  "size": 96996779,
+  "files": 15,
+  "grabs": 16,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [The Alternate Rumours/Record Store Day Limited Edition 2020] [MP3 320 / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album alternate rumoursrecord store day limited edition 2020 mp3 320 vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-09-27T16:58:24Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [The Alternate Rumours/Record Store Day Limited Edition 2020] [MP3 320 / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=57",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 5,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [The Alternate Rumours/Record Store Day Limited Edition 2020] [MP3 320 / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=58",
+  "age": 2171,
+  "ageHours": 52106.872990076976,
+  "ageMinutes": 3126412.37940462,
+  "size": 870852789,
+  "files": 15,
+  "grabs": 28,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [The Alternate Rumours/Record Store Day Limited Edition 2020] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album alternate rumoursrecord store day limited edition 2020 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-09-27T15:58:08Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [The Alternate Rumours/Record Store Day Limited Edition 2020] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=58",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [The Alternate Rumours/Record Store Day Limited Edition 2020] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=6&torrentid=59",
+  "age": 2202,
+  "ageHours": 52863.780767857614,
+  "ageMinutes": 3171826.8460714566,
+  "size": 341708309,
+  "files": 12,
+  "grabs": 11,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Royal Philharmonic Orchestra - Plays Fleetwood Mac's Rumours (2013) [Album] [FLAC Lossless / WEB]",
+  "sortTitle": "royal philharmonic orchestra plays fleetwood mac s rumours 2013 album flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-08-27T03:03:40Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Royal Philharmonic Orchestra - Plays Fleetwood Mac's Rumours (2013) [Album] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=6&torrentid=59",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 10,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Royal Philharmonic Orchestra - Plays Fleetwood Mac's Rumours (2013) [Album] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=60",
+  "age": 2323,
+  "ageHours": 55763.75354563814,
+  "ageMinutes": 3345825.21273829,
+  "size": 219091580,
+  "files": 12,
+  "grabs": 3,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Limited Edition Dutch White Vinyl LP 1977] [FLAC Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album limited edition dutch white vinyl lp 1977 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-04-28T07:05:18Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Limited Edition Dutch White Vinyl LP 1977] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=60",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Limited Edition Dutch White Vinyl LP 1977] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=61",
+  "age": 2370,
+  "ageHours": 56893.84910119925,
+  "ageMinutes": 3413630.946071957,
+  "size": 79235740,
+  "files": 13,
+  "grabs": 11,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "fleetwood mac rumours 1977 album mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-03-12T04:59:34Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=61",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 1,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=62",
+  "age": 2372,
+  "ageHours": 56947.92882342556,
+  "ageMinutes": 3416875.7294055335,
+  "size": 2642399807,
+  "files": 12,
+  "grabs": 37,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [5.1 Surround 2011] [FLAC 24bit Lossless / SACD]",
+  "sortTitle": "fleetwood mac rumours 1977 album 5 1 surround 2011 flac 24bit lossless sacd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-03-09T22:54:47Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [5.1 Surround 2011] [FLAC 24bit Lossless / SACD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=62",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 13,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [5.1 Surround 2011] [FLAC 24bit Lossless / SACD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=63",
+  "age": 2406,
+  "ageHours": 57744.71104565036,
+  "ageMinutes": 3464682.6627390217,
+  "size": 820082273,
+  "files": 11,
+  "grabs": 11,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [2 x 45RPM LP / Europe 2011] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album 2 x 45rpm lp europe 2011 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-02-05T18:07:51Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [2 x 45RPM LP / Europe 2011] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=63",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 10,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [2 x 45RPM LP / Europe 2011] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=7&torrentid=64",
+  "age": 2487,
+  "ageHours": 59696.92271233694,
+  "ageMinutes": 3581815.362740217,
+  "size": 101084537,
+  "files": 13,
+  "grabs": 13,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Live... Rumours Tour, LA 1978 (2019) [Live album] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "fleetwood mac live rumours tour la 1978 2019 live album mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-11-16T09:55:09Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Live... Rumours Tour, LA 1978 (2019) [Live album] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=7&torrentid=64",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 6,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Live... Rumours Tour, LA 1978 (2019) [Live album] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=7&torrentid=65",
+  "age": 2489,
+  "ageHours": 59751.66243456981,
+  "ageMinutes": 3585099.74607419,
+  "size": 304774700,
+  "files": 13,
+  "grabs": 64,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Live... Rumours Tour, LA 1978 (2019) [Live album] [FLAC Lossless / WEB]",
+  "sortTitle": "fleetwood mac live rumours tour la 1978 2019 live album flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-11-14T03:10:46Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Live... Rumours Tour, LA 1978 (2019) [Live album] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=7&torrentid=65",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 12,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Live... Rumours Tour, LA 1978 (2019) [Live album] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=5&torrentid=66",
+  "age": 2799,
+  "ageHours": 67197.08104568537,
+  "ageMinutes": 4031824.8627411216,
+  "size": 273411496,
+  "files": 16,
+  "grabs": 20,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Various Artists - Rumours Revisited (A Tribute To Fleetwood Mac's Classic 1977 Album) (2012) [Compilation] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "various artists rumours revisited tribute to fleetwood mac s classic 1977 album 2012 compilation flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2019-01-07T21:45:39Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Various Artists - Rumours Revisited (A Tribute To Fleetwood Mac's Classic 1977 Album) (2012) [Compilation] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=5&torrentid=66",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 10,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Various Artists - Rumours Revisited (A Tribute To Fleetwood Mac's Classic 1977 Album) (2012) [Compilation] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=67",
+  "age": 2825,
+  "ageHours": 67807.80854569009,
+  "ageMinutes": 4068468.512741405,
+  "size": 281359105,
+  "files": 27,
+  "grabs": 18,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Rumours 1990] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album rumours 1990 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-12-13T11:02:00Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Rumours 1990] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=67",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 5,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Rumours 1990] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=68",
+  "age": 2847,
+  "ageHours": 68342.46299013836,
+  "ageMinutes": 4100547.7794083017,
+  "size": 127057871,
+  "files": 33,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [MP3 320 / SACD]",
+  "sortTitle": "fleetwood mac rumours 1977 album japanese hybrid remaster 2011 mp3 320 sacd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-11-21T04:22:44Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [MP3 320 / SACD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=68",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [MP3 320 / SACD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=69",
+  "age": 2847,
+  "ageHours": 68342.46299014187,
+  "ageMinutes": 4100547.7794085117,
+  "size": 107055251,
+  "files": 33,
+  "grabs": 9,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [MP3 V0 (VBR) / SACD]",
+  "sortTitle": "fleetwood mac rumours 1977 album japanese hybrid remaster 2011 mp3 v0 vbr sacd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-11-21T04:22:44Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [MP3 V0 (VBR) / SACD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=69",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [MP3 V0 (VBR) / SACD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=70",
+  "age": 2847,
+  "ageHours": 68342.58771236756,
+  "ageMinutes": 4100555.262742055,
+  "size": 307336061,
+  "files": 33,
+  "grabs": 20,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [FLAC Lossless / SACD]",
+  "sortTitle": "fleetwood mac rumours 1977 album japanese hybrid remaster 2011 flac lossless sacd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-11-21T04:15:15Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [FLAC Lossless / SACD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=70",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 7,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [FLAC Lossless / SACD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=71",
+  "age": 2863,
+  "ageHours": 68713.80799014863,
+  "ageMinutes": 4122828.4794089184,
+  "size": 98471313,
+  "files": 14,
+  "grabs": 5,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Target Remastered (W. Germany / Japan) 1984] [MP3 320 / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album target remastered w germany japan 1984 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-11-05T17:02:02Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Target Remastered (W. Germany / Japan) 1984] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=71",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Target Remastered (W. Germany / Japan) 1984] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=72",
+  "age": 2863,
+  "ageHours": 68713.80799015245,
+  "ageMinutes": 4122828.4794091466,
+  "size": 77047826,
+  "files": 14,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Target Remastered (W. Germany / Japan) 1984] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album target remastered w germany japan 1984 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-11-05T17:02:02Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Target Remastered (W. Germany / Japan) 1984] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=72",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Target Remastered (W. Germany / Japan) 1984] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=73",
+  "age": 2863,
+  "ageHours": 68713.967990156,
+  "ageMinutes": 4122838.07940936,
+  "size": 234412904,
+  "files": 21,
+  "grabs": 489,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Target Remastered (W. Germany / Japan) 1984] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album target remastered w germany japan 1984 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-11-05T16:52:26Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Target Remastered (W. Germany / Japan) 1984] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=73",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 278,
+  "leechers": 3,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Target Remastered (W. Germany / Japan) 1984] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=74",
+  "age": 2869,
+  "ageHours": 68857.57910127084,
+  "ageMinutes": 4131454.74607625,
+  "size": 206994723,
+  "files": 16,
+  "grabs": 14,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2018-10-30T17:15:46Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=74",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 7,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=75",
+  "age": 3447,
+  "ageHours": 82731.02965682966,
+  "ageMinutes": 4963861.77940978,
+  "size": 191104245,
+  "files": 17,
+  "grabs": 54,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Manufactured by Sanyo Japan 1985] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album manufactured by sanyo japan 1985 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2017-03-31T15:48:44Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Manufactured by Sanyo Japan 1985] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=75",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 23,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Manufactured by Sanyo Japan 1985] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=76",
+  "age": 3503,
+  "ageHours": 84089.56132350017,
+  "ageMinutes": 5045373.67941001,
+  "size": 97115922,
+  "files": 16,
+  "grabs": 38,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [MP3 320 / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album mp3 320 vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2017-02-03T01:16:50Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [MP3 320 / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=76",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 7,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [MP3 320 / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=77",
+  "age": 3503,
+  "ageHours": 84089.56882350348,
+  "ageMinutes": 5045374.129410208,
+  "size": 78479592,
+  "files": 16,
+  "grabs": 35,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [MP3 V0 (VBR) / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album mp3 v0 vbr vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2017-02-03T01:16:23Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [MP3 V0 (VBR) / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=77",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 7,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [MP3 V0 (VBR) / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=78",
+  "age": 3503,
+  "ageHours": 84089.57382350597,
+  "ageMinutes": 5045374.429410358,
+  "size": 233592798,
+  "files": 16,
+  "grabs": 68,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2017-02-03T01:16:05Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=78",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 22,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=79",
+  "age": 3516,
+  "ageHours": 84400.07576795289,
+  "ageMinutes": 5064004.546077175,
+  "size": 817806644,
+  "files": 17,
+  "grabs": 79,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2017-01-21T02:45:58Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=79",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 26,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=80",
+  "age": 3524,
+  "ageHours": 84597.33965684433,
+  "ageMinutes": 5075840.37941066,
+  "size": 432552012,
+  "files": 64,
+  "grabs": 36,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Super Deluxe Edition (4CD) 2013] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "fleetwood mac rumours 1977 album 35th anniversary super deluxe edition 4cd 2013 mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2017-01-12T21:30:08Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Super Deluxe Edition (4CD) 2013] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=80",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 13,
+  "leechers": 1,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Super Deluxe Edition (4CD) 2013] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=81",
+  "age": 3528,
+  "ageHours": 84676.87271240281,
+  "ageMinutes": 5080612.362744168,
+  "size": 2035969235,
+  "files": 68,
+  "grabs": 75,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Super Deluxe Edition (4CD) 2013] [FLAC 24bit Lossless / WEB]",
+  "sortTitle": "fleetwood mac rumours 1977 album 35th anniversary super deluxe edition 4cd 2013 flac 24bit lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2017-01-09T13:58:09Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Super Deluxe Edition (4CD) 2013] [FLAC 24bit Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=81",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 25,
+  "leechers": 1,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Super Deluxe Edition (4CD) 2013] [FLAC 24bit Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=82",
+  "age": 3541,
+  "ageHours": 85001.04326796111,
+  "ageMinutes": 5100062.596077667,
+  "size": 2684447410,
+  "files": 12,
+  "grabs": 32,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [5.1 Multichannel 2001] [FLAC 24bit Lossless / DVD]",
+  "sortTitle": "fleetwood mac rumours 1977 album 5 1 multichannel 2001 flac 24bit lossless dvd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-27T01:47:55Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [5.1 Multichannel 2001] [FLAC 24bit Lossless / DVD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=82",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 11,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [5.1 Multichannel 2001] [FLAC 24bit Lossless / DVD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=83",
+  "age": 3547,
+  "ageHours": 85133.36771240833,
+  "ageMinutes": 5108002.0627445,
+  "size": 938620659,
+  "files": 36,
+  "grabs": 67,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [FLAC 24bit Lossless / SACD]",
+  "sortTitle": "fleetwood mac rumours 1977 album japanese hybrid remaster 2011 flac 24bit lossless sacd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-21T13:28:27Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [FLAC 24bit Lossless / SACD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=83",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 19,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Japanese Hybrid Remaster 2011] [FLAC 24bit Lossless / SACD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=84",
+  "age": 3554,
+  "ageHours": 85306.58576796636,
+  "ageMinutes": 5118395.146077983,
+  "size": 258325899,
+  "files": 21,
+  "grabs": 37,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Columbia House / Canada 1990] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album columbia house canada 1990 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-14T08:15:22Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Columbia House / Canada 1990] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=84",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 15,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Columbia House / Canada 1990] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=85",
+  "age": 3557,
+  "ageHours": 85368.23660130253,
+  "ageMinutes": 5122094.196078151,
+  "size": 1378573659,
+  "files": 70,
+  "grabs": 78,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Deluxe Edition Box (4CD+DVD) 2013] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album 35th anniversary deluxe edition box 4cddvd 2013 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-11T18:36:19Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Deluxe Edition Box (4CD+DVD) 2013] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=85",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 43,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Deluxe Edition Box (4CD+DVD) 2013] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=86",
+  "age": 3557,
+  "ageHours": 85368.93521241659,
+  "ageMinutes": 5122136.112744996,
+  "size": 1379487796,
+  "files": 60,
+  "grabs": 35,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Super Deluxe Edition (4CD) 2013] [FLAC Lossless / WEB]",
+  "sortTitle": "fleetwood mac rumours 1977 album 35th anniversary super deluxe edition 4cd 2013 flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-11T17:54:24Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Super Deluxe Edition (4CD) 2013] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=86",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 18,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [35th Anniversary Super Deluxe Edition (4CD) 2013] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=87",
+  "age": 3558,
+  "ageHours": 85397.94493464155,
+  "ageMinutes": 5123876.696078493,
+  "size": 271864808,
+  "files": 13,
+  "grabs": 45,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / WEB]",
+  "sortTitle": "fleetwood mac rumours 1977 album flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-10T12:53:49Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=87",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 20,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=88",
+  "age": 3560,
+  "ageHours": 85444.30132353278,
+  "ageMinutes": 5126658.079411967,
+  "size": 75437516,
+  "files": 12,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Limited Edition Dutch White Vinyl LP 1977] [MP3 V0 (VBR) / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album limited edition dutch white vinyl lp 1977 mp3 v0 vbr vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-08T14:32:26Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Limited Edition Dutch White Vinyl LP 1977] [MP3 V0 (VBR) / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=88",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Limited Edition Dutch White Vinyl LP 1977] [MP3 V0 (VBR) / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=89",
+  "age": 3560,
+  "ageHours": 85463.27132353542,
+  "ageMinutes": 5127796.279412125,
+  "size": 788893734,
+  "files": 12,
+  "grabs": 37,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Limited Edition Dutch White Vinyl LP 1977] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album limited edition dutch white vinyl lp 1977 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-07T19:34:14Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Limited Edition Dutch White Vinyl LP 1977] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=89",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 12,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Limited Edition Dutch White Vinyl LP 1977] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=90",
+  "age": 3565,
+  "ageHours": 85564.76549020503,
+  "ageMinutes": 5133885.929412302,
+  "size": 1004043744,
+  "files": 49,
+  "grabs": 40,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [3CD Expanded Edition 2013] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "fleetwood mac rumours 1977 album 3cd expanded edition 2013 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-03T14:04:35Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [3CD Expanded Edition 2013] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=90",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 15,
+  "leechers": 1,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [3CD Expanded Edition 2013] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=91",
+  "age": 3566,
+  "ageHours": 85604.58521243122,
+  "ageMinutes": 5136275.112745874,
+  "size": 861528498,
+  "files": 36,
+  "grabs": 42,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Reprise Records 45RPM 2011] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album reprise records 45rpm 2011 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-01T22:15:24Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Reprise Records 45RPM 2011] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=91",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 14,
+  "leechers": 1,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Reprise Records 45RPM 2011] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=92",
+  "age": 3567,
+  "ageHours": 85623.5918791004,
+  "ageMinutes": 5137415.512746023,
+  "size": 213510625,
+  "files": 12,
+  "grabs": 5,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Original Japanese Pressing 1977] [FLAC Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album original japanese pressing 1977 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-01T03:15:00Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Original Japanese Pressing 1977] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=92",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Original Japanese Pressing 1977] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=93",
+  "age": 3569,
+  "ageHours": 85671.0538235475,
+  "ageMinutes": 5140263.22941285,
+  "size": 259676278,
+  "files": 35,
+  "grabs": 12,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Reprise Records 45RPM 2011] [FLAC Lossless / Vinyl]",
+  "sortTitle": "fleetwood mac rumours 1977 album reprise records 45rpm 2011 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-29T03:47:17Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Reprise Records 45RPM 2011] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=93",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Reprise Records 45RPM 2011] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=94",
+  "age": 3572,
+  "ageHours": 85743.0363235503,
+  "ageMinutes": 5144582.179413019,
+  "size": 73029223,
+  "files": 12,
+  "grabs": 19,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [Manufactured by Sanyo Japan 1985] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "fleetwood mac rumours 1977 album manufactured by sanyo japan 1985 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T03:48:20Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [Manufactured by Sanyo Japan 1985] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=94",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 8,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [Manufactured by Sanyo Japan 1985] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=95",
+  "age": 3573,
+  "ageHours": 85753.07187910867,
+  "ageMinutes": 5145184.31274652,
+  "size": 873295041,
+  "files": 13,
+  "grabs": 10,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / WEB]",
+  "sortTitle": "fleetwood mac rumours 1977 album flac 24bit lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T17:46:12Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=95",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 21,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Fleetwood Mac - Rumours (1977) [Album] [FLAC 24bit Lossless / WEB].torrent"
+ }
+]

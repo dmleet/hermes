@@ -1,0 +1,166 @@
+# Hermes Deployment. Single replica, Recreate strategy: SQLite lives on an RWO PVC and two
+# pods must never hold it at once. Values below match the home cluster (flux repo,
+# clusters/home/{beets,deluge}). Fill in the Secret, then:
+#   kubectl apply -f deploy/hermes.yaml
+#
+# Cross-namespace notes:
+#   - beets runs in namespace `beets` and needs a Service (see deploy/beets/service.yaml).
+#   - Deluge runs three instances in namespace `deluge`; each has its own Service.
+#   - Secrets are per-namespace: copy the Deluge web password into Secret/hermes below.
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: hermes
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: hermes-data
+  namespace: hermes
+  labels:
+    recurring-job-group.longhorn.io/daily: "enabled"
+    recurring-job-group.longhorn.io/default: "enabled"
+spec:
+  accessModes: [ReadWriteOnce]
+  storageClassName: longhorn
+  resources:
+    requests:
+      storage: 2Gi
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hermes-config
+  namespace: hermes
+data:
+  # Everything not listed keeps the defaults from config.example.yaml.
+  # dry_run stays true until milestone M6.
+  config.yaml: |
+    dry_run: true
+    listenbrainz:
+      user: ""                    # TODO: ListenBrainz user name
+    beets:
+      agent_url: http://beets-web.beets.svc.cluster.local:8338
+    deluge:
+      instances:
+        a:
+          url: http://deluge-a-service.deluge.svc.cluster.local:8112
+          indexers: ["Tracker A"]     # TODO: exact Prowlarr indexer name
+        b:
+          url: http://deluge-b-service.deluge.svc.cluster.local:8112
+          indexers: ["Tracker B"]    # TODO: exact Prowlarr indexer name
+      default_instance: null      # unmapped indexers are refused rather than guessed
+      pending_root: /downloads/pending/hermes
+      completed_root: /downloads/complete/hermes
+    paths:
+      deluge_root: /downloads/complete
+      beets_root: /downloads
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: hermes
+  namespace: hermes
+type: Opaque
+stringData:
+  LISTENBRAINZ_TOKEN: ""
+  PROWLARR_URL: ""                # TODO: e.g. http://prowlarr.prowlarr.svc.cluster.local:9696
+  PROWLARR_API_KEY: ""
+  DELUGE_PASSWORD: ""             # same value as Secret/deluge-web-password in namespace deluge
+  NAVIDROME_URL: ""
+  NAVIDROME_USER: ""
+  NAVIDROME_PASSWORD: ""
+  MUSICBRAINZ_CONTACT: ""         # email or URL, required by MusicBrainz's User-Agent policy
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hermes
+  namespace: hermes
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: hermes
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: hermes
+    spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: hermes
+          image: <namespace>/hermes:0.5.0-<sha>   # the commit tag from the images workflow; the same <sha> as beets-hermes
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+              name: http
+          envFrom:
+            - secretRef:
+                name: hermes
+          env:
+            - name: HERMES_DATA_DIR
+              value: /data
+            - name: HERMES_CONFIG_PATH
+              value: /config/config.yaml
+            - name: TZ
+              value: America/New_York
+          volumeMounts:
+            - name: data
+              mountPath: /data
+            - name: config
+              mountPath: /config
+              readOnly: true
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop: [ALL]
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 30
+            # 503 means a dependency is down, not Hermes; keep the pod ready so the UI
+            # can show which one.
+            failureThreshold: 1000
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: http
+            periodSeconds: 60
+            failureThreshold: 1000
+          resources:
+            requests:
+              cpu: 50m
+              memory: 128Mi
+            limits:
+              memory: 512Mi
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: hermes-data
+        - name: config
+          configMap:
+            name: hermes-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hermes
+  namespace: hermes
+spec:
+  selector:
+    app.kubernetes.io/name: hermes
+  ports:
+    - name: http
+      port: 8000
+      targetPort: http

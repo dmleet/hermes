@@ -1,0 +1,3285 @@
+[
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "age": 118,
+  "ageHours": 2834.2827236645276,
+  "ageMinutes": 170056.96341988334,
+  "size": 487764834,
+  "files": 36,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Columbia House / Canada 1994] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "nine inch nails downward spiral 1994 album columbia house canada 1994 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-05-12T16:32:42Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [Columbia House / Canada 1994] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=1",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Columbia House / Canada 1994] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "age": 144,
+  "ageHours": 3474.6485570414166,
+  "ageMinutes": 208478.91342248835,
+  "size": 145668151,
+  "files": 15,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-04-16T00:10:45Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=2",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "age": 144,
+  "ageHours": 3474.656057049222,
+  "ageMinutes": 208479.36342295332,
+  "size": 168181166,
+  "files": 15,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 320 / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-04-16T00:10:18Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=3",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "age": 150,
+  "ageHours": 3600.683279277,
+  "ageMinutes": 216040.99675662167,
+  "size": 455320760,
+  "files": 17,
+  "grabs": 13,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "nine inch nails downward spiral 1994 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-04-10T18:08:40Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=4",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 11,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=5",
+  "age": 247,
+  "ageHours": 5950.248001504611,
+  "ageMinutes": 357014.88009027834,
+  "size": 2382071091,
+  "files": 16,
+  "grabs": 8,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [5.1 Mix 2004] [FLAC Lossless / DVD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 5 1 mix 2004 flac lossless dvd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2026-01-02T20:34:47Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [5.1 Mix 2004] [FLAC Lossless / DVD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=5",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 6,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [5.1 Mix 2004] [FLAC Lossless / DVD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "age": 563,
+  "ageHours": 13530.56716817661,
+  "ageMinutes": 811834.0300905984,
+  "size": 136014803,
+  "files": 17,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-02-21T00:15:38Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=6",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "age": 563,
+  "ageHours": 13530.567723736389,
+  "ageMinutes": 811834.0634241833,
+  "size": 156648218,
+  "files": 17,
+  "grabs": 3,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 320 / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-02-21T00:15:36Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=7",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "age": 602,
+  "ageHours": 14460.927723740222,
+  "ageMinutes": 867655.6634244133,
+  "size": 169489230,
+  "files": 21,
+  "grabs": 12,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Japanese Edition 2008] [MP3 320 / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album japanese edition 2008 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-01-13T05:54:00Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [Japanese Edition 2008] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=8",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 6,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Japanese Edition 2008] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "age": 602,
+  "ageHours": 14460.941612633556,
+  "ageMinutes": 867656.4967580134,
+  "size": 146801196,
+  "files": 21,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Japanese Edition 2008] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album japanese edition 2008 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-01-13T05:53:10Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [Japanese Edition 2008] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=9",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Japanese Edition 2008] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "age": 613,
+  "ageHours": 14718.573279304166,
+  "ageMinutes": 883114.39675825,
+  "size": 735621816,
+  "files": 53,
+  "grabs": 22,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "nine inch nails downward spiral 1994 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2025-01-02T12:15:16Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=10",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 22,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "age": 645,
+  "ageHours": 15493.145779308417,
+  "ageMinutes": 929588.7467585066,
+  "size": 441082944,
+  "files": 14,
+  "grabs": 3,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / Vinyl]",
+  "sortTitle": "nine inch nails downward spiral 1994 album flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-12-01T05:40:55Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=11",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=12",
+  "age": 645,
+  "ageHours": 15495.47355709,
+  "ageMinutes": 929728.4134254,
+  "size": 1439963356,
+  "files": 14,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "nine inch nails downward spiral 1994 album flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-12-01T03:21:15Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=12",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=13",
+  "age": 718,
+  "ageHours": 17251.831334875416,
+  "ageMinutes": 1035109.8800925267,
+  "size": 2795353205,
+  "files": 22,
+  "grabs": 5,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [UK Edition 1994] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "nine inch nails downward spiral 1994 album uk edition 1994 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-09-18T22:59:47Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [UK Edition 1994] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=13",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 6,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [UK Edition 1994] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=14",
+  "age": 920,
+  "ageHours": 22103.80994599178,
+  "ageMinutes": 1326228.5967595084,
+  "size": 1074894691,
+  "files": 37,
+  "grabs": 7,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [5.1 2005] [FLAC Lossless / SACD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 5 1 2005 flac lossless sacd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-02-29T19:01:04Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [5.1 2005] [FLAC Lossless / SACD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=14",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 8,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [5.1 2005] [FLAC Lossless / SACD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=15",
+  "age": 960,
+  "ageHours": 23057.15716821836,
+  "ageMinutes": 1383429.4300931033,
+  "size": 136106888,
+  "files": 16,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Different US Pressing 6 0694-92346-2 1 1994] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album different us pressing 6 0694 92346 2 1 1994 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-01-21T01:40:14Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [Different US Pressing 6 0694-92346-2 1 1994] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=15",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Different US Pressing 6 0694-92346-2 1 1994] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=16",
+  "age": 960,
+  "ageHours": 23057.15994600278,
+  "ageMinutes": 1383429.5967601684,
+  "size": 156666259,
+  "files": 16,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Different US Pressing 6 0694-92346-2 1 1994] [MP3 320 / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album different us pressing 6 0694 92346 2 1 1994 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-01-21T01:40:04Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [Different US Pressing 6 0694-92346-2 1 1994] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=16",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Different US Pressing 6 0694-92346-2 1 1994] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=17",
+  "age": 960,
+  "ageHours": 23057.161334897446,
+  "ageMinutes": 1383429.6800938484,
+  "size": 445924795,
+  "files": 18,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Different US Pressing 6 0694-92346-2 1 1994] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "nine inch nails downward spiral 1994 album different us pressing 6 0694 92346 2 1 1994 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2024-01-21T01:39:59Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [Different US Pressing 6 0694-92346-2 1 1994] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=17",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Different US Pressing 6 0694-92346-2 1 1994] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=18",
+  "age": 1028,
+  "ageHours": 24684.731612679778,
+  "ageMinutes": 1481083.8967607867,
+  "size": 3701752045,
+  "files": 44,
+  "grabs": 24,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [5.1 2005] [FLAC 24bit Lossless / SACD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 5 1 2005 flac 24bit lossless sacd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-11-14T06:05:46Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [5.1 2005] [FLAC 24bit Lossless / SACD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=18",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 14,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [5.1 2005] [FLAC 24bit Lossless / SACD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=19",
+  "age": 1320,
+  "ageHours": 31692.350223794918,
+  "ageMinutes": 1901541.0134276967,
+  "size": 330253299,
+  "files": 28,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Deluxe Edition 2018] [MP3 320 / WEB]",
+  "sortTitle": "nine inch nails downward spiral 1994 album deluxe edition 2018 mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-01-26T06:28:39Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [Deluxe Edition 2018] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=19",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Deluxe Edition 2018] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=20",
+  "age": 1320,
+  "ageHours": 31692.3607793545,
+  "ageMinutes": 1901541.64676127,
+  "size": 284673406,
+  "files": 28,
+  "grabs": 2,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Deluxe Edition 2018] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "nine inch nails downward spiral 1994 album deluxe edition 2018 mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-01-26T06:28:01Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [Deluxe Edition 2018] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=20",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Deluxe Edition 2018] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=21",
+  "age": 1320,
+  "ageHours": 31702.09216824739,
+  "ageMinutes": 1902125.530094845,
+  "size": 950426966,
+  "files": 28,
+  "grabs": 36,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Deluxe Edition 2018] [FLAC Lossless / WEB]",
+  "sortTitle": "nine inch nails downward spiral 1994 album deluxe edition 2018 flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2023-01-25T20:44:08Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [Deluxe Edition 2018] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=21",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 31,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Deluxe Edition 2018] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=2&torrentid=22",
+  "age": 1639,
+  "ageHours": 39340.20939047358,
+  "ageMinutes": 2360412.563428415,
+  "size": 221903641,
+  "files": 15,
+  "grabs": 16,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails performed by IXI - The Downward Spiral: Reimagined for Piano (2022) [Album] [FLAC Lossless / WEB]",
+  "sortTitle": "nine inch nails performed by ixi downward spiral reimagined for piano 2022 album flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2022-03-13T14:37:06Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails performed by IXI - The Downward Spiral: Reimagined for Piano (2022) [Album] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=2&torrentid=22",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 8,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails performed by IXI - The Downward Spiral: Reimagined for Piano (2022) [Album] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=23",
+  "age": 1659,
+  "ageHours": 39818.40383492214,
+  "ageMinutes": 2389104.23009533,
+  "size": 447662662,
+  "files": 15,
+  "grabs": 10,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / WEB]",
+  "sortTitle": "nine inch nails downward spiral 1994 album flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2022-02-21T16:25:26Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=23",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 8,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=24",
+  "age": 1724,
+  "ageHours": 41376.10827937028,
+  "ageMinutes": 2482566.4967622184,
+  "size": 446725656,
+  "files": 18,
+  "grabs": 51,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "nine inch nails downward spiral 1994 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2021-12-18T18:43:10Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=24",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 43,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=25",
+  "age": 2097,
+  "ageHours": 50342.168557152,
+  "ageMinutes": 3020530.11342912,
+  "size": 398374480,
+  "files": 29,
+  "grabs": 5,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [US & UK Edition 2008] [FLAC Lossless / Vinyl]",
+  "sortTitle": "nine inch nails downward spiral 1994 album us uk edition 2008 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-12-10T04:39:33Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [US & UK Edition 2008] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=25",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [US & UK Edition 2008] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=26",
+  "age": 2324,
+  "ageHours": 55791.70105715605,
+  "ageMinutes": 3347502.063429365,
+  "size": 405428545,
+  "files": 16,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [UK Edition 1994] [FLAC Lossless / Vinyl]",
+  "sortTitle": "nine inch nails downward spiral 1994 album uk edition 1994 flac lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2020-04-27T03:07:36Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [UK Edition 1994] [FLAC Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=26",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [UK Edition 1994] [FLAC Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=27",
+  "age": 3515,
+  "ageHours": 84366.54911271553,
+  "ageMinutes": 5061992.9467629315,
+  "size": 1544131633,
+  "files": 48,
+  "grabs": 22,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary 5.1 Deluxe Edition 2004] [FLAC Lossless / SACD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 10th anniversary 5 1 deluxe edition 2004 flac lossless sacd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2017-01-22T12:16:43Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary 5.1 Deluxe Edition 2004] [FLAC Lossless / SACD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=27",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 6,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary 5.1 Deluxe Edition 2004] [FLAC Lossless / SACD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=28",
+  "age": 3545,
+  "ageHours": 85097.01216827525,
+  "ageMinutes": 5105820.730096515,
+  "size": 156491991,
+  "files": 14,
+  "grabs": 12,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [2017 Definitive Edition 2016] [MP3 320 / WEB]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 2017 definitive edition 2016 mp3 320 web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-23T01:48:56Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [2017 Definitive Edition 2016] [MP3 320 / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=28",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 7,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [2017 Definitive Edition 2016] [MP3 320 / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=29",
+  "age": 3545,
+  "ageHours": 85097.01966827936,
+  "ageMinutes": 5105821.180096761,
+  "size": 477520458,
+  "files": 14,
+  "grabs": 71,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [2017 Definitive Edition 2016] [FLAC Lossless / WEB]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 2017 definitive edition 2016 flac lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-23T01:48:29Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [2017 Definitive Edition 2016] [FLAC Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=29",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 27,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [2017 Definitive Edition 2016] [FLAC Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=30",
+  "age": 3545,
+  "ageHours": 85100.55633495186,
+  "ageMinutes": 5106033.380097124,
+  "size": 136508425,
+  "files": 14,
+  "grabs": 25,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [2017 Definitive Edition 2016] [MP3 V0 (VBR) / WEB]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 2017 definitive edition 2016 mp3 v0 vbr web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-22T22:16:17Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [2017 Definitive Edition 2016] [MP3 V0 (VBR) / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=30",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 5,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [2017 Definitive Edition 2016] [MP3 V0 (VBR) / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=31",
+  "age": 3546,
+  "ageHours": 85105.34189052775,
+  "ageMinutes": 5106320.513431666,
+  "size": 1452441698,
+  "files": 14,
+  "grabs": 217,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [2017 Definitive Edition 2016] [FLAC 24bit Lossless / WEB]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 2017 definitive edition 2016 flac 24bit lossless web",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-22T17:29:09Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [2017 Definitive Edition 2016] [FLAC 24bit Lossless / WEB]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=31",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 83,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [2017 Definitive Edition 2016] [FLAC 24bit Lossless / WEB].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=32",
+  "age": 3551,
+  "ageHours": 85229.66939053206,
+  "ageMinutes": 5113780.163431923,
+  "size": 673846002,
+  "files": 16,
+  "grabs": 13,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC 24bit Lossless / DVD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album flac 24bit lossless dvd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-17T13:09:30Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC 24bit Lossless / DVD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=32",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 4,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC 24bit Lossless / DVD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=33",
+  "age": 3552,
+  "ageHours": 85252.30689053594,
+  "ageMinutes": 5115138.4134321585,
+  "size": 366494490,
+  "files": 63,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [MP3 320 / SACD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 10th anniversary deluxe edition 2004 mp3 320 sacd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-16T14:31:15Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [MP3 320 / SACD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=33",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [MP3 320 / SACD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=34",
+  "age": 3552,
+  "ageHours": 85252.35716831792,
+  "ageMinutes": 5115141.430099075,
+  "size": 979746768,
+  "files": 63,
+  "grabs": 13,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [FLAC Lossless / SACD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 10th anniversary deluxe edition 2004 flac lossless sacd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-16T14:28:14Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [FLAC Lossless / SACD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=34",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [FLAC Lossless / SACD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=35",
+  "age": 3557,
+  "ageHours": 85375.46716832214,
+  "ageMinutes": 5122528.030099329,
+  "size": 156634476,
+  "files": 17,
+  "grabs": 13,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 320 / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-11T11:21:38Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=35",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=36",
+  "age": 3558,
+  "ageHours": 85408.82661277044,
+  "ageMinutes": 5124529.596766227,
+  "size": 942834797,
+  "files": 35,
+  "grabs": 65,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 10th anniversary deluxe edition 2004 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-10T02:00:04Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=36",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 26,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=37",
+  "age": 3559,
+  "ageHours": 85439.47605721922,
+  "ageMinutes": 5126368.563433155,
+  "size": 445819866,
+  "files": 18,
+  "grabs": 439,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "nine inch nails downward spiral 1994 album flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-08T19:21:06Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=37",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 181,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=38",
+  "age": 3561,
+  "ageHours": 85482.15772388998,
+  "ageMinutes": 5128929.463433398,
+  "size": 5081415575,
+  "files": 27,
+  "grabs": 48,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary 5.1 Deluxe Edition 2004] [FLAC 24bit Lossless / SACD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 10th anniversary 5 1 deluxe edition 2004 flac 24bit lossless sacd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-07T00:40:12Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary 5.1 Deluxe Edition 2004] [FLAC 24bit Lossless / SACD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=38",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 16,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary 5.1 Deluxe Edition 2004] [FLAC 24bit Lossless / SACD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=39",
+  "age": 3562,
+  "ageHours": 85490.2238350054,
+  "ageMinutes": 5129413.430100324,
+  "size": 156529382,
+  "files": 16,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 320 / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-06T16:36:14Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=39",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=40",
+  "age": 3562,
+  "ageHours": 85490.28716834247,
+  "ageMinutes": 5129417.23010055,
+  "size": 137275822,
+  "files": 16,
+  "grabs": 1,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-06T16:32:26Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=40",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=41",
+  "age": 3566,
+  "ageHours": 85602.28661279083,
+  "ageMinutes": 5136137.196767451,
+  "size": 326531638,
+  "files": 32,
+  "grabs": 4,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [MP3 320 / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 10th anniversary deluxe edition 2004 mp3 320 cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-02T00:32:28Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [MP3 320 / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=41",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 1,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [MP3 320 / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=42",
+  "age": 3566,
+  "ageHours": 85602.46244612825,
+  "ageMinutes": 5136147.746767695,
+  "size": 280632536,
+  "files": 32,
+  "grabs": 6,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 10th anniversary deluxe edition 2004 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-12-02T00:21:55Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=42",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 3,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=43",
+  "age": 3568,
+  "ageHours": 85641.22883502112,
+  "ageMinutes": 5138473.730101267,
+  "size": 479951447,
+  "files": 21,
+  "grabs": 46,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Japanese Edition 2008] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "nine inch nails downward spiral 1994 album japanese edition 2008 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-30T09:35:56Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [Japanese Edition 2008] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=43",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 17,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Japanese Edition 2008] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=44",
+  "age": 3570,
+  "ageHours": 85697.66772391408,
+  "ageMinutes": 5141860.063434845,
+  "size": 788782323,
+  "files": 29,
+  "grabs": 15,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [US & UK Edition 2008] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "nine inch nails downward spiral 1994 album us uk edition 2008 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-28T01:09:36Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [US & UK Edition 2008] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=44",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 2,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [US & UK Edition 2008] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=45",
+  "age": 3571,
+  "ageHours": 85714.34355725136,
+  "ageMinutes": 5142860.613435083,
+  "size": 2847058073,
+  "files": 68,
+  "grabs": 41,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [FLAC 24bit Lossless / SACD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album 10th anniversary deluxe edition 2004 flac 24bit lossless sacd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-27T08:29:03Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [FLAC 24bit Lossless / SACD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=45",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 24,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [10th Anniversary Deluxe Edition 2004] [FLAC 24bit Lossless / SACD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=46",
+  "age": 3572,
+  "ageHours": 85739.57827947756,
+  "ageMinutes": 5144374.696768654,
+  "size": 779701251,
+  "files": 16,
+  "grabs": 17,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [UK Edition 1994] [FLAC 24bit Lossless / Vinyl]",
+  "sortTitle": "nine inch nails downward spiral 1994 album uk edition 1994 flac 24bit lossless vinyl",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-26T07:14:58Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [UK Edition 1994] [FLAC 24bit Lossless / Vinyl]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=46",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [UK Edition 1994] [FLAC 24bit Lossless / Vinyl].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=47",
+  "age": 3573,
+  "ageHours": 85760.43466837214,
+  "ageMinutes": 5145626.080102328,
+  "size": 136244033,
+  "files": 15,
+  "grabs": 0,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Australian Edition 1994] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album australian edition 1994 mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T10:23:35Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [Australian Edition 1994] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=47",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 1,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Australian Edition 1994] [MP3 V0 (VBR) / CD].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=48",
+  "age": 3573,
+  "ageHours": 85763.5882794873,
+  "ageMinutes": 5145815.296769238,
+  "size": 446639436,
+  "files": 17,
+  "grabs": 13,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Australian Edition 1994] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "sortTitle": "nine inch nails downward spiral 1994 album australian edition 1994 flac lossless cd log 100 cue",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T07:14:22Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [Australian Edition 1994] [FLAC Lossless / CD / Log (100%) / Cue]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=48",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 11,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [Australian Edition 1994] [FLAC Lossless / CD / Log (100%) / Cue].torrent"
+ },
+ {
+  "guid": "https://tracker.example/torrents.php?id=1&torrentid=49",
+  "age": 3573,
+  "ageHours": 85768.29716838025,
+  "ageMinutes": 5146097.830102815,
+  "size": 122595914,
+  "files": 14,
+  "grabs": 66,
+  "indexerId": 2,
+  "indexer": "Gazelle",
+  "title": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 V0 (VBR) / CD]",
+  "sortTitle": "nine inch nails downward spiral 1994 album mp3 v0 vbr cd",
+  "imdbId": 0,
+  "tmdbId": 0,
+  "tvdbId": 0,
+  "tvMazeId": 0,
+  "publishDate": "2016-11-25T02:31:50Z",
+  "downloadUrl": "http://prowlarr.test/1/download?apikey=REDACTED&link=REDACTED&file=Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 V0 (VBR) / CD]",
+  "infoUrl": "https://tracker.example/torrents.php?id=1&torrentid=49",
+  "indexerFlags": [],
+  "categories": [
+   {
+    "id": 3000,
+    "name": "Audio",
+    "subCategories": [
+     {
+      "id": 3010,
+      "name": "Audio/MP3",
+      "subCategories": []
+     },
+     {
+      "id": 3020,
+      "name": "Audio/Video",
+      "subCategories": []
+     },
+     {
+      "id": 3030,
+      "name": "Audio/Audiobook",
+      "subCategories": []
+     },
+     {
+      "id": 3040,
+      "name": "Audio/Lossless",
+      "subCategories": []
+     },
+     {
+      "id": 3050,
+      "name": "Audio/Other",
+      "subCategories": []
+     },
+     {
+      "id": 3060,
+      "name": "Audio/Foreign",
+      "subCategories": []
+     }
+    ]
+   },
+   {
+    "id": 100001,
+    "subCategories": []
+   }
+  ],
+  "seeders": 23,
+  "leechers": 0,
+  "protocol": "torrent",
+  "fileName": "Nine Inch Nails - The Downward Spiral (1994) [Album] [MP3 V0 (VBR) / CD].torrent"
+ }
+]

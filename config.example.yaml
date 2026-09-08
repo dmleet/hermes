@@ -1,0 +1,78 @@
+# Hermes policy. Copy to config.yaml (or point HERMES_CONFIG_PATH at it).
+# Unknown keys are rejected at startup. Every key is optional; these are the defaults.
+
+dry_run: true                     # search and rank, never grab. Keep true for the first weeks.
+
+listenbrainz:
+  user: ""
+  playlists:
+    weekly-exploration: acquire
+    weekly-jams: ignore
+    daily-jams: ignore
+  extra_playlists: {}             # playlist MBID -> acquire | ignore (curated or hand-built lists)
+  poll_hours: 24                  # how often to look for new generated playlists
+
+search:
+  max_retries: 4                  # searches per acquisition before NO_MATCH is given up
+  retry_days: 7                   # days between automatic re-searches of NO_MATCH rows
+
+resolution:
+  allow_ep: true
+  allow_single: false
+  allow_secondary_types: []       # e.g. ["Soundtrack"]
+  min_similarity: 0.9             # artist and title similarity a MusicBrainz match must reach
+  search_limit: 10
+
+quality:
+  require_format: FLAC
+  excluded_media: [Vinyl]
+  media_preference: [WEB, CD, SACD, DVD, Blu-Ray]
+  encoding_preference: [lossless24, lossless]   # 24-bit first; max_sample_rate_khz keeps 192 kHz out
+  max_bytes_lossless: 1500000000
+  max_bytes_lossless24: 4000000000
+  min_seeders: 1
+  allowed_release_types: [Album, EP, Single, Anthology, Compilation, Soundtrack, Live album]
+  match_threshold: 0.85
+  keep_candidates: 3
+  max_sample_rate_khz: 96         # lossless above this (inferred from size and playing time) is skipped; null = no limit
+  edition_penalties:              # points off for editions other than the plain album (largest applies)
+    deluxe: 1.0
+    expanded: 1.0
+    anniversary: 1.0
+    bonus: 1.0
+    special edition: 1.0
+    remaster: 0.1
+    reissue: 0.8
+
+approval:
+  timid: true                     # every acquisition waits for a human (like beets' timid mode)
+  auto_approve: []                # with timid off: rules that let automated grabs proceed,
+                                  # e.g. [{freeleech: true, max_bytes: 1000000000}]
+  # Blast radius is Prowlarr's job: set a Grab Limit per indexer there.
+
+deluge:
+  # One or more Deluge daemons, routed by Prowlarr indexer name (useful when you run one
+  # client per tracker). The Web UI password comes from DELUGE_PASSWORD. Empty here
+  # (defaults); see deploy/hermes.yaml for a filled-in example.
+  instances: {}
+  #  a: {url: http://deluge-a-service.deluge.svc.cluster.local:8112, indexers: ["Tracker A"]}
+  #  b: {url: http://deluge-b-service.deluge.svc.cluster.local:8112, indexers: ["Tracker B"]}
+  default_instance: null
+  pending_root: /downloads/pending/hermes     # download_location = <pending_root>/<acq-id>
+  completed_root: /downloads/complete/hermes  # move_completed_path = <completed_root>/<acq-id>
+  label: hermes
+  poll_seconds: 45
+  stall_hours: 48
+
+beets:
+  agent_url: http://beets:8338    # the beets-hermes agent: library reads and import jobs
+  import_timeout_seconds: 1800
+
+navidrome:
+  trigger_scan: true
+
+paths:
+  # Prefix rewrite from the path Deluge reports to the path beets sees, for setups where the
+  # two mount the download share at different points. Same mounts: set both to the same value.
+  deluge_root: /downloads/complete  # e.g. Deluge mounts the whole share at /downloads
+  beets_root: /downloads            # e.g. beets mounts only the complete/ subtree

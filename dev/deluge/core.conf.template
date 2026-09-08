@@ -1,0 +1,19 @@
+{
+    "file": 1,
+    "format": 1
+}{
+    "download_location": "/downloads/pending",
+    "move_completed": true,
+    "move_completed_path": "/downloads/complete",
+    "torrentfiles_location": "/downloads/torrents",
+    "copy_torrent_file": true,
+    "enabled_plugins": [
+        "Label"
+    ],
+    "random_port": false,
+    "listen_ports": [
+        6881,
+        6881
+    ],
+    "allow_remote": false
+}

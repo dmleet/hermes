@@ -1,0 +1,112 @@
+{
+ "playlist": {
+  "annotation": "<p>The ListenBrainz Weekly Exploration playlist helps you discover new music! \n    It may require active listening and skips. The playlist features tracks you haven't heard before, \n    selected by a collaborative filtering algorithm.</p>\n\n    <p>Updated every Monday morning based on your timezone.</p>\n",
+  "creator": "listenbrainz",
+  "date": "2026-08-23T22:13:00.700111+00:00",
+  "extension": {
+   "https://musicbrainz.org/doc/jspf#playlist": {
+    "additional_metadata": {
+     "algorithm_metadata": {
+      "source_patch": "weekly-exploration"
+     },
+     "expires_at": "2026-09-06T22:12:57.892750+00:00"
+    },
+    "created_for": "lbuser",
+    "creator": "listenbrainz",
+    "last_modified_at": "2026-08-23T22:13:00.700111+00:00",
+    "public": true
+   }
+  },
+  "identifier": "https://listenbrainz.org/playlist/55f2a01f-3974-46ca-8461-a8a84886eba4",
+  "title": "Weekly Exploration for lbuser, week of 2026-08-24 Mon",
+  "track": [
+   {
+    "album": "Connecting The Dots",
+    "creator": "Dauwd",
+    "duration": 348000,
+    "extension": {
+     "https://musicbrainz.org/doc/jspf#track": {
+      "added_at": "2026-08-23T22:13:00.700111+00:00",
+      "added_by": "listenbrainz",
+      "additional_metadata": {
+       "artists": [
+        {
+         "artist_credit_name": "Dauwd",
+         "artist_mbid": "9c008fba-ea1b-4cc2-9556-72718c959d9f",
+         "join_phrase": ""
+        }
+       ],
+       "caa_id": 31380275915,
+       "caa_release_mbid": "5828cd29-f48b-40cf-8948-df723d8a87fa"
+      },
+      "artist_identifiers": [
+       "https://musicbrainz.org/artist/9c008fba-ea1b-4cc2-9556-72718c959d9f"
+      ]
+     }
+    },
+    "identifier": [
+     "https://musicbrainz.org/recording/dad4820e-4887-4d1e-83e2-6fe1166b3f49"
+    ],
+    "title": "Lydia"
+   },
+   {
+    "album": "Theme (From MindsEye)",
+    "creator": "Rival Consoles",
+    "duration": 276821,
+    "extension": {
+     "https://musicbrainz.org/doc/jspf#track": {
+      "added_at": "2026-08-23T22:13:00.700111+00:00",
+      "added_by": "listenbrainz",
+      "additional_metadata": {
+       "artists": [
+        {
+         "artist_credit_name": "Rival Consoles",
+         "artist_mbid": "803f2853-7e3e-4dff-96a7-9f77b5f56de5",
+         "join_phrase": ""
+        }
+       ],
+       "caa_id": 41948250379,
+       "caa_release_mbid": "5d35f5c4-5423-4508-bb3e-5dc80ce2a894"
+      },
+      "artist_identifiers": [
+       "https://musicbrainz.org/artist/803f2853-7e3e-4dff-96a7-9f77b5f56de5"
+      ]
+     }
+    },
+    "identifier": [
+     "https://musicbrainz.org/recording/0fffc332-04c6-4619-aa9a-3d043c447612"
+    ],
+    "title": "Theme (From MindsEye)"
+   },
+   {
+    "album": "Juno",
+    "creator": "Parra for Cuva",
+    "duration": 321000,
+    "extension": {
+     "https://musicbrainz.org/doc/jspf#track": {
+      "added_at": "2026-08-23T22:13:00.700111+00:00",
+      "added_by": "listenbrainz",
+      "additional_metadata": {
+       "artists": [
+        {
+         "artist_credit_name": "Parra for Cuva",
+         "artist_mbid": "0d10d859-50a4-4cb1-9412-31fb02795f9c",
+         "join_phrase": ""
+        }
+       ],
+       "caa_id": 29910973696,
+       "caa_release_mbid": "0043020f-376b-4898-a3ff-6d45664fd0a1"
+      },
+      "artist_identifiers": [
+       "https://musicbrainz.org/artist/0d10d859-50a4-4cb1-9412-31fb02795f9c"
+      ]
+     }
+    },
+    "identifier": [
+     "https://musicbrainz.org/recording/503ea09d-91b5-467c-b030-8677da9656d6"
+    ],
+    "title": "Her Entrance"
+   }
+  ]
+ }
+}

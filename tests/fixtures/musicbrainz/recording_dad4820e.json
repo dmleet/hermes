@@ -1,0 +1,259 @@
+{
+ "title": "Lydia",
+ "releases": [
+  {
+   "text-representation": {
+    "language": "eng",
+    "script": "Latn"
+   },
+   "status": "Official",
+   "artist-credit": [
+    {
+     "name": "Dauwd",
+     "joinphrase": "",
+     "artist": {
+      "type": "Person",
+      "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+      "country": "GB",
+      "name": "Dauwd",
+      "id": "9c008fba-ea1b-4cc2-9556-72718c959d9f",
+      "disambiguation": "",
+      "sort-name": "Dauwd"
+     }
+    }
+   ],
+   "status-id": "4e304316-386d-3409-af2e-78857eec5cfe",
+   "packaging-id": null,
+   "quality": "normal",
+   "date": "2014-04-07",
+   "packaging": null,
+   "id": "e0e7696e-0f61-4bfd-84a9-5ebc4338b021",
+   "disambiguation": "",
+   "release-group": {
+    "primary-type-id": "6d0c5bf6-7a33-3420-a519-44fc63eedebf",
+    "id": "0c3fbf84-6566-4dd1-9861-b3052901dc13",
+    "disambiguation": "",
+    "artist-credit": [
+     {
+      "name": "Dauwd",
+      "artist": {
+       "sort-name": "Dauwd",
+       "disambiguation": "",
+       "id": "9c008fba-ea1b-4cc2-9556-72718c959d9f",
+       "name": "Dauwd",
+       "country": "GB",
+       "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+       "type": "Person"
+      },
+      "joinphrase": ""
+     }
+    ],
+    "primary-type": "EP",
+    "secondary-types": [
+     "Remix"
+    ],
+    "first-release-date": "2014-04-07",
+    "title": "Kindlinn",
+    "secondary-type-ids": [
+     "0c60f497-ff81-3818-befd-abfc84a4858b"
+    ],
+    "releases": []
+   },
+   "barcode": "880319090417",
+   "release-events": [
+    {
+     "date": "2014-04-07",
+     "area": {
+      "id": "85752fda-13c4-31a3-bee5-0e5cb1f51dad",
+      "name": "Germany",
+      "iso-3166-1-codes": [
+       "DE"
+      ],
+      "sort-name": "Germany",
+      "disambiguation": "",
+      "type": null,
+      "type-id": null
+     }
+    }
+   ],
+   "country": "DE",
+   "title": "Kindlinn"
+  },
+  {
+   "title": "Kindlinn",
+   "country": "XW",
+   "release-events": [
+    {
+     "date": "2014-04",
+     "area": {
+      "iso-3166-1-codes": [
+       "XW"
+      ],
+      "name": "[Worldwide]",
+      "id": "525d4e18-3d00-31b9-a58b-a146a916de8f",
+      "disambiguation": "",
+      "sort-name": "[Worldwide]",
+      "type": null,
+      "type-id": null
+     }
+    }
+   ],
+   "barcode": "",
+   "release-group": {
+    "artist-credit": [
+     {
+      "joinphrase": "",
+      "artist": {
+       "name": "Dauwd",
+       "id": "9c008fba-ea1b-4cc2-9556-72718c959d9f",
+       "disambiguation": "",
+       "sort-name": "Dauwd",
+       "type": "Person",
+       "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+       "country": "GB"
+      },
+      "name": "Dauwd"
+     }
+    ],
+    "disambiguation": "",
+    "primary-type": "EP",
+    "id": "0c3fbf84-6566-4dd1-9861-b3052901dc13",
+    "primary-type-id": "6d0c5bf6-7a33-3420-a519-44fc63eedebf",
+    "secondary-type-ids": [
+     "0c60f497-ff81-3818-befd-abfc84a4858b"
+    ],
+    "title": "Kindlinn",
+    "releases": [],
+    "secondary-types": [
+     "Remix"
+    ],
+    "first-release-date": "2014-04-07"
+   },
+   "disambiguation": "",
+   "id": "2a624360-3269-43ca-b81b-1ca034e155c1",
+   "packaging": "None",
+   "date": "2014-04",
+   "quality": "normal",
+   "packaging-id": "119eba76-b343-3e02-a292-f0f00644bb9b",
+   "status-id": "4e304316-386d-3409-af2e-78857eec5cfe",
+   "artist-credit": [
+    {
+     "name": "Dauwd",
+     "joinphrase": "",
+     "artist": {
+      "type": "Person",
+      "country": "GB",
+      "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+      "name": "Dauwd",
+      "id": "9c008fba-ea1b-4cc2-9556-72718c959d9f",
+      "sort-name": "Dauwd",
+      "disambiguation": ""
+     }
+    }
+   ],
+   "status": "Official",
+   "text-representation": {
+    "script": "Latn",
+    "language": "eng"
+   }
+  },
+  {
+   "text-representation": {
+    "script": "Latn",
+    "language": "eng"
+   },
+   "artist-credit": [
+    {
+     "artist": {
+      "type-id": "ac897045-5043-3294-969b-187360e45d86",
+      "country": null,
+      "type": "Other",
+      "disambiguation": "add compilations to this artist",
+      "sort-name": "Various Artists",
+      "id": "89ad4ac3-39f7-470e-963a-56509c546377",
+      "name": "Various Artists"
+     },
+     "joinphrase": "",
+     "name": "Various Artists"
+    }
+   ],
+   "status": "Official",
+   "packaging-id": null,
+   "quality": "normal",
+   "status-id": "4e304316-386d-3409-af2e-78857eec5cfe",
+   "date": "2015",
+   "packaging": null,
+   "id": "bd62f0e8-b2bd-4ec8-8471-b01e4b9b0c95",
+   "release-group": {
+    "primary-type": "Album",
+    "disambiguation": "",
+    "artist-credit": [
+     {
+      "name": "Various Artists",
+      "joinphrase": "",
+      "artist": {
+       "sort-name": "Various Artists",
+       "disambiguation": "add compilations to this artist",
+       "id": "89ad4ac3-39f7-470e-963a-56509c546377",
+       "name": "Various Artists",
+       "country": null,
+       "type-id": "ac897045-5043-3294-969b-187360e45d86",
+       "type": "Other"
+      }
+     }
+    ],
+    "primary-type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+    "id": "1e9e1dac-0c91-430c-9d0d-008e20a6f734",
+    "releases": [],
+    "title": "Techno Anthology",
+    "secondary-type-ids": [
+     "dd2a21e1-0c00-3729-a7a0-de60b84eb5d1"
+    ],
+    "first-release-date": "2015",
+    "secondary-types": [
+     "Compilation"
+    ]
+   },
+   "disambiguation": "",
+   "barcode": "3596973311924",
+   "title": "The Electronic Music Anthology: Techno",
+   "release-events": [
+    {
+     "date": "2015",
+     "area": {
+      "type": null,
+      "type-id": null,
+      "iso-3166-1-codes": [
+       "FR"
+      ],
+      "name": "France",
+      "id": "08310658-51eb-3801-80de-5a0739207115",
+      "disambiguation": "",
+      "sort-name": "France"
+     }
+    }
+   ],
+   "country": "FR"
+  }
+ ],
+ "first-release-date": "2014-04-07",
+ "artist-credit": [
+  {
+   "artist": {
+    "type": "Person",
+    "country": "GB",
+    "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+    "id": "9c008fba-ea1b-4cc2-9556-72718c959d9f",
+    "name": "Dauwd",
+    "sort-name": "Dauwd",
+    "disambiguation": ""
+   },
+   "joinphrase": "",
+   "name": "Dauwd"
+  }
+ ],
+ "disambiguation": "",
+ "length": 348000,
+ "id": "dad4820e-4887-4d1e-83e2-6fe1166b3f49",
+ "video": false
+}

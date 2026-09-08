@@ -1,0 +1,156 @@
+# beets config for the compose stack: deploy/beets/config.yaml (the production config with
+# the Hermes changes and the 2026-09-07 quality improvements) with ONE difference. The slow
+# or network-bound on-import plugins (fetchart, embedart, lyrics, scrub, replaygain,
+# lastgenre) are commented out so a dev import takes seconds and hits no external service;
+# badfiles, ftintitle and importadded stay on because they are quick and local. Rollout
+# rehearsal: swap the two `plugins:` lines, `docker compose restart beets`, import one album
+# through the agent; the 2026-09-07 rehearsals of Ghosts I–IV are recorded in docs/plan.md.
+# Keep the rest identical to deploy/beets/config.yaml so what the tests exercise is what
+# the cluster runs. The library starts empty; seed known albums (rows only, no import) with
+#   docker compose exec beets beets-python /scripts/seed-dev-library.py
+plugins: musicbrainz badfiles ftintitle importadded unimported missing info edit mbsync duplicates hermes
+# plugins: musicbrainz badfiles ftintitle fetchart embedart lyrics scrub replaygain lastgenre importadded unimported missing info edit mbsync duplicates hermes
+directory: /music
+library: /config/musiclibrary.blb
+art_filename: cover
+threaded: yes
+original_date: yes
+per_disc_numbering: no
+
+ui:
+  color: yes
+  colors:
+    text_success: ['bold', 'green']
+    text_warning: ['bold', 'yellow']
+    text_error: ['bold', 'red']
+    text_highlight: ['bold', 'red']
+    text_highlight_minor: ['white']
+    action_default: ['bold', 'cyan']
+    action: ['bold', 'cyan']
+    # New colors after UI overhaul
+    text: ['normal']
+    text_faint: ['faint']
+    import_path: ['bold', 'blue']
+    import_path_items: ['bold', 'blue']
+    added:   ['green']
+    removed: ['red']
+    changed: ['yellow']
+    added_highlight:   ['bold', 'green']
+    removed_highlight: ['bold', 'red']
+    changed_highlight: ['bold', 'yellow']
+    text_diff_added:   ['bold', 'red']
+    text_diff_removed: ['bold', 'red']
+    text_diff_changed: ['bold', 'red']
+    action_description: ['white']
+
+paths:
+  default: $albumartist/$album%aunique{}/$track - $title
+  singleton: Non-Album/$artist - $title
+  comp: Compilations/$album%aunique{}/$track - $title
+  albumtype_soundtrack: Soundtracks/$album%aunique{}/$track - $title
+
+import:
+  write: yes
+  copy: yes
+  move: no
+  resume: no
+  incremental: yes
+  incremental_skip_later: yes
+  duplicate_action: ask          # quiet (Hermes) imports skip instead; the row goes to review
+  quiet_fallback: skip           # an unsure match goes to review, never a wrong tag
+  from_scratch: yes              # the copy gets your tags, not the uploader's
+  languages: [en]
+  log: /config/beet.log
+
+musicbrainz:
+  extra_tags: [year, catalognum, country, media, label]
+
+match:
+  preferred:
+    media: ['Digital Media', 'CD']
+    countries: ['XW', 'US', 'GB']
+  max_rec:
+    missing_tracks: medium       # never a strong match for an incomplete album
+    unmatched_tracks: medium     # nor for one with files beets cannot place
+
+badfiles:
+  check_on_import: yes
+
+# chroma: NOT enabled. Loading the plugin lowers beets' confidence in a correct release-id
+# match (measured 0.017 -> 0.143 on a 36-track CD rip), so quiet imports (Hermes) would
+# skip. For an untagged manual rip run a one-off session instead:
+#   beet -c /config/chroma.yaml import <dir>     with chroma.yaml: `plugins: musicbrainz chroma`
+# (fpcalc is in the image).
+
+ftintitle:
+  auto: yes
+  format: 'feat. {0}'
+
+lyrics:
+  auto: yes
+  sources: [lrclib, genius]
+  synced: yes
+
+lastgenre:
+  auto: yes
+  source: album
+  count: 2
+  prefer_specific: yes
+
+embedart:
+  auto: yes
+  maxwidth: 1200
+
+fetchart:
+  auto: yes
+  minwidth: 600
+  enforce_ratio: yes
+  sources: [filesystem, coverart, itunes, amazon]
+
+importadded:
+  preserve_mtimes: yes
+
+replaygain:
+  auto: yes
+  backend: ffmpeg
+  overwrite: yes
+  r128: FLAC
+  r128_targetlevel: 93
+
+scrub:
+  auto: yes
+
+replace:
+  '[\\/]': _
+  '^\.': _
+  '[\x00-\x1f]': _
+  '[<>:"\?\*\|]': _
+  '\.$': _
+  '\s+$': ''
+  '^\s+': ''
+  '^-': _
+
+ignore: [
+  ".*",
+  "*~",
+  "*.bin",
+  "*.zip",
+  "*.mp3",
+  "System Volume Information"]
+
+hermes:
+  jobs_dir: /config/hermes-jobs
+
+# discogs:                       # add `discogs` to plugins; needs a personal token
+#   user_token: ...
+
+# hook:                          # Navidrome scan after a manual import (Hermes triggers its own)
+#   hooks:
+#     - event: cli_exit
+#       command: curl -s "http://navidrome.navidrome.svc.cluster.local:4533/rest/startScan?u=USER&p=PASS&v=1.16.1&c=beets&f=json"
+
+# smartplaylist:                 # an m3u of everything Hermes imported, for Navidrome
+#   playlist_dir: /music/_playlists
+#   playlists:
+#     - name: hermes.m3u
+#       query: 'hermes_acquisition::.'

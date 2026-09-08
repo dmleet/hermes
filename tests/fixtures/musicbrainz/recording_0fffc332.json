@@ -1,0 +1,251 @@
+{
+ "releases": [
+  {
+   "text-representation": {
+    "language": "eng",
+    "script": "Latn"
+   },
+   "date": "2025-05-07",
+   "status-id": "4e304316-386d-3409-af2e-78857eec5cfe",
+   "title": "Theme",
+   "release-events": [
+    {
+     "date": "2025-05-07",
+     "area": {
+      "id": "525d4e18-3d00-31b9-a58b-a146a916de8f",
+      "sort-name": "[Worldwide]",
+      "name": "[Worldwide]",
+      "iso-3166-1-codes": [
+       "XW"
+      ],
+      "type-id": null,
+      "disambiguation": "",
+      "type": null
+     }
+    }
+   ],
+   "country": "XW",
+   "disambiguation": "",
+   "artist-credit": [
+    {
+     "joinphrase": "",
+     "name": "Rival Consoles",
+     "artist": {
+      "sort-name": "Rival Consoles",
+      "id": "803f2853-7e3e-4dff-96a7-9f77b5f56de5",
+      "name": "Rival Consoles",
+      "country": "GB",
+      "type": "Person",
+      "disambiguation": "",
+      "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df"
+     }
+    }
+   ],
+   "id": "5d35f5c4-5423-4508-bb3e-5dc80ce2a894",
+   "packaging-id": "119eba76-b343-3e02-a292-f0f00644bb9b",
+   "release-group": {
+    "releases": [],
+    "secondary-types": [],
+    "disambiguation": "",
+    "secondary-type-ids": [],
+    "title": "Theme (From MindsEye)",
+    "id": "cf3b7062-a2ab-4deb-b66d-fe582f9b787b",
+    "artist-credit": [
+     {
+      "joinphrase": "",
+      "name": "Rival Consoles",
+      "artist": {
+       "name": "Rival Consoles",
+       "id": "803f2853-7e3e-4dff-96a7-9f77b5f56de5",
+       "sort-name": "Rival Consoles",
+       "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+       "disambiguation": "",
+       "type": "Person",
+       "country": "GB"
+      }
+     }
+    ],
+    "primary-type-id": "d6038452-8ee0-3f68-affc-2de9a1ede0b9",
+    "primary-type": "Single",
+    "first-release-date": "2025-05-07"
+   },
+   "packaging": "None",
+   "barcode": null,
+   "quality": "normal",
+   "status": "Official"
+  },
+  {
+   "date": "2025-05-07",
+   "status-id": "4e304316-386d-3409-af2e-78857eec5cfe",
+   "text-representation": {
+    "script": "Latn",
+    "language": "eng"
+   },
+   "country": "XW",
+   "disambiguation": "",
+   "title": "Theme (From MindsEye)",
+   "release-events": [
+    {
+     "date": "2025-05-07",
+     "area": {
+      "type": null,
+      "disambiguation": "",
+      "type-id": null,
+      "iso-3166-1-codes": [
+       "XW"
+      ],
+      "name": "[Worldwide]",
+      "sort-name": "[Worldwide]",
+      "id": "525d4e18-3d00-31b9-a58b-a146a916de8f"
+     }
+    }
+   ],
+   "id": "b7c55d9b-229b-446b-ae1a-6793aea289c4",
+   "artist-credit": [
+    {
+     "joinphrase": "",
+     "artist": {
+      "name": "Rival Consoles",
+      "id": "803f2853-7e3e-4dff-96a7-9f77b5f56de5",
+      "sort-name": "Rival Consoles",
+      "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+      "type": "Person",
+      "disambiguation": "",
+      "country": "GB"
+     },
+     "name": "Rival Consoles"
+    }
+   ],
+   "quality": "normal",
+   "status": "Official",
+   "packaging-id": "119eba76-b343-3e02-a292-f0f00644bb9b",
+   "release-group": {
+    "primary-type": "Single",
+    "first-release-date": "2025-05-07",
+    "primary-type-id": "d6038452-8ee0-3f68-affc-2de9a1ede0b9",
+    "id": "cf3b7062-a2ab-4deb-b66d-fe582f9b787b",
+    "artist-credit": [
+     {
+      "name": "Rival Consoles",
+      "artist": {
+       "id": "803f2853-7e3e-4dff-96a7-9f77b5f56de5",
+       "sort-name": "Rival Consoles",
+       "name": "Rival Consoles",
+       "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+       "type": "Person",
+       "disambiguation": "",
+       "country": "GB"
+      },
+      "joinphrase": ""
+     }
+    ],
+    "title": "Theme (From MindsEye)",
+    "secondary-type-ids": [],
+    "disambiguation": "",
+    "releases": [],
+    "secondary-types": []
+   },
+   "packaging": "None",
+   "barcode": "3663729377012"
+  },
+  {
+   "status-id": "4e304316-386d-3409-af2e-78857eec5cfe",
+   "date": "2025-06-10",
+   "text-representation": {
+    "script": "Latn",
+    "language": "eng"
+   },
+   "disambiguation": "",
+   "country": "XW",
+   "release-events": [
+    {
+     "area": {
+      "type-id": null,
+      "type": null,
+      "disambiguation": "",
+      "name": "[Worldwide]",
+      "iso-3166-1-codes": [
+       "XW"
+      ],
+      "id": "525d4e18-3d00-31b9-a58b-a146a916de8f",
+      "sort-name": "[Worldwide]"
+     },
+     "date": "2025-06-10"
+    }
+   ],
+   "title": "MindsEye",
+   "artist-credit": [
+    {
+     "name": "Rival Consoles",
+     "artist": {
+      "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+      "disambiguation": "",
+      "type": "Person",
+      "country": "GB",
+      "id": "803f2853-7e3e-4dff-96a7-9f77b5f56de5",
+      "sort-name": "Rival Consoles",
+      "name": "Rival Consoles"
+     },
+     "joinphrase": ""
+    }
+   ],
+   "id": "bd912510-68c7-498e-896b-d5edcd954b4c",
+   "status": "Official",
+   "quality": "normal",
+   "barcode": "3663729384744",
+   "packaging": "None",
+   "release-group": {
+    "artist-credit": [
+     {
+      "joinphrase": "",
+      "name": "Rival Consoles",
+      "artist": {
+       "name": "Rival Consoles",
+       "id": "803f2853-7e3e-4dff-96a7-9f77b5f56de5",
+       "sort-name": "Rival Consoles",
+       "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+       "country": "GB",
+       "type": "Person",
+       "disambiguation": ""
+      }
+     }
+    ],
+    "id": "e0616a6c-c2bd-4ea3-add7-7879d2e3f961",
+    "primary-type": "Album",
+    "first-release-date": "2025-06-10",
+    "primary-type-id": "f529b476-6e62-324f-b0aa-1f3e33d313fc",
+    "secondary-types": [
+     "Soundtrack"
+    ],
+    "releases": [],
+    "secondary-type-ids": [
+     "22a628ad-c082-3c4f-b1b6-d41665107b88"
+    ],
+    "disambiguation": "",
+    "title": "MindsEye"
+   },
+   "packaging-id": "119eba76-b343-3e02-a292-f0f00644bb9b"
+  }
+ ],
+ "video": false,
+ "disambiguation": "",
+ "title": "Theme (From MindsEye)",
+ "id": "0fffc332-04c6-4619-aa9a-3d043c447612",
+ "artist-credit": [
+  {
+   "joinphrase": "",
+   "name": "Rival Consoles",
+   "artist": {
+    "country": "GB",
+    "type": "Person",
+    "disambiguation": "",
+    "type-id": "b6e035f4-3ce9-331c-97df-83397230b0df",
+    "sort-name": "Rival Consoles",
+    "id": "803f2853-7e3e-4dff-96a7-9f77b5f56de5",
+    "name": "Rival Consoles"
+   }
+  }
+ ],
+ "length": 276821,
+ "first-release-date": "2025-05-07"
+}

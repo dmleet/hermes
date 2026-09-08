@@ -1,0 +1,60 @@
+# Strategic-merge patch for clusters/home/beets/statefulSet.yaml in the flux repo.
+# Replaces the pod's single container: the same beets image with the Hermes plugin installed,
+# but running `hermes-agent` as the process instead of the image's s6 init and web UI (the
+# web plugin is not used). `beet` stays on PATH in this container for manual imports:
+#   kubectl -n beets exec -it beets-0 -- beet import /downloads
+# Add to the beets kustomization as:
+#   patches:
+#     - path: statefulset-patch.yaml
+#
+# Bypassing the image entrypoint means nothing chowns /config on start (linuxserver's init
+# did that from PUID/PGID). /config must already be owned by uid 1000, which it is when the
+# current pod has been writing there as PUID 1000; check with
+#   kubectl -n beets exec beets-0 -- ls -ln /config
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: beets
+spec:
+  template:
+    spec:
+      containers:
+        - name: beets
+          image: <namespace>/beets-hermes:0.5.0-<sha>   # the commit tag from the images workflow; never :latest or a bare version
+          # The plugin's console script; deploy/beets/Dockerfile puts it on PATH regardless
+          # of base image. Replaces the image's entrypoint (s6 init + web UI).
+          command: ["hermes-agent", "--host", "0.0.0.0", "--port", "8338"]
+          env:
+            - name: BEETSDIR
+              value: /config
+            - name: TZ
+              value: America/New_York
+            # PUID/PGID are read by linuxserver's init, which no longer runs; harmless to
+            # leave in the base manifest, unused here.
+          securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+            allowPrivilegeEscalation: false
+          ports:
+            - containerPort: 8338
+              name: agent
+            # The base manifest's `web` port (8337) is removed: nothing listens there.
+            - $patch: delete
+              containerPort: 8337
+          readinessProbe:
+            # Replaces the base manifest's tcpSocket probe on 8337 outright (a merge would
+            # keep both handlers, which is invalid). /healthz also reports whether the
+            # import config is safe (copy, no move/link/delete).
+            $patch: replace
+            httpGet:
+              path: /healthz
+              port: agent
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            failureThreshold: 3
+          resources:
+            requests:
+              cpu: 25m
+              memory: 128Mi
+            limits:
+              memory: 1Gi   # replaygain/ffmpeg during imports

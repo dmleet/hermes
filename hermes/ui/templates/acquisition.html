@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% set t = acq.album_target %}
+{% block title %}#{{ acq.id }} {{ t.artist_name ~ " – " ~ t.title if t else (requested or "unresolved") }} · Hermes{% endblock %}
+{% block content %}
+<p><a href="/">← queue</a></p>
+<h1>
+  <span class="state {{ acq.state }}">{{ acq.state }}</span>
+  {% if t %}{{ t.artist_name }} – {{ t.title }} <span class="muted">({{ t.primary_type }}, {{ t.first_release_year or "?" }})</span>
+  {% else %}{{ requested or "Unresolved request" }}{% endif %}
+</h1>
+{% if t %}
+<p class="muted mono">release group <a href="https://musicbrainz.org/release-group/{{ t.release_group_mbid }}" target="_blank" rel="noopener">{{ t.release_group_mbid }}</a>{% if t.preferred_release_mbid %} · release <a href="https://musicbrainz.org/release/{{ t.preferred_release_mbid }}" target="_blank" rel="noopener">{{ t.preferred_release_mbid }}</a>{% endif %} · library: {{ t.library_status }}{% if acq.origin == "auto" and acq.signal %} · discovered in {{ acq.signal.source_playlist_name or acq.signal.source_playlist_mbid }} (track {{ (acq.signal.position or 0) + 1 }}: {{ requested }}){% elif requested %} · requested as: {{ requested }}{% endif %}</p>
+{% endif %}
+{% if acq.error %}<p class="events error">{{ acq.error }}</p>{% endif %}
+{% if continued_as %}<p class="hint">Continued as <a href="/acquisitions/{{ continued_as }}">#{{ continued_as }}</a>.</p>{% endif %}
+
+{% if acq.state == "NO_MATCH" %}
+<p class="hint">Nothing acceptable on the tracker right now. Search again later, or cancel. (A weekly re-search arrives with the ListenBrainz milestone.)</p>
+{% elif acq.state == "STALLED" %}
+<p class="hint">The download stopped making progress. The next ranked candidate is waiting for your go-ahead.</p>
+{% elif failed_unresolved and can_retry_request %}
+<p class="hint">MusicBrainz could not be reached, so the request never resolved. Retry when it is back.</p>
+{% elif failed_unresolved %}
+<p class="hint">MusicBrainz has no album by that name. Check the spelling on <a href="https://musicbrainz.org/search?type=release_group&query={{ (requested or '') | urlencode }}" target="_blank" rel="noopener">musicbrainz.org</a>, or paste its MBID:
+  <form class="inline" method="post" action="/requests"><label class="sr" for="mbid">MusicBrainz release-group or release MBID</label><input type="text" id="mbid" name="mbid" placeholder="release-group or release MBID" style="min-width:22rem"> <button class="small">Request by MBID</button></form>
+</p>
+{% elif acq.state == "NEEDS_REVIEW" %}
+<p class="hint">MusicBrainz did not give one confident answer. Pick the right release group below (titles open on MusicBrainz), or reject the request. Greyed rows are outside the resolution policy; "Use anyway" overrides it for this request only.</p>
+{% elif acq.state == "IMPORT_NEEDS_REVIEW" %}
+<p class="hint">beets did not finish this import cleanly. Read the last event, fix what it names, then retry.</p>
+{% elif acq.state in ("SUBMITTED", "DOWNLOADING", "IMPORTING", "SEARCHING", "READY_FOR_BEETS") %}
+<p class="hint">In progress; this page refreshes itself.</p>
+{% endif %}
+
+{% if preview %}
+{% set c = preview.candidate %}
+<p class="hint">{{ "Try next candidate" if acq.state == "STALLED" else "Approve" }} will fetch <b>{{ c.title }}</b> ({{ c.size_bytes | mb }}, {{ c.indexer_name }}, {{ "freeleech" if c.freeleech else "not freeleech" }}, {{ c.seeders }} seeders)
+  {% if preview.routed %}and add it to Deluge <b>{{ preview.instance }}</b> at <span class="mono">{{ preview.pending }}</span> with label <span class="mono">{{ preview.label }}</span>.
+  {% else %}<span class="events"><span class="warning">but no Deluge instance is configured for indexer {{ c.indexer_name }} (deluge.instances), so this candidate would be skipped.</span></span>{% endif %}
+  {% if dry_run %}Dry run is on: approving records your decision and grabs nothing.{% endif %}
+</p>
+{% if acq.approved_by and acq.state == "AWAITING_APPROVAL" %}
+<p class="hint">Approved by {{ acq.approved_by }} at {{ acq.approved_at | dt }} while dry run was on, so nothing was grabbed.{% if dry_run %} Turn dry run off and approve again to grab.{% else %} Approve again to grab now.{% endif %}</p>
+{% endif %}
+{% endif %}
+
+<p>
+  {% if can_approve %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/approve"><button class="primary">{{ "Approve again" if acq.approved_by else "Approve" }}{% if dry_run %} (dry run){% endif %}</button></form>{% endif %}
+  {% if can_fallback %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/approve"><button class="primary">Try next candidate{% if dry_run %} (dry run){% endif %}</button></form>{% endif %}
+  {% if can_reject %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/reject" onsubmit="return confirm('Reject this acquisition?')"><label class="sr" for="reason">Reason</label><input type="text" id="reason" name="reason" placeholder="reason (optional)"> <button class="danger">Reject</button></form>{% endif %}
+  {% if can_search %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/search"><button>{{ "Search" if never_searched else "Search again" }}</button></form>{% endif %}
+  {% if can_retry_import %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/retry-import"><button>Retry import</button></form>{% endif %}
+  {% if can_retry_request %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/retry"><button>Retry request</button></form>{% endif %}
+  {% if can_cancel %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/cancel" onsubmit="return confirm('Cancel this acquisition?')"><button class="danger">Cancel</button></form>{% endif %}
+</p>
+
+{% if review_candidates %}
+<h2>Which release group did you mean?</h2>
+<div class="scroll">
+<table>
+  <tr><th></th><th>Artist</th><th>Title</th><th>Type</th><th>First release</th><th>Fit</th><th>Policy</th></tr>
+  {% for c in review_candidates %}
+  <tr class="{{ '' if c.policy_ok else 'rejected' }}">
+    <td class="nowrap"><form class="inline" method="post" action="/acquisitions/{{ acq.id }}/resolve"><input type="hidden" name="release_group_mbid" value="{{ c.release_group_mbid }}"><button class="{{ 'primary' if c.policy_ok else '' }} small">{{ "Use this" if c.policy_ok else "Use anyway" }}</button></form></td>
+    <td class="nowrap">{{ c.artist }}</td>
+    <td><a href="https://musicbrainz.org/release-group/{{ c.release_group_mbid }}" target="_blank" rel="noopener" title="open on MusicBrainz">{{ c.title }}</a></td>
+    <td class="nowrap">{{ c.primary_type }}{% if c.secondary_types %} <span class="muted">({{ c.secondary_types | join(", ") }})</span>{% endif %}</td>
+    <td class="nowrap">{{ c.first_release_date or "?" }}</td>
+    <td class="muted">artist {{ "%.2f" % c.artist_similarity }} · title {{ "%.2f" % c.title_similarity }} · mb {{ c.mb_score }}</td>
+    <td class="muted">{{ c.rejected_reason or "ok" }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+<p class="hint">Or paste any release-group MBID:
+  <form class="inline" method="post" action="/acquisitions/{{ acq.id }}/resolve"><label class="sr" for="rg">Release group MBID</label><input type="text" id="rg" name="release_group_mbid" placeholder="release-group MBID"> <button class="small">Use MBID</button></form>
+</p>
+{% endif %}
+
+{% if candidates %}
+<h2>Candidates</h2>
+<div class="scroll">
+<table>
+  <tr><th>Rank</th><th>Title</th><th>Indexer</th><th>Size</th><th>Rate</th><th>Seeds</th><th>Free</th><th>Match</th><th>Reason</th></tr>
+  {% for c in candidates %}
+  {% set est = c.parsed_quality.get("estimate") %}
+  <tr class="{{ 'rejected' if c.rejected_reason else '' }}">
+    <td>{{ "#%d" % c.rank if c.rank else "" }}</td>
+    <td class="mono">{{ c.title }}</td>
+    <td>{{ c.indexer_name }}</td>
+    <td>{{ c.size_bytes | mb }}</td>
+    <td class="nowrap muted" title="{{ 'stated in the title' if est and est.source == 'title' else 'inferred from size and playing time' }}">{% if est %}{{ "" if est.source == "title" else "~" }}{{ est.rate_khz }} kHz{% if est.kbps %} <span class="small">{{ est.kbps }} kbps</span>{% endif %}{% endif %}</td>
+    <td>{{ c.seeders }}</td>
+    <td>{{ "yes" if c.freeleech else "" }}</td>
+    <td>{{ "%.2f" % c.match_score if c.match_score is not none else "" }}</td>
+    <td class="muted">{{ c.rejected_reason or "" }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+{% endif %}
+
+{% if acq.grab_attempts %}
+<h2>Grab attempts</h2>
+<div class="scroll">
+<table>
+  <tr><th>#</th><th>Outcome</th><th>Deluge</th><th>Infohash</th><th>Name</th><th>Location</th><th>Done</th><th>Import job</th></tr>
+  {% for g in acq.grab_attempts %}
+  <tr>
+    <td>{{ g.id }}</td><td>{{ g.outcome }}</td><td>{{ g.deluge_instance }}</td>
+    <td class="mono">{{ g.infohash[:12] }}…</td><td class="mono">{{ g.torrent_name }}</td>
+    <td class="mono">{{ g.completed_path or g.download_location }}</td>
+    <td>{{ g.last_total_done | mb }}</td>
+    <td class="mono">{{ g.import_job_id or "" }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+{% endif %}
+
+<h2>Events</h2>
+<ul class="events">
+  {% for e in acq.events %}
+  {% set extra = e.data | event_data %}
+  <li class="{{ e.level }}"><span class="muted mono">{{ e.at | dt }}</span> {{ e.message }}
+    {% if extra %}
+    <details><summary>details</summary><pre>{{ extra | tojson(indent=1) }}</pre></details>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

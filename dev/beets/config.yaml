@@ -75,6 +75,12 @@ match:
 
 badfiles:
   check_on_import: yes
+  # The defaults are `ask` for both, and in a quiet import (Hermes) `ask` means continue:
+  # the errors are printed and the album is imported anyway. `skip` makes a corrupt file
+  # refuse the album, which Hermes turns into review. Warnings stay `continue`: an unset
+  # MD5 in STREAMINFO (common on WEB releases) and MP3 Xing header counts are not damage.
+  import_action_on_error: skip
+  import_action_on_warning: continue
 
 # chroma: NOT enabled. Loading the plugin lowers beets' confidence in a correct release-id
 # match (measured 0.017 -> 0.143 on a 36-track CD rip), so quiet imports (Hermes) would

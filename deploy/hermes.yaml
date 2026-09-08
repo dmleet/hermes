@@ -99,7 +99,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: hermes
-          image: <namespace>/hermes:0.5.1-<sha>   # the commit tag from the images workflow
+          image: <namespace>/hermes:0.5.2-<sha>   # the commit tag from the images workflow
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000

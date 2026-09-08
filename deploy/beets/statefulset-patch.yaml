@@ -11,6 +11,8 @@
 # did that from PUID/PGID). /config must already be owned by uid 1000, which it is when the
 # current pod has been writing there as PUID 1000; check with
 #   kubectl -n beets exec beets-0 -- ls -ln /config
+# The Dockerfile remaps the image's `abc` user to uid/gid 1000 at build time (ARG UID/GID)
+# so the uid resolves to a name without the init.
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:

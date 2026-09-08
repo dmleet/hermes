@@ -14,6 +14,14 @@
 # image is tagged with the beets version it carries (`beet version`), not with Hermes's.
 FROM lscr.io/linuxserver/beets:2.14.0@sha256:bbd09e2b19a0903f3f916c26e9ae5c30004913b293228b422154c0f9fecb2cd9
 
+# The cluster runs the container as this uid/gid directly (runAsUser), bypassing the
+# linuxserver init that would normally remap its `abc` user from PUID/PGID. Remap at build
+# time instead so the uid has a passwd entry: without one `whoami` fails and anything
+# calling getpwuid() throws. Override for a setup that runs beets as another uid.
+ARG UID=1000
+ARG GID=1000
+RUN usermod -o -u "$UID" abc && groupmod -o -g "$GID" abc
+
 COPY beets-hermes /tmp/beets-hermes
 RUN set -eu; \
     # Use the same interpreter that owns `beet`, so the plugin lands in beets' environment.

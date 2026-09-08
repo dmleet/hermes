@@ -38,6 +38,8 @@ data:
   # dry_run stays true until milestone M6.
   config.yaml: |
     dry_run: true
+    search:
+      indexers: []                # TODO: Prowlarr indexer names Hermes may search (empty: all enabled)
     listenbrainz:
       user: ""                    # TODO: ListenBrainz user name
     beets:
@@ -99,7 +101,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: hermes
-          image: <namespace>/hermes:0.5.2-<sha>   # the commit tag from the images workflow
+          image: <namespace>/hermes:0.6.0-<sha>   # the commit tag from the images workflow
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000

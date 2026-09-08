@@ -91,6 +91,43 @@ def complete_duration_ms(lengths: list[int]) -> int | None:
     return sum(lengths)
 
 
+async def _allowed_indexer_ids(
+    session: Session, prowlarr: ProwlarrClient, policy: Policy, acq: Acquisition
+) -> list[int] | None:
+    """Resolve `search.indexers` (names, as Prowlarr shows them) to indexer ids.
+
+    None means no restriction. A configured name Prowlarr does not know gets a warning
+    event rather than silently narrowing the search: a renamed indexer should be noticed.
+    """
+    wanted = policy.search.indexers
+    if not wanted:
+        return None
+    known = {ix["name"].casefold(): ix for ix in await prowlarr.indexers()}
+    ids: list[int] = []
+    for name in wanted:
+        ix = known.get(name.casefold())
+        if ix is None:
+            session.add(
+                Event(
+                    acquisition=acq,
+                    level="warning",
+                    message=f"search.indexers names {name!r}, which Prowlarr does not have",
+                )
+            )
+        elif not ix["enable"]:
+            session.add(
+                Event(
+                    acquisition=acq,
+                    level="warning",
+                    message=f"search.indexers names {name!r}, which is disabled in Prowlarr",
+                )
+            )
+        else:
+            ids.append(int(ix["id"]))
+    session.commit()
+    return ids
+
+
 async def run_search(
     session: Session,
     prowlarr: ProwlarrClient,
@@ -119,7 +156,18 @@ async def run_search(
         track_count = len(lengths) if duration_ms else 0
 
     try:
-        releases = await prowlarr.search(query)
+        indexer_ids = await _allowed_indexer_ids(session, prowlarr, policy, acq)
+        if policy.search.indexers and not indexer_ids:
+            transition(
+                session,
+                acq,
+                S.FAILED,
+                "none of search.indexers exists in Prowlarr: " + ", ".join(policy.search.indexers),
+                data={"retryable": True},
+            )
+            session.commit()
+            return acq
+        releases = await prowlarr.search(query, indexer_ids=indexer_ids)
     except httpx.HTTPError as exc:
         transition(
             session,

@@ -138,3 +138,63 @@ def test_search_endpoint_refuses_unresolved(respx_mock: respx.Router, client: Te
     resp = client.post(f"/api/acquisitions/{body['id']}/search")
     assert resp.status_code == 409
     assert client.post("/api/acquisitions/9999/search").status_code == 404
+
+
+def _mock_indexers(router: respx.Router) -> respx.Route:
+    return router.get(f"{PROWLARR}/api/v1/indexer").respond(
+        json=[
+            {"id": 1, "name": "PandaCD", "enable": True},
+            {"id": 2, "name": "Tracker B", "enable": True},
+            {"id": 3, "name": "Sleepy", "enable": False},
+        ]
+    )
+
+
+def test_search_indexers_restricts_the_prowlarr_query(
+    respx_mock: respx.Router, client: TestClient
+) -> None:
+    search = _mock_upstreams(respx_mock)
+    _mock_indexers(respx_mock)
+    policy = client.app.state.policy
+    policy.search.indexers = ["pandacd", "Tracker B", "Sleepy", "Renamed"]
+    try:
+        body = client.post(
+            "/api/requests", json={"artist": "Nine Inch Nails", "title": "The Slip"}
+        ).json()
+    finally:
+        policy.search.indexers = []
+    assert body["state"] == "AWAITING_APPROVAL", body["events"]
+    params = search.calls.last.request.url.params
+    assert params.get_list("indexerIds") == ["1", "2"]  # case-insensitive; disabled left out
+    warnings = [e["message"] for e in body["events"] if e["level"] == "warning"]
+    assert warnings == [
+        "search.indexers names 'Sleepy', which is disabled in Prowlarr",
+        "search.indexers names 'Renamed', which Prowlarr does not have",
+    ]
+
+
+def test_search_indexers_none_known_fails_retryably(
+    respx_mock: respx.Router, client: TestClient
+) -> None:
+    search = _mock_upstreams(respx_mock)
+    _mock_indexers(respx_mock)
+    policy = client.app.state.policy
+    policy.search.indexers = ["Renamed"]
+    try:
+        body = client.post(
+            "/api/requests", json={"artist": "Nine Inch Nails", "title": "The Slip"}
+        ).json()
+    finally:
+        policy.search.indexers = []
+    assert body["state"] == "FAILED" and "none of search.indexers exists" in body["error"]
+    assert not search.called  # nothing is searched rather than everything
+    body = client.post(f"/api/acquisitions/{body['id']}/search").json()
+    assert body["state"] == "AWAITING_APPROVAL"  # unrestricted again after the fix
+
+
+def test_search_indexers_empty_means_all(respx_mock: respx.Router, client: TestClient) -> None:
+    search = _mock_upstreams(respx_mock)
+    indexers = _mock_indexers(respx_mock)
+    client.post("/api/requests", json={"artist": "Nine Inch Nails", "title": "The Slip"})
+    assert "indexerIds" not in search.calls.last.request.url.params
+    assert not indexers.called

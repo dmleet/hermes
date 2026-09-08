@@ -15,6 +15,7 @@ listenbrainz:
 search:
   max_retries: 4                  # searches per acquisition before NO_MATCH is given up
   retry_days: 7                   # days between automatic re-searches of NO_MATCH rows
+  indexers: []                    # Prowlarr indexer names to search; empty means every enabled one
 
 resolution:
   allow_ep: true

@@ -43,6 +43,9 @@ class SearchPolicy(_Strict):
 
     max_retries: int = Field(default=4, ge=0)  # searches per acquisition before giving up
     retry_days: int = Field(default=7, ge=1)  # wait between automatic re-searches
+    # Prowlarr indexer names to search; empty means every enabled indexer. Lets a Prowlarr
+    # shared with other apps keep indexers Hermes should not spend queries on.
+    indexers: list[str] = Field(default_factory=list)
 
 
 class ResolutionPolicy(_Strict):

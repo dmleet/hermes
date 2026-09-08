@@ -112,7 +112,7 @@ this stack, not the cluster (docs/plan.md A12).
   Gazelle and PandaCD title families → `ParsedTitle`), `matching.py` (does a parsed title
   describe the target), `ranking.py` (policy filters with reasons, weighted rank, inferred
   sample rate), `search.py` (SEARCHING → CANDIDATES_READY | NO_MATCH, every Prowlarr row
-  persisted as a Candidate), `approval.py` (the gate: `approval.timid` waits for a human on
+  persisted as a Candidate; `search.indexers` narrows the query to named indexers), `approval.py` (the gate: `approval.timid` waits for a human on
   everything, otherwise manual requests self-approve and automated ones need a rule),
   `submit.py` (torrent via Prowlarr → `hermes.bencode` infohash → routed Deluge with
   per-torrent paths and label → GrabAttempt; no torrent bytes leave the function),

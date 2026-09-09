@@ -93,9 +93,17 @@ ftintitle:
   format: 'feat. {0}'
 
 lyrics:
-  auto: yes
-  sources: [lrclib, genius]
+  # Off the import path: lyrics sites are third parties with quotas, and one of them
+  # rate-limiting must never hold or fail an import. Run `beet lyrics` from the pod now
+  # and then; it only touches items that have none yet.
+  auto: no
+  sources: [lrclib, genius, lrcmux]
   synced: yes
+  # beets ships one built-in Genius token that every install shares, so Genius answers
+  # 429 before you have sent a request. Set your own client access token
+  # (genius.com/api-clients); the option is real but undocumented, and `beet config`
+  # redacts it.
+  # genius_api_key: <your Genius client access token>
 
 lastgenre:
   auto: yes
@@ -112,6 +120,13 @@ fetchart:
   minwidth: 600
   enforce_ratio: yes
   sources: [filesystem, coverart, itunes, amazon]
+  # `albumart` added: older imports left albumart.jpg in the folder unregistered, and the
+  # filesystem source only looks for these names. `beet fetchart` then adopts them.
+  cover_names: [cover, albumart, front, art, album, folder]
+
+unimported:
+  # Report audio only; stray art and rip logs are not what this command is for.
+  ignore_extensions: [jpg, jpeg, png, log, cue, txt, nfo, m3u]
 
 importadded:
   preserve_mtimes: yes

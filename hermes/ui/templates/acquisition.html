@@ -86,7 +86,7 @@
   {% set est = c.parsed_quality.get("estimate") %}
   <tr class="{{ 'rejected' if c.rejected_reason else '' }}">
     <td>{{ "#%d" % c.rank if c.rank else "" }}</td>
-    <td class="mono">{{ c.title }}</td>
+    <td class="mono">{% if c.info_link %}<a href="{{ c.info_link }}" target="_blank" rel="noopener noreferrer" title="open this release on {{ c.indexer_name }}">{{ c.title }}</a>{% else %}{{ c.title }}{% endif %}</td>
     <td>{{ c.indexer_name }}</td>
     <td>{{ c.size_bytes | mb }}</td>
     <td class="nowrap muted" title="{{ 'stated in the title' if est and est.source == 'title' else 'inferred from size and playing time' }}">{% if est %}{{ "" if est.source == "title" else "~" }}{{ est.rate_khz }} kHz{% if est.kbps %} <span class="small">{{ est.kbps }} kbps</span>{% endif %}{% endif %}</td>

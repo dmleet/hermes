@@ -173,10 +173,13 @@ only process, and Hermes reaches it only via that agent on 8338.
   defaults to true, so by default a human approves every grab. Ratio and token limits are
   the tracker's numbers; blast radius is Prowlarr's per-indexer Grab Limit.
 - Prowlarr is search-only. Hermes fetches the `.torrent` and adds it to Deluge itself.
-- Hermes keeps no torrent file and no tracker URL, on disk or in the database: a private
+- Hermes keeps no torrent file and no announce URL, on disk or in the database: a private
   tracker's torrent carries the account passkey in its announce URL. The bytes live only
   inside `submit()`; the download is tracked by infohash; what the importer needs from the
-  file is `GrabAttempt.download_shape`. Deluge holds the file for seeding.
+  file is `GrabAttempt.download_shape`. Deluge holds the file for seeding. What a candidate
+  row may carry is a link that is not a credential: Prowlarr's proxied `download_url` (its
+  own API key, on a service with no ingress) and `info_url`, the indexer's page for that
+  listing, which the UI links the title to so a human can go and look at it.
 - MusicBrainz calls go through one rate limiter (1 req/s) with an identifying User-Agent.
 - The tree carries no tracker names, account names, site URLs or machine paths: fixtures
   are scrubbed, prose says "tracker A"/"tracker B", local facts live in gitignored files.

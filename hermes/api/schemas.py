@@ -84,6 +84,7 @@ class CandidateOut(BaseModel):
     seeders: int | None
     leechers: int | None
     freeleech: bool
+    info_url: str | None
     match_score: float | None
     rejected_reason: str | None
     parsed_quality: dict[str, Any]

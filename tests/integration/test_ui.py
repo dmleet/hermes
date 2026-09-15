@@ -307,6 +307,26 @@ def test_approval_page_previews_the_grab_and_shows_dry_run_approval(
     assert dry and all(e["level"] == "info" for e in dry)
 
 
+def test_candidate_title_links_to_the_indexer_page(
+    respx_mock: respx.Router, client: TestClient
+) -> None:
+    """The captured search reports an info page per release; the title opens it. The page
+    is the indexer's own, not a download link -- the bytes still come from Prowlarr's proxy
+    at submit time."""
+    respx_mock.get(f"{MB}/release-group/").respond(json=_slip_search())
+    respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
+    respx_mock.get(f"{PROWLARR}/api/v1/search").respond(json=load("prowlarr/search_pandacd_nin"))
+    location = client.post(
+        "/requests", data={"artist": "Nine Inch Nails", "title": "The Slip"}, follow_redirects=False
+    ).headers["location"]
+    acq_id = int(location.split("/acquisitions/")[1].split("?")[0])
+    page = _html(client, location).text
+    assert 'rel="noopener noreferrer"' in page
+    assert 'href="https://pandacd.io/release/1-the-slip/#t2"' in page
+    assert "action=download" not in page  # the guid is a download link on this indexer
+    assert client.get(f"/api/acquisitions/{acq_id}").json()["candidates"][0]["info_url"]
+
+
 def test_queue_filters_and_paging(respx_mock: respx.Router, client: TestClient) -> None:
     respx_mock.get(f"{MB}/release-group/").respond(json=_slip_search())
     respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})

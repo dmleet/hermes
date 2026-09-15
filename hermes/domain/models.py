@@ -196,6 +196,11 @@ class Candidate(Base):
     indexer_name: Mapped[str] = mapped_column(String(64))
     title: Mapped[str] = mapped_column(String(512))
     download_url: Mapped[str | None] = mapped_column(String(1024))
+    # The indexer's human page for this release, for the UI to link the title to. Prowlarr
+    # reports it per indexer and not every one has it, so it stays optional. It is not a
+    # download link and carries no credential: the bytes are fetched from `download_url`,
+    # which is Prowlarr's own proxy.
+    info_url: Mapped[str | None] = mapped_column(String(1024))
     size_bytes: Mapped[int | None] = mapped_column(Integer)
     seeders: Mapped[int | None] = mapped_column(Integer)
     leechers: Mapped[int | None] = mapped_column(Integer)
@@ -206,6 +211,14 @@ class Candidate(Base):
     rejected_reason: Mapped[str | None] = mapped_column(String(255))
 
     acquisition: Mapped[Acquisition] = relationship(back_populates="candidates")
+
+    @property
+    def info_link(self) -> str | None:
+        """``info_url`` when it is one to follow. An indexer that reports none, or reports
+        something that is not an http(s) URL, leaves the title unlinked rather than
+        rendering a dead or surprising link."""
+        url = self.info_url or ""
+        return url if url.startswith(("http://", "https://")) else None
 
 
 class GrabAttempt(Base):

@@ -35,6 +35,7 @@ def _to_row(acq: Acquisition, c: RankedCandidate) -> Candidate:
         indexer_name=r.indexer,
         title=r.title,
         download_url=r.download_url,
+        info_url=r.info_url,
         size_bytes=r.size,
         seeders=r.seeders,
         leechers=r.leechers,

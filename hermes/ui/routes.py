@@ -14,6 +14,7 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy import func, select
 
+from hermes import __version__
 from hermes.api.routes import Ctx, DbSession
 from hermes.api.schemas import requested_label
 from hermes.domain.models import Acquisition, Playlist, Signal
@@ -34,6 +35,9 @@ from hermes.services.submit import next_candidate
 
 router = APIRouter(include_in_schema=False)
 templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
+# Every page shows which Hermes it is, error pages included: the cluster pins commit
+# tags, so the header is the quickest way to tell whether a roll actually landed.
+templates.env.globals["version"] = __version__
 
 STATE_ORDER = [
     S.AWAITING_APPROVAL,

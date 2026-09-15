@@ -307,6 +307,15 @@ def test_approval_page_previews_the_grab_and_shows_dry_run_approval(
     assert dry and all(e["level"] == "info" for e in dry)
 
 
+def test_every_page_shows_the_running_version(client: TestClient) -> None:
+    """The cluster pins commit tags, so the header is how you tell which Hermes answered.
+    Error pages carry it too: a version is most wanted when something looks wrong."""
+    from hermes import __version__
+
+    assert f"v{__version__}" in _html(client, "/").text
+    assert f"v{__version__}" in _html(client, "/acquisitions/999").text
+
+
 def test_candidate_title_links_to_the_indexer_page(
     respx_mock: respx.Router, client: TestClient
 ) -> None:

@@ -15,6 +15,8 @@
   body { margin:0; font:14px/1.45 system-ui, sans-serif; color:var(--fg); background:var(--bg); }
   header { display:flex; gap:1rem; align-items:baseline; padding:.75rem 1.25rem; border-bottom:1px solid var(--line); background:var(--card); flex-wrap:wrap; }
   header a { color:var(--fg); text-decoration:none; font-weight:600; }
+  header .brand { display:flex; gap:.35rem; align-items:baseline; }
+  header .brand .version { font-size:12px; color:var(--muted); font-weight:400; }
   header .modes { margin-left:auto; display:flex; gap:.4rem; flex-wrap:wrap; }
   header .mode { font-size:12px; padding:.15rem .5rem; border-radius:.5rem; background:var(--line); color:var(--muted); white-space:nowrap; }
   header .mode.dry { background:var(--warn-bg); color:var(--warn); }
@@ -57,7 +59,7 @@
 </head>
 <body>
 <header>
-  <a href="/">Hermes</a>
+  <span class="brand"><a href="/">Hermes</a><span class="version" title="running version">v{{ version }}</span></span>
   <span class="muted">acquisition queue</span>
   <a href="/docs" class="muted" style="font-weight:400">API</a>
   <span class="modes">

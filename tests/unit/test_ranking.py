@@ -2,7 +2,15 @@ from __future__ import annotations
 
 from hermes.config import QualityPolicy
 from hermes.integrations.prowlarr import ReleaseResult
-from hermes.services.ranking import evaluate
+from hermes.services.ranking import (
+    ENCODING_WEIGHT,
+    FREELEECH_TIEBREAK,
+    LOG_CUE_BONUS,
+    MEDIA_WEIGHT,
+    SEEDERS_TIEBREAK,
+    SIZE_TIEBREAK_PER_BYTE,
+    evaluate,
+)
 
 TARGET = dict(artist="Radiohead", title="OK Computer", year=1997)
 
@@ -80,11 +88,46 @@ def test_ranking_order_reflects_policy() -> None:
     )
     ranked = _rank(QualityPolicy(keep_candidates=10), cd_nolog, web24, cd_log, web16, free_cd)
     order = [c.release.guid for c in ranked if c.accepted]
-    assert order[0] == "free", "freeleech outranks everything"
+    assert order[0] == web24.guid, "the best release wins; no flag can buy the top spot"
     assert order.index(web24.guid) < order.index(web16.guid), "24-bit preferred by default"
     assert order.index(web16.guid) < order.index(cd_log.guid), "WEB preferred over CD"
     assert order.index(cd_log.guid) < order.index(cd_nolog.guid), "log+cue beats bare CD"
+    # free_cd is cd_nolog with the flag: it may break that tie and nothing more.
+    assert order.index("free") < order.index(cd_nolog.guid), "freeleech breaks a tie"
+    assert order.index(cd_log.guid) < order.index("free"), "freeleech does not cross a quality gap"
     assert [c.rank for c in ranked if c.accepted] == [1, 2, 3, 4, 5]
+
+
+def test_tiebreaks_cannot_outweigh_quality() -> None:
+    """The invariant behind the tie-break weights: seeders, freeleech and size order
+    releases that are equally good and must never decide between releases that are not.
+    Everything they can contribute together stays under half of the smallest quality
+    difference the ranking can express. Lower a quality weight or raise a tie-break and
+    this fails -- which is the point."""
+    policy = QualityPolicy()
+    tiebreaks = (
+        SEEDERS_TIEBREAK + FREELEECH_TIEBREAK + policy.max_bytes_lossless24 * SIZE_TIEBREAK_PER_BYTE
+    )
+    smallest_quality_step = min(
+        min(policy.edition_penalties.values()),  # remaster, 0.1 by default
+        MEDIA_WEIGHT / len(policy.media_preference),  # one step of the media order
+        ENCODING_WEIGHT / len(policy.encoding_preference),
+        LOG_CUE_BONUS,
+    )
+    assert tiebreaks < smallest_quality_step / 2, (tiebreaks, smallest_quality_step)
+
+
+def test_seeders_never_decide_between_different_quality() -> None:
+    """Captured from tracker A: the OKNOTOK reissue of OK Computer has four times the
+    seeders of the plain album, and used to win because of it. The remaster is the smallest
+    quality difference the policy expresses, and even that outweighs every seeder."""
+    plain = _r("Radiohead - OK Computer (1997) [Album] [FLAC Lossless / WEB]", seeders=1)
+    remastered = _r(
+        "Radiohead - OK Computer (1997) [Album] [Remaster 2017] [FLAC Lossless / WEB]",
+        seeders=500,
+    )
+    ranked = _rank(None, remastered, plain)
+    assert [c.release.guid for c in ranked if c.accepted][0] == plain.guid
 
 
 def test_plain_album_outranks_deluxe_and_anniversary_editions() -> None:

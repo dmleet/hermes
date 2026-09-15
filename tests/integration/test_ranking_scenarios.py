@@ -35,9 +35,11 @@ class Case:
 
 
 CASES = [
-    # OKNOTOK has more seeders than the plain album; the reissue penalty decides. Kendrick:
-    # no plain WEB FLAC exists, so the plain CD rip beats the Deluxe WEB uploads. Abbey Road:
-    # every lossless upload is some reissue; a logged CD wins.
+    # OKNOTOK has four times the seeders of the plain album and is 24-bit; the reissue
+    # penalty still decides (until 2026-09-15 the seeders did, and the reissue won).
+    # Kendrick: no plain WEB FLAC exists, so the plain CD rip beats the Deluxe WEB uploads.
+    # Abbey Road: every lossless upload is some reissue, so the edition penalties pick the
+    # least reworked one -- the 2015 remaster, ahead of a logged 1987 Italy reissue CD.
     Case(
         "radiohead_ok_computer",
         "Radiohead",
@@ -146,7 +148,6 @@ CASES = [
         1969,
         duration_ms=2843000,
         tracks=17,
-        top_media="CD",
         top_plain=False,
     ),
     Case(

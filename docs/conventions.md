@@ -35,13 +35,28 @@ add a regression test in `tests/integration/test_review_fixes.py`.
 
 ## Ranking and the quality policy
 
-- Weights live in `ranking.py`: freeleech 3, media preference 2, encoding 1.5, match 2,
-  seeders at most 1 (capped at ten seeders), CD log+cue 0.25, edition penalties from
-  `quality.edition_penalties` (deluxe, anniversary and expanded 1.0; remaster 0.1; other
-  reissue labels 0.8; an unknown edition flag counts as a reissue).
-- The log/cue bonus must stay below the media preference gap or a logged CD outranks a
-  preferred WEB release. The deluxe penalty must stay below that gap too, so a plain CD rip
-  beats a deluxe WEB release but not a plain one.
+- Weights live in `ranking.py` and fall in two groups. **Quality**, what the release is:
+  match 2, media preference 2, encoding preference 1.5, indexer preference 1, CD log+cue
+  0.25, and edition penalties from `quality.edition_penalties` (deluxe, anniversary and
+  expanded 1.0; remaster 0.1; other reissue labels 0.8; an unknown edition flag counts as a
+  reissue). **Tie-breakers**, what the release costs and how fast it arrives: seeders at
+  most 0.02 (capped at ten seeders), freeleech 0.01, smaller size at most 0.004.
+- **A tie-breaker must never decide between releases of different quality.** The three
+  together reach 0.034, under half the smallest quality difference the ranking can express
+  (the remaster penalty, 0.1). `test_ranking.py::test_tiebreaks_cannot_outweigh_quality`
+  fails if any weight moves far enough to break that, in either direction. Seeders were
+  worth up to 0.2 until 2026-09-15 and decided two of the twenty captured scenarios, both
+  times in favour of the more heavily reissued release. `quality.min_seeders` is what keeps
+  a dead swarm out, not the ranking -- no seeder count can make up a quality difference, so
+  that filter is the whole seeder policy.
+- A preference list spends its weight across its entries, so the gap between neighbours is
+  the weight over the length of the list: `media_preference` with five entries steps by 0.4,
+  `encoding_preference` with two by 0.75. Shortening a list widens its gaps -- an entry that
+  is not on the list scores zero, so `encoding_preference: [lossless24]` is worth the full
+  1.5 over everything else rather than 0.75.
+- The log/cue bonus must stay below the media preference step or a logged CD outranks a
+  preferred WEB release. The deluxe-class penalties must stay above that step, so a plain CD
+  rip beats a deluxe WEB release but not a plain one.
 - `quality.encoding_preference` is 24-bit first and `quality.max_sample_rate_khz` (96) keeps
   192 kHz out; these two go together. All three knobs are the user's taste, in config.
 - Sample rate is inferred, not read. `ranking.estimate_rate` divides size by the target's

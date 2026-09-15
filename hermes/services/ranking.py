@@ -1,9 +1,10 @@
 """Filter and rank search results for one album target (docs/plan.md 5.5).
 
 Hard filters reject with a reason that is kept on the candidate so the UI can show why.
-Survivors get a rank from a weighted score: freeleech, media and encoding preference,
-log/cue for CD rips, seeders, and the match score. Weights are deliberately simple; the
-policy decides the preference orders.
+Survivors get a rank from a weighted score built from the match score, media and encoding
+preference, edition penalties and log/cue for CD rips -- everything that says which release
+is the one to own -- plus seeders, freeleech and size as tie-breakers too small to outweigh
+any of it. Weights are deliberately simple; the policy decides the preference orders.
 """
 
 from __future__ import annotations
@@ -17,6 +18,25 @@ from hermes.services.matching import MatchResult, match
 from hermes.services.title_parser import ParsedTitle, parse_title
 
 MIN_BYTES = 5_000_000  # below this it is not an album
+
+# Tie-breakers. They order candidates that are otherwise equally good and must never decide
+# between candidates that are not: their total stays an order of magnitude below the
+# smallest quality difference the ranking can express, which is the remaster edition
+# penalty (`quality.edition_penalties`, 0.1 by default). A seeder count or a freeleech flag
+# is about what a release costs and how fast it arrives, never about which release is the
+# one to own. `test_ranking.py::test_tiebreaks_cannot_outweigh_quality` pins the margin.
+SEEDERS_TIEBREAK = 0.02  # the whole range, reached at ten seeders
+FREELEECH_TIEBREAK = 0.01
+SIZE_TIEBREAK_PER_BYTE = 1e-12  # 0.004 over the largest release the size caps allow
+
+# Quality weights: what a release is, rather than what it costs. A preference list spends
+# its weight across its entries, so the gap between two neighbours is the weight divided by
+# the length of the list -- a shorter list is a stronger preference.
+MATCH_WEIGHT = 2.0
+MEDIA_WEIGHT = 2.0
+ENCODING_WEIGHT = 1.5
+INDEXER_WEIGHT = 1.0
+LOG_CUE_BONUS = 0.25  # separates CD rips from each other; stays under the media gap
 
 # Tracker release types -> the MusicBrainz primary/secondary type they correspond to.
 _TYPE_TO_MB = {
@@ -231,18 +251,19 @@ _MIX_FLAGS = frozenset({"mono", "stereo", "explicit"})
 
 def rank_score(c: RankedCandidate, policy: QualityPolicy) -> float:
     p, r = c.parsed, c.release
-    score = 2.0 * c.match.score
+    score = MATCH_WEIGHT * c.match.score
     score -= edition_penalty(p, policy)
-    if r.freeleech:
-        score += 3.0
-    score += _preference_bonus(p.media, policy.media_preference, 2.0)
-    score += _preference_bonus(p.encoding, policy.encoding_preference, 1.5)
-    score += _preference_bonus(r.indexer, policy.indexer_preference, 1.0)
+    score += _preference_bonus(p.media, policy.media_preference, MEDIA_WEIGHT)
+    score += _preference_bonus(p.encoding, policy.encoding_preference, ENCODING_WEIGHT)
+    score += _preference_bonus(r.indexer, policy.indexer_preference, INDEXER_WEIGHT)
     if p.media == "CD" and p.log_score == 100 and p.has_cue:
-        score += 0.25  # separates CD rips from each other; never outweighs media preference
-    # Seeders matter once min_seeders is met, but less than log/cue and the preferences.
-    score += min(r.seeders or 0, 10) / 10.0 * 0.2
-    score -= (r.size or 0) / 1e12  # tie-break: smaller first
+        score += LOG_CUE_BONUS
+    if r.freeleech:
+        score += FREELEECH_TIEBREAK
+    # Seeders order equally good candidates; `quality.min_seeders` is what keeps a dead
+    # swarm out, since no seeder count can make up a quality difference here.
+    score += min(r.seeders or 0, 10) / 10.0 * SEEDERS_TIEBREAK
+    score -= (r.size or 0) * SIZE_TIEBREAK_PER_BYTE  # smaller first
     return score
 
 

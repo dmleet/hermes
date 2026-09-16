@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}History · Hermes{% endblock %}
+{% block content %}
+<h1>History <span class="muted">({{ done_total }})</span></h1>
+<form method="get" action="/history" class="filters">
+  {% if state_filter %}<input type="hidden" name="state" value="{{ state_filter }}">{% endif %}
+  {% if origin_filter %}<input type="hidden" name="origin" value="{{ origin_filter }}">{% endif %}
+  <label class="sr" for="q">Search artist or title</label>
+  <input type="search" id="q" name="q" value="{{ search }}" placeholder="artist or title">
+  <button type="submit">Search</button>
+  {% if search %}<a class="chip" href="{{ link(q='', page=1) }}">clear</a>{% endif %}
+</form>
+<p class="filters">
+  <a class="chip {{ 'on' if not state_filter else '' }}" href="{{ link(state='', page=1) }}">all</a>
+  {% for state, n in state_counts %}<a class="chip {{ 'on' if state_filter == state else '' }}" href="{{ link(state=state, page=1) }}"><span class="state {{ state }}">{{ state }}</span> {{ n }}</a>{% endfor %}
+  <span class="muted">·</span>
+  <a class="chip {{ 'on' if not origin_filter else '' }}" href="{{ link(origin='', page=1) }}">any origin</a>
+  <a class="chip {{ 'on' if origin_filter == 'manual' else '' }}" href="{{ link(origin='manual', page=1) }}">requested</a>
+  <a class="chip {{ 'on' if origin_filter == 'auto' else '' }}" href="{{ link(origin='auto', page=1) }}">discovered</a>
+</p>
+{% if done %}
+<div class="scroll">
+<table>
+  <tr><th></th><th>Album</th><th class="opt">State</th><th class="opt">Finished</th></tr>
+  {% for a in done %}
+  {% set t = a.album_target %}
+  <tr>
+    <td class="artcell"><span class="art" aria-hidden="true">{{ a | initial }}</span></td>
+    <td>
+      <a class="row" href="/acquisitions/{{ a.id }}">{% if t %}{{ t.artist_name }} – {{ t.title }}{% else %}{{ requested(a) or "unknown" }}{% endif %}</a>
+      {% if t %}<span class="muted">({{ t.first_release_year or "?" }})</span>{% else %}<span class="muted">(unresolved)</span>{% endif %}
+      <span class="stack">
+        <span class="m-only"><span class="state {{ a.state }}">{{ a.state }}</span> · </span>{% if a.origin == "auto" %}discovered{% if a.signal and a.signal.source_playlist_name %} in {{ a.signal.source_playlist_name }}{% endif %}{% else %}requested{% endif %}<span class="m-only"> · {{ a.updated_at | dt("%m-%d %H:%M") }}</span>
+      </span>
+    </td>
+    <td class="opt"><span class="state {{ a.state }}">{{ a.state }}</span></td>
+    <td class="muted nowrap opt">{{ a.updated_at | dt("%m-%d %H:%M") }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+{% if pages > 1 %}
+<p class="filters">
+  {% if page > 1 %}<a class="chip" href="{{ link(page=page - 1) }}">newer</a>{% endif %}
+  <span class="muted">page {{ page }} of {{ pages }}</span>
+  {% if page < pages %}<a class="chip" href="{{ link(page=page + 1) }}">older</a>{% endif %}
+</p>
+{% endif %}
+{% else %}<p class="muted">{% if search or state_filter or origin_filter %}Nothing matches.{% else %}Nothing has finished yet.{% endif %}</p>{% endif %}
+{% endblock %}

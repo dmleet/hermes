@@ -3,5 +3,5 @@
 {% block content %}
 <h1>{% if status == 404 %}Not found{% elif status == 409 %}That is not possible right now{% elif status == 422 %}Something is missing{% else %}Error {{ status }}{% endif %}</h1>
 <p>{{ detail }}</p>
-<p><a href="{{ back }}">← go back</a> · <a href="/">queue</a></p>
+<p><a href="{{ back }}">← go back</a> · <a href="/queue">queue</a> · <a href="/">request an album</a></p>
 {% endblock %}

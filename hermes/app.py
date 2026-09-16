@@ -16,6 +16,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse, Response
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy import text
 
 from hermes import __version__
@@ -33,6 +34,8 @@ from hermes.services import discovery, importer, observer
 from hermes.services.context import Context
 from hermes.ui.routes import render_error
 from hermes.ui.routes import router as ui_router
+
+UI_DIR = Path(__file__).parent / "ui"
 
 log = logging.getLogger("hermes")
 
@@ -214,6 +217,8 @@ def create_app(
     app = FastAPI(title="Hermes", version=__version__, lifespan=lifespan)
     app.include_router(api_router)
     app.include_router(ui_router)
+    # App icons for "Add to Home Screen"; the manifest itself is a UI route.
+    app.mount("/static", StaticFiles(directory=str(UI_DIR / "static")), name="static")
 
     def _wants_html(request: Request) -> bool:
         return not request.url.path.startswith(("/api", "/docs", "/openapi", "/healthz")) and (

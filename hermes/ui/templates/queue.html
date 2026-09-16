@@ -1,89 +1,57 @@
 {% extends "base.html" %}
+{% block title %}Queue · Hermes{% endblock %}
 {% block content %}
-<h1>Request an album</h1>
-<form method="post" action="/requests">
-  <label class="sr" for="artist">Artist</label>
-  <input type="text" id="artist" name="artist" placeholder="Artist" autofocus>
-  <label class="sr" for="title">Album title</label>
-  <input type="text" id="title" name="title" placeholder="Album title">
-  <span class="muted">or</span>
-  <label class="sr" for="mbid">MusicBrainz release-group or release MBID</label>
-  <input type="text" id="mbid" name="mbid" placeholder="MusicBrainz release-group or release MBID" style="min-width:22rem">
-  <button class="primary" type="submit">Request</button>
-</form>
-<p class="hint">
-  {% if timid %}Timid mode: every grab waits for your approval here.{% else %}Manual requests are grabbed without approval; automated ones follow the auto-approve rules.{% endif %}
-  {% if discovery %}{{ discovery }}{% elif discovery_configured %}Discovery is on; no playlist has been ingested yet.{% else %}Discovery is off: set listenbrainz.user or extra_playlists to ingest playlists.{% endif %}
-</p>
-
-<h2>Active ({{ active_total }})</h2>
+<h1>Queue <span class="muted">({{ active_total }})</span></h1>
 <p class="filters">
-  <a class="chip {{ 'on' if not state_filter else '' }}" href="{{ link(state='', page=1) }}">all {{ active_total }}</a>
-  <a class="chip {{ 'on' if state_filter == 'attention' else '' }}" href="{{ link(state='attention', page=1) }}">needs you {{ attention }}</a>
-  {% for state, n in state_counts %}<a class="chip {{ 'on' if state_filter == state else '' }}" href="{{ link(state=state, page=1) }}"><span class="state {{ state }}">{{ state }}</span> {{ n }}</a>{% endfor %}
+  <a class="chip {{ 'on' if not state_filter else '' }}" href="{{ link(state='') }}">all {{ active_total }}</a>
+  <a class="chip {{ 'on' if state_filter == 'attention' else '' }}" href="{{ link(state='attention') }}">needs you {{ attention_here }}</a>
+  {% for state, n in state_counts %}<a class="chip {{ 'on' if state_filter == state else '' }}" href="{{ link(state=state) }}"><span class="state {{ state }}">{{ state }}</span> {{ n }}</a>{% endfor %}
   <span class="muted">·</span>
-  <a class="chip {{ 'on' if not origin_filter else '' }}" href="{{ link(origin='', page=1) }}">any origin</a>
-  <a class="chip {{ 'on' if origin_filter == 'manual' else '' }}" href="{{ link(origin='manual', page=1) }}">requested</a>
-  <a class="chip {{ 'on' if origin_filter == 'auto' else '' }}" href="{{ link(origin='auto', page=1) }}">discovered</a>
+  <a class="chip {{ 'on' if not origin_filter else '' }}" href="{{ link(origin='') }}">any origin</a>
+  <a class="chip {{ 'on' if origin_filter == 'manual' else '' }}" href="{{ link(origin='manual') }}">requested</a>
+  <a class="chip {{ 'on' if origin_filter == 'auto' else '' }}" href="{{ link(origin='auto') }}">discovered</a>
 </p>
 {% if active %}
 <div class="scroll">
 <table>
-  <tr><th>State</th><th>Album</th><th>Library</th><th>Best candidate</th><th>Updated</th><th></th></tr>
+  <tr><th></th><th></th><th class="opt">State</th><th>Album</th><th class="opt">Best candidate</th><th class="opt">Updated</th><th class="opt"></th></tr>
   {% for a in active %}
   {% set t = a.album_target %}
   {% set best = (a.candidates | selectattr("rank", "equalto", 1) | list | first) %}
   <tr>
-    <td><span class="state {{ a.state }}">{{ a.state }}</span></td>
+    <td class="num">{{ loop.index }}</td>
+    <td class="artcell"><span class="art" aria-hidden="true">{{ a | initial }}</span></td>
+    <td class="opt"><span class="state {{ a.state }}">{{ a.state }}</span></td>
     <td>
-      <a class="row" href="/acquisitions/{{ a.id }}">{% if t %}{{ t.artist_name }} – {{ t.title }}{% else %}{{ requested(a) or "unknown" }}{% endif %}</a>
+      <a class="row" href="/acquisitions/{{ a.id }}{{ walk }}">{% if t %}{{ t.artist_name }} – {{ t.title }}{% else %}{{ requested(a) or "unknown" }}{% endif %}</a>
       {% if t %}<span class="muted">({{ t.first_release_year or "?" }})</span>{% else %}<span class="muted">(unresolved)</span>{% endif %}
-      {% if a.origin == "auto" and a.signal and a.signal.source_playlist_name %}<br><span class="muted small">from {{ a.signal.source_playlist_name }}</span>{% endif %}
+      {% set ns = namespace(parts=[]) %}
+      {% if t and t.library_status != "unknown" %}{% set ns.parts = ns.parts + [t.library_status] %}{% endif %}
+      {% if a.origin == "auto" and a.signal and a.signal.source_playlist_name %}{% set ns.parts = ns.parts + ["from " ~ a.signal.source_playlist_name] %}{% endif %}
+      {% set meta = ns.parts | join(" · ") %}
+      <span class="stack">
+        <span class="m-only"><span class="state {{ a.state }}">{{ a.state }}</span> · </span>{{ meta }}<span class="m-only">{% if meta %} · {% endif %}{{ a.updated_at | dt("%m-%d %H:%M") }}</span>
+      </span>
     </td>
-    <td class="muted">{{ t.library_status if t else "" }}</td>
-    <td class="mono">{{ best.title if best else "" }}</td>
-    <td class="muted nowrap">{{ a.updated_at | dt("%m-%d %H:%M") }}</td>
-    <td class="nowrap">
+    <td class="mono opt">{% if best and best.info_link %}<a href="{{ best.info_link }}" target="_blank" rel="noopener noreferrer" title="open this release on {{ best.indexer_name }}">{{ best.title }}</a>{% else %}{{ best.title if best else "" }}{% endif %}</td>
+    <td class="muted nowrap opt">{{ a.updated_at | dt("%m-%d %H:%M") }}</td>
+    <td class="nowrap opt">
       {% if a.state == "AWAITING_APPROVAL" %}
-      <form class="inline" method="post" action="/acquisitions/{{ a.id }}/approve"><button class="primary small">Approve</button></form>
-      <form class="inline" method="post" action="/acquisitions/{{ a.id }}/reject" onsubmit="return confirm('Reject #{{ a.id }}?')"><button class="danger small">Reject</button></form>
+      <form class="inline" method="post" action="/acquisitions/{{ a.id }}/approve{{ back }}"><button class="primary small">Approve</button></form>
+      <form class="inline" method="post" action="/acquisitions/{{ a.id }}/reject{{ back }}" onsubmit="return confirm('Reject #{{ a.id }}?')"><button class="danger small">Reject</button></form>
       {% elif a.state == "NEEDS_REVIEW" or a.state == "IMPORT_NEEDS_REVIEW" or a.state == "STALLED" %}
-      <a class="button small" href="/acquisitions/{{ a.id }}">Review</a>
+      <a class="button small" href="/acquisitions/{{ a.id }}{{ walk }}">Review</a>
       {% elif t and a.state in searchable %}
-      <form class="inline" method="post" action="/acquisitions/{{ a.id }}/search"><button class="small">Search</button></form>
+      <form class="inline" method="post" action="/acquisitions/{{ a.id }}/search{{ back }}"><button class="small">Search</button></form>
       {% elif retryable(a) %}
       <form class="inline" method="post" action="/acquisitions/{{ a.id }}/retry"><button class="small">Retry</button></form>
       {% elif a.state == "FAILED" %}
-      <form class="inline" method="post" action="/acquisitions/{{ a.id }}/cancel" onsubmit="return confirm('Cancel #{{ a.id }}?')"><button class="danger small">Cancel</button></form>
+      <form class="inline" method="post" action="/acquisitions/{{ a.id }}/cancel{{ back }}" onsubmit="return confirm('Cancel #{{ a.id }}?')"><button class="danger small">Cancel</button></form>
       {% endif %}
     </td>
   </tr>
   {% endfor %}
 </table>
 </div>
-{% else %}<p class="muted">{% if state_filter or origin_filter %}Nothing matches this filter.{% else %}Nothing in flight.{% endif %}</p>{% endif %}
-
-<h2>Finished ({{ done_total }})</h2>
-{% if done %}
-<div class="scroll">
-<table>
-  <tr><th>State</th><th>Album</th><th>Updated</th></tr>
-  {% for a in done %}
-  {% set t = a.album_target %}
-  <tr>
-    <td><span class="state {{ a.state }}">{{ a.state }}</span></td>
-    <td><a class="row" href="/acquisitions/{{ a.id }}">{% if t %}{{ t.artist_name }} – {{ t.title }}{% else %}{{ requested(a) or "unknown" }}{% endif %}</a>{% if not t %} <span class="muted">(unresolved)</span>{% endif %}</td>
-    <td class="muted nowrap">{{ a.updated_at | dt("%m-%d %H:%M") }}</td>
-  </tr>
-  {% endfor %}
-</table>
-</div>
-{% if pages > 1 %}
-<p class="filters">
-  {% if page > 1 %}<a class="chip" href="{{ link(page=page - 1) }}">newer</a>{% endif %}
-  <span class="muted">page {{ page }} of {{ pages }}</span>
-  {% if page < pages %}<a class="chip" href="{{ link(page=page + 1) }}">older</a>{% endif %}
-</p>
-{% endif %}
-{% endif %}
+{% else %}<p class="muted">{% if state_filter or origin_filter %}Nothing matches this filter.{% else %}Nothing in flight. <a href="/">Request an album</a>.{% endif %}</p>{% endif %}
 {% endblock %}

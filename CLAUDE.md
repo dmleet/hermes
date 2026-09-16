@@ -129,7 +129,7 @@ this stack, not the cluster (docs/plan.md A12).
   dependency is unhealthy. Startup removes torrent files an older version kept.
 - `hermes/api/`: JSON routes (`POST /api/requests`, `GET /api/acquisitions/{id}`) with
   pydantic schemas. `hermes/ui/`: Jinja2 pages, plain forms, POST-redirect-GET; button
-  availability derives from `can_transition`.
+  availability derives from `can_transition`; `docs/ui-plan.md` is the page design.
 - `beets-hermes/beetsplug/hermes.py`: a beets plugin adding `beet hermes-agent` (also the
   `hermes-agent` console script): `/library/...` reads built on beets' `Library` query
   objects (never query strings), a job runner that shells out to `beet import`, and

@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b5fff">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/static/icon-192.png">
 {% if refresh %}<meta http-equiv="refresh" content="{{ refresh }}">{% endif %}
 <title>{% block title %}Hermes{% endblock %}</title>
 <style>
@@ -12,15 +15,22 @@
     :root { --bg:#161719; --card:#1f2124; --fg:#e6e6e6; --muted:#9a9a9a; --line:#33363a; --ok:#57c26a; --warn:#e2b93b; --bad:#f28b82; --acc:#6ea8fe;
             --ok-bg:#1d3a25; --warn-bg:#3d3212; --bad-bg:#4a1f1f; --acc-bg:#1e2d47; --pre:#111214; --notice-line:#2c4a7a; }
   }
-  body { margin:0; font:14px/1.45 system-ui, sans-serif; color:var(--fg); background:var(--bg); }
-  header { display:flex; gap:1rem; align-items:baseline; padding:.75rem 1.25rem; border-bottom:1px solid var(--line); background:var(--card); flex-wrap:wrap; }
+  body { margin:0; font:14px/1.45 system-ui, sans-serif; color:var(--fg); background:var(--bg); padding-top:env(safe-area-inset-top, 0px); }
+  header { display:flex; gap:1rem; align-items:center; padding:.6rem 1.25rem; border-bottom:1px solid var(--line); background:var(--card); flex-wrap:wrap; }
   header a { color:var(--fg); text-decoration:none; font-weight:600; }
   header .brand { display:flex; gap:.35rem; align-items:baseline; }
   header .brand .version { font-size:12px; color:var(--muted); font-weight:400; }
+  nav.tabs { display:flex; gap:.25rem; }
+  nav.tabs a { padding:.35rem .7rem; border-radius:.4rem; color:var(--muted); }
+  nav.tabs a[aria-current="page"] { color:var(--fg); background:var(--acc-bg); }
+  nav.tabs a:hover { color:var(--fg); }
+  .badge { display:inline-block; min-width:1.2em; padding:0 .4em; border-radius:1em; background:var(--warn-bg); color:var(--warn); font-size:12px; text-align:center; font-weight:700; vertical-align:baseline; }
   header .modes { margin-left:auto; display:flex; gap:.4rem; flex-wrap:wrap; }
   header .mode { font-size:12px; padding:.15rem .5rem; border-radius:.5rem; background:var(--line); color:var(--muted); white-space:nowrap; }
   header .mode.dry { background:var(--warn-bg); color:var(--warn); }
   header .mode.live { background:var(--bad-bg); color:var(--bad); font-weight:600; }
+  .mode .short { display:none; }
+  footer { display:none; }
   main { max-width: 1100px; margin: 0 auto; padding: 1rem 1.25rem 3rem; }
   h1 { font-size:20px; margin:1rem 0 .5rem; } h2 { font-size:16px; margin:1.5rem 0 .5rem; color:var(--muted); }
   .notice { margin:.75rem 0; padding:.5rem .75rem; border:1px solid var(--notice-line); background:var(--acc-bg); border-radius:.4rem; }
@@ -30,6 +40,7 @@
   th, td { text-align:left; padding:.4rem .5rem; border-bottom:1px solid var(--line); vertical-align:top; }
   th { font-size:12px; color:var(--muted); font-weight:600; white-space:nowrap; }
   tr.rejected td { color:var(--muted); }
+  td.num { color:var(--muted); text-align:right; width:2em; }
   .state { display:inline-block; padding:.1rem .45rem; border-radius:.4rem; font-size:12px; font-weight:600; background:var(--line); white-space:nowrap; }
   .state.AWAITING_APPROVAL, .state.NEEDS_REVIEW, .state.IMPORT_NEEDS_REVIEW, .state.STALLED { background:var(--warn-bg); color:var(--warn); }
   .state.DOWNLOADING, .state.SUBMITTED, .state.IMPORTING, .state.SEARCHING { background:var(--acc-bg); color:var(--acc); }
@@ -40,8 +51,9 @@
   button.primary { background:var(--acc); color:#fff; border-color:var(--acc); }
   button.danger { color:var(--bad); }
   button.small, a.button.small { padding:.15rem .5rem; font-size:12px; }
+  button.big { padding:.6rem 1.2rem; font-size:16px; min-height:44px; }
   a.button { display:inline-block; text-decoration:none; line-height:1.45; box-sizing:border-box; }
-  input[type=text] { font:inherit; padding:.3rem .5rem; border:1px solid var(--line); border-radius:.4rem; min-width:14rem; background:var(--card); color:var(--fg); }
+  input[type=text], input[type=search] { font:inherit; padding:.3rem .5rem; border:1px solid var(--line); border-radius:.4rem; min-width:14rem; background:var(--card); color:var(--fg); }
   label.sr { position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
   .muted { color:var(--muted); } .mono { font-family: ui-monospace, monospace; font-size:12px; }
   .events li { margin:.15rem 0; } .events .warning { color:var(--warn); } .events .error { color:var(--bad); }
@@ -51,30 +63,78 @@
   a.row { color:var(--fg); text-decoration:none; } a.row:hover { text-decoration:underline; }
   .hint { color:var(--muted); font-size:13px; margin:.25rem 0 .75rem; }
   .small { font-size:12px; }
-  .filters { display:flex; gap:.4rem; flex-wrap:wrap; align-items:center; margin:.25rem 0 .5rem; font-size:12px; }
-  .chip { padding:.15rem .5rem; border:1px solid var(--line); border-radius:1rem; color:var(--fg); text-decoration:none; background:var(--card); }
+  .filters { display:flex; gap:.4rem; flex-wrap:wrap; align-items:center; margin:.25rem 0 .5rem; font-size:13px; }
+  .chip { display:inline-block; padding:.3rem .7rem; border:1px solid var(--line); border-radius:1rem; color:var(--fg); text-decoration:none; background:var(--card); line-height:1.2; }
   .chip.on { border-color:var(--acc); color:var(--acc); }
   button[disabled] { opacity:.6; cursor:wait; }
+  /* Album art (docs/ui-plan.md 4.1): a box with the artist's initial until there is art. */
+  .art { width:56px; height:56px; border-radius:.3rem; background:var(--acc-bg); color:var(--acc); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:20px; flex:none; }
+  .art.big { width:160px; height:160px; font-size:56px; }
+  td.artcell { width:56px; padding-right:0; }
+  .stack { display:block; color:var(--muted); font-size:12px; margin-top:.15rem; }
+  .head { display:flex; gap:1rem; align-items:flex-start; margin-top:.5rem; }
+  .head h1 { margin-top:0; }
+  .crumbs { display:flex; gap:.6rem; align-items:center; flex-wrap:wrap; margin:.75rem 0 0; }
+  .crumbs .triage { margin-left:auto; display:flex; gap:.5rem; align-items:center; }
+  dl.card { display:grid; grid-template-columns:max-content 1fr; gap:.25rem 1rem; margin:.5rem 0; padding:.6rem .8rem; background:var(--card); border:1px solid var(--line); border-radius:.4rem; }
+  dl.card dt { color:var(--muted); font-size:12px; padding-top:.1rem; } dl.card dd { margin:0; }
+  form.request { display:flex; flex-direction:column; gap:.6rem; max-width:32rem; }
+  form.request input { min-width:0; width:100%; box-sizing:border-box; padding:.6rem .7rem; font-size:16px; min-height:44px; }
+  form.request button { align-self:flex-start; }
+  details.alt { margin:.5rem 0 1rem; } details.alt form { margin-top:.5rem; display:flex; gap:.5rem; flex-wrap:wrap; }
+  .actionbar { display:none; }
+  .m-only { display:none; }
+  @media (max-width: 640px) {
+    header { padding-bottom:0; gap:.6rem; }
+    header .modes { margin-left:auto; }
+    .mode .long { display:none; } .mode .short { display:inline; }
+    nav.tabs { order:3; width:calc(100% + 2.5rem); margin:.4rem -1.25rem 0; border-top:1px solid var(--line); gap:0; }
+    nav.tabs a { flex:1; text-align:center; padding:.7rem 0; min-height:44px; box-sizing:border-box; border-radius:0; border-bottom:2px solid transparent; }
+    nav.tabs a[aria-current="page"] { background:none; border-bottom-color:var(--acc); }
+    nav.tabs a.desk { display:none; }
+    footer { display:block; text-align:center; color:var(--muted); font-size:12px; padding:1rem; }
+    main { padding:1rem 1rem 6rem; }
+    .opt { display:none !important; }
+    .m-only { display:inline; }
+    .stack .m-only { display:inline; }
+    .head { flex-direction:column; align-items:center; text-align:center; }
+    .head .art.big { width:200px; height:200px; }
+    .crumbs .triage { margin-left:0; width:100%; justify-content:space-between; }
+    dl.card { grid-template-columns:1fr; gap:.1rem; } dl.card dt { margin-top:.4rem; }
+    form.request button { align-self:stretch; }
+    input[type=text], input[type=search] { min-width:0; max-width:100%; box-sizing:border-box; }
+    /* The primary action, thumb-reachable: fixed, not sticky, so it stays while the
+       candidates scroll underneath. main's bottom padding keeps content out from under it. */
+    .actionbar { display:block; position:fixed; left:0; right:0; bottom:0; padding:.6rem 1rem calc(.6rem + env(safe-area-inset-bottom, 0px)); background:var(--card); border-top:1px solid var(--line); }
+    .actionbar form { display:flex; } .actionbar button { flex:1; min-height:44px; font-size:16px; }
+  }
 </style>
 </head>
 <body>
 <header>
   <span class="brand"><a href="/">Hermes</a><span class="version" title="running version">v{{ version }}</span></span>
-  <span class="muted">acquisition queue</span>
-  <a href="/docs" class="muted" style="font-weight:400">API</a>
+  <nav class="tabs">
+    <a href="/" {% if nav == "request" %}aria-current="page"{% endif %}>Request</a>
+    <a href="/queue" {% if nav == "queue" %}aria-current="page"{% endif %}>Queue{% if attention %} <span class="badge" title="need you">{{ attention }}</span>{% endif %}</a>
+    <a href="/history" {% if nav == "history" %}aria-current="page"{% endif %}>History</a>
+    <a href="/docs" class="desk" style="font-weight:400">API</a>
+  </nav>
   <span class="modes">
-    {% if dry_run %}<span class="mode dry">dry run: nothing is grabbed</span>{% else %}<span class="mode live">live: approvals grab from trackers</span>{% endif %}
-    {% if timid %}<span class="mode">timid: every grab needs your approval</span>{% else %}<span class="mode">auto-approve rules on</span>{% endif %}
+    {% if dry_run %}<span class="mode dry"><span class="long">dry run: nothing is grabbed</span><span class="short">dry run</span></span>{% else %}<span class="mode live"><span class="long">live: approvals grab from trackers</span><span class="short">live</span></span>{% endif %}
+    {% if timid %}<span class="mode"><span class="long">timid: every grab needs your approval</span><span class="short">timid</span></span>{% else %}<span class="mode"><span class="long">auto-approve rules on</span><span class="short">rules</span></span>{% endif %}
   </span>
 </header>
 <main>
-{% if notice %}<div class="notice">{{ notice }}</div>{% endif %}
+{% if notice %}<div class="notice">{{ notice }}{% if prev_id %} <a href="/acquisitions/{{ prev_id }}">#{{ prev_id }}</a>{% endif %}</div>{% endif %}
 {% block content %}{% endblock %}
 </main>
+<footer><a href="/docs">API</a> · Hermes v{{ version }}</footer>
 <script>
 // The only script on the site besides confirm(): a submit that waits on MusicBrainz and
 // the tracker takes seconds, so say so and stop a second click from sending a second request.
+// A cancelled confirm() has already prevented the submit; leave that button alone.
 document.addEventListener("submit", function (e) {
+  if (e.defaultPrevented) return;
   var b = e.target.querySelector("button");
   if (b) setTimeout(function () { b.disabled = true; b.textContent = "Working…"; }, 0);
 });

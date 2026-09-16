@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Request an album · Hermes{% endblock %}
+{% block content %}
+<h1>Request an album</h1>
+<form method="post" action="/requests" class="request">
+  <label class="sr" for="artist">Artist</label>
+  <input type="text" id="artist" name="artist" placeholder="Artist" required autofocus autocapitalize="words" enterkeyhint="next">
+  <label class="sr" for="title">Album title</label>
+  <input type="text" id="title" name="title" placeholder="Album title" required autocapitalize="words" enterkeyhint="go">
+  <button class="primary big" type="submit">Request</button>
+</form>
+<p class="hint">Takes a few seconds; a slow MusicBrainz can take longer. Requesting an album that is already in flight attaches to that request.</p>
+<details class="alt">
+  <summary>or paste a MusicBrainz ID</summary>
+  <form method="post" action="/requests">
+    <label class="sr" for="mbid">MusicBrainz release-group or release MBID</label>
+    <input type="text" id="mbid" name="mbid" placeholder="release-group or release MBID" required style="min-width:22rem">
+    <button type="submit">Request by MBID</button>
+  </form>
+</details>
+<p class="hint">
+  {% if timid %}Timid mode: every grab waits for your approval in the queue.{% else %}Manual requests are grabbed without approval; automated ones follow the auto-approve rules.{% endif %}
+  {% if discovery %}{{ discovery }}{% elif discovery_configured %}Discovery is on; no playlist has been ingested yet.{% else %}Discovery is off: set listenbrainz.user or extra_playlists to ingest playlists.{% endif %}
+</p>
+{% if attention %}
+<p><a href="/queue?state=attention"><b>{{ attention }}</b> {{ "item needs" if attention == 1 else "items need" }} you → Queue</a></p>
+{% endif %}
+
+{% if recent %}
+<h2>Recent requests</h2>
+<table>
+  {% for a in recent %}
+  {% set t = a.album_target %}
+  <tr>
+    <td><span class="state {{ a.state }}">{{ a.state }}</span></td>
+    <td><a class="row" href="/acquisitions/{{ a.id }}">{% if t %}{{ t.artist_name }} – {{ t.title }}{% else %}{{ requested(a) or "unknown" }}{% endif %}</a></td>
+    <td class="muted nowrap opt">{{ a.created_at | dt("%m-%d %H:%M") }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+{% endblock %}

@@ -2,15 +2,29 @@
 {% set t = acq.album_target %}
 {% block title %}#{{ acq.id }} {{ t.artist_name ~ " – " ~ t.title if t else (requested or "unresolved") }} · Hermes{% endblock %}
 {% block content %}
-<p><a href="/">← queue</a></p>
-<h1>
-  <span class="state {{ acq.state }}">{{ acq.state }}</span>
-  {% if t %}{{ t.artist_name }} – {{ t.title }} <span class="muted">({{ t.primary_type }}, {{ t.first_release_year or "?" }})</span>
-  {% else %}{{ requested or "Unresolved request" }}{% endif %}
-</h1>
-{% if t %}
-<p class="muted mono">release group <a href="https://musicbrainz.org/release-group/{{ t.release_group_mbid }}" target="_blank" rel="noopener">{{ t.release_group_mbid }}</a>{% if t.preferred_release_mbid %} · release <a href="https://musicbrainz.org/release/{{ t.preferred_release_mbid }}" target="_blank" rel="noopener">{{ t.preferred_release_mbid }}</a>{% endif %} · library: {{ t.library_status }}{% if acq.origin == "auto" and acq.signal %} · discovered in {{ acq.signal.source_playlist_name or acq.signal.source_playlist_mbid }} (track {{ (acq.signal.position or 0) + 1 }}: {{ requested }}){% elif requested %} · requested as: {{ requested }}{% endif %}</p>
-{% endif %}
+<p class="crumbs">
+  {% if terminal %}<a href="/history">← history</a>{% else %}<a href="/queue{{ list_qs }}">← queue</a>{% endif %}
+  {% if triage %}
+  <span class="triage">
+    {% if triage.prev %}<a class="button small" href="/acquisitions/{{ triage.prev }}{{ walk_qs }}">← previous</a>{% else %}<span></span>{% endif %}
+    <span class="muted small">{% if triage.position %}{{ triage.position }} of {{ triage.total }}{% else %}no longer in this list ({{ triage.total }} left){% endif %}</span>
+    {% if triage.next %}<a class="button small" href="/acquisitions/{{ triage.next }}{{ walk_qs }}">next →</a>{% else %}<span></span>{% endif %}
+  </span>
+  {% endif %}
+</p>
+<div class="head">
+  <span class="art big" aria-hidden="true">{{ acq | initial }}</span>
+  <div>
+    <h1>
+      <span class="state {{ acq.state }}">{{ acq.state }}</span>
+      {% if t %}{{ t.artist_name }} – {{ t.title }} <span class="muted">({{ t.primary_type }}, {{ t.first_release_year or "?" }})</span>
+      {% else %}{{ requested or "Unresolved request" }}{% endif %}
+    </h1>
+    {% if t %}
+    <p class="muted mono">release group <a href="https://musicbrainz.org/release-group/{{ t.release_group_mbid }}" target="_blank" rel="noopener">{{ t.release_group_mbid }}</a>{% if t.preferred_release_mbid %} · release <a href="https://musicbrainz.org/release/{{ t.preferred_release_mbid }}" target="_blank" rel="noopener">{{ t.preferred_release_mbid }}</a>{% endif %} · library: {{ t.library_status }}{% if acq.origin == "auto" and acq.signal %} · discovered in {{ acq.signal.source_playlist_name or acq.signal.source_playlist_mbid }} (track {{ (acq.signal.position or 0) + 1 }}: {{ requested }}){% elif requested %} · requested as: {{ requested }}{% endif %}</p>
+    {% endif %}
+  </div>
+</div>
 {% if acq.error %}<p class="events error">{{ acq.error }}</p>{% endif %}
 {% if continued_as %}<p class="hint">Continued as <a href="/acquisitions/{{ continued_as }}">#{{ continued_as }}</a>.</p>{% endif %}
 
@@ -34,39 +48,51 @@
 
 {% if preview %}
 {% set c = preview.candidate %}
-<p class="hint">{{ "Try next candidate" if acq.state == "STALLED" else "Approve" }} will fetch <b>{{ c.title }}</b> ({{ c.size_bytes | mb }}, {{ c.indexer_name }}, {{ "freeleech" if c.freeleech else "not freeleech" }}, {{ c.seeders }} seeders)
-  {% if preview.routed %}and add it to Deluge <b>{{ preview.instance }}</b> at <span class="mono">{{ preview.pending }}</span> with label <span class="mono">{{ preview.label }}</span>.
-  {% else %}<span class="events"><span class="warning">but no Deluge instance is configured for indexer {{ c.indexer_name }} (deluge.instances), so this candidate would be skipped.</span></span>{% endif %}
-  {% if dry_run %}Dry run is on: approving records your decision and grabs nothing.{% endif %}
-</p>
+{% set p = preview.parsed %}
+{% set est = preview.estimate %}
+<h2>{{ "Try next candidate will fetch" if acq.state == "STALLED" else "Approve will fetch" }}</h2>
+<dl class="card">
+  <dt>Title</dt><dd class="mono">{% if c.info_link %}<a href="{{ c.info_link }}" target="_blank" rel="noopener noreferrer" title="open this release on {{ c.indexer_name }}">{{ c.title }}</a>{% else %}{{ c.title }}{% endif %}</dd>
+  <dt>Indexer</dt><dd>{{ c.indexer_name }}{% if c.freeleech %} · <b>freeleech</b>{% else %} · not freeleech{% endif %}</dd>
+  <dt>Size</dt><dd>{{ c.size_bytes | mb }}</dd>
+  <dt>Quality</dt><dd>{{ p.format or "?" }}{% if p.encoding_detail %} {{ p.encoding_detail }}{% elif p.encoding %} {{ p.encoding }}{% endif %}{% if p.media %} · {{ p.media }}{% endif %}{% if p.has_log %} · log{% if p.log_score is not none %} {{ p.log_score }}%{% endif %}{% endif %}{% if p.has_cue %} · cue{% endif %}{% if p.edition_flags %} · {{ p.edition_flags | join(", ") }}{% endif %}</dd>
+  {% if est %}<dt>Sample rate</dt><dd>{{ "" if est.source == "title" else "~" }}{{ est.rate_khz }} kHz{% if est.kbps %} <span class="muted small">{{ est.kbps }} kbps</span>{% endif %} <span class="muted small">({{ "stated in the title" if est.source == "title" else "inferred from size and playing time" }})</span></dd>{% endif %}
+  <dt>Swarm</dt><dd>{{ c.seeders or 0 }} seeders, {{ c.leechers or 0 }} leechers</dd>
+  <dt>Match</dt><dd>{% if c.match_score is not none %}{{ "%.2f" % c.match_score }}{% endif %}{% if c.rank %} · rank #{{ c.rank }}{% endif %}</dd>
+  <dt>Deluge</dt><dd>{% if preview.routed %}<b>{{ preview.instance }}</b> at <span class="mono">{{ preview.pending }}</span>, label <span class="mono">{{ preview.label }}</span>{% else %}<span class="events"><span class="warning">no Deluge instance is configured for indexer {{ c.indexer_name }} (deluge.instances), so this candidate would be skipped</span></span>{% endif %}</dd>
+</dl>
+{% if dry_run %}<p class="hint">Dry run is on: approving records your decision and grabs nothing.</p>{% endif %}
 {% if acq.approved_by and acq.state == "AWAITING_APPROVAL" %}
 <p class="hint">Approved by {{ acq.approved_by }} at {{ acq.approved_at | dt }} while dry run was on, so nothing was grabbed.{% if dry_run %} Turn dry run off and approve again to grab.{% else %} Approve again to grab now.{% endif %}</p>
 {% endif %}
 {% endif %}
 
-<p>
-  {% if can_approve %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/approve"><button class="primary">{{ "Approve again" if acq.approved_by else "Approve" }}{% if dry_run %} (dry run){% endif %}</button></form>{% endif %}
-  {% if can_fallback %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/approve"><button class="primary">Try next candidate{% if dry_run %} (dry run){% endif %}</button></form>{% endif %}
-  {% if can_reject %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/reject" onsubmit="return confirm('Reject this acquisition?')"><label class="sr" for="reason">Reason</label><input type="text" id="reason" name="reason" placeholder="reason (optional)"> <button class="danger">Reject</button></form>{% endif %}
-  {% if can_search %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/search"><button>{{ "Search" if never_searched else "Search again" }}</button></form>{% endif %}
-  {% if can_retry_import %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/retry-import"><button>Retry import</button></form>{% endif %}
+{% set primary_label = ("Approve again" if acq.approved_by else "Approve") ~ (" (dry run)" if dry_run else "") if can_approve else ("Try next candidate" ~ (" (dry run)" if dry_run else "") if can_fallback else none) %}
+<p class="actions">
+  {% if can_approve or can_fallback %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/approve{{ walk_qs }}"><button class="primary">{{ primary_label }}</button></form>{% endif %}
+  {% if can_reject %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/reject{{ walk_qs }}" onsubmit="return confirm('Reject this acquisition?')"><label class="sr" for="reason">Reason</label><input type="text" id="reason" name="reason" placeholder="reason (optional)"> <button class="danger">Reject</button></form>{% endif %}
+  {% if can_search %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/search{{ walk_qs }}"><button>{{ "Search" if never_searched else "Search again" }}</button></form>{% endif %}
+  {% if can_retry_import %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/retry-import{{ walk_qs }}"><button>Retry import</button></form>{% endif %}
   {% if can_retry_request %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/retry"><button>Retry request</button></form>{% endif %}
-  {% if can_cancel %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/cancel" onsubmit="return confirm('Cancel this acquisition?')"><button class="danger">Cancel</button></form>{% endif %}
+  {% if can_cancel %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/cancel{{ walk_qs }}" onsubmit="return confirm('Cancel this acquisition?')"><button class="danger">Cancel</button></form>{% endif %}
 </p>
+{% if primary_label %}
+<div class="actionbar"><form method="post" action="/acquisitions/{{ acq.id }}/approve{{ walk_qs }}"><button class="primary">{{ primary_label }}</button></form></div>
+{% endif %}
 
 {% if review_candidates %}
 <h2>Which release group did you mean?</h2>
 <div class="scroll">
 <table>
-  <tr><th></th><th>Artist</th><th>Title</th><th>Type</th><th>First release</th><th>Fit</th><th>Policy</th></tr>
+  <tr><th></th><th>Artist</th><th>Title</th><th>Type</th><th class="opt">First release</th><th class="opt">Fit</th><th>Policy</th></tr>
   {% for c in review_candidates %}
   <tr class="{{ '' if c.policy_ok else 'rejected' }}">
     <td class="nowrap"><form class="inline" method="post" action="/acquisitions/{{ acq.id }}/resolve"><input type="hidden" name="release_group_mbid" value="{{ c.release_group_mbid }}"><button class="{{ 'primary' if c.policy_ok else '' }} small">{{ "Use this" if c.policy_ok else "Use anyway" }}</button></form></td>
     <td class="nowrap">{{ c.artist }}</td>
     <td><a href="https://musicbrainz.org/release-group/{{ c.release_group_mbid }}" target="_blank" rel="noopener" title="open on MusicBrainz">{{ c.title }}</a></td>
     <td class="nowrap">{{ c.primary_type }}{% if c.secondary_types %} <span class="muted">({{ c.secondary_types | join(", ") }})</span>{% endif %}</td>
-    <td class="nowrap">{{ c.first_release_date or "?" }}</td>
-    <td class="muted">artist {{ "%.2f" % c.artist_similarity }} · title {{ "%.2f" % c.title_similarity }} · mb {{ c.mb_score }}</td>
+    <td class="nowrap opt">{{ c.first_release_date or "?" }}</td>
+    <td class="muted opt">artist {{ "%.2f" % c.artist_similarity }} · title {{ "%.2f" % c.title_similarity }} · mb {{ c.mb_score }}</td>
     <td class="muted">{{ c.rejected_reason or "ok" }}</td>
   </tr>
   {% endfor %}
@@ -81,19 +107,23 @@
 <h2>Candidates</h2>
 <div class="scroll">
 <table>
-  <tr><th>Rank</th><th>Title</th><th>Indexer</th><th>Size</th><th>Rate</th><th>Seeds</th><th>Free</th><th>Match</th><th>Reason</th></tr>
+  <tr><th>Rank</th><th>Title</th><th class="opt">Indexer</th><th class="opt">Size</th><th class="opt">Rate</th><th class="opt">Seeds</th><th class="opt">Free</th><th class="opt">Match</th><th class="opt">Reason</th></tr>
   {% for c in candidates %}
   {% set est = c.parsed_quality.get("estimate") %}
+  {% set rate %}{% if est %}{{ "" if est.source == "title" else "~" }}{{ est.rate_khz }} kHz{% if est.kbps %} <span class="small">{{ est.kbps }} kbps</span>{% endif %}{% endif %}{% endset %}
   <tr class="{{ 'rejected' if c.rejected_reason else '' }}">
     <td>{{ "#%d" % c.rank if c.rank else "" }}</td>
-    <td class="mono">{% if c.info_link %}<a href="{{ c.info_link }}" target="_blank" rel="noopener noreferrer" title="open this release on {{ c.indexer_name }}">{{ c.title }}</a>{% else %}{{ c.title }}{% endif %}</td>
-    <td>{{ c.indexer_name }}</td>
-    <td>{{ c.size_bytes | mb }}</td>
-    <td class="nowrap muted" title="{{ 'stated in the title' if est and est.source == 'title' else 'inferred from size and playing time' }}">{% if est %}{{ "" if est.source == "title" else "~" }}{{ est.rate_khz }} kHz{% if est.kbps %} <span class="small">{{ est.kbps }} kbps</span>{% endif %}{% endif %}</td>
-    <td>{{ c.seeders }}</td>
-    <td>{{ "yes" if c.freeleech else "" }}</td>
-    <td>{{ "%.2f" % c.match_score if c.match_score is not none else "" }}</td>
-    <td class="muted">{{ c.rejected_reason or "" }}</td>
+    <td>
+      <span class="mono">{% if c.info_link %}<a href="{{ c.info_link }}" target="_blank" rel="noopener noreferrer" title="open this release on {{ c.indexer_name }}">{{ c.title }}</a>{% else %}{{ c.title }}{% endif %}</span>
+      <span class="stack m-only">{{ c.indexer_name }} · {{ c.size_bytes | mb }}{% if rate | trim %} · {{ rate }}{% endif %} · {{ c.seeders }} seeds{% if c.freeleech %} · freeleech{% endif %}{% if c.match_score is not none %} · match {{ "%.2f" % c.match_score }}{% endif %}{% if c.rejected_reason %} · {{ c.rejected_reason }}{% endif %}</span>
+    </td>
+    <td class="opt">{{ c.indexer_name }}</td>
+    <td class="opt">{{ c.size_bytes | mb }}</td>
+    <td class="nowrap muted opt" title="{{ 'stated in the title' if est and est.source == 'title' else 'inferred from size and playing time' }}">{{ rate }}</td>
+    <td class="opt">{{ c.seeders }}</td>
+    <td class="opt">{{ "yes" if c.freeleech else "" }}</td>
+    <td class="opt">{{ "%.2f" % c.match_score if c.match_score is not none else "" }}</td>
+    <td class="muted opt">{{ c.rejected_reason or "" }}</td>
   </tr>
   {% endfor %}
 </table>

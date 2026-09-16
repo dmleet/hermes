@@ -495,6 +495,7 @@ stays out of scope. The rest refine details.
 
 ## 13. Decision log
 
+- **2026-09-15** UI phase A of `docs/ui-plan.md` (revision 2, after an adversarial review): the request form is the landing page, the queue moves to `/queue` and the finished list to `/history` (old `/?state=` and `/?page=` links redirect), a tab row and hidden `opt` columns make the pages usable on a phone without JavaScript, the detail page gets a target card built from the same approval preview and a prev/next walk in the queue's order (now oldest first within a state, as SQL), and an action advances to the next item only when it left the filter and not into `FAILED`. The rules are in `docs/conventions.md` "UI". A9 stands: the one script gained a `defaultPrevented` check so a cancelled confirm() no longer leaves a button on "Working…".
 - **2026-09-03** Hermes fetches the `.torrent` and adds it to Deluge itself; Prowlarr is search-only (A1). Reason: the Prowlarr grab endpoint returns no torrent hash and private trackers expose no infohash.
 - **2026-09-03** beets stays a separate, standalone deployment; Hermes integrates only through plugins running in the beets pod (A2, A3, A3b). Reason: beets must remain usable by hand and one pod should own `library.db`. (Originally the `web` plugin for reads plus `beets-hermes` for writes; superseded 2026-09-06.)
 - **2026-09-03** Navidrome playlist sync is out of scope; the `navidrome-listenbrainz-daily-playlist` plugin covers it. Pending Q7.

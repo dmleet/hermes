@@ -114,7 +114,7 @@ async def test_weekly_exploration_becomes_signals_and_one_acquisition(
     # The queue names the discovered album and the API says where it came from.
     body = client.get(f"/api/acquisitions/{acqs[0].id}").json()
     assert body["requested"] == "Parra for Cuva - Her Entrance"
-    assert "Juno" in client.get("/", headers={"accept": "text/html"}).text
+    assert "Juno" in client.get("/queue", headers={"accept": "text/html"}).text
 
     # Idempotent: the next tick changes nothing and asks ListenBrainz for no tracks.
     calls_before = respx_mock.get(f"{LB}/playlist/{WE}").call_count

@@ -1,5 +1,6 @@
 """UI behaviour: requested names on unresolved rows, the review picker, notices, HTML error
-pages, inline queue actions."""
+pages, inline queue actions, the request/queue/history split and the triage walk
+(docs/ui-plan.md)."""
 
 from __future__ import annotations
 
@@ -84,7 +85,7 @@ def test_review_flow_shows_request_and_lets_a_human_pick(
     assert 'href="https://musicbrainz.org/release-group/' in page
     assert "Dummy / Portishead" in page  # the compilation is listed, marked by policy
 
-    queue = _html(client, "/").text
+    queue = _html(client, "/queue").text
     assert "(unresolved)" in queue and "Portishead - Third" in queue and ">Review<" in queue
 
     acq_id = int(location.split("/acquisitions/")[1].split("?")[0])
@@ -161,8 +162,8 @@ def test_queue_offers_search_for_resolved_rows(
     client.post(
         "/requests", data={"artist": "Portishead", "title": "Dummy"}, follow_redirects=False
     )
-    queue = _html(client, "/").text
-    assert "NO_MATCH" in queue and 'action="/acquisitions/1/search"' in queue
+    queue = _html(client, "/queue").text
+    assert "NO_MATCH" in queue and 'action="/acquisitions/1/search?back=queue"' in queue
     detail = _html(client, "/acquisitions/1").text
     assert ">Search again<" in detail, "searched once with no results: 'Search again'"
 
@@ -181,7 +182,7 @@ def test_failed_unresolved_request_can_be_retried(
     acq_id = int(location.split("/acquisitions/")[1].split("?")[0])
     page = _html(client, location).text
     assert 'class="state FAILED"' in page and "Retry request" in page
-    assert f'action="/acquisitions/{acq_id}/retry"' in _html(client, "/").text
+    assert f'action="/acquisitions/{acq_id}/retry"' in _html(client, "/queue").text
 
     route.side_effect = None
     route.respond(json=_slip_search())
@@ -194,7 +195,7 @@ def test_failed_unresolved_request_can_be_retried(
     assert old["events"][-1]["message"] == f"retried as acquisition {acq_id + 1}"
     old_page = _html(client, f"/acquisitions/{acq_id}").text
     assert f'Continued as <a href="/acquisitions/{acq_id + 1}">' in old_page
-    assert f'action="/acquisitions/{acq_id}/retry"' not in _html(client, "/").text
+    assert f'action="/acquisitions/{acq_id}/retry"' not in _html(client, "/queue").text
     new = client.get(f"/api/acquisitions/{acq_id + 1}").json()
     assert new["state"] == "NO_MATCH" and new["requested"] == "Nine Inch Nails - The Slip"
     assert client.post(f"/api/acquisitions/{acq_id + 1}/retry").status_code == 409
@@ -213,10 +214,10 @@ def test_not_found_offers_mbid_instead_of_retry(
     assert 'class="state FAILED"' in page
     assert "Retry request" not in page
     assert "MusicBrainz has no album by that name" in page
-    queue = _html(client, "/").text
-    assert f'action="/acquisitions/{acq_id}/cancel"' in queue  # the only way to clear it
+    queue = _html(client, "/queue").text
+    assert f'action="/acquisitions/{acq_id}/cancel?back=queue"' in queue  # the only way out
     assert 'name="mbid"' in page and "musicbrainz.org/search" in page
-    assert f'action="/acquisitions/{acq_id}/retry"' not in _html(client, "/").text
+    assert f'action="/acquisitions/{acq_id}/retry"' not in queue
     assert client.post(f"/api/acquisitions/{acq_id}/retry").status_code == 409
 
 
@@ -291,7 +292,9 @@ def test_approval_page_previews_the_grab_and_shows_dry_run_approval(
     ).headers["location"]
     acq_id = int(location.split("/acquisitions/")[1].split("?")[0])
     page = _html(client, location).text
-    assert "Approve will fetch <b>" in page and "Dry run is on: approving records" in page
+    assert "Approve will fetch</h2>" in page and "Dry run is on: approving records" in page
+    # The target card: what the click fetches and where it goes, as a list, not prose.
+    assert "<dt>Quality</dt><dd>FLAC" in page and "<dt>Deluge</dt>" in page
     assert "Approved by" not in page and ">Approve (dry run)<" in page
     # Mode badges are on every page, error pages included.
     assert "dry run: nothing is grabbed" in page and "timid: every grab" in page
@@ -334,6 +337,9 @@ def test_candidate_title_links_to_the_indexer_page(
     assert 'href="https://pandacd.io/release/1-the-slip/#t2"' in page
     assert "action=download" not in page  # the guid is a download link on this indexer
     assert client.get(f"/api/acquisitions/{acq_id}").json()["candidates"][0]["info_url"]
+    # The queue's best-candidate column links to the same page: that is the list a human
+    # actually works from, and it is the title they want to look up before approving.
+    assert 'href="https://pandacd.io/release/1-the-slip/#t2"' in _html(client, "/queue").text
 
 
 def test_queue_filters_and_paging(respx_mock: respx.Router, client: TestClient) -> None:
@@ -344,19 +350,131 @@ def test_queue_filters_and_paging(respx_mock: respx.Router, client: TestClient) 
     respx_mock.get(f"{MB}/release-group/").respond(json={"count": 0, "release-groups": []})
     client.post("/requests", data={"artist": "Nobody", "title": "Nothing"})
 
-    queue = _html(client, "/").text
-    assert "Discovery is off" in queue
-    assert 'href="/?state=attention"' in queue and ">needs you 1<" in queue
-    assert 'href="/?state=FAILED"' in queue and 'href="/?origin=auto"' in queue
-    filtered = _html(client, "/?state=attention").text
-    assert "The Slip" in filtered and "Nothing" not in filtered.split("Finished")[0]
-    filtered = _html(client, "/?state=FAILED").text
-    assert "Nobody - Nothing" in filtered and "The Slip" not in filtered.split("Finished")[0]
-    assert "Nothing matches this filter" in _html(client, "/?origin=auto").text
+    queue = _html(client, "/queue").text
+    assert 'href="/queue?state=attention"' in queue and ">needs you 1<" in queue
+    assert 'href="/queue?state=FAILED"' in queue and 'href="/queue?origin=auto"' in queue
+    filtered = _html(client, "/queue?state=attention").text
+    assert "The Slip" in filtered and "Nobody - Nothing" not in filtered
+    filtered = _html(client, "/queue?state=FAILED").text
+    assert "Nobody - Nothing" in filtered and "The Slip" not in filtered
+    assert "Nothing matches this filter" in _html(client, "/queue?origin=auto").text
     assert "Working…" in queue  # submit feedback script is on the page
+    # Old bookmarks of the queue and its finished list, which used to live on /, are sent on.
+    resp = client.get("/?state=FAILED", follow_redirects=False)
+    assert resp.status_code == 302 and resp.headers["location"] == "/queue?state=FAILED"
+    resp = client.get("/?page=2", follow_redirects=False)
+    assert resp.status_code == 302 and resp.headers["location"] == "/history?page=2"
 
-    # Cancel the failed one and the finished list pages at 50 per page.
-    client.post("/acquisitions/2/cancel")
-    queue = _html(client, "/").text
-    assert "Finished (1)" in queue and "page 1 of" not in queue
-    assert _html(client, "/?page=9").status_code == 200  # clamps to the last page
+    # Cancel the failed one from the queue: back to the queue, and it moves to history.
+    resp = client.post("/acquisitions/2/cancel?back=queue&state=FAILED", follow_redirects=False)
+    assert resp.status_code == 303 and resp.headers["location"].startswith("/queue?state=FAILED")
+    history = _html(client, "/history").text
+    assert 'History <span class="muted">(1)</span>' in history and "page 1 of" not in history
+    assert "Nobody - Nothing" in history and "The Slip" not in history
+    assert _html(client, "/history?page=9").status_code == 200  # clamps to the last page
+    assert "Nobody - Nothing" in _html(client, "/history?q=nobod").text
+    assert "Nothing matches" in _html(client, "/history?q=slip").text
+    assert "Nobody - Nothing" in _html(client, "/history?state=CANCELLED&origin=manual").text
+    assert "Nothing matches" in _html(client, "/history?state=REJECTED").text
+
+
+def test_request_page_is_the_landing_page(respx_mock: respx.Router, client: TestClient) -> None:
+    """The quick-add case: two required fields and one button, the MBID form tucked away,
+    and the last few requests so the one just added can be seen to have gone in."""
+    page = _html(client, "/").text
+    assert 'name="artist"' in page and 'name="title"' in page and 'name="mbid"' in page
+    assert page.count("<form") == 2, "name form and MBID form are separate, so required works"
+    assert 'required autofocus autocapitalize="words" enterkeyhint="next"' in page
+    assert "<summary>or paste a MusicBrainz ID</summary>" in page
+    assert "Recent requests" not in page and "need you" not in page
+    assert 'href="/manifest.webmanifest"' in page
+    assert client.get("/manifest.webmanifest").json()["start_url"] == "/"
+    assert client.get("/static/icon-192.png").headers["content-type"] == "image/png"
+
+    respx_mock.get(f"{MB}/release-group/").respond(json=_slip_search())
+    respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
+    respx_mock.get(f"{PROWLARR}/api/v1/search").respond(json=load("prowlarr/search_pandacd_nin"))
+    client.post("/requests", data={"artist": "Nine Inch Nails", "title": "The Slip"})
+    page = _html(client, "/").text
+    assert "Recent requests" in page and "Nine Inch Nails – The Slip" in page
+    assert "<b>1</b> item needs you → Queue" in page
+    # The header badge on every page with a session; the error page has none and still renders.
+    assert '<span class="badge" title="need you">1</span>' in page
+    assert '<span class="badge" title="need you">1</span>' in _html(client, "/history").text
+    err = _html(client, "/acquisitions/999")
+    assert err.status_code == 404 and 'class="badge"' not in err.text
+    assert 'href="/queue">queue</a>' in err.text
+
+
+def test_mobile_layout_rules(respx_mock: respx.Router, client: TestClient) -> None:
+    """CSS does the collapsing, so a test can only check the classes and the rule: secondary
+    columns carry `opt`, the stylesheet hides them below 640px, the primary action is
+    repeated in the fixed bar, and a cancelled confirm() no longer sticks on Working."""
+    respx_mock.get(f"{MB}/release-group/").respond(json=_slip_search())
+    respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
+    respx_mock.get(f"{PROWLARR}/api/v1/search").respond(json=load("prowlarr/search_pandacd_nin"))
+    client.post("/requests", data={"artist": "Nine Inch Nails", "title": "The Slip"})
+    queue = _html(client, "/queue").text
+    assert "@media (max-width: 640px)" in queue and ".opt { display:none !important; }" in queue
+    assert '<th class="opt">Best candidate</th>' in queue and '<td class="num">1</td>' in queue
+    assert '<span class="art" aria-hidden="true">N</span>' in queue
+    assert "if (e.defaultPrevented) return;" in queue
+    assert 'aria-current="page">Queue' in queue and 'aria-current="page">Request' not in queue
+    detail = _html(client, "/acquisitions/1").text
+    assert '<div class="actionbar">' in detail and detail.count(">Approve (dry run)<") == 2
+    assert '<th class="opt">Indexer</th>' in detail and '<span class="art big"' in detail
+
+
+def test_triage_walk_advances_only_when_the_item_leaves_the_list(
+    respx_mock: respx.Router, client: TestClient
+) -> None:
+    """Prev/next follow the queue's order inside the filter the page was opened with. An
+    action moves on only when it took the item out of that list and not into FAILED: a
+    dry-run approval stays, so the screen that explains dry run is seen; a reject advances;
+    the last one goes back to the queue (docs/ui-plan.md 3.3)."""
+    respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
+    respx_mock.get(f"{PROWLARR}/api/v1/search").respond(json=load("prowlarr/search_pandacd_nin"))
+    respx_mock.get(f"{MB}/release-group/").respond(json=_slip_search())
+    client.post("/requests", data={"artist": "Nine Inch Nails", "title": "The Slip"})  # #1
+    respx_mock.get(f"{MB}/release-group/").respond(json=load("musicbrainz/search_dummy"))
+    client.post("/requests", data={"artist": "Portishead", "title": "Third"})  # #2, review
+    assert client.get("/api/acquisitions/1").json()["state"] == "AWAITING_APPROVAL"
+    assert client.get("/api/acquisitions/2").json()["state"] == "NEEDS_REVIEW"
+
+    # A deep link has no walk: no bar, and actions come back to the same page.
+    plain = _html(client, "/acquisitions/1").text
+    assert "next →" not in plain and 'action="/acquisitions/1/approve"' in plain
+
+    queue = _html(client, "/queue?state=attention").text
+    assert 'href="/acquisitions/1?walk=1&amp;state=attention"' in queue
+    first = _html(client, "/acquisitions/1?walk=1&state=attention").text
+    assert "1 of 2" in first and 'href="/acquisitions/2?walk=1&amp;state=attention">next →' in first
+    assert "← previous" not in first
+    assert 'action="/acquisitions/1/approve?walk=1&amp;state=attention"' in first
+    second = _html(client, "/acquisitions/2?walk=1&state=attention").text
+    assert "2 of 2" in second and "next →" not in second
+    assert 'href="/acquisitions/1?walk=1&amp;state=attention">← previous' in second
+
+    # Dry-run approve: still AWAITING_APPROVAL, still in "needs you", so stay put.
+    resp = client.post("/acquisitions/1/approve?walk=1&state=attention", follow_redirects=False)
+    assert resp.headers["location"].startswith("/acquisitions/1?walk=1&state=attention&notice=")
+    assert "Dry%20run%20is%20on" in resp.headers["location"]
+
+    # Reject: out of the list, so on to #2, with a way back to #1.
+    resp = client.post("/acquisitions/1/reject?walk=1&state=attention", follow_redirects=False)
+    location = resp.headers["location"]
+    assert location.startswith("/acquisitions/2?walk=1&state=attention&notice=Rejected%20%231.")
+    assert location.endswith("&prev=1")
+    page = _html(client, location).text
+    assert '<div class="notice">Rejected #1. <a href="/acquisitions/1">#1</a></div>' in page
+    assert "1 of 1" in page
+
+    # The last one: back to the (now empty) list.
+    resp = client.post("/acquisitions/2/reject?walk=1&state=attention", follow_redirects=False)
+    assert resp.headers["location"] == (
+        "/queue?state=attention&notice=Rejected%20%232.%20Nothing%20else%20in%20this%20list."
+    )
+    assert "Nothing matches this filter" in _html(client, resp.headers["location"]).text
+    # Terminal rows point at history, not the queue, and have no walk.
+    done = _html(client, "/acquisitions/2?walk=1&state=attention").text
+    assert 'href="/history">← history</a>' in done and "of 0" not in done

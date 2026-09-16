@@ -106,10 +106,26 @@ add a regression test in `tests/integration/test_review_fixes.py`.
 
 ## UI
 
-- Jinja2 pages (queue, acquisition detail, request form, error page) using plain forms and
-  POST-redirect-GET; the redirect carries a one-line `?notice=` that the base template shows.
+- Jinja2 pages (request form at `/`, queue at `/queue`, history at `/history`, acquisition
+  detail, error page) using plain forms and POST-redirect-GET; the redirect carries a
+  one-line `?notice=` that the base template shows. The page design is `docs/ui-plan.md`.
 - No JavaScript beyond `confirm()` on Reject/Cancel and the one inline submit handler in
-  `base.html` that disables the button and says "Working…".
+  `base.html` that disables the button and says "Working…" (and leaves it alone when a
+  confirm() was cancelled: `e.defaultPrevented`).
+- Mobile is CSS only: below 640px the nav becomes a tab row, columns marked `opt` are
+  hidden (the stacked album cell repeats what they held), and the detail page repeats its
+  primary action in a `position: fixed` bottom bar. Tests check the classes and the rule.
+- The queue's order is one SQL expression (`QUEUE_ORDER` in `ui/routes.py`: attention
+  states first, oldest `updated_at` first within a state, then id). The detail page's
+  prev/next use it with bounded queries, never by loading the table.
+- A detail page opened from the queue carries `walk=1` plus the queue filter (`state=`,
+  `origin=`) on its links and form actions. An action then advances to the next item only
+  when it moved this one out of that filter and not into `FAILED` (`_finish`), so a
+  dry-run approval and a failed submit stay on the page that explains them; the next item
+  is computed at POST time from the acted row's sort key. Inline queue actions carry
+  `back=queue` and return to the queue. Without either, actions redirect to the same page.
+- The header's Queue link carries the needs-you count on every page with a session; the
+  error page has none and shows no badge.
 - Button availability is derived from `can_transition`, never hard-coded.
 - `HTTPException`s on non-API paths render `error.html` (see `create_app`); API paths stay
   JSON. Times render via the `dt` filter with a UTC label.

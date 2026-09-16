@@ -58,7 +58,7 @@
   <dt>Quality</dt><dd>{{ p.format or "?" }}{% if p.encoding_detail %} {{ p.encoding_detail }}{% elif p.encoding %} {{ p.encoding }}{% endif %}{% if p.media %} · {{ p.media }}{% endif %}{% if p.has_log %} · log{% if p.log_score is not none %} {{ p.log_score }}%{% endif %}{% endif %}{% if p.has_cue %} · cue{% endif %}{% if p.edition_flags %} · {{ p.edition_flags | join(", ") }}{% endif %}</dd>
   {% if est %}<dt>Sample rate</dt><dd>{{ "" if est.source == "title" else "~" }}{{ est.rate_khz }} kHz{% if est.kbps %} <span class="muted small">{{ est.kbps }} kbps</span>{% endif %} <span class="muted small">({{ "stated in the title" if est.source == "title" else "inferred from size and playing time" }})</span></dd>{% endif %}
   <dt>Swarm</dt><dd>{{ c.seeders or 0 }} seeders, {{ c.leechers or 0 }} leechers</dd>
-  <dt>Match</dt><dd>{% if c.match_score is not none %}{{ "%.2f" % c.match_score }}{% endif %}{% if c.rank %} · rank #{{ c.rank }}{% endif %}</dd>
+  <dt>Match</dt><dd>{% if c.match_score is not none %}{{ "%.2f" % c.match_score }}{% endif %}{% if c.rank %} · rank #{{ c.rank }}{% endif %}{% if preferred_id == c.id %} · <b>preferred by you</b> <span class="muted small">(a new search resets this)</span>{% endif %}</dd>
   <dt>Deluge</dt><dd>{% if preview.routed %}<b>{{ preview.instance }}</b> at <span class="mono">{{ preview.pending }}</span>, label <span class="mono">{{ preview.label }}</span>{% else %}<span class="events"><span class="warning">no Deluge instance is configured for indexer {{ c.indexer_name }} (deluge.instances), so this candidate would be skipped</span></span>{% endif %}</dd>
 </dl>
 {% if dry_run %}<p class="hint">Dry run is on: approving records your decision and grabs nothing.</p>{% endif %}
@@ -107,7 +107,7 @@
 <h2>Candidates</h2>
 <div class="scroll">
 <table>
-  <tr><th>Rank</th><th>Title</th><th class="opt">Indexer</th><th class="opt">Size</th><th class="opt">Rate</th><th class="opt">Seeds</th><th class="opt">Free</th><th class="opt">Match</th><th class="opt">Reason</th></tr>
+  <tr><th>Rank</th><th>Title</th><th class="opt">Indexer</th><th class="opt">Size</th><th class="opt">Rate</th><th class="opt">Seeds</th><th class="opt">Free</th><th class="opt">Match</th><th class="opt">Reason</th>{% if preferable %}<th></th>{% endif %}</tr>
   {% for c in candidates %}
   {% set est = c.parsed_quality.get("estimate") %}
   {% set rate %}{% if est %}{{ "" if est.source == "title" else "~" }}{{ est.rate_khz }} kHz{% if est.kbps %} <span class="small">{{ est.kbps }} kbps</span>{% endif %}{% endif %}{% endset %}
@@ -124,10 +124,12 @@
     <td class="opt">{{ "yes" if c.freeleech else "" }}</td>
     <td class="opt">{{ "%.2f" % c.match_score if c.match_score is not none else "" }}</td>
     <td class="muted opt">{{ c.rejected_reason or "" }}</td>
+    {% if preferable %}<td class="nowrap">{% if c.id in preferable %}<form class="inline" method="post" action="/acquisitions/{{ acq.id }}/prefer{{ walk_qs }}"><input type="hidden" name="candidate_id" value="{{ c.id }}"><button class="small" title="make this the candidate Approve fetches">{{ preferable[c.id] }}</button></form>{% endif %}</td>{% endif %}
   </tr>
   {% endfor %}
 </table>
 </div>
+{% if preferable %}<p class="hint">Prefer puts a row in front so Approve fetches it instead; "Use anyway" does the same for a row the ranker cut only for keep_candidates. Nothing is grabbed until you approve.</p>{% endif %}
 {% endif %}
 
 {% if acq.grab_attempts %}

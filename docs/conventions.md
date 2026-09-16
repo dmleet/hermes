@@ -126,6 +126,15 @@ add a regression test in `tests/integration/test_review_fixes.py`.
   `back=queue` and return to the queue. Without either, actions redirect to the same page.
 - The header's Queue link carries the needs-you count on every page with a session; the
   error page has none and shows no badge.
+- Choosing a candidate is a separate step before Approve, never a one-tap grab:
+  `approval.prefer` renumbers ranks so the chosen row is what `next_candidate` returns,
+  writes a "preferred X over Y" event, and the page redirects to itself so the target card
+  (built from the same `_approval_preview`) shows the new choice with its routing check.
+  `approval.preferable` decides which rows get the button: ranked rows and rows cut only
+  for `keep_candidates` ("Use anyway"); never a torrent already in `attempted_guids`
+  (`next_candidate` skips those, so Approve would grab something else) and never a
+  quality, match or type rejection (`submit()` re-checks the sample rate on the torrent
+  itself; the others are a different album). A later search re-ranks from scratch.
 - Button availability is derived from `can_transition`, never hard-coded.
 - `HTTPException`s on non-API paths render `error.html` (see `create_app`); API paths stay
   JSON. Times render via the `dt` filter with a UTC label.

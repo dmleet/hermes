@@ -15,7 +15,7 @@ from hermes.domain.models import Acquisition, Candidate, Event, Origin, utcnow
 from hermes.domain.state import AcquisitionState as S
 from hermes.domain.state import transition
 from hermes.services.context import Context
-from hermes.services.submit import next_candidate, submit
+from hermes.services.submit import attempted_guids, next_candidate, submit
 
 
 def rule_matches(rule: AutoApproveRule, candidate: Candidate) -> bool:
@@ -104,6 +104,81 @@ async def approve(session: Session, ctx: Context, acq: Acquisition, by: str) -> 
         session.commit()
         return acq
     return await submit(session, ctx, acq)
+
+
+KEEP_CUT = "acceptable, but beyond keep_candidates"
+PREFER_STATES = (S.AWAITING_APPROVAL, S.CANDIDATES_READY, S.STALLED)
+
+
+def preferable(acq: Acquisition) -> dict[int, str]:
+    """The candidates a human may put in front of the ranker's choice, with the button
+    label: ranked rows ("Prefer") and rows the ranker cut only for `keep_candidates`
+    ("Use anyway"), which passed every policy check and lost on rank. Rows rejected by a
+    quality rule are not offered: `submit()` re-checks the sample rate on the torrent
+    itself and would reverse the override, and a matching or release-type rejection
+    describes a different album. Torrents already tried are out: `next_candidate` skips
+    them, so Approve would quietly grab something else (docs/ui-plan.md 4.2)."""
+    if acq.state not in PREFER_STATES:
+        return {}
+    tried = attempted_guids(acq)
+    top = next_candidate(acq)
+    out: dict[int, str] = {}
+    for c in acq.candidates:
+        if c.prowlarr_guid in tried or (top is not None and c.id == top.id):
+            continue
+        if c.rank is not None:
+            out[c.id] = "Prefer"
+        elif (c.rejected_reason or "").startswith(KEEP_CUT):
+            out[c.id] = "Use anyway"
+    return out
+
+
+def prefer(session: Session, acq: Acquisition, candidate: Candidate, by: str) -> Acquisition:
+    """Put `candidate` in front: it becomes rank 1 and the other ranked rows keep their
+    relative order, so `next_candidate` (Approve, and the observer's stall fallback) takes
+    it next. Only reorders; the grab still goes through Approve and its preview. A later
+    search re-ranks from scratch, which the page says."""
+    if acq.state not in PREFER_STATES:
+        raise ValueError(f"cannot prefer a candidate from state {acq.state}")
+    if candidate.acquisition_id != acq.id:
+        raise ValueError(f"candidate {candidate.id} belongs to another acquisition")
+    if candidate.prowlarr_guid in attempted_guids(acq):
+        raise ValueError(f"{candidate.title} was already tried (see the grab attempts)")
+    top = next_candidate(acq)
+    if top is not None and top.id == candidate.id:
+        return acq  # already what Approve would fetch
+    if candidate.rank is None:
+        if not (candidate.rejected_reason or "").startswith(KEEP_CUT):
+            raise ValueError(
+                f"{candidate.title} was rejected ({candidate.rejected_reason}); "
+                "only ranked candidates and keep_candidates cuts can be preferred"
+            )
+        candidate.rejected_reason = None
+    ranked = sorted((c for c in acq.candidates if c.rank is not None), key=lambda c: c.rank or 0)
+    order = [candidate] + [c for c in ranked if c.id != candidate.id]
+    for i, c in enumerate(order, start=1):
+        c.rank = i
+    session.add(
+        Event(
+            acquisition=acq,
+            message=f"preferred {candidate.title}"
+            + (f" over {top.title}" if top else "")
+            + f" (by {by})",
+            data={"candidate_id": candidate.id, "previous_candidate_id": top.id if top else None},
+        )
+    )
+    session.commit()
+    return acq
+
+
+def preferred_id(acq: Acquisition) -> int | None:
+    """The candidate a human last put in front, if that choice still stands."""
+    for event in reversed(acq.events):
+        if event.message.startswith("preferred "):
+            return int(event.data["candidate_id"])
+        if event.data.get("to") == S.SEARCHING:
+            return None  # a later search re-ranked from scratch
+    return None
 
 
 def reject(session: Session, acq: Acquisition, by: str, reason: str = "") -> Acquisition:

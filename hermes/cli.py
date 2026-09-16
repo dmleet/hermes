@@ -118,6 +118,39 @@ def approve(acquisition_id: int, by: str = "cli") -> None:
 
 
 @app.command()
+def prefer(acquisition_id: int, candidate_id: int, by: str = "cli") -> None:
+    """Put one candidate in front so the next approval fetches it. Grabs nothing."""
+    from hermes.domain.models import Acquisition, Candidate
+    from hermes.services import approval
+
+    _, _, engine, clients, ctx = _runtime()
+
+    async def run() -> None:
+        try:
+            with make_session_factory(engine)() as session:
+                acq = session.get(Acquisition, acquisition_id)
+                if acq is None:
+                    raise typer.BadParameter(f"no acquisition {acquisition_id}")
+                candidate = session.get(Candidate, candidate_id)
+                if candidate is None or candidate.acquisition_id != acq.id:
+                    raise typer.BadParameter(
+                        f"no candidate {candidate_id} on acquisition {acquisition_id}"
+                    )
+                try:
+                    approval.prefer(session, acq, candidate, by=by)
+                except ValueError as exc:
+                    raise typer.BadParameter(str(exc)) from exc
+                for c in sorted(acq.candidates, key=lambda c: (c.rank is None, c.rank or 0)):
+                    if c.rank is not None:
+                        typer.echo(f"  #{c.rank} {c.title}")
+        finally:
+            await clients.aclose()
+            engine.dispose()
+
+    asyncio.run(run())
+
+
+@app.command()
 def observe() -> None:
     """Run one observer tick: poll Deluge for every active grab attempt."""
     from hermes.services import observer

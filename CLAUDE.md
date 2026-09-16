@@ -35,6 +35,7 @@ uv run hermes request "Artist" "Album"   # manual request: resolve + library che
 uv run hermes request --mbid <release-group-or-release-mbid>
 uv run hermes parse-title "Artist - Album (1997) [Album] [FLAC Lossless / WEB]"
 uv run hermes approve <id>       # human approval (respects dry_run)
+uv run hermes prefer <id> <candidate-id>   # put a candidate in front; the next approval fetches it
 uv run hermes observe            # one observer tick against Deluge
 uv run hermes import-tick        # one importer tick against the beets agent
 uv run hermes discover           # one discovery tick: new ListenBrainz playlists -> signals -> queue

@@ -19,7 +19,7 @@ from sqlalchemy.orm import Session
 from hermes import __version__
 from hermes.api.routes import Ctx, DbSession
 from hermes.api.schemas import requested_label
-from hermes.domain.models import Acquisition, AlbumTarget, Playlist, Signal
+from hermes.domain.models import Acquisition, AlbumTarget, Candidate, Playlist, Signal
 from hermes.domain.state import TERMINAL, InvalidTransition, can_transition
 from hermes.domain.state import AcquisitionState as S
 from hermes.integrations.musicbrainz import NotFound
@@ -585,6 +585,8 @@ def detail(acquisition_id: int, request: Request, ctx: Ctx, session: DbSession) 
             candidates=candidates,
             review_candidates=_review_candidates(acq) if state == S.NEEDS_REVIEW else [],
             preview=_approval_preview(ctx, acq) if state in decision_states else None,
+            preferable=approval.preferable(acq),
+            preferred_id=approval.preferred_id(acq),
             can_approve=state in (S.AWAITING_APPROVAL, S.CANDIDATES_READY),
             can_fallback=state == S.STALLED,
             can_reject=can_transition(state, S.REJECTED),
@@ -630,6 +632,32 @@ async def ui_approve(
     else:
         notice = f"Approved #{acq.id}; now {acq.state}."
     return _finish(request, session, acq, key, notice)
+
+
+@router.post("/acquisitions/{acquisition_id}/prefer")
+def ui_prefer(
+    acquisition_id: int,
+    request: Request,
+    session: DbSession,
+    candidate_id: Annotated[int, Form()],
+) -> RedirectResponse:
+    acq = _get(session, acquisition_id)
+    key = _key(acq)
+    candidate = session.get(Candidate, candidate_id)
+    if candidate is None or candidate.acquisition_id != acq.id:
+        raise HTTPException(404, f"There is no candidate #{candidate_id} on this acquisition.")
+    try:
+        approval.prefer(session, acq, candidate, by="ui")
+    except ValueError as exc:
+        raise HTTPException(409, str(exc)) from exc
+    return _finish(
+        request,
+        session,
+        acq,
+        key,
+        f"Preferred {candidate.title}; Approve will fetch it.",
+        advance=False,
+    )
 
 
 @router.post("/acquisitions/{acquisition_id}/reject")

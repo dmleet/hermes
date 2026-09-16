@@ -29,6 +29,11 @@ class ResolveBody(BaseModel):
     release_group_mbid: str
 
 
+class PreferBody(BaseModel):
+    candidate_id: int
+    by: str = "api"
+
+
 def requested_label(acq: Acquisition) -> str | None:
     """What was asked for, from the originating signal (useful when nothing resolved)."""
     signal = acq.signal

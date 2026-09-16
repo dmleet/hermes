@@ -13,9 +13,10 @@ from hermes.api.schemas import (
     DecisionBody,
     ManualRequest,
     PlaylistOut,
+    PreferBody,
     ResolveBody,
 )
-from hermes.domain.models import Acquisition, Playlist
+from hermes.domain.models import Acquisition, Candidate, Playlist
 from hermes.domain.state import InvalidTransition
 from hermes.integrations.musicbrainz import NotFound
 from hermes.services import approval, discovery, importer, observer
@@ -142,6 +143,21 @@ async def approve_acquisition(
     try:
         acq = await approval.approve(session, ctx, acq, by=(body.by if body else "api"))
     except (ValueError, InvalidTransition) as exc:
+        raise HTTPException(409, str(exc)) from exc
+    return AcquisitionOut.from_model(acq)
+
+
+@router.post("/acquisitions/{acquisition_id}/prefer", response_model=AcquisitionOut)
+def prefer_candidate(acquisition_id: int, session: DbSession, body: PreferBody) -> AcquisitionOut:
+    """Put one of the acquisition's candidates in front, so Approve fetches it. Reorders
+    only; nothing is grabbed here."""
+    acq = _load(session, acquisition_id)
+    candidate = session.get(Candidate, body.candidate_id)
+    if candidate is None or candidate.acquisition_id != acq.id:
+        raise HTTPException(404, "no such candidate on this acquisition")
+    try:
+        acq = approval.prefer(session, acq, candidate, by=body.by)
+    except ValueError as exc:
         raise HTTPException(409, str(exc)) from exc
     return AcquisitionOut.from_model(acq)
 

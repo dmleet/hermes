@@ -59,8 +59,10 @@ deluge:
   #  a: {url: http://deluge-a-service.deluge.svc.cluster.local:8112, indexers: ["Tracker A"]}
   #  b: {url: http://deluge-b-service.deluge.svc.cluster.local:8112, indexers: ["Tracker B"]}
   default_instance: null
-  pending_root: /downloads/pending/hermes     # download_location = <pending_root>/<acq-id>
-  completed_root: /downloads/complete/hermes  # move_completed_path = <completed_root>/<acq-id>
+  pending_root: /downloads/pending/hermes     # download_location (plus /<acq-id> unless flat)
+  completed_root: /downloads/complete/hermes  # move_completed_path (plus /<acq-id> unless flat)
+  layout: per_acquisition         # flat: straight into the roots, beside every other download
+                                  # (a pool shared with other clients for cross-seeding)
   label: hermes
   poll_seconds: 45
   stall_hours: 48

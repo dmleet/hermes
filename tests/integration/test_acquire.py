@@ -606,3 +606,42 @@ def test_live_approve_advances_the_walk(stack) -> None:
         "%20Nothing%20else%20in%20this%20list."
     )
     assert client.get("/api/acquisitions/1").json()["state"] == "SUBMITTED"
+
+
+def test_flat_layout_lands_in_the_pool_and_skips_directory_adoption(stack) -> None:
+    """`deluge.layout: flat`: the torrent goes straight into the roots beside every other
+    download, and a stranger already sitting in the pool is not mistaken for ours."""
+    policy = _policy(
+        deluge={
+            "instances": {"dev": {"url": DELUGE, "indexers": ["PandaCD"]}},
+            "pending_root": "/downloads/pending",
+            "completed_root": "/downloads/complete",
+            "layout": "flat",
+        }
+    )
+    client = stack.app(policy)
+    stack.deluge.torrents["e" * 40] = {  # someone else's, already in the pool
+        "name": "someone-elses-album",
+        "state": "Seeding",
+        "progress": 100.0,
+        "is_finished": True,
+        "save_path": "/downloads/pending",
+        "move_completed_path": "/downloads/complete",
+        "move_completed": True,
+        "total_done": 10,
+        "total_wanted": 10,
+        "num_seeds": 1,
+        "num_peers": 0,
+        "download_payload_rate": 0,
+        "label": "",
+    }
+    body = _request(client)
+    assert body["state"] == "SUBMITTED", body["events"]
+    (attempt,) = body["attempts"]
+    assert attempt["infohash"] == INFOHASH
+    assert attempt["download_location"] == "/downloads/pending"
+    assert attempt["completed_location"] == "/downloads/complete"
+    (added,) = stack.deluge.added
+    assert added["options"]["download_location"] == "/downloads/pending"
+    assert added["options"]["move_completed_path"] == "/downloads/complete"
+    assert not any("not adopted" in e["message"] for e in body["events"])

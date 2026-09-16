@@ -46,6 +46,17 @@ def test_path_mapping_defaults_match_home_cluster() -> None:
     assert paths.to_beets("/downloads/pending/hermes/12") == "/downloads/pending/hermes/12"
 
 
+def test_deluge_layout_locations() -> None:
+    per = Policy.model_validate({"deluge": {"pending_root": "/p/", "completed_root": "/c"}})
+    assert per.deluge.locations(12) == ("/p/12", "/c/12")
+    flat = Policy.model_validate(
+        {"deluge": {"pending_root": "/p/", "completed_root": "/c", "layout": "flat"}}
+    )
+    assert flat.deluge.locations(12) == ("/p", "/c")
+    with pytest.raises(ValueError):
+        Policy.model_validate({"deluge": {"layout": "nested"}})
+
+
 def test_deluge_instance_routing() -> None:
     policy = Policy.model_validate(
         {

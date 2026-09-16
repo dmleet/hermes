@@ -158,7 +158,7 @@ def _approval_preview(ctx: Context, acq: Acquisition) -> dict[str, Any] | None:
         "instance": instance,
         "routed": instance is not None and instance in ctx.deluge,
         "fetchable": bool(top.download_url),
-        "pending": f"{deluge.pending_root.rstrip('/')}/{acq.id}",
+        "pending": deluge.locations(acq.id)[0],
         "label": deluge.label,
     }
 

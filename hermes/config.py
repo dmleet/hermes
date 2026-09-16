@@ -137,8 +137,14 @@ class DelugeInstance(_Strict):
 class DelugePolicy(_Strict):
     instances: dict[str, DelugeInstance] = Field(default_factory=dict)
     default_instance: str | None = None
-    pending_root: str = "/downloads/pending/hermes"  # per-torrent download_location under here
-    completed_root: str = "/downloads/complete/hermes"  # per-torrent move_completed_path
+    pending_root: str = "/downloads/pending/hermes"  # download_location (see layout)
+    completed_root: str = "/downloads/complete/hermes"  # move_completed_path (see layout)
+    # Where a torrent lands under the two roots. `per_acquisition`: its own directory,
+    # `<root>/<acquisition id>`, which makes a torrent attributable without a torrent file
+    # and lets an interrupted submit be recovered by directory. `flat`: straight into the
+    # root, beside every other download, e.g. a pool shared with other clients so the same
+    # files can be cross-seeded; recovery then relies on Deluge's "already in session".
+    layout: Literal["per_acquisition", "flat"] = "per_acquisition"
     # Deluge's Label plugin lowercases names and allows only [a-z0-9_-.].
     label: str = Field(default="hermes", pattern=r"^[a-z0-9_\-.]+$")
     poll_seconds: int = Field(default=45, ge=5)
@@ -153,6 +159,13 @@ class DelugePolicy(_Strict):
         if self.pending_root.rstrip("/") == self.completed_root.rstrip("/"):
             raise ValueError("deluge.pending_root and deluge.completed_root must differ")
         return self
+
+    def locations(self, acquisition_id: int) -> tuple[str, str]:
+        """(download_location, move_completed_path) for one acquisition's torrent."""
+        pending, completed = self.pending_root.rstrip("/"), self.completed_root.rstrip("/")
+        if self.layout == "flat":
+            return pending, completed
+        return f"{pending}/{acquisition_id}", f"{completed}/{acquisition_id}"
 
     def instance_for(self, indexer_name: str) -> str | None:
         for name, inst in self.instances.items():

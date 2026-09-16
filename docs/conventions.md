@@ -21,7 +21,9 @@ add a regression test in `tests/integration/test_review_fixes.py`.
 - Never delete a `Candidate` a `GrabAttempt` references; supersede it (`rank=None`).
 - A submit can die between the Deluge add and the attempt commit: `submit()` first looks
   for a torrent at the acquisition's own download path and adopts it (`_adopt_existing`).
-  Keep that path per acquisition; it is what makes a torrent attributable without a file.
+  That path is per acquisition under `deluge.layout: per_acquisition`, which is what makes
+  a torrent attributable without a file; under `flat` the directory is shared, adoption
+  is skipped, and the recovery is Deluge's "already in session" reply on the re-add.
 - beets adds the album to its library before copying files: an import is only done when the
   agent job exited 0 with no error and the album path is under `beets.library_root`.
 - Discovery never marks a track failed for a dependency being down: `_process` raises

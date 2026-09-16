@@ -140,11 +140,13 @@ async def submit(session: Session, ctx: Context, acq: Acquisition) -> Acquisitio
     deferred: dict[str, str] = {}  # indexer -> why its candidates were left for later
     session.commit()  # release the write lock before the network calls below
 
-    pending = f"{policy.deluge.pending_root.rstrip('/')}/{acq.id}"
-    completed = f"{policy.deluge.completed_root.rstrip('/')}/{acq.id}"
-    adopted = await _adopt_existing(session, ctx, acq, pending, completed)
-    if adopted is not None:
-        return adopted
+    pending, completed = policy.deluge.locations(acq.id)
+    if policy.deluge.layout == "per_acquisition":
+        # In a flat pool the directory is everyone's, so nothing there is ours by location;
+        # an interrupted submit is caught by Deluge's "already in session" below instead.
+        adopted = await _adopt_existing(session, ctx, acq, pending, completed)
+        if adopted is not None:
+            return adopted
 
     while True:
         candidate = next_candidate(acq, skip_indexers=set(deferred))

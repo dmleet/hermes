@@ -1,6 +1,6 @@
 [project]
 name = "hermes"
-version = "0.9.0"
+version = "0.9.1"
 description = "Music acquisition orchestrator: ListenBrainz/manual requests -> Prowlarr -> Deluge -> beets"
 license = "MIT"
 license-files = ["LICENSE"]

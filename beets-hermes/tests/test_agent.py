@@ -203,6 +203,10 @@ def test_command_terminates_options_and_import_log_is_exposed(agent):
     args_line = next(line for line in job["log_tail"] if line.startswith("ARGS"))
     assert " -- " in args_line and args_line.endswith(str(album))
     assert "import_log_tail" in job
+    # Every Hermes import runs with the overlay that clears beets' candidate preferences:
+    # the release id is given, so they could only lower the one candidate's score.
+    assert f" -c {store.overlay} import " in args_line
+    assert "preferred:" in store.overlay.read_text() and "media: []" in store.overlay.read_text()
 
 
 def test_corrupt_jobs_file_is_moved_aside(tmp_path):

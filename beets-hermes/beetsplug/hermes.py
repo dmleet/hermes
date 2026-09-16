@@ -166,6 +166,22 @@ def config_problems() -> list[str]:
     return problems
 
 
+# Passed to every Hermes import with `beet -c`, on top of the user's config. A Hermes
+# import carries a release id chosen from the files (track count, disc layout, medium),
+# so there is one candidate and `match.preferred` cannot order anything; it can only
+# lower that candidate's score. A correct CD from a country not in the list scored
+# "medium" on those two penalties alone and quiet mode skipped it. Manual imports do
+# not use this file and keep the preferences, which is where they order candidates.
+IMPORT_OVERLAY = """\
+# Written by hermes-agent at start; do not edit. Hermes imports run with `beet -c` this
+# file: the release id is already chosen, so candidate preferences only cost confidence.
+match:
+  preferred:
+    media: []
+    countries: []
+"""
+
+
 class JobStore:
     """Runs import jobs sequentially on one worker thread; persists outcomes to jobs.json."""
 
@@ -179,6 +195,8 @@ class JobStore:
         self._queue: queue.Queue[str] = queue.Queue()
         self.busy = False
         self.jobs_dir.mkdir(parents=True, exist_ok=True)
+        self.overlay = self.jobs_dir / "import-overlay.yaml"
+        self.overlay.write_text(IMPORT_OVERLAY, encoding="utf-8")
         self._load()
         threading.Thread(target=self._worker, name="hermes-import-worker", daemon=True).start()
 
@@ -285,6 +303,8 @@ class JobStore:
         # retried import of the same path a silent no-op.
         cmd = [
             *self.beet_command,
+            "-c",
+            str(self.overlay),
             "import",
             "-q",
             "-I",

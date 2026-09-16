@@ -34,7 +34,9 @@ from hermes.integrations.musicbrainz import NotFound, ReleaseGroup
 from hermes.integrations.navidrome import NavidromeError
 from hermes.services.context import Context
 
-PREFERRED_COUNTRIES = ("XW", "XE", "US", "GB")
+# The same order as beets' `match.preferred.countries` in deploy/beets/config.yaml, so a
+# manual import and a Hermes import of the same rip tend to land on the same release.
+PREFERRED_COUNTRIES = ("XW", "US", "GB")
 
 
 def _aware(dt: datetime) -> datetime:

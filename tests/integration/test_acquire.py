@@ -591,3 +591,18 @@ def test_ui_pages_render_and_forms_work(stack) -> None:
     listing = client.get("/api/acquisitions").json()
     assert listing[0]["best_candidate"] == "Nine Inch Nails - The Slip [2008] [FLAC Lossless]"
     assert client.get("/acquisitions/9999").status_code == 404
+
+
+def test_live_approve_advances_the_walk(stack) -> None:
+    """With dry run off the approval reaches SUBMITTED, which is out of "needs you": the walk
+    moves on. The dry-run case, which stays, is covered above."""
+    client = stack.app(_policy(approval={"timid": True}))
+    client.post("/requests", data={"artist": "Nine Inch Nails", "title": "The Slip"})
+    assert client.get("/api/acquisitions/1").json()["state"] == "AWAITING_APPROVAL"
+    resp = client.post("/acquisitions/1/approve?walk=1&state=attention", follow_redirects=False)
+    assert resp.status_code == 303
+    assert resp.headers["location"] == (
+        "/queue?state=attention&notice=Approved%20%231%20and%20sent%20to%20Deluge."
+        "%20Nothing%20else%20in%20this%20list."
+    )
+    assert client.get("/api/acquisitions/1").json()["state"] == "SUBMITTED"

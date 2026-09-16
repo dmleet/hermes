@@ -150,7 +150,6 @@ def test_notice_confirms_and_dry_run_is_explained(
     assert "Dry run is on, so nothing was grabbed" in page
     assert 'onsubmit="return confirm' in page  # destructive buttons ask first
     assert " UTC" in page  # timestamps are labelled
-    assert "details</summary>" not in page.split("Events")[1].split("resolved to")[1][:200] or True
 
 
 def test_queue_offers_search_for_resolved_rows(
@@ -478,3 +477,51 @@ def test_triage_walk_advances_only_when_the_item_leaves_the_list(
     # Terminal rows point at history, not the queue, and have no walk.
     done = _html(client, "/acquisitions/2?walk=1&state=attention").text
     assert 'href="/history">← history</a>' in done and "of 0" not in done
+
+
+def test_walk_order_is_state_first_then_cancel_advances_under_a_filter(
+    respx_mock: respx.Router, client: TestClient
+) -> None:
+    """The lower id has the lower-priority state, so id order and queue order disagree: the
+    queue number, the walk's position and prev/next must all follow QUEUE_ORDER. A cancel
+    from a walk under an origin filter advances like a reject does."""
+    respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
+    respx_mock.get(f"{PROWLARR}/api/v1/search").respond(json=load("prowlarr/search_pandacd_nin"))
+    respx_mock.get(f"{MB}/release-group/").respond(json=load("musicbrainz/search_dummy"))
+    client.post("/requests", data={"artist": "Portishead", "title": "Third"})  # #1, review
+    respx_mock.get(f"{MB}/release-group/").respond(json=_slip_search())
+    client.post("/requests", data={"artist": "Nine Inch Nails", "title": "The Slip"})  # #2
+    assert client.get("/api/acquisitions/1").json()["state"] == "NEEDS_REVIEW"
+    assert client.get("/api/acquisitions/2").json()["state"] == "AWAITING_APPROVAL"
+
+    queue = _html(client, "/queue?origin=manual").text
+    rows = queue.split("<tr>")[2:]
+    assert "The Slip" in rows[0] and '<td class="num">1</td>' in rows[0]
+    assert "Portishead - Third" in rows[1] and '<td class="num">2</td>' in rows[1]
+    second = _html(client, "/acquisitions/2?walk=1&origin=manual").text
+    assert "1 of 2" in second and 'href="/acquisitions/1?walk=1&amp;origin=manual">next' in second
+    first = _html(client, "/acquisitions/1?walk=1&origin=manual").text
+    assert "2 of 2" in first
+    assert 'href="/acquisitions/2?walk=1&amp;origin=manual">← previous' in first
+
+    resp = client.post("/acquisitions/2/cancel?walk=1&origin=manual", follow_redirects=False)
+    assert resp.headers["location"].startswith("/acquisitions/1?walk=1&origin=manual&notice=")
+    assert resp.headers["location"].endswith("&prev=2")
+    assert client.get("/api/acquisitions/2").json()["state"] == "CANCELLED"
+    # A bogus filter value is dropped rather than carried into an empty walk.
+    page = _html(client, "/acquisitions/1?walk=1&state=bogus&origin=nope").text
+    assert "1 of 1" in page and "state=bogus" not in page
+
+
+def test_history_pages_past_the_first(client: TestClient) -> None:
+    from hermes.domain.models import Acquisition
+
+    with client.app.state.session_factory() as session:
+        for _ in range(51):
+            session.add(Acquisition(state="CANCELLED", origin="manual"))
+        session.commit()
+    page1 = _html(client, "/history").text
+    assert "page 1 of 2" in page1 and page1.count("<tr>") == 51  # header + 50
+    page2 = _html(client, "/history?page=2").text
+    assert "page 2 of 2" in page2 and page2.count("<tr>") == 2
+    assert 'href="/history?page=1">newer' in page2 or 'href="/history">newer' in page2

@@ -126,6 +126,8 @@ def preferable(acq: Acquisition) -> dict[int, str]:
     for c in acq.candidates:
         if c.prowlarr_guid in tried or (top is not None and c.id == top.id):
             continue
+        if not c.download_url:
+            continue  # submit() skips a magnet-only row; Approve would take the next one
         if c.rank is not None:
             out[c.id] = "Prefer"
         elif (c.rejected_reason or "").startswith(KEEP_CUT):
@@ -144,6 +146,8 @@ def prefer(session: Session, acq: Acquisition, candidate: Candidate, by: str) ->
         raise ValueError(f"candidate {candidate.id} belongs to another acquisition")
     if candidate.prowlarr_guid in attempted_guids(acq):
         raise ValueError(f"{candidate.title} was already tried (see the grab attempts)")
+    if not candidate.download_url:
+        raise ValueError(f"{candidate.title} has no torrent download URL (magnet-only)")
     top = next_candidate(acq)
     if top is not None and top.id == candidate.id:
         return acq  # already what Approve would fetch

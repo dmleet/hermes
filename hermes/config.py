@@ -174,6 +174,13 @@ class NavidromePolicy(_Strict):
     trigger_scan: bool = True
 
 
+class ArtPolicy(_Strict):
+    """Album art for the pages, from the Cover Art Archive (docs/ui-plan.md 4.1). Cosmetic:
+    off means no archive.org calls at all and the pages show an initial instead."""
+
+    enabled: bool = True
+
+
 class PathsPolicy(_Strict):
     """Path prefix mapping between the torrent client's view and the beets pod's view.
 
@@ -208,6 +215,7 @@ class Policy(_Strict):
     beets: BeetsPolicy = Field(default_factory=BeetsPolicy)
     navidrome: NavidromePolicy = Field(default_factory=NavidromePolicy)
     paths: PathsPolicy = Field(default_factory=PathsPolicy)
+    art: ArtPolicy = Field(default_factory=ArtPolicy)
 
 
 def load_policy(path: Path) -> Policy:

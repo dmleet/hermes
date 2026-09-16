@@ -8,6 +8,7 @@ from collections.abc import Iterator
 import pytest
 import respx
 from fastapi.testclient import TestClient
+from sqlalchemy import select
 from sqlalchemy.orm import Session
 
 from hermes.app import Clients, create_app
@@ -31,6 +32,7 @@ def _candidate(session: Session, acq: Acquisition, n: int, **kw: object) -> Cand
         "indexer_id": 1,
         "indexer_name": "PandaCD",
         "title": f"Artist - Album [FLAC {n}]",
+        "download_url": f"http://prowlarr.test/dl/{n}",
         "size_bytes": 300_000_000,
         "seeders": 3,
         "rank": n,
@@ -203,11 +205,27 @@ def test_prefer_from_the_page_and_the_api(respx_mock: respx.Router, client: Test
     assert top["id"] == cut[0]["id"] and top["rejected_reason"] is None
     assert resp.json()["events"][-1]["message"].endswith("(by t)")
     assert client.post("/api/acquisitions/1/prefer", json={"candidate_id": 9999}).status_code == 404
-    rejected = [
-        c
-        for c in body["candidates"]
-        if c["rejected_reason"] and not c["rejected_reason"].startswith("acceptable")
-    ]
-    if rejected:
-        resp = client.post("/api/acquisitions/1/prefer", json={"candidate_id": rejected[0]["id"]})
-        assert resp.status_code == 409
+    # A match rejection and a magnet-only row are refused, whatever their rank.
+    with client.app.state.session_factory() as session:
+        for guid, kw in (
+            ("other", {"rejected_reason": "match 0.40 below 0.85"}),
+            ("magnet", {"rank": 9, "download_url": None}),
+        ):
+            session.add(
+                Candidate(
+                    acquisition_id=1,
+                    prowlarr_guid=guid,
+                    indexer_id=1,
+                    indexer_name="PandaCD",
+                    title=f"{guid} [FLAC]",
+                    **kw,  # type: ignore[arg-type]
+                )
+            )
+        session.commit()
+        ids = dict(session.execute(select(Candidate.prowlarr_guid, Candidate.id)).all())
+    for guid in ("other", "magnet"):
+        resp = client.post("/api/acquisitions/1/prefer", json={"candidate_id": ids[guid]})
+        assert resp.status_code == 409, guid
+    page = _html(client, "/acquisitions/1").text
+    for guid in ("other", "magnet"):
+        assert f'value="{ids[guid]}"' not in page, f"the {guid} row gets no button"

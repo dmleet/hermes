@@ -25,12 +25,13 @@ from hermes.config import Policy, Settings, load_policy
 from hermes.db import make_engine, make_session_factory
 from hermes.integrations import HealthResult, not_configured
 from hermes.integrations.beets import BeetsClient
+from hermes.integrations.coverart import CoverArtClient
 from hermes.integrations.deluge import DelugeClient
 from hermes.integrations.listenbrainz import ListenBrainzClient
 from hermes.integrations.musicbrainz import MusicBrainzClient
 from hermes.integrations.navidrome import NavidromeClient
 from hermes.integrations.prowlarr import ProwlarrClient
-from hermes.services import discovery, importer, observer
+from hermes.services import art, discovery, importer, observer
 from hermes.services.context import Context
 from hermes.ui.routes import render_error
 from hermes.ui.routes import router as ui_router
@@ -48,6 +49,7 @@ class Clients:
     musicbrainz: MusicBrainzClient
     navidrome: NavidromeClient | None = None
     listenbrainz: ListenBrainzClient | None = None
+    coverart: CoverArtClient | None = None
     deluge_instances_configured: bool = False
 
     @classmethod
@@ -85,6 +87,7 @@ class Clients:
             musicbrainz=MusicBrainzClient(settings.musicbrainz_contact),
             navidrome=navidrome,
             listenbrainz=listenbrainz,
+            coverart=CoverArtClient(settings.musicbrainz_contact) if policy.art.enabled else None,
             deluge_instances_configured=bool(policy.deluge.instances),
         )
 
@@ -97,6 +100,8 @@ class Clients:
             deluge=self.deluge,
             navidrome=self.navidrome,
             listenbrainz=self.listenbrainz,
+            coverart=self.coverart,
+            art_dir=settings.hermes_data_dir / "art" if self.coverart else None,
         )
 
     async def aclose(self) -> None:
@@ -107,6 +112,7 @@ class Clients:
             self.musicbrainz,
             self.navidrome,
             self.listenbrainz,
+            self.coverart,
         ):
             if client is not None:
                 await client.aclose()
@@ -261,6 +267,15 @@ def create_app(
     return app
 
 
+def kick_art(app: FastAPI) -> None:
+    """Run the art job now rather than at its next interval: called after a manual request
+    resolves, so the page usually has art by its first refresh. A no-op without a scheduler
+    (tests, the CLI) or with art disabled."""
+    sched = getattr(app.state, "scheduler", None)
+    if sched is not None and sched.get_job("art") is not None:
+        sched.modify_job("art", next_run_time=datetime.now())
+
+
 def _start_scheduler(app: FastAPI) -> AsyncIOScheduler:
     """In-process jobs (docs/plan.md A6). The observer tick doubles as the startup reconcile."""
 
@@ -294,6 +309,16 @@ def _start_scheduler(app: FastAPI) -> AsyncIOScheduler:
         if counts:
             log.info("discovery: %s", counts)
 
+    async def art_job() -> None:
+        with app.state.session_factory() as session:
+            try:
+                counts = await art.tick(session, app.state.context)
+            except Exception:  # noqa: BLE001
+                log.exception("art tick failed")
+                return
+        if counts:
+            log.info("art: %s", counts)
+
     async def research_job() -> None:
         with app.state.session_factory() as session:
             try:
@@ -311,6 +336,7 @@ def _start_scheduler(app: FastAPI) -> AsyncIOScheduler:
         ("import", import_job, {"seconds": policy.deluge.poll_seconds}),
         ("discover", discover_job, {"hours": policy.listenbrainz.poll_hours}),
         ("research", research_job, {"hours": 24}),
+        *((("art", art_job, {"minutes": 5}),) if app.state.context.coverart else ()),
     )
     for job_id, func, every in jobs:
         sched.add_job(

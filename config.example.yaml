@@ -72,6 +72,9 @@ beets:
 navidrome:
   trigger_scan: true
 
+art:
+  enabled: true                   # album art from the Cover Art Archive for the pages; off = no archive.org calls
+
 paths:
   # Prefix rewrite from the path Deluge reports to the path beets sees, for setups where the
   # two mount the download share at different points. Same mounts: set both to the same value.

@@ -54,6 +54,7 @@
   button.big { padding:.6rem 1.2rem; font-size:16px; min-height:44px; }
   a.button { display:inline-block; text-decoration:none; line-height:1.45; box-sizing:border-box; }
   input[type=text], input[type=search] { font:inherit; padding:.3rem .5rem; border:1px solid var(--line); border-radius:.4rem; min-width:14rem; background:var(--card); color:var(--fg); }
+  input.wide { min-width:22rem; }
   label.sr { position:absolute; left:-10000px; width:1px; height:1px; overflow:hidden; }
   .muted { color:var(--muted); } .mono { font-family: ui-monospace, monospace; font-size:12px; }
   .events li { margin:.15rem 0; } .events .warning { color:var(--warn); } .events .error { color:var(--bad); }
@@ -70,6 +71,7 @@
   /* Album art (docs/ui-plan.md 4.1): a box with the artist's initial until there is art. */
   .art { width:56px; height:56px; border-radius:.3rem; background:var(--acc-bg); color:var(--acc); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:20px; flex:none; }
   .art.big { width:160px; height:160px; font-size:56px; }
+  img.art { object-fit:cover; display:block; background:var(--line); }
   td.artcell { width:56px; padding-right:0; }
   .stack { display:block; color:var(--muted); font-size:12px; margin-top:.15rem; }
   .head { display:flex; gap:1rem; align-items:flex-start; margin-top:.5rem; }
@@ -103,6 +105,8 @@
     dl.card { grid-template-columns:1fr; gap:.1rem; } dl.card dt { margin-top:.4rem; }
     form.request button { align-self:stretch; }
     input[type=text], input[type=search] { min-width:0; max-width:100%; box-sizing:border-box; }
+    input.wide { width:100%; min-height:44px; font-size:16px; }
+    details.alt form button { min-height:44px; }
     /* The primary action, thumb-reachable: fixed, not sticky, so it stays while the
        candidates scroll underneath. main's bottom padding keeps content out from under it. */
     .actionbar { display:block; position:fixed; left:0; right:0; bottom:0; padding:.6rem 1rem calc(.6rem + env(safe-area-inset-bottom, 0px)); background:var(--card); border-top:1px solid var(--line); }

@@ -5,25 +5,26 @@ docs/ui-plan.md."""
 
 from __future__ import annotations
 
+import re
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Annotated, Any
 from urllib.parse import quote
 
 from fastapi import APIRouter, Form, HTTPException, Request
-from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Response
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse, RedirectResponse, Response
 from fastapi.templating import Jinja2Templates
 from sqlalchemy import and_, case, func, or_, select
 from sqlalchemy.orm import Session
 
 from hermes import __version__
-from hermes.api.routes import Ctx, DbSession
+from hermes.api.routes import Ctx, DbSession, kick_art
 from hermes.api.schemas import requested_label
 from hermes.domain.models import Acquisition, AlbumTarget, Candidate, Playlist, Signal
 from hermes.domain.state import TERMINAL, InvalidTransition, can_transition
 from hermes.domain.state import AcquisitionState as S
 from hermes.integrations.musicbrainz import NotFound
-from hermes.services import approval, importer
+from hermes.services import approval, art, importer
 from hermes.services.context import Context
 from hermes.services.pipeline import search_and_decide
 from hermes.services.requests import (
@@ -63,6 +64,7 @@ LIVE_STATES = {S.SEARCHING, S.SUBMITTED, S.DOWNLOADING, S.READY_FOR_BEETS, S.IMP
 # The states a person has to act on; the queue's "needs you" filter and the header badge.
 ATTENTION = {S.AWAITING_APPROVAL, S.NEEDS_REVIEW, S.IMPORT_NEEDS_REVIEW, S.STALLED}
 DONE_PAGE = 50
+MBID = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 
 # The queue's order, once, as SQL: states a human must act on first, then the oldest row
 # first within a state, then id. The detail page's prev/next walk the same order with
@@ -155,6 +157,7 @@ def _approval_preview(ctx: Context, acq: Acquisition) -> dict[str, Any] | None:
         "estimate": top.parsed_quality.get("estimate"),
         "instance": instance,
         "routed": instance is not None and instance in ctx.deluge,
+        "fetchable": bool(top.download_url),
         "pending": f"{deluge.pending_root.rstrip('/')}/{acq.id}",
         "label": deluge.label,
     }
@@ -229,8 +232,14 @@ def _discovery_line(session: Any) -> str | None:
 
 
 def _filters(request: Request) -> tuple[str, str]:
+    """The queue filter from the query string; anything that is not a state, "attention"
+    or an origin is dropped rather than carried into a walk that matches nothing."""
     q = request.query_params
-    return q.get("state") or "", q.get("origin") or ""
+    state = q.get("state") or ""
+    if state != "attention" and state not in {s.value for s in S}:
+        state = ""
+    origin = q.get("origin") or ""
+    return state, origin if origin in ("manual", "auto") else ""
 
 
 def _active_filter(state_filter: str, origin_filter: str) -> Any:
@@ -427,6 +436,26 @@ def manifest() -> JSONResponse:
         ],
     }
     return JSONResponse(body, media_type="application/manifest+json")
+
+
+@router.get("/art/{mbid}.jpg", include_in_schema=False)
+def art_file(mbid: str, request: Request) -> FileResponse:
+    """A fetched cover, as the archive served it (JPEG or PNG; the browser sniffs). The
+    MBID is checked against its shape so the path can only ever be a file the art job
+    wrote. Cached for a year: covers rarely change and the name is the release group."""
+    art_dir = request.app.state.context.art_dir
+    if art_dir is None or not MBID.match(mbid):
+        raise HTTPException(404, "No art for that release group.")
+    path = art.art_path(art_dir, mbid)
+    if not path.is_file():
+        raise HTTPException(404, "No art for that release group.")
+    with path.open("rb") as fh:
+        media_type = "image/png" if fh.read(4) == b"\x89PNG" else "image/jpeg"
+    return FileResponse(
+        path,
+        media_type=media_type,
+        headers={"Cache-Control": "public, max-age=31536000, immutable"},
+    )
 
 
 @router.get("/queue", response_class=HTMLResponse)
@@ -756,6 +785,7 @@ async def ui_resolve(
 
 @router.post("/requests")
 async def ui_request(
+    request: Request,
     ctx: Ctx,
     session: DbSession,
     artist: Annotated[str, Form()] = "",
@@ -772,6 +802,7 @@ async def ui_request(
         title=title.strip() or None,
         mbid=mbid.strip() or None,
     )
+    kick_art(request.app)
     if acq.signal_id is not None and acq.signal_id <= last_signal:
         # The album was already in flight: this request was attached to it rather than
         # creating a new acquisition. Say so, or the id change goes unnoticed.

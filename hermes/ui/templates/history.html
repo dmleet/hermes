@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_art.html" import art %}
 {% block title %}History · Hermes{% endblock %}
 {% block content %}
 <h1>History <span class="muted">({{ done_total }})</span></h1>
@@ -25,7 +26,7 @@
   {% for a in done %}
   {% set t = a.album_target %}
   <tr>
-    <td class="artcell"><span class="art" aria-hidden="true">{{ a | initial }}</span></td>
+    <td class="artcell">{{ art(a) }}</td>
     <td>
       <a class="row" href="/acquisitions/{{ a.id }}">{% if t %}{{ t.artist_name }} – {{ t.title }}{% else %}{{ requested(a) or "unknown" }}{% endif %}</a>
       {% if t %}<span class="muted">({{ t.first_release_year or "?" }})</span>{% else %}<span class="muted">(unresolved)</span>{% endif %}

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_art.html" import art %}
 {% set t = acq.album_target %}
 {% block title %}#{{ acq.id }} {{ t.artist_name ~ " – " ~ t.title if t else (requested or "unresolved") }} · Hermes{% endblock %}
 {% block content %}
@@ -13,7 +14,7 @@
   {% endif %}
 </p>
 <div class="head">
-  <span class="art big" aria-hidden="true">{{ acq | initial }}</span>
+  {{ art(acq, big=True) }}
   <div>
     <h1>
       <span class="state {{ acq.state }}">{{ acq.state }}</span>
@@ -36,7 +37,7 @@
 <p class="hint">MusicBrainz could not be reached, so the request never resolved. Retry when it is back.</p>
 {% elif failed_unresolved %}
 <p class="hint">MusicBrainz has no album by that name. Check the spelling on <a href="https://musicbrainz.org/search?type=release_group&query={{ (requested or '') | urlencode }}" target="_blank" rel="noopener">musicbrainz.org</a>, or paste its MBID:
-  <form class="inline" method="post" action="/requests"><label class="sr" for="mbid">MusicBrainz release-group or release MBID</label><input type="text" id="mbid" name="mbid" placeholder="release-group or release MBID" style="min-width:22rem"> <button class="small">Request by MBID</button></form>
+  <form class="inline" method="post" action="/requests"><label class="sr" for="mbid">MusicBrainz release-group or release MBID</label><input type="text" id="mbid" name="mbid" class="wide" placeholder="release-group or release MBID"> <button class="small">Request by MBID</button></form>
 </p>
 {% elif acq.state == "NEEDS_REVIEW" %}
 <p class="hint">MusicBrainz did not give one confident answer. Pick the right release group below (titles open on MusicBrainz), or reject the request. Greyed rows are outside the resolution policy; "Use anyway" overrides it for this request only.</p>
@@ -55,8 +56,9 @@
   <dt>Title</dt><dd class="mono">{% if c.info_link %}<a href="{{ c.info_link }}" target="_blank" rel="noopener noreferrer" title="open this release on {{ c.indexer_name }}">{{ c.title }}</a>{% else %}{{ c.title }}{% endif %}</dd>
   <dt>Indexer</dt><dd>{{ c.indexer_name }}{% if c.freeleech %} · <b>freeleech</b>{% else %} · not freeleech{% endif %}</dd>
   <dt>Size</dt><dd>{{ c.size_bytes | mb }}</dd>
+  {% if not preview.fetchable %}<dt>Torrent</dt><dd><span class="events"><span class="warning">no torrent download URL (magnet-only), so this candidate would be skipped at submit</span></span></dd>{% endif %}
   <dt>Quality</dt><dd>{{ p.format or "?" }}{% if p.encoding_detail %} {{ p.encoding_detail }}{% elif p.encoding %} {{ p.encoding }}{% endif %}{% if p.media %} · {{ p.media }}{% endif %}{% if p.has_log %} · log{% if p.log_score is not none %} {{ p.log_score }}%{% endif %}{% endif %}{% if p.has_cue %} · cue{% endif %}{% if p.edition_flags %} · {{ p.edition_flags | join(", ") }}{% endif %}</dd>
-  {% if est %}<dt>Sample rate</dt><dd>{{ "" if est.source == "title" else "~" }}{{ est.rate_khz }} kHz{% if est.kbps %} <span class="muted small">{{ est.kbps }} kbps</span>{% endif %} <span class="muted small">({{ "stated in the title" if est.source == "title" else "inferred from size and playing time" }})</span></dd>{% endif %}
+  {% if est %}<dt>Sample rate</dt><dd>{{ "" if est.source == "title" else "~" }}{{ est.rate_khz }} kHz{% if est.kbps %} <span class="muted small">{{ est.kbps }} kbps</span>{% endif %} <span class="muted small">({{ "stated in the title" if est.source == "title" else "inferred from size and playing time; checked again on the torrent at submit" }})</span></dd>{% endif %}
   <dt>Swarm</dt><dd>{{ c.seeders or 0 }} seeders, {{ c.leechers or 0 }} leechers</dd>
   <dt>Match</dt><dd>{% if c.match_score is not none %}{{ "%.2f" % c.match_score }}{% endif %}{% if c.rank %} · rank #{{ c.rank }}{% endif %}{% if preferred_id == c.id %} · <b>preferred by you</b> <span class="muted small">(a new search resets this)</span>{% endif %}</dd>
   <dt>Deluge</dt><dd>{% if preview.routed %}<b>{{ preview.instance }}</b> at <span class="mono">{{ preview.pending }}</span>, label <span class="mono">{{ preview.label }}</span>{% else %}<span class="events"><span class="warning">no Deluge instance is configured for indexer {{ c.indexer_name }} (deluge.instances), so this candidate would be skipped</span></span>{% endif %}</dd>

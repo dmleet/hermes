@@ -1,0 +1,5 @@
+{#- Album art for a row or a page head: the fetched cover, else a box with the artist's initial. -#}
+{% macro art(acq, big=False) -%}
+{% set t = acq.album_target %}
+{% if t and t.art_status == "fetched" %}<img class="art{{ ' big' if big else '' }}" src="/art/{{ t.release_group_mbid }}.jpg" width="{{ 160 if big else 56 }}" height="{{ 160 if big else 56 }}"{% if not big %} loading="lazy"{% endif %} decoding="async" alt="">{% else %}<span class="art{{ ' big' if big else '' }}" aria-hidden="true">{{ acq | initial }}</span>{% endif %}
+{%- endmacro %}

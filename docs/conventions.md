@@ -156,6 +156,24 @@ add a regression test in `tests/integration/test_review_fixes.py`.
   requested as #N" (`ui_request` compares the acquisition's `signal_id` with the newest
   signal before the call).
 
+## Album art
+
+- Cosmetic and out of band: `services/art.py` runs on the scheduler (five minutes, plus a
+  kick after a manual request), never inline in a request or a pipeline stage. The Cover
+  Art Archive redirects to archive.org, which is slow and sometimes down.
+- Stored as served (`front-500`, JPEG or PNG, under 1 MB) at `<data dir>/art/<release group
+  mbid>.jpg`; no image library. The preferred release is tried first, then the group.
+- `AlbumTarget.art_status` is `pending` (the migration backfills existing rows), `fetched`,
+  `missing` (404; retried after thirty days) or `failed` (retried after an hour, then daily,
+  counted in `art_failures`). Twenty targets per tick, rows with an active acquisition first.
+- The session is committed before each fetch and the row re-read before the write.
+- `GET /art/{mbid}.jpg` serves the file with a one-year immutable cache header and checks
+  the MBID's shape; templates render `<img>` only when the status is `fetched` (the `art`
+  macro in `_art.html`), otherwise the initial box, so there is never a broken image.
+- `coverart.health()` always reports ok and is not part of `/healthz`: a missing archive
+  must not turn the pod unhealthy.
+- `art.enabled: false` builds no client and schedules no job.
+
 ## Test fixtures
 
 - `tests/fixtures/` holds captured real responses: MusicBrainz searches, lookups and

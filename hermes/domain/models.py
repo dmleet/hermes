@@ -134,6 +134,12 @@ class AlbumTarget(Base):
     preferred_release_mbid: Mapped[str | None] = mapped_column(String(36))
     library_status: Mapped[str] = mapped_column(String(16), default=LibraryStatus.UNKNOWN)
     library_checked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    # Album art for the pages (services/art.py): pending | fetched | missing | failed, when it
+    # was last tried, and failures in a row (the retry backoff). Server defaults so the
+    # migration backfills every existing target as pending.
+    art_status: Mapped[str] = mapped_column(String(16), default="pending", server_default="pending")
+    art_checked_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
+    art_failures: Mapped[int] = mapped_column(Integer, default=0, server_default="0")
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=utcnow)
     # Track lengths of one release in the group ({"release": mbid, "ms": [...]}), fetched
     # once: with a candidate's size they give its bitrate, and so its sample rate band.

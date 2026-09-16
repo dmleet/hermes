@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Iterator
-from typing import Annotated
+from typing import Annotated, Any
 
 from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlalchemy import select
@@ -23,6 +23,14 @@ from hermes.services import approval, discovery, importer, observer
 from hermes.services.context import Context
 from hermes.services.pipeline import search_and_decide
 from hermes.services.requests import resolve_manually, retry_request, submit_manual_request
+
+
+def kick_art(app: Any) -> None:
+    """Ask the scheduler to run the art job now; see ``hermes.app.kick_art``."""
+    from hermes.app import kick_art as _kick
+
+    _kick(app)
+
 
 router = APIRouter(prefix="/api")
 
@@ -49,10 +57,13 @@ def _load(session: Session, acquisition_id: int) -> Acquisition:
 
 
 @router.post("/requests", response_model=AcquisitionOut, status_code=201)
-async def create_request(body: ManualRequest, ctx: Ctx, session: DbSession) -> AcquisitionOut:
+async def create_request(
+    body: ManualRequest, request: Request, ctx: Ctx, session: DbSession
+) -> AcquisitionOut:
     acq = await submit_manual_request(
         session, ctx, artist=body.artist, title=body.title, mbid=body.mbid
     )
+    kick_art(request.app)
     return AcquisitionOut.from_model(acq)
 
 

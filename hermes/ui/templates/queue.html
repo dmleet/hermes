@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% from "_art.html" import art %}
 {% block title %}Queue · Hermes{% endblock %}
 {% block content %}
 <h1>Queue <span class="muted">({{ active_total }})</span></h1>
@@ -20,7 +21,7 @@
   {% set best = (a.candidates | selectattr("rank", "equalto", 1) | list | first) %}
   <tr>
     <td class="num">{{ loop.index }}</td>
-    <td class="artcell"><span class="art" aria-hidden="true">{{ a | initial }}</span></td>
+    <td class="artcell">{{ art(a) }}</td>
     <td class="opt"><span class="state {{ a.state }}">{{ a.state }}</span></td>
     <td>
       <a class="row" href="/acquisitions/{{ a.id }}{{ walk }}">{% if t %}{{ t.artist_name }} – {{ t.title }}{% else %}{{ requested(a) or "unknown" }}{% endif %}</a>

@@ -8,6 +8,12 @@ scheduler job, an API route) are logged in `docs/plan.md` section 13 when they l
 Revision 2 (2026-09-15): after an adversarial review of the first draft. Section 7 lists
 what the review changed and why, so the reasoning survives.
 
+**Status (2026-09-16): all three phases landed.** Phase A in 0.7.2 (commit 1c6e8c8), phase C
+in 0.7.3 (260f232), phase B in 0.8.0. An independent review of the implementation against
+this plan found no blockers; its should-fix items (a write error stalling the art backfill,
+Prefer offering a magnet-only row, the MBID input on a phone, and tests that could not fail)
+were fixed before 0.8.0 shipped. Section 6 stays open.
+
 Constraints this plan works inside (see `CLAUDE.md`, `docs/conventions.md` "UI", and
 `docs/plan.md` A9):
 
@@ -123,7 +129,7 @@ padding gives the phone a large enough target.
            AWAITING_APPROVAL · missing · 09-15 10:42
 ```
 
-Filters stay as they are and keep wrapping; chips grow to 32px tall with more padding. A
+Filters stay as they are and keep wrapping; chips grow to about 28px tall with more padding. A
 horizontally scrolling chip row was considered and dropped: it hides that more chips
 exist. Mobile shows "all", "needs you", "requested", "discovered" and the state chips that
 have a non-zero count, which is rarely more than four.
@@ -144,7 +150,8 @@ Top to bottom:
    inside "needs you". Prev and next are two queries bounded by the item's sort key (state
    rank, `updated_at`, id) within the filter; the position and total are one count each.
    Nothing on this page loads the whole table. Terminal rows show "← history" only.
-2. **Title block**: art at 200px (centered above the text on mobile, beside it on desktop),
+2. **Title block**: art at 160px beside the text on desktop, 200px centered above it on
+   mobile,
    state badge, `artist – title (type, year)`, the MusicBrainz and origin line as today.
 3. **Target card**: a definition list for what Approve will fetch, replacing the prose
    preview and built from the same `_approval_preview`. Rows: title (linked to the indexer
@@ -234,10 +241,10 @@ Worth doing, as a background job that can never slow a request or a pipeline sta
   an album that is requested twice shares one file. That is the existing `/data` volume
   (the PVC in `deploy/hermes.yaml`, `./dev/data` in compose). At Weekly Exploration
   volume this is well under 200 MB a year.
-- **Tracking**: two columns on `AlbumTarget`: `art_status` (`pending`, `fetched`,
-  `missing`, `failed`) and `art_checked_at`. `failed` retries after an hour, then daily;
-  `missing` retries after thirty days, because CAA gains art all the time. This is a
-  migration.
+- **Tracking**: three columns on `AlbumTarget`: `art_status` (`pending`, `fetched`,
+  `missing`, `failed`), `art_checked_at`, and `art_failures` (failures in a row, for the
+  backoff). `failed` retries after an hour, then daily; `missing` retries after thirty
+  days, because CAA gains art all the time. This is a migration.
 - **Scheduling**: `hermes/services/art.py` with `tick()` on the APScheduler every five
   minutes plus the usual immediate run as the startup reconcile, working through
   `pending` targets in small batches. The session is committed before each fetch and the
@@ -269,8 +276,7 @@ Approve.
   `POST /acquisitions/{id}/prefer` with `candidate_id` and redirects to the same page. The
   target card then shows the chosen row (it is built from `next_candidate`, which reads
   rank order) with "preferred by you", and the existing Approve grabs it with the routing
-  check and dry-run line intact. On mobile the button sits at the end of the stacked meta
-  line.
+  check and dry-run line intact. The button is its own column, visible at every width.
 - **Service**: `approval.prefer(session, acq, candidate, by)`. It renumbers ranks so the
   chosen row is 1 and the others keep their relative order, writes an event "preferred
   *X* over *Y* (by ui)", and commits. `submit()` is untouched and the observer's stall

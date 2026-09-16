@@ -41,6 +41,7 @@ uv run hermes import-tick        # one importer tick against the beets agent
 uv run hermes discover           # one discovery tick: new ListenBrainz playlists -> signals -> queue
 uv run hermes ingest-playlist <mbid> [--mode ignore]   # one playlist by MBID, as if in extra_playlists
 uv run hermes research           # one re-search tick (NO_MATCH rows past search.retry_days)
+uv run hermes art                # one album-art tick against the Cover Art Archive
 uv run hermes db revision "msg"  # autogenerate an Alembic migration after model changes
 ```
 
@@ -104,7 +105,9 @@ this stack, not the cluster (docs/plan.md A12).
   reply, 502/504 and timeouts; its health check makes no network call. `listenbrainz.py`
   is public reads with an optional token, built when `listenbrainz.user` or
   `extra_playlists` is set. `navidrome.py` (Subsonic ping and startScan) is optional and
-  not in the compose stack.
+  not in the compose stack. `coverart.py` fetches a front cover from the Cover Art Archive
+  (own limiter, same User-Agent, health never red: art is cosmetic); built when
+  `policy.art.enabled`.
 - `hermes/services/`: one module per pipeline stage, pure where possible. `text.py`
   (normalise + similarity), `resolution.py` (search results or one recording → one release
   group, or a needs-review candidate list; type policy from `policy.resolution`),
@@ -121,10 +124,13 @@ this stack, not the cluster (docs/plan.md A12).
   `discovery.py` (ListenBrainz playlists → Signals → acquisitions; `research_tick()` for
   retries), `importer.py` (READY_FOR_BEETS → IMPORTING → IMPORTED | IMPORT_NEEDS_REVIEW via
   the agent, release chosen from the download's shape), `pipeline.py` (search then
-  decide), `context.py` (policy + clients, what every stage receives).
-- Observer, importer, discovery and re-search run on an in-process APScheduler started in
-  the app lifespan (`policy.deluge.poll_seconds`, `listenbrainz.poll_hours`, daily), each
-  with one immediate run as the reconcile.
+  decide), `art.py` (album art per target into `<data dir>/art`, active rows first, backoff
+  on failure; the only files Hermes keeps), `context.py` (policy + clients + `art_dir`, what
+  every stage receives).
+- Observer, importer, discovery, re-search and art run on an in-process APScheduler started
+  in the app lifespan (`policy.deluge.poll_seconds`, `listenbrainz.poll_hours`, daily, five
+  minutes), each with one immediate run as the reconcile; a manual request also kicks the
+  art job (`kick_art`).
 - `hermes/app.py`: FastAPI factory; `create_app(settings, policy, clients)` takes injected
   clients so tests mock HTTP with respx. `/healthz` returns 503 when any configured
   dependency is unhealthy. Startup removes torrent files an older version kept.

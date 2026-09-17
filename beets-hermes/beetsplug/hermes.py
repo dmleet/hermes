@@ -8,6 +8,7 @@ database itself.
 
 from __future__ import annotations
 
+import contextlib
 import json
 import os
 import queue
@@ -19,6 +20,7 @@ import threading
 import time
 import uuid
 from collections import deque
+from contextlib import AbstractContextManager
 from datetime import datetime, timezone
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -103,6 +105,17 @@ def album_to_dict(album: Album) -> dict[str, Any]:
     }
 
 
+def _music_dir(lib: Library) -> AbstractContextManager[Any]:
+    """beets 2.14 stores item paths relative to the library directory and resolves them
+    through a context variable that `Library()` binds on the thread that opened it. The
+    agent answers on worker threads, which start without it, and would hand Hermes the
+    stored relative path ("Tool/Fear Inoculum"), which Hermes then reads as outside the
+    library. Bind it for the duration of each read. Older beets have no such helper and
+    store absolute paths, so nothing is needed there."""
+    bind = getattr(lib, "music_dir_context", None)
+    return bind() if bind is not None else contextlib.nullcontext()
+
+
 class LibraryReader:
     """Read-only questions Hermes asks about the library."""
 
@@ -110,7 +123,8 @@ class LibraryReader:
         self._lib = lib
 
     def _albums(self, query: dbq.Query) -> list[dict[str, Any]]:
-        return [album_to_dict(a) for a in self._lib.albums(query)]
+        with _music_dir(self._lib):
+            return [album_to_dict(a) for a in self._lib.albums(query)]
 
     def release_group(self, mbid: str) -> list[dict[str, Any]]:
         return self._albums(_field_query("mb_releasegroupid", mbid))

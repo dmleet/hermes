@@ -18,6 +18,9 @@ DUMMY_RELEASE = "76df3287-6cda-33eb-8e9a-044b5e15ffdd"
 OK_RG = "e9f1e0f5-3b6f-3c6d-9a51-4f6f1f9e0a11"
 
 
+MUSIC: str = "/music"  # set per test by the `lib` fixture
+
+
 def _item(**kw):
     base = dict(
         title="t",
@@ -35,7 +38,7 @@ def _item(**kw):
     base.update(kw)
     item = Item(**base)
     ext = base["format"].lower()
-    item.path = f"/music/{base['albumartist']}/{base['album']}/{base['title']}.{ext}".encode()
+    item.path = f"{MUSIC}/{base['albumartist']}/{base['album']}/{base['title']}.{ext}".encode()
     return item
 
 
@@ -44,7 +47,12 @@ def lib(tmp_path, monkeypatch):
     monkeypatch.setenv("BEETSDIR", str(tmp_path))
     config.clear()
     config.read(user=False, defaults=True)
-    lib = Library(str(tmp_path / "library.db"))
+    # The items live under the library directory, so beets >= 2.14 stores their paths
+    # relative to it; the agent must bind the music dir on its worker threads to hand back
+    # absolute paths (the cluster returned "Tool/Fear Inoculum" before it did).
+    global MUSIC
+    MUSIC = str(tmp_path / "music")
+    lib = Library(str(tmp_path / "library.db"), directory=MUSIC)
     # Dummy: 16-bit FLAC, two tracks.
     lib.add_album([_item(title="Mysterons"), _item(title="Sour Times")])
     # A mixed-quality album with a slash in the artist name and a flexible field set.
@@ -107,7 +115,7 @@ def test_release_group_lookup_with_quality(base):
     (album,) = body["albums"]
     assert album["albumartist"] == "Portishead" and album["album"] == "Dummy"
     assert album["mb_albumid"] == DUMMY_RELEASE and album["year"] == 1994
-    assert album["path"].replace("\\", "/").endswith("/music/Portishead/Dummy")
+    assert album["path"].replace("\\", "/") == f"{MUSIC}/Portishead/Dummy".replace("\\", "/")
     assert album["quality"] == {
         "items": 2,
         "formats": ["FLAC"],

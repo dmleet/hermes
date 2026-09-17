@@ -327,7 +327,12 @@ async def poll_import(
             acq,
             S.IMPORT_NEEDS_REVIEW,
             f"beets library entry points outside {library_root}: {outside[0]} "
-            "(interrupted copy?); do not touch the seeded files",
+            + (
+                "(a relative path: the beets agent is older than this beets and did not "
+                "bind the music directory; update beets-hermes)"
+                if not (outside[0] or "").startswith("/")
+                else "(interrupted copy?); do not touch the seeded files"
+            ),
             data={**evidence, "paths": outside},
             level="warning",
         )

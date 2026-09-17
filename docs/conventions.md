@@ -122,7 +122,8 @@ add a regression test in `tests/integration/test_review_fixes.py`.
   prev/next use it with bounded queries, never by loading the table.
 - A detail page opened from the queue carries `walk=1` plus the queue filter (`state=`,
   `origin=`) on its links and form actions. An action then advances to the next item only
-  when it moved this one out of that filter and not into `FAILED` (`_finish`), so a
+  when it left this one no longer needing a human (out of the `ATTENTION` states, or out
+  of the filter) and not in `FAILED` (`_finish`), so a
   dry-run approval and a failed submit stay on the page that explains them; the next item
   is computed at POST time from the acted row's sort key. Inline queue actions carry
   `back=queue` and return to the queue. Without either, actions redirect to the same page.

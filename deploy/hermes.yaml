@@ -53,8 +53,12 @@ data:
           url: http://deluge-b-service.deluge.svc.cluster.local:8112
           indexers: ["Tracker B"]    # TODO: exact Prowlarr indexer name
       default_instance: null      # unmapped indexers are refused rather than guessed
-      pending_root: /downloads/pending/hermes
-      completed_root: /downloads/complete/hermes
+      # Flat: torrents land in the pool beside every other download, which several Deluge
+      # instances share for cross-seeding. The default (per_acquisition) would put each
+      # under <root>/hermes/<acquisition id> instead.
+      pending_root: /downloads/pending
+      completed_root: /downloads/complete
+      layout: flat
     paths:
       deluge_root: /downloads/complete
       beets_root: /downloads

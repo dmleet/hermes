@@ -294,14 +294,20 @@ def _before(key: tuple[int, datetime, int]) -> Any:
 
 
 def _next_in_list(
-    session: Session, key: tuple[int, datetime, int], state_filter: str, origin_filter: str
+    session: Session,
+    key: tuple[int, datetime, int],
+    state_filter: str,
+    origin_filter: str,
+    *,
+    exclude_id: int | None = None,
 ) -> int | None:
-    return session.scalar(
-        select(Acquisition.id)
-        .where(_active_filter(state_filter, origin_filter), _after(key))
-        .order_by(*QUEUE_ORDER)
-        .limit(1)
-    )
+    """The first row after `key` in the list. `exclude_id` is the row just acted on: an
+    approved row is still in the unfiltered queue, sorted after its old position, and
+    must not be offered as its own successor."""
+    conds = [_active_filter(state_filter, origin_filter), _after(key)]
+    if exclude_id is not None:
+        conds.append(Acquisition.id != exclude_id)
+    return session.scalar(select(Acquisition.id).where(*conds).order_by(*QUEUE_ORDER).limit(1))
 
 
 def _triage(
@@ -346,8 +352,11 @@ def _finish(
 ) -> RedirectResponse:
     """Where an action lands. From the queue table: back to the queue. From a detail page
     opened as part of a walk (`walk=1` plus the queue filter): the next item, but only when
-    the action moved this one out of the list and not into FAILED, so a dry-run approval
-    and a failed submit stay on the screen that explains them. Otherwise: the same page."""
+    the action left this one no longer needing a human (out of the ATTENTION states, or out
+    of the filter the walk was opened with) and not in FAILED, so a dry-run approval and a
+    failed submit stay on the screen that explains them. A live approval advances from any
+    list: the row is still in the unfiltered queue, lower down, but it is done with.
+    Otherwise: the same page."""
     q = request.query_params
     state_filter, origin_filter = _filters(request)
     if q.get("back") == "queue":
@@ -356,13 +365,9 @@ def _finish(
             status_code=303,
         )
     walk = q.get("walk") or ""
-    if (
-        walk
-        and advance
-        and acq.state != S.FAILED
-        and not _in_filter(acq, state_filter, origin_filter)
-    ):
-        nxt = _next_in_list(session, key_before, state_filter, origin_filter)
+    done = acq.state not in ATTENTION or not _in_filter(acq, state_filter, origin_filter)
+    if walk and advance and acq.state != S.FAILED and done:
+        nxt = _next_in_list(session, key_before, state_filter, origin_filter, exclude_id=acq.id)
         if nxt is None:
             return RedirectResponse(
                 "/queue"

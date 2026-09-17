@@ -599,10 +599,12 @@ def test_live_approve_advances_the_walk(stack) -> None:
     client = stack.app(_policy(approval={"timid": True}))
     client.post("/requests", data={"artist": "Nine Inch Nails", "title": "The Slip"})
     assert client.get("/api/acquisitions/1").json()["state"] == "AWAITING_APPROVAL"
-    resp = client.post("/acquisitions/1/approve?walk=1&state=attention", follow_redirects=False)
+    # From the unfiltered queue too: the row is still listed, lower down, but it no
+    # longer needs a human, so the walk moves on rather than staying on it.
+    resp = client.post("/acquisitions/1/approve?walk=1", follow_redirects=False)
     assert resp.status_code == 303
     assert resp.headers["location"] == (
-        "/queue?state=attention&notice=Approved%20%231%20and%20sent%20to%20Deluge."
+        "/queue?notice=Approved%20%231%20and%20sent%20to%20Deluge."
         "%20Nothing%20else%20in%20this%20list."
     )
     assert client.get("/api/acquisitions/1").json()["state"] == "SUBMITTED"

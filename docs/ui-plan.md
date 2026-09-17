@@ -174,14 +174,17 @@ Top to bottom:
 
 **Advancing.** Approve, reject, cancel and "Try next candidate" posted from a detail page
 that carries the queue filter redirect to the next item only when the action moved the
-item out of that filter and not into `FAILED`. Otherwise they redirect to the item itself,
+item out of the `ATTENTION` states or out of that filter, and not into `FAILED`. Otherwise
+they redirect to the item itself,
 as today. Concretely:
 
 - Dry-run approve leaves the row in `AWAITING_APPROVAL` and "needs you", so it stays on
   the item, which is the screen that explains dry run and offers "Approve again".
 - A submit that ends in `FAILED` raises nothing (Deluge down, no candidate left); it stays
   on the item.
-- A live approve that reaches `SUBMITTED`, or a reject or cancel, advances.
+- A live approve that reaches `SUBMITTED`, or a reject or cancel, advances, from the
+  unfiltered queue too: the row is still listed there, lower down, but it is done with
+  (found in the first live week: staying on an approved album felt like nothing happened).
 - The next item is computed at POST time from the acted item's sort key, not from a hidden
   field rendered with the page: the observer and importer ticks change states every 45 s,
   so a rendered id goes stale and a newer higher-priority item would be skipped.

@@ -40,7 +40,6 @@
   th, td { text-align:left; padding:.4rem .5rem; border-bottom:1px solid var(--line); vertical-align:top; }
   th { font-size:12px; color:var(--muted); font-weight:600; white-space:nowrap; }
   tr.rejected td { color:var(--muted); }
-  td.num { color:var(--muted); text-align:right; width:2em; }
   .state { display:inline-block; padding:.1rem .45rem; border-radius:.4rem; font-size:12px; font-weight:600; background:var(--line); white-space:nowrap; }
   .state.AWAITING_APPROVAL, .state.NEEDS_REVIEW, .state.IMPORT_NEEDS_REVIEW, .state.STALLED { background:var(--warn-bg); color:var(--warn); }
   .state.DOWNLOADING, .state.SUBMITTED, .state.IMPORTING, .state.SEARCHING { background:var(--acc-bg); color:var(--acc); }
@@ -64,9 +63,17 @@
   a.row { color:var(--fg); text-decoration:none; } a.row:hover { text-decoration:underline; }
   .hint { color:var(--muted); font-size:13px; margin:.25rem 0 .75rem; }
   .small { font-size:12px; }
-  .filters { display:flex; gap:.4rem; flex-wrap:wrap; align-items:center; margin:.25rem 0 .5rem; font-size:13px; }
+  /* Chips wrap in groups (state, origin): a group moves to the next line whole, and the
+     gap between groups is wider than the gap within one, so no separator is needed. */
+  .filters { display:flex; gap:.4rem 1.1rem; flex-wrap:wrap; align-items:center; margin:.25rem 0 .5rem; font-size:13px; }
+  .filters .group { display:flex; gap:.4rem; flex-wrap:wrap; align-items:center; }
   .chip { display:inline-block; padding:.3rem .7rem; border:1px solid var(--line); border-radius:1rem; color:var(--fg); text-decoration:none; background:var(--card); line-height:1.2; }
-  .chip.on { border-color:var(--acc); color:var(--acc); }
+  .chip.on { border-color:var(--acc); color:var(--acc); background:var(--acc-bg); font-weight:600; }
+  .chip .n.zero { color:var(--muted); }
+  /* State-group chips carry their group's colour as the outline, and its tint when on. */
+  .chip.warn { border-color:var(--warn); } .chip.warn.on { background:var(--warn-bg); color:var(--warn); }
+  .chip.bad { border-color:var(--bad); } .chip.bad.on { background:var(--bad-bg); color:var(--bad); }
+  .chip.acc { border-color:var(--acc); }
   button[disabled] { opacity:.6; cursor:wait; }
   /* Album art (docs/ui-plan.md 4.1): a box with the artist's initial until there is art. */
   .art { width:56px; height:56px; border-radius:.3rem; background:var(--acc-bg); color:var(--acc); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:20px; flex:none; }

@@ -112,7 +112,7 @@ Desktop table, columns in order:
 
 | Column | Content |
 |---|---|
-| `#` | Position in the current ordering (`loop.index`), the number the triage walk shows. |
+| ~~`#`~~ | Removed 2026-09-17. The position went stale every observer tick and looked like the acquisition id in notices ("Rejected #12"); the walk bar's "3 of 103" is computed from the sort key and needs no list number. |
 | art | 56px thumbnail (Phase B) or the placeholder box; `width`/`height` set, `loading="lazy"`. |
 | state | State badge, as today. Hidden on mobile, where the stacked cell repeats it. |
 | album | `artist – title (year)` is the link to the detail page. Below it, small: library status · "from *playlist*"; and the state badge (mobile only, via a class). |
@@ -129,13 +129,36 @@ padding gives the phone a large enough target.
            AWAITING_APPROVAL · missing · 09-15 10:42
 ```
 
-Filters stay as they are and keep wrapping; chips grow to about 28px tall with more padding. A
-horizontally scrolling chip row was considered and dropped: it hides that more chips
-exist. Mobile shows "all", "needs you", "requested", "discovered" and the state chips that
-have a non-zero count, which is rarely more than four.
+**Filters** (2026-09-17) are seven stable chips: `all` · `needs you` · `in flight` ·
+`not found` · `any origin` · `requested` · `discovered`, each state chip with its count.
+The three state groups are "who has the ball": a person (`ATTENTION`: approval, review,
+stalled, failed), Hermes with Deluge or beets (`LIVE_STATES`: searching, submitted,
+downloading, ready, importing), or the re-search schedule (`NO_MATCH`). The earlier bar
+had one chip per non-terminal state with rows in it, so approving an album made its chip
+migrate through four names and the bar changed shape under the cursor; nobody asks "show
+me SUBMITTED rows". The per-state counts, which were the useful part of those chips, are
+a muted text line under the chips ("downloading 3 · importing 1"), not links. The query
+string still accepts an exact state (`state=DOWNLOADING`), so bookmarks work and an
+exact-state control can return if testing shows it is missed; the candidates then are a
+dropdown next to the chips or a second row inside the selected group, not the state pill
+in the row, which sits too close to the title to be a click target. The states between
+stages (`DISCOVERED`, `MANUAL`, `RESOLVED`, `CANDIDATES_READY`) last seconds and only
+show under `all`. The state and origin chips are two flex groups, so on a phone the
+origin group wraps to the next line whole and no separator is needed (a lone "·" at the
+end of the first row was the first render). Each state-group chip has its group's colour
+as its outline (amber for needs you, blue for in flight, red for not found) and that
+colour's tint as its background when selected; the other chips are neutral with the
+accent when selected. A dot inside the chip was tried first and dropped: it spent width
+the phone does not have. The row's state pill keeps its own colour (a red `FAILED` inside
+the amber "needs you" group is right: the chip says whose turn it is, the pill says what
+happened). The selected chip is filled and bold; a zero count is muted. Chips wrap and grow to about 28px tall
+with more padding. A horizontally scrolling chip row was considered and dropped: it hides
+that more chips exist.
 
 **Ordering** is one definition used by the queue page and by prev/next on the detail page:
-`STATE_ORDER` first, then oldest `updated_at` first within a state, then id. It is
+`STATE_ORDER` first (needs-you states, then the in-flight states in pipeline order so the
+group reads as a progress board, then the rest), then oldest `updated_at` first within a
+state, then id. It is
 expressed once as a SQLAlchemy `CASE` over `state` so the detail page can ask for the
 neighbours with two bounded queries instead of loading every row (see 3.3). Note that
 `updated_at` moves on any column write, a dry-run approval included, which is acceptable

@@ -42,27 +42,35 @@ templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 # tags, so the header is the quickest way to tell whether a roll actually landed.
 templates.env.globals["version"] = __version__
 
+# The queue's order: rows a person has to act on first, then what Hermes, Deluge and
+# beets are working on in pipeline order (read top to bottom it is a progress board), then
+# the states waiting on a schedule or passing through between stages.
 STATE_ORDER = [
     S.AWAITING_APPROVAL,
     S.NEEDS_REVIEW,
     S.IMPORT_NEEDS_REVIEW,
     S.STALLED,
-    S.DOWNLOADING,
+    S.FAILED,
+    S.SEARCHING,
     S.SUBMITTED,
+    S.DOWNLOADING,
     S.READY_FOR_BEETS,
     S.IMPORTING,
     S.CANDIDATES_READY,
-    S.SEARCHING,
     S.RESOLVED,
     S.NO_MATCH,
-    S.FAILED,
     S.MANUAL,
     S.DISCOVERED,
 ]
-# States where the page is worth reloading on its own.
+# The queue's filters group states by who has the ball (docs/ui-plan.md 3.2). "In
+# flight": Hermes, Deluge or beets are working on it, so the page is worth reloading on its
+# own. "Needs you": only a person can move it; the header badge counts these. FAILED is a
+# person's decision too (retry, search again or cancel), so it is in "needs you" rather
+# than sorted to the bottom. NO_MATCH waits on the re-search schedule and has its own
+# chip; the rest are between-stage states that last seconds and only show under "all".
 LIVE_STATES = {S.SEARCHING, S.SUBMITTED, S.DOWNLOADING, S.READY_FOR_BEETS, S.IMPORTING}
-# The states a person has to act on; the queue's "needs you" filter and the header badge.
-ATTENTION = {S.AWAITING_APPROVAL, S.NEEDS_REVIEW, S.IMPORT_NEEDS_REVIEW, S.STALLED}
+ATTENTION = {S.AWAITING_APPROVAL, S.NEEDS_REVIEW, S.IMPORT_NEEDS_REVIEW, S.STALLED, S.FAILED}
+GROUPS: dict[str, set[S]] = {"attention": ATTENTION, "inflight": LIVE_STATES}
 DONE_PAGE = 50
 MBID = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 
@@ -232,11 +240,13 @@ def _discovery_line(session: Any) -> str | None:
 
 
 def _filters(request: Request) -> tuple[str, str]:
-    """The queue filter from the query string; anything that is not a state, "attention"
-    or an origin is dropped rather than carried into a walk that matches nothing."""
+    """The queue filter from the query string: a group name, an exact state, or an origin.
+    Anything else is dropped rather than carried into a walk that matches nothing. Exact
+    states have no chip; the query string keeps them for bookmarks and so a chip can come
+    back without touching the routes."""
     q = request.query_params
     state = q.get("state") or ""
-    if state != "attention" and state not in {s.value for s in S}:
+    if state not in GROUPS and state not in {s.value for s in S}:
         state = ""
     origin = q.get("origin") or ""
     return state, origin if origin in ("manual", "auto") else ""
@@ -246,8 +256,8 @@ def _active_filter(state_filter: str, origin_filter: str) -> Any:
     conds: list[Any] = [Acquisition.state.not_in(_TERMINAL)]
     if origin_filter in ("manual", "auto"):
         conds.append(Acquisition.origin == origin_filter)
-    if state_filter == "attention":
-        conds.append(Acquisition.state.in_(_ATTENTION))
+    if state_filter in GROUPS:
+        conds.append(Acquisition.state.in_([s.value for s in GROUPS[state_filter]]))
     elif state_filter:
         conds.append(Acquisition.state == state_filter)
     return and_(*conds)
@@ -259,8 +269,8 @@ def _in_filter(acq: Acquisition, state_filter: str, origin_filter: str) -> bool:
         return False
     if origin_filter in ("manual", "auto") and acq.origin != origin_filter:
         return False
-    if state_filter == "attention":
-        return acq.state in ATTENTION
+    if state_filter in GROUPS:
+        return acq.state in GROUPS[state_filter]
     return not state_filter or acq.state == state_filter
 
 
@@ -494,12 +504,21 @@ def queue(request: Request, session: DbSession, ctx: Ctx) -> HTMLResponse:
             "queue",
             active=active,
             active_total=sum(counts.values()),
-            attention_here=sum(n for s, n in counts.items() if s in ATTENTION),
+            group_counts={
+                "attention": sum(n for s, n in counts.items() if s in ATTENTION),
+                "inflight": sum(n for s, n in counts.items() if s in LIVE_STATES),
+                "nomatch": counts.get(S.NO_MATCH.value, 0),
+            },
             state_filter=state_filter,
             origin_filter=origin_filter,
-            state_counts=sorted(
-                counts.items(),
-                key=lambda kv: STATE_ORDER.index(S(kv[0])) if kv[0] in STATE_ORDER else 99,
+            # The per-state breakdown, as text under the chips: a glance at what the
+            # machine is doing, not a filter (docs/ui-plan.md 3.2).
+            state_line=" · ".join(
+                f"{state.lower().replace('_', ' ')} {n}"
+                for state, n in sorted(
+                    counts.items(),
+                    key=lambda kv: STATE_ORDER.index(S(kv[0])) if kv[0] in STATE_ORDER else 99,
+                )
             ),
             link=link,
             # Row links open the detail page as a walk through this list; inline actions

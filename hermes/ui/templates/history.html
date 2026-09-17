@@ -12,12 +12,15 @@
   {% if search %}<a class="chip" href="{{ link(q='', page=1) }}">clear</a>{% endif %}
 </form>
 <p class="filters">
-  <a class="chip {{ 'on' if not state_filter else '' }}" href="{{ link(state='', page=1) }}">all</a>
-  {% for state, n in state_counts %}<a class="chip {{ 'on' if state_filter == state else '' }}" href="{{ link(state=state, page=1) }}"><span class="state {{ state }}">{{ state }}</span> {{ n }}</a>{% endfor %}
-  <span class="muted">·</span>
-  <a class="chip {{ 'on' if not origin_filter else '' }}" href="{{ link(origin='', page=1) }}">any origin</a>
-  <a class="chip {{ 'on' if origin_filter == 'manual' else '' }}" href="{{ link(origin='manual', page=1) }}">requested</a>
-  <a class="chip {{ 'on' if origin_filter == 'auto' else '' }}" href="{{ link(origin='auto', page=1) }}">discovered</a>
+  <span class="group">
+    <a class="chip {{ 'on' if not state_filter else '' }}" href="{{ link(state='', page=1) }}">all</a>
+    {% for state, n in state_counts %}<a class="chip {{ 'on' if state_filter == state else '' }}" href="{{ link(state=state, page=1) }}"><span class="state {{ state }}">{{ state }}</span> {{ n }}</a>{% endfor %}
+  </span>
+  <span class="group">
+    <a class="chip {{ 'on' if not origin_filter else '' }}" href="{{ link(origin='', page=1) }}">any origin</a>
+    <a class="chip {{ 'on' if origin_filter == 'manual' else '' }}" href="{{ link(origin='manual', page=1) }}">requested</a>
+    <a class="chip {{ 'on' if origin_filter == 'auto' else '' }}" href="{{ link(origin='auto', page=1) }}">discovered</a>
+  </span>
 </p>
 {% if done %}
 <div class="scroll">

@@ -4,23 +4,27 @@
 {% block content %}
 <h1>Queue <span class="muted">({{ active_total }})</span></h1>
 <p class="filters">
-  <a class="chip {{ 'on' if not state_filter else '' }}" href="{{ link(state='') }}">all {{ active_total }}</a>
-  <a class="chip {{ 'on' if state_filter == 'attention' else '' }}" href="{{ link(state='attention') }}">needs you {{ attention_here }}</a>
-  {% for state, n in state_counts %}<a class="chip {{ 'on' if state_filter == state else '' }}" href="{{ link(state=state) }}"><span class="state {{ state }}">{{ state }}</span> {{ n }}</a>{% endfor %}
-  <span class="muted">·</span>
-  <a class="chip {{ 'on' if not origin_filter else '' }}" href="{{ link(origin='') }}">any origin</a>
-  <a class="chip {{ 'on' if origin_filter == 'manual' else '' }}" href="{{ link(origin='manual') }}">requested</a>
-  <a class="chip {{ 'on' if origin_filter == 'auto' else '' }}" href="{{ link(origin='auto') }}">discovered</a>
+  <span class="group">
+    <a class="chip {{ 'on' if not state_filter else '' }}" href="{{ link(state='') }}">all <span class="n">{{ active_total }}</span></a>
+    <a class="chip warn {{ 'on' if state_filter == 'attention' else '' }}" href="{{ link(state='attention') }}">needs you <span class="n {{ 'zero' if not group_counts.attention else '' }}">{{ group_counts.attention }}</span></a>
+    <a class="chip acc {{ 'on' if state_filter == 'inflight' else '' }}" href="{{ link(state='inflight') }}">in flight <span class="n {{ 'zero' if not group_counts.inflight else '' }}">{{ group_counts.inflight }}</span></a>
+    <a class="chip bad {{ 'on' if state_filter == 'NO_MATCH' else '' }}" href="{{ link(state='NO_MATCH') }}">not found <span class="n {{ 'zero' if not group_counts.nomatch else '' }}">{{ group_counts.nomatch }}</span></a>
+  </span>
+  <span class="group">
+    <a class="chip {{ 'on' if not origin_filter else '' }}" href="{{ link(origin='') }}">any origin</a>
+    <a class="chip {{ 'on' if origin_filter == 'manual' else '' }}" href="{{ link(origin='manual') }}">requested</a>
+    <a class="chip {{ 'on' if origin_filter == 'auto' else '' }}" href="{{ link(origin='auto') }}">discovered</a>
+  </span>
 </p>
+{% if state_line %}<p class="muted">{{ state_line }}</p>{% endif %}
 {% if active %}
 <div class="scroll">
 <table>
-  <tr><th></th><th></th><th class="opt">State</th><th>Album</th><th class="opt">Best candidate</th><th class="opt">Updated</th><th class="opt"></th></tr>
+  <tr><th></th><th class="opt">State</th><th>Album</th><th class="opt">Best candidate</th><th class="opt">Updated</th><th class="opt"></th></tr>
   {% for a in active %}
   {% set t = a.album_target %}
   {% set best = (a.candidates | selectattr("rank", "equalto", 1) | list | first) %}
   <tr>
-    <td class="num">{{ loop.index }}</td>
     <td class="artcell">{{ art(a) }}</td>
     <td class="opt"><span class="state {{ a.state }}">{{ a.state }}</span></td>
     <td>

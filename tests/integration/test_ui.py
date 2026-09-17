@@ -350,10 +350,20 @@ def test_queue_filters_and_paging(respx_mock: respx.Router, client: TestClient) 
     client.post("/requests", data={"artist": "Nobody", "title": "Nothing"})
 
     queue = _html(client, "/queue").text
-    assert 'href="/queue?state=attention"' in queue and ">needs you 1<" in queue
-    assert 'href="/queue?state=FAILED"' in queue and 'href="/queue?origin=auto"' in queue
+    # Seven stable chips: three state groups by who has the ball, plus origin. FAILED is a
+    # person's decision, so it counts as "needs you"; the exact states are a text line.
+    assert 'href="/queue?state=attention"' in queue
+    assert 'needs you <span class="n ">2</span>' in queue
+    assert 'href="/queue?state=inflight"' in queue
+    assert 'in flight <span class="n zero">0</span>' in queue  # a zero count is muted
+    assert 'href="/queue?state=NO_MATCH"' in queue and "not found" in queue
+    assert queue.count('<span class="group">') == 2 and "\u00b7</span>" not in queue
+    assert 'href="/queue?origin=auto"' in queue and 'href="/queue?state=FAILED"' not in queue
+    assert '<p class="muted">awaiting approval 1 · failed 1</p>' in queue
     filtered = _html(client, "/queue?state=attention").text
-    assert "The Slip" in filtered and "Nobody - Nothing" not in filtered
+    assert "The Slip" in filtered and "Nobody - Nothing" in filtered
+    assert "Nothing matches this filter" in _html(client, "/queue?state=inflight").text
+    # An exact state still filters from the query string; it just has no chip.
     filtered = _html(client, "/queue?state=FAILED").text
     assert "Nobody - Nothing" in filtered and "The Slip" not in filtered
     assert "Nothing matches this filter" in _html(client, "/queue?origin=auto").text
@@ -415,7 +425,7 @@ def test_mobile_layout_rules(respx_mock: respx.Router, client: TestClient) -> No
     client.post("/requests", data={"artist": "Nine Inch Nails", "title": "The Slip"})
     queue = _html(client, "/queue").text
     assert "@media (max-width: 640px)" in queue and ".opt { display:none !important; }" in queue
-    assert '<th class="opt">Best candidate</th>' in queue and '<td class="num">1</td>' in queue
+    assert '<th class="opt">Best candidate</th>' in queue and 'class="num"' not in queue
     assert '<span class="art" aria-hidden="true">N</span>' in queue
     assert "if (e.defaultPrevented) return;" in queue
     assert 'aria-current="page">Queue' in queue and 'aria-current="page">Request' not in queue
@@ -496,8 +506,7 @@ def test_walk_order_is_state_first_then_cancel_advances_under_a_filter(
 
     queue = _html(client, "/queue?origin=manual").text
     rows = queue.split("<tr>")[2:]
-    assert "The Slip" in rows[0] and '<td class="num">1</td>' in rows[0]
-    assert "Portishead - Third" in rows[1] and '<td class="num">2</td>' in rows[1]
+    assert "The Slip" in rows[0] and "Portishead - Third" in rows[1]
     second = _html(client, "/acquisitions/2?walk=1&origin=manual").text
     assert "1 of 2" in second and 'href="/acquisitions/1?walk=1&amp;origin=manual">next' in second
     first = _html(client, "/acquisitions/1?walk=1&origin=manual").text

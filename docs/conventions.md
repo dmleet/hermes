@@ -118,8 +118,13 @@ add a regression test in `tests/integration/test_review_fixes.py`.
   hidden (the stacked album cell repeats what they held), and the detail page repeats its
   primary action in a `position: fixed` bottom bar. Tests check the classes and the rule.
 - The queue's order is one SQL expression (`QUEUE_ORDER` in `ui/routes.py`: attention
-  states first, oldest `updated_at` first within a state, then id). The detail page's
-  prev/next use it with bounded queries, never by loading the table.
+  states first, then in-flight states in pipeline order, oldest `updated_at` first within
+  a state, then id). The detail page's prev/next use it with bounded queries, never by
+  loading the table.
+- The queue's state filters are groups by who has the ball (`GROUPS` in `ui/routes.py`:
+  `attention`, `inflight`; plus `NO_MATCH` as "not found"), not one chip per state. An
+  exact state is still accepted in the query string but has no chip; the per-state counts
+  are a text line. `FAILED` is in `ATTENTION`: only a person can move it.
 - A detail page opened from the queue carries `walk=1` plus the queue filter (`state=`,
   `origin=`) on its links and form actions. An action then advances to the next item only
   when it left this one no longer needing a human (out of the `ATTENTION` states, or out

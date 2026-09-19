@@ -32,11 +32,18 @@ def test_similarity_is_forgiving_about_punctuation_and_case() -> None:
     [
         ("Mercury Rev Deserter’s Songs", "Mercury Rev Deserter s Songs"),
         ("Don't Look Back", "Don t Look Back"),
-        ("“Heroes”", '"Heroes"'),
-        ("Sigur Rós – ( )", "Sigur Rós - ( )"),
-        ("Is This It…", "Is This It..."),
-        ("  Belle & Sebastian ", "Belle & Sebastian"),
+        ("David Bowie “Heroes”", "David Bowie Heroes"),
+        ("Sigur Rós – ( )", "Sigur Rós"),  # accents stay: the tracker keeps them
+        ("The Strokes Is This It…", "Strokes Is This It"),
+        ("  Belle and Sebastian Tigermilk ", "Belle Sebastian Tigermilk"),
+        ("Belle & Sebastian", "Belle Sebastian"),
+        ("Metallica …And Justice for All", "Metallica Justice for All"),
+        ("Jethro Tull A", "Jethro Tull"),
+        ("A", "A"),  # only noise words: keep them rather than send nothing
+        ("The The", "The The"),
+        ("AC/DC Back in Black", "AC DC Back in Black"),
+        ("808s & Heartbreak", "808s Heartbreak"),
     ],
 )
-def test_search_form_folds_punctuation_and_splits_apostrophes(raw: str, expected: str) -> None:
+def test_search_form_keeps_only_words_a_search_index_can_require(raw: str, expected: str) -> None:
     assert search_form(raw) == expected

@@ -11,27 +11,9 @@ _ARTICLES = ("the ", "a ", "an ")
 _AND = re.compile(r"\s*(&|\+|\band\b)\s*")
 _PUNCT = re.compile(r"[^\w\s]")
 _SPACES = re.compile(r"\s+")
-# Typographic punctuation MusicBrainz's style guide mandates, folded to ASCII so the
-# apostrophe rule below sees every spelling of it.
-_TYPOGRAPHIC = str.maketrans(
-    {
-        "\u2018": "'",  # left single quotation mark
-        "\u2019": "'",  # right single quotation mark (apostrophe)
-        "\u201a": "'",  # single low-9 quotation mark
-        "\u2032": "'",  # prime
-        "\u201c": '"',  # left double quotation mark
-        "\u201d": '"',  # right double quotation mark
-        "\u201e": '"',  # double low-9 quotation mark
-        "\u2033": '"',  # double prime
-        "\u2010": "-",  # hyphen
-        "\u2011": "-",  # non-breaking hyphen
-        "\u2012": "-",  # figure dash
-        "\u2013": "-",  # en dash
-        "\u2014": "-",  # em dash
-        "\u2026": "...",  # horizontal ellipsis
-        "\u00a0": " ",  # no-break space
-    }
-)
+# Words a release matcher ignores on both sides (Lidarr's list); a search index requires
+# every query word, so sending them can only lose matches and dropping them only widens.
+_NOISE_WORDS = frozenset({"a", "an", "the", "and", "or", "of"})
 
 
 def normalize(value: str) -> str:
@@ -50,16 +32,21 @@ def normalize(value: str) -> str:
 
 
 def search_form(value: str) -> str:
-    """The text as a tracker search query.
+    """The text as a tracker search query: the words its index can require, nothing else.
 
-    Typographic punctuation is folded to ASCII and apostrophes become spaces, so
-    "Deserter’s Songs" is queried as "Deserter s Songs". A Sphinx index (Gazelle) splits a
-    title at a typographic apostrophe and blends a straight one, so the pieces are indexed
-    either way and a query made of the pieces matches both spellings; a query carrying an
-    apostrophe of either kind matched nothing (verified against a Gazelle tracker,
-    2026-09-19). Case, accents and other punctuation are kept.
+    Punctuation of every kind becomes a space and the noise words go; case and accents are
+    kept. Measured against a Gazelle tracker (2026-09-19): its Sphinx index splits a title
+    at a typographic apostrophe and blends a straight one, so the pieces are indexed under
+    either spelling while a query carrying an apostrophe matched nothing ("Deserter s
+    Songs" found all editions, "Deserter's"/"Deserter’s"/"Deserters" none); "Belle and
+    Sebastian" found nothing where "Belle Sebastian" did, because the tracker spells it
+    "&" and Prowlarr strips that; accents removed from the query found nothing where the
+    accented spelling did. If nothing but noise words remain they are kept, so a title
+    such as "A" still contributes.
     """
-    return _SPACES.sub(" ", value.translate(_TYPOGRAPHIC).replace("'", " ")).strip()
+    text = _SPACES.sub(" ", _PUNCT.sub(" ", value)).strip()
+    words = [w for w in text.split(" ") if w and w.casefold() not in _NOISE_WORDS]
+    return " ".join(words) or text
 
 
 def similarity(a: str, b: str) -> float:

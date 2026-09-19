@@ -67,6 +67,7 @@ def client(
     respx_mock.get(f"{MB}/release-group/{JUNO_RG}").respond(json=load("musicbrainz/rg_juno"))
     respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
     respx_mock.get(f"{PROWLARR}/api/v1/search").respond(json=[])
+    respx_mock.get(f"{PROWLARR}/api/v1/indexerstatus").respond(json=[])
 
     command.upgrade(alembic_config(settings), "head")
     clients = Clients.from_config(settings, policy)

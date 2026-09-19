@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from datetime import UTC, datetime
 from typing import Any
 
 import httpx
@@ -96,6 +97,28 @@ class ProwlarrClient:
             {"id": ix["id"], "name": ix["name"], "enable": ix.get("enable", True)}
             for ix in resp.json()
         ]
+
+    async def disabled_indexers(self) -> dict[int, str]:
+        """Indexer ids Prowlarr has switched off after failures, with the time they return.
+
+        ``GET /api/v1/indexerstatus`` lists every indexer with a recorded failure; only
+        those whose ``disabledTill`` lies ahead are skipped by a search, and a search that
+        skipped its only indexer answers an empty list that looks exactly like no match.
+        """
+        resp = await self._http.get("/api/v1/indexerstatus")
+        resp.raise_for_status()
+        now = datetime.now(UTC)
+        out: dict[int, str] = {}
+        for row in resp.json():
+            till = row.get("disabledTill")
+            if not till:
+                continue
+            when = datetime.fromisoformat(till.replace("Z", "+00:00"))
+            if when.tzinfo is None:
+                when = when.replace(tzinfo=UTC)
+            if when > now:
+                out[int(row["indexerId"])] = when.strftime("%Y-%m-%d %H:%M UTC")
+        return out
 
     async def search(
         self,

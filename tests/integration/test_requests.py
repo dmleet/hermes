@@ -56,6 +56,7 @@ def _mock_beets_empty(router: respx.Router) -> None:
     """Empty library and an empty tracker: missing albums end in NO_MATCH."""
     router.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
     router.get(f"{PROWLARR}/api/v1/search").respond(json=[])
+    router.get(f"{PROWLARR}/api/v1/indexerstatus").respond(json=[])
 
 
 def test_owned_album_ends_already_owned(respx_mock: respx.Router, client: TestClient) -> None:
@@ -94,7 +95,7 @@ def test_missing_album_stays_resolved_and_dedupes(
 
     fetched = client.get(f"/api/acquisitions/{first['id']}").json()
     # No dry-run note after NO_MATCH: there was nothing to grab.
-    assert fetched["state"] == "NO_MATCH" and len(fetched["events"]) == 5
+    assert fetched["state"] == "NO_MATCH" and len(fetched["events"]) == 6
 
 
 def test_ambiguous_request_needs_review_with_candidates(

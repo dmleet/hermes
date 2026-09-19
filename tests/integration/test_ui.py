@@ -69,6 +69,7 @@ def test_review_flow_shows_request_and_lets_a_human_pick(
     respx_mock.get(f"{BEETS}/library/release-group/{DUMMY_RG}").respond(json={"albums": []})
     respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
     respx_mock.get(f"{PROWLARR}/api/v1/search").respond(json=[])
+    respx_mock.get(f"{PROWLARR}/api/v1/indexerstatus").respond(json=[])
 
     # "Third" is not "Dummy": needs review.
     resp = client.post(
@@ -158,6 +159,7 @@ def test_queue_offers_search_for_resolved_rows(
     respx_mock.get(f"{MB}/release-group/").respond(json=load("musicbrainz/search_dummy"))
     respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
     respx_mock.get(f"{PROWLARR}/api/v1/search").respond(json=[])
+    respx_mock.get(f"{PROWLARR}/api/v1/indexerstatus").respond(json=[])
     client.post(
         "/requests", data={"artist": "Portishead", "title": "Dummy"}, follow_redirects=False
     )
@@ -187,6 +189,7 @@ def test_failed_unresolved_request_can_be_retried(
     route.respond(json=_slip_search())
     respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
     respx_mock.get(f"{PROWLARR}/api/v1/search").respond(json=[])
+    respx_mock.get(f"{PROWLARR}/api/v1/indexerstatus").respond(json=[])
     resp = client.post(f"/acquisitions/{acq_id}/retry", follow_redirects=False)
     assert resp.status_code == 303 and f"/acquisitions/{acq_id + 1}" in resp.headers["location"]
     old = client.get(f"/api/acquisitions/{acq_id}").json()
@@ -248,6 +251,7 @@ def test_reviewed_request_folded_into_in_flight_album(
     respx_mock.get(f"{MB}/release-group/{DUMMY_RG}").respond(json=load("musicbrainz/rg_dummy"))
     respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
     respx_mock.get(f"{PROWLARR}/api/v1/search").respond(json=[])
+    respx_mock.get(f"{PROWLARR}/api/v1/indexerstatus").respond(json=[])
     first = client.post(
         "/requests", data={"artist": "Portishead", "title": "Dummy"}, follow_redirects=False
     ).headers["location"]

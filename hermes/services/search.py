@@ -24,6 +24,12 @@ from hermes.services.text import search_form
 
 log = logging.getLogger("hermes.search")
 
+# MusicBrainz's special-purpose artist for compilations.
+VARIOUS_ARTISTS_MBID = "89ad4ac3-39f7-470e-963a-56509c546377"
+# The artist-only fallback must not truncate a large catalogue; the album may sit at
+# the end of it. Prowlarr pages the indexer as needed.
+ARTIST_SEARCH_LIMIT = 500
+
 SEARCHABLE = {S.RESOLVED, S.NO_MATCH, S.FAILED, S.CANDIDATES_READY}
 
 
@@ -170,6 +176,36 @@ async def run_search(
             session.commit()
             return acq
         releases = await prowlarr.search(query, indexer_ids=indexer_ids)
+        if not releases:
+            # An empty answer is also what a search returns when Prowlarr skipped the
+            # indexer (disabled after failures); tell those apart before concluding.
+            down = await _disabled_names(prowlarr, indexer_ids)
+            if down:
+                transition(
+                    session,
+                    acq,
+                    S.FAILED,
+                    f"no results for {query!r}, and Prowlarr has disabled " + ", ".join(down),
+                    data={"retryable": True, "query": query},
+                )
+                session.commit()
+                return acq
+            artist_query = search_form(target.artist_name)
+            if artist_query and artist_query != query and not is_various_artists(target):
+                # The title is what uploaders spell differently ("Vol." for "Volume", a
+                # dropped accent); the artist's catalogue is small and matching decides.
+                session.add(
+                    Event(
+                        acquisition=acq,
+                        message=f"nothing for {query!r}; searching the artist alone",
+                        data={"query": artist_query},
+                    )
+                )
+                session.commit()
+                query = artist_query
+                releases = await prowlarr.search(
+                    query, indexer_ids=indexer_ids, limit=ARTIST_SEARCH_LIMIT
+                )
     except httpx.HTTPError as exc:
         transition(
             session,
@@ -194,6 +230,35 @@ async def run_search(
         )
         session.commit()
         return acq
+
+
+async def _disabled_names(prowlarr: ProwlarrClient, indexer_ids: list[int] | None) -> list[str]:
+    """Names of the searched indexers Prowlarr currently skips, each with its return time.
+
+    A status the client cannot fetch is no evidence either way, so it reads as nothing
+    disabled rather than failing the search.
+    """
+    try:
+        disabled = await prowlarr.disabled_indexers()
+    except httpx.HTTPError:
+        return []
+    if not disabled:
+        return []
+    searched = set(indexer_ids) if indexer_ids else None
+    names = {int(ix["id"]): str(ix["name"]) for ix in await prowlarr.indexers() if ix["enable"]}
+    return [
+        f"{names[i]} until {till}"
+        for i, till in sorted(disabled.items())
+        if i in names and (searched is None or i in searched)
+    ]
+
+
+def is_various_artists(target: AlbumTarget) -> bool:
+    """A compilation's artist is no catalogue to fall back on."""
+    return target.artist_mbid == VARIOUS_ARTISTS_MBID or target.artist_name.casefold() in {
+        "various artists",
+        "various",
+    }
 
 
 def _target_types(acq: Acquisition) -> set[str]:

@@ -81,7 +81,7 @@ def test_missing_album_is_searched_and_ranked(respx_mock: respx.Router, client: 
     ).json()
     assert body["state"] == "AWAITING_APPROVAL", body["events"]
     params = search.calls.last.request.url.params
-    assert params["query"] == "Nine Inch Nails The Slip" and params["type"] == "music"
+    assert params["query"] == "Nine Inch Nails Slip" and params["type"] == "music"
     accepted = [c for c in body["candidates"] if c["rank"]]
     rejected = [c for c in body["candidates"] if not c["rank"]]
     assert (
@@ -102,18 +102,75 @@ def test_missing_album_is_searched_and_ranked(respx_mock: respx.Router, client: 
     assert ready["data"]["top"][0]["rank"] == 1
 
 
-def test_query_folds_musicbrainz_apostrophes(respx_mock: respx.Router, client: TestClient) -> None:
-    """MusicBrainz titles carry U+2019; a Gazelle search matches the pieces, not the apostrophe."""
+def test_query_drops_punctuation_and_noise_words(
+    respx_mock: respx.Router, client: TestClient
+) -> None:
+    """MusicBrainz titles carry U+2019 and articles; a Gazelle index wants the pieces only."""
     mb = _slip_search()
     mb["release-groups"][0]["title"] = "The Slip’s"
     respx_mock.get(f"{MB}/release-group/").respond(json=mb)
     respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
+    respx_mock.get(f"{PROWLARR}/api/v1/indexerstatus").respond(json=[])
     search = respx_mock.get(f"{PROWLARR}/api/v1/search").respond(json=[])
     body = client.post(
         "/api/requests", json={"artist": "Nine Inch Nails", "title": "The Slip’s"}
     ).json()
     assert body["state"] == "NO_MATCH", body["events"]
-    assert search.calls.last.request.url.params["query"] == "Nine Inch Nails The Slip s"
+    queries = [c.request.url.params["query"] for c in search.calls]
+    assert queries == ["Nine Inch Nails Slip s", "Nine Inch Nails"]
+
+
+def test_empty_search_falls_back_to_the_artist_alone(
+    respx_mock: respx.Router, client: TestClient
+) -> None:
+    """A title the uploader spelled differently is found through the artist's catalogue."""
+    respx_mock.get(f"{MB}/release-group/").respond(json=_slip_search())
+    respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
+    respx_mock.get(f"{PROWLARR}/api/v1/indexerstatus").respond(json=[])
+    search = respx_mock.get(f"{PROWLARR}/api/v1/search").mock(
+        side_effect=[
+            httpx.Response(200, json=[]),
+            httpx.Response(200, json=load("prowlarr/search_pandacd_nin")),
+        ]
+    )
+    body = client.post(
+        "/api/requests", json={"artist": "Nine Inch Nails", "title": "The Slip"}
+    ).json()
+    assert body["state"] == "AWAITING_APPROVAL", body["events"]
+    first, second = (c.request.url.params for c in search.calls)
+    assert first["query"] == "Nine Inch Nails Slip" and first["limit"] == "100"
+    assert second["query"] == "Nine Inch Nails" and second["limit"] == "500"
+    messages = [e["message"] for e in body["events"]]
+    assert "nothing for 'Nine Inch Nails Slip'; searching the artist alone" in messages
+    assert [c["title"] for c in body["candidates"] if c["rank"] == 1] == [
+        "Nine Inch Nails - The Slip [2008] [FLAC Lossless]"
+    ]
+
+
+def test_empty_search_with_a_disabled_indexer_fails_retryably(
+    respx_mock: respx.Router, client: TestClient
+) -> None:
+    """Prowlarr skips an indexer it has disabled; that empty answer is not a NO_MATCH."""
+    respx_mock.get(f"{MB}/release-group/").respond(json=_slip_search())
+    respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
+    _mock_indexers(respx_mock)
+    respx_mock.get(f"{PROWLARR}/api/v1/indexerstatus").respond(
+        json=[
+            {"indexerId": 2, "disabledTill": "2099-01-01T10:30:00Z"},
+            {"indexerId": 3, "disabledTill": "2099-01-01T10:30:00Z"},  # disabled by hand
+            {"indexerId": 1, "disabledTill": "2000-01-01T00:00:00Z"},  # long recovered
+        ]
+    )
+    search = respx_mock.get(f"{PROWLARR}/api/v1/search").respond(json=[])
+    body = client.post(
+        "/api/requests", json={"artist": "Nine Inch Nails", "title": "The Slip"}
+    ).json()
+    assert body["state"] == "FAILED", body["events"]
+    assert body["error"] == (
+        "no results for 'Nine Inch Nails Slip', and Prowlarr has disabled "
+        "Tracker B until 2099-01-01 10:30 UTC"
+    )
+    assert len(search.calls) == 1  # no artist fallback while an indexer is out
 
 
 def test_no_match_when_policy_rejects_everything(

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from hermes.services.text import normalize, similarity
+from hermes.services.text import normalize, search_form, similarity
 
 
 @pytest.mark.parametrize(
@@ -25,3 +25,17 @@ def test_similarity_is_forgiving_about_punctuation_and_case() -> None:
     assert similarity("Radiohead / Friends", "radiohead friends") > 0.95
     assert similarity("Dummy", "Dummy / Portishead") < 0.9
     assert similarity("", "x") == 0.0
+
+
+@pytest.mark.parametrize(
+    ("raw", "expected"),
+    [
+        ("Mercury Rev Deserter’s Songs", "Mercury Rev Deserter's Songs"),
+        ("“Heroes”", '"Heroes"'),
+        ("Sigur Rós – ( )", "Sigur Rós - ( )"),
+        ("Is This It…", "Is This It..."),
+        ("  Belle & Sebastian ", "Belle & Sebastian"),
+    ],
+)
+def test_search_form_folds_typographic_punctuation_to_ascii(raw: str, expected: str) -> None:
+    assert search_form(raw) == expected

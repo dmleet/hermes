@@ -11,6 +11,29 @@ _ARTICLES = ("the ", "a ", "an ")
 _AND = re.compile(r"\s*(&|\+|\band\b)\s*")
 _PUNCT = re.compile(r"[^\w\s]")
 _SPACES = re.compile(r"\s+")
+# Typographic punctuation MusicBrainz's style guide mandates, folded to the ASCII a
+# tracker's own users type into its search box. A Gazelle site's Sphinx index treats
+# the straight apostrophe as a blend character (so "Deserter's" is findable as one
+# word) but knows nothing about U+2019, which becomes a separator and finds nothing.
+_TYPOGRAPHIC = str.maketrans(
+    {
+        "\u2018": "'",  # left single quotation mark
+        "\u2019": "'",  # right single quotation mark (apostrophe)
+        "\u201a": "'",  # single low-9 quotation mark
+        "\u2032": "'",  # prime
+        "\u201c": '"',  # left double quotation mark
+        "\u201d": '"',  # right double quotation mark
+        "\u201e": '"',  # double low-9 quotation mark
+        "\u2033": '"',  # double prime
+        "\u2010": "-",  # hyphen
+        "\u2011": "-",  # non-breaking hyphen
+        "\u2012": "-",  # figure dash
+        "\u2013": "-",  # en dash
+        "\u2014": "-",  # em dash
+        "\u2026": "...",  # horizontal ellipsis
+        "\u00a0": " ",  # no-break space
+    }
+)
 
 
 def normalize(value: str) -> str:
@@ -26,6 +49,15 @@ def normalize(value: str) -> str:
             text = text[len(article) :]
             break
     return text
+
+
+def search_form(value: str) -> str:
+    """The text as a search query: typographic punctuation folded to ASCII, spaces squashed.
+
+    Case, accents and the punctuation itself are kept: what a tracker's search does with
+    them is its business, and its users type the ASCII forms.
+    """
+    return _SPACES.sub(" ", value.translate(_TYPOGRAPHIC)).strip()
 
 
 def similarity(a: str, b: str) -> float:

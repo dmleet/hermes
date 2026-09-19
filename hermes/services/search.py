@@ -20,6 +20,7 @@ from hermes.domain.state import transition
 from hermes.integrations.musicbrainz import MusicBrainzClient, NotFound
 from hermes.integrations.prowlarr import ProwlarrClient
 from hermes.services.ranking import RankedCandidate, evaluate
+from hermes.services.text import search_form
 
 log = logging.getLogger("hermes.search")
 
@@ -141,7 +142,7 @@ async def run_search(
         raise ValueError("cannot search an acquisition without a resolved target")
     if acq.state not in SEARCHABLE:
         raise ValueError(f"cannot search from state {acq.state}")
-    query = f"{target.artist_name} {target.title}"
+    query = search_form(f"{target.artist_name} {target.title}")
     transition(
         session, acq, S.SEARCHING, f"searching Prowlarr for {query!r}", data={"query": query}
     )

@@ -73,6 +73,8 @@ add a regression test in `tests/integration/test_review_fixes.py`.
 
 ## Matching
 
+- The Prowlarr query is `text.search_form("<artist> <title>")`: typographic punctuation from MusicBrainz folded to ASCII (`’` to `'`, curly quotes, dashes, `…`), nothing else changed. A Gazelle search finds "Deserter's" and not "Deserter’s". Do not strip punctuation from the query: the straight apostrophe is a blend character there and users search with it.
+
 - `matching.title_similarity` splits tails (soundtrack, alternate title, subtitle) off both
   titles. A subtitle only the tracker title carries caps the score at 0.8; when both carry
   one the score is the lower of the head and tail similarities, with numbers compared

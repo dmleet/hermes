@@ -30,12 +30,13 @@ def test_similarity_is_forgiving_about_punctuation_and_case() -> None:
 @pytest.mark.parametrize(
     ("raw", "expected"),
     [
-        ("Mercury Rev Deserter’s Songs", "Mercury Rev Deserter's Songs"),
+        ("Mercury Rev Deserter’s Songs", "Mercury Rev Deserter s Songs"),
+        ("Don't Look Back", "Don t Look Back"),
         ("“Heroes”", '"Heroes"'),
         ("Sigur Rós – ( )", "Sigur Rós - ( )"),
         ("Is This It…", "Is This It..."),
         ("  Belle & Sebastian ", "Belle & Sebastian"),
     ],
 )
-def test_search_form_folds_typographic_punctuation_to_ascii(raw: str, expected: str) -> None:
+def test_search_form_folds_punctuation_and_splits_apostrophes(raw: str, expected: str) -> None:
     assert search_form(raw) == expected

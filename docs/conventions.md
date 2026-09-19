@@ -73,7 +73,7 @@ add a regression test in `tests/integration/test_review_fixes.py`.
 
 ## Matching
 
-- The Prowlarr query is `text.search_form("<artist> <title>")`: typographic punctuation from MusicBrainz folded to ASCII (`’` to `'`, curly quotes, dashes, `…`), nothing else changed. A Gazelle search finds "Deserter's" and not "Deserter’s". Do not strip punctuation from the query: the straight apostrophe is a blend character there and users search with it.
+- The Prowlarr query is `text.search_form("<artist> <title>")`: typographic punctuation from MusicBrainz folded to ASCII (curly quotes, dashes, `…`) and apostrophes replaced by spaces. A Gazelle search found "Deserter s Songs" and "Deserter Songs" (all editions) but nothing for "Deserter's", "Deserter’s" or "Deserters" (2026-09-19): Sphinx splits the typographic apostrophe and blends the straight one, so only the pieces are safe. Prowlarr's own sanitiser already folds U+2019 to `'`, so folding alone changes nothing. Before blaming a query, confirm the indexer answers a broader one: an empty Prowlarr result looks the same when the indexer never ran.
 
 - `matching.title_similarity` splits tails (soundtrack, alternate title, subtitle) off both
   titles. A subtitle only the tracker title carries caps the score at 0.8; when both carry

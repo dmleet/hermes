@@ -103,7 +103,7 @@ def test_missing_album_is_searched_and_ranked(respx_mock: respx.Router, client: 
 
 
 def test_query_folds_musicbrainz_apostrophes(respx_mock: respx.Router, client: TestClient) -> None:
-    """MusicBrainz titles carry U+2019; a Gazelle search only finds the ASCII apostrophe."""
+    """MusicBrainz titles carry U+2019; a Gazelle search matches the pieces, not the apostrophe."""
     mb = _slip_search()
     mb["release-groups"][0]["title"] = "The Slip’s"
     respx_mock.get(f"{MB}/release-group/").respond(json=mb)
@@ -113,7 +113,7 @@ def test_query_folds_musicbrainz_apostrophes(respx_mock: respx.Router, client: T
         "/api/requests", json={"artist": "Nine Inch Nails", "title": "The Slip’s"}
     ).json()
     assert body["state"] == "NO_MATCH", body["events"]
-    assert search.calls.last.request.url.params["query"] == "Nine Inch Nails The Slip's"
+    assert search.calls.last.request.url.params["query"] == "Nine Inch Nails The Slip s"
 
 
 def test_no_match_when_policy_rejects_everything(

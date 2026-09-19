@@ -11,10 +11,8 @@ _ARTICLES = ("the ", "a ", "an ")
 _AND = re.compile(r"\s*(&|\+|\band\b)\s*")
 _PUNCT = re.compile(r"[^\w\s]")
 _SPACES = re.compile(r"\s+")
-# Typographic punctuation MusicBrainz's style guide mandates, folded to the ASCII a
-# tracker's own users type into its search box. A Gazelle site's Sphinx index treats
-# the straight apostrophe as a blend character (so "Deserter's" is findable as one
-# word) but knows nothing about U+2019, which becomes a separator and finds nothing.
+# Typographic punctuation MusicBrainz's style guide mandates, folded to ASCII so the
+# apostrophe rule below sees every spelling of it.
 _TYPOGRAPHIC = str.maketrans(
     {
         "\u2018": "'",  # left single quotation mark
@@ -52,12 +50,16 @@ def normalize(value: str) -> str:
 
 
 def search_form(value: str) -> str:
-    """The text as a search query: typographic punctuation folded to ASCII, spaces squashed.
+    """The text as a tracker search query.
 
-    Case, accents and the punctuation itself are kept: what a tracker's search does with
-    them is its business, and its users type the ASCII forms.
+    Typographic punctuation is folded to ASCII and apostrophes become spaces, so
+    "Deserter’s Songs" is queried as "Deserter s Songs". A Sphinx index (Gazelle) splits a
+    title at a typographic apostrophe and blends a straight one, so the pieces are indexed
+    either way and a query made of the pieces matches both spellings; a query carrying an
+    apostrophe of either kind matched nothing (verified against a Gazelle tracker,
+    2026-09-19). Case, accents and other punctuation are kept.
     """
-    return _SPACES.sub(" ", value.translate(_TYPOGRAPHIC)).strip()
+    return _SPACES.sub(" ", value.translate(_TYPOGRAPHIC).replace("'", " ")).strip()
 
 
 def similarity(a: str, b: str) -> float:

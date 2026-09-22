@@ -107,6 +107,14 @@ add a regression test in `tests/integration/test_review_fixes.py`.
 - After `IMPORTED` the importer calls the agent's `POST /history` so a later manual
   `beet import -I` on the downloads directory skips the folder; a failure there is a
   warning event, not a state change.
+- Never ask Navidrome to scan while an import may be writing, and never start an import
+  while Navidrome is scanning. beets writes each copied file several times and a scan
+  that meets a file mid-scrub records it with no tags, permanently: with the source
+  mtimes preserved a quick scan never re-reads it (decision 2026-09-22). The scan debt
+  lives on `Context.navidrome_scan_owed` and is paid at the end of the tick, after the
+  tick's own starts, only when nothing is `IMPORTING`; `importer.tick` holds a lock so
+  "nothing is importing" means something. A ready row waits with one note while
+  `getScanStatus` says scanning; Navidrome being unreachable never holds an import.
 
 ## UI
 

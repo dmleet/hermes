@@ -6,11 +6,19 @@ The agent runs ``beet import -q -I --set hermes_acquisition=<id> [--search-id <r
 Success is verified independently of the exit code by asking the library for albums
 carrying the acquisition id. Anything else (skip, timeout, beets refusing the config, a path
 beets cannot see) lands in IMPORT_NEEDS_REVIEW or FAILED with the evidence on the event.
+
+Navidrome, when configured, is asked to scan once per drained queue rather than once per
+album, and no import starts while it is scanning: beets writes each copied file several
+times (tags, scrub, embedded art), and a scan that walks the folder meanwhile records a
+half-written track and, with the source mtimes preserved, never re-reads it.
 """
 
 from __future__ import annotations
 
+import asyncio
+import logging
 from collections import defaultdict
+from collections.abc import Sequence
 from dataclasses import dataclass, field
 from datetime import UTC, datetime, timedelta
 from typing import Any
@@ -33,6 +41,14 @@ from hermes.domain.state import transition
 from hermes.integrations.musicbrainz import NotFound, ReleaseGroup
 from hermes.integrations.navidrome import NavidromeError
 from hermes.services.context import Context
+
+log = logging.getLogger("hermes.importer")
+
+# The scheduler's startup run and a manual tick (CLI, API) can coincide; the scan gate below
+# reasons about "nothing is importing", which only holds if one tick runs at a time.
+_lock = asyncio.Lock()
+
+SCAN_REQUESTED = "Navidrome scan requested"
 
 # The same order as beets' `match.preferred.countries` in deploy/beets/config.yaml, so a
 # manual import and a Hermes import of the same rip tend to land on the same release.
@@ -386,11 +402,80 @@ async def poll_import(
         )
     session.commit()
 
-    if ctx.navidrome is not None and ctx.policy.navidrome.trigger_scan:
-        try:
-            status = await ctx.navidrome.start_scan()
-            session.add(Event(acquisition=acq, message="Navidrome scan requested", data=status))
-        except (httpx.HTTPError, NavidromeError) as exc:
+    if _scan_wanted(ctx):
+        if ctx.navidrome_scan_owed is None:
+            ctx.navidrome_scan_owed = _owed_before_this_process(session)
+        ctx.navidrome_scan_owed.append(acq.id)
+    return acq
+
+
+def _scan_wanted(ctx: Context) -> bool:
+    return ctx.navidrome is not None and ctx.policy.navidrome.trigger_scan
+
+
+def _owed_before_this_process(session: Session) -> list[int]:
+    """Imports verified before this process started that no scan request followed (Hermes
+    restarted between the import and the drain): they are owed a scan too."""
+    last_scan = session.scalar(
+        select(Event.at).where(Event.message.like(f"{SCAN_REQUESTED}%")).order_by(Event.at.desc())
+    )
+    query = select(Acquisition.id).where(Acquisition.state == S.IMPORTED)
+    if last_scan is not None:
+        query = query.where(Acquisition.updated_at > last_scan)
+    return list(session.scalars(query.order_by(Acquisition.id)))
+
+
+async def navidrome_scanning(
+    session: Session, ctx: Context, waiting: Sequence[Acquisition]
+) -> bool:
+    """Whether a Navidrome scan is running, in which case ``waiting`` (ready to import) are
+    left for the next tick with a note. Navidrome being unreachable never holds an import:
+    it is optional, and its health check says so."""
+    if not _scan_wanted(ctx) or not waiting:
+        return False
+    assert ctx.navidrome is not None
+    try:
+        status = await ctx.navidrome.scan_status()
+    except (httpx.HTTPError, NavidromeError) as exc:
+        log.warning("navidrome scan status unavailable (%s); not holding imports", exc)
+        return False
+    if not status.get("scanning"):
+        return False
+    for acq in waiting:
+        _note_once(
+            session,
+            acq,
+            "Navidrome is scanning the library; the import waits so the scan cannot read "
+            "half-written files",
+            level="info",
+        )
+    session.commit()
+    return True
+
+
+async def request_scan_if_idle(session: Session, ctx: Context) -> str | None:
+    """Ask Navidrome for one scan covering every import since the last request, but only
+    when nothing is importing. Returns what happened, for the tick's counts."""
+    if not _scan_wanted(ctx):
+        ctx.navidrome_scan_owed = []
+        return None
+    if ctx.navidrome_scan_owed is None:
+        ctx.navidrome_scan_owed = _owed_before_this_process(session)
+    owed = ctx.navidrome_scan_owed
+    if not owed:
+        return None
+    importing = session.scalar(
+        select(Acquisition.id).where(Acquisition.state == S.IMPORTING).limit(1)
+    )
+    if importing is not None:
+        return "scan_deferred"
+    assert ctx.navidrome is not None
+    rows = session.scalars(select(Acquisition).where(Acquisition.id.in_(owed))).all()
+    try:
+        status = await ctx.navidrome.start_scan()
+    except (httpx.HTTPError, NavidromeError) as exc:
+        # One warning per import, not one per tick: the nightly scan picks the albums up.
+        for acq in rows:
             session.add(
                 Event(
                     acquisition=acq,
@@ -399,20 +484,36 @@ async def poll_import(
                 )
             )
         session.commit()
-    return acq
+        ctx.navidrome_scan_owed = []
+        return "scan_failed"
+    message = SCAN_REQUESTED + (f" for {len(owed)} imports" if len(owed) > 1 else "")
+    for acq in rows:
+        session.add(Event(acquisition=acq, message=message, data=status))
+    session.commit()
+    ctx.navidrome_scan_owed = []
+    return "scan_requested"
 
 
 async def retry_import(session: Session, ctx: Context, acq: Acquisition) -> Acquisition:
-    """From IMPORT_NEEDS_REVIEW, or FAILED with a completed download, try again."""
-    if acq.state == S.FAILED and completed_attempt(acq) is not None:
-        transition(session, acq, S.READY_FOR_BEETS, "retrying import")
-        session.commit()
-    return await start_import(session, ctx, acq)
+    """From IMPORT_NEEDS_REVIEW, or FAILED with a completed download, try again. A human's
+    retry starts beets outside the tick, so it meets the same gate: not under a scan."""
+    async with _lock:
+        if await navidrome_scanning(session, ctx, [acq]):
+            raise ValueError("Navidrome is scanning the library; retry once it has finished")
+        if acq.state == S.FAILED and completed_attempt(acq) is not None:
+            transition(session, acq, S.READY_FOR_BEETS, "retrying import")
+            session.commit()
+        return await start_import(session, ctx, acq)
 
 
 async def tick(session: Session, ctx: Context, now: datetime | None = None) -> dict[str, int]:
-    """Start imports for downloads that are ready; poll the ones in progress."""
-    now = now or utcnow()
+    """Start imports for downloads that are ready; poll the ones in progress; when the queue
+    has drained, ask Navidrome to scan."""
+    async with _lock:
+        return await _tick(session, ctx, now or utcnow())
+
+
+async def _tick(session: Session, ctx: Context, now: datetime) -> dict[str, int]:
     counts: dict[str, int] = defaultdict(int)
     # Poll what was already running before starting new jobs, so a job started this tick is
     # first looked at next tick (the agent runs them one at a time anyway).
@@ -425,7 +526,14 @@ async def tick(session: Session, ctx: Context, now: datetime | None = None) -> d
     ready = session.scalars(
         select(Acquisition).where(Acquisition.state == S.READY_FOR_BEETS).order_by(Acquisition.id)
     ).all()
-    for acq in ready:
-        await start_import(session, ctx, acq)
-        counts["started" if acq.state == S.IMPORTING else "not_started"] += 1
+    if await navidrome_scanning(session, ctx, ready):
+        counts["waiting_for_scan"] = len(ready)
+    else:
+        for acq in ready:
+            await start_import(session, ctx, acq)
+            counts["started" if acq.state == S.IMPORTING else "not_started"] += 1
+    # Last, after this tick's starts: the scan goes out only when nothing is importing.
+    outcome = await request_scan_if_idle(session, ctx)
+    if outcome:
+        counts[outcome] += 1
     return dict(counts)

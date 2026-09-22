@@ -69,3 +69,9 @@ class NavidromeClient:
     async def start_scan(self) -> dict[str, Any]:
         body = await self._call("startScan")
         return dict(body.get("scanStatus", {}))
+
+    async def scan_status(self) -> dict[str, Any]:
+        """``{"scanning": bool, ...}``: whether a scan (ours, the nightly one, a manual one) is
+        walking the library right now."""
+        body = await self._call("getScanStatus")
+        return dict(body.get("scanStatus", {}))

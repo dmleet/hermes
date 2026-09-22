@@ -13,7 +13,15 @@ from fastapi.testclient import TestClient
 
 from hermes.app import Clients, create_app
 from hermes.config import Policy, Settings
-from hermes.domain.models import utcnow
+from hermes.domain.models import (
+    Acquisition,
+    AlbumTarget,
+    Event,
+    GrabAttempt,
+    GrabOutcome,
+    utcnow,
+)
+from hermes.domain.state import AcquisitionState as S
 from hermes.integrations.musicbrainz import DEFAULT_BASE_URL as MB
 from hermes.integrations.musicbrainz import MusicBrainzClient, parse_release_group
 from hermes.integrations.navidrome import NavidromeClient
@@ -138,6 +146,9 @@ def stack(respx_mock: respx.Router, settings: Settings):
                     }
                 }
             )
+            self.scanning = False  # what getScanStatus answers
+            self.navidrome_down = False
+            respx_mock.get(f"{NAVIDROME}/rest/getScanStatus").mock(side_effect=self._scan_status)
             command.upgrade(alembic_config(settings), "head")
             policy = _policy()
             clients = Clients.from_config(settings, policy)
@@ -161,6 +172,57 @@ def stack(respx_mock: respx.Router, settings: Settings):
             )
             return int(body["id"])
 
+        def _scan_status(self, request: httpx.Request) -> httpx.Response:
+            if self.navidrome_down:
+                return httpx.Response(502)
+            return httpx.Response(
+                200,
+                json={
+                    "subsonic-response": {
+                        "status": "ok",
+                        "scanStatus": {"scanning": self.scanning, "count": 12},
+                    }
+                },
+            )
+
+        def ready_twin(self, acq_id: int) -> int:
+            """A second acquisition of the same target whose download has also finished:
+            the batch case, without a second torrent fixture."""
+            app = self.client.app
+            with app.state.session_factory() as session:
+                first = session.get(Acquisition, acq_id)
+                assert first is not None
+                attempt = first.grab_attempts[0]
+                target = first.album_target
+                assert target is not None
+                twin = Acquisition(
+                    state=S.READY_FOR_BEETS,
+                    origin="manual",
+                    # One acquisition per target; a pinned release spares a MusicBrainz call.
+                    album_target=AlbumTarget(
+                        release_group_mbid="twin-" + target.release_group_mbid[5:],
+                        artist_name=target.artist_name,
+                        title=target.title + " (twin)",
+                        preferred_release_mbid="rel-xw-2008",
+                    ),
+                )
+                session.add(twin)
+                session.add(
+                    GrabAttempt(
+                        acquisition=twin,
+                        candidate_id=attempt.candidate_id,
+                        deluge_instance=attempt.deluge_instance,
+                        infohash="1" * 40,
+                        download_location=attempt.download_location,
+                        completed_location=attempt.completed_location,
+                        completed_path=attempt.completed_path + "-twin",
+                        completed_at=utcnow(),
+                        outcome=GrabOutcome.COMPLETED,
+                    )
+                )
+                session.commit()
+                return int(twin.id)
+
         async def observe(self) -> dict:
             app = self.client.app
             with app.state.session_factory() as session:
@@ -175,6 +237,9 @@ def stack(respx_mock: respx.Router, settings: Settings):
 
         def get(self, acq_id: int) -> dict:
             return self.client.get(f"/api/acquisitions/{acq_id}").json()
+
+        def messages(self, acq_id: int) -> list[str]:
+            return [e["message"] for e in self.get(acq_id)["events"]]
 
     s = Stack()
     yield s
@@ -297,7 +362,7 @@ async def test_import_end_to_end(stack) -> None:
     assert stack.get(acq_id)["state"] == "IMPORTING"
 
     stack.agent.finish(job_id, imported_album=IMPORTED)
-    await stack.import_tick()
+    assert (await stack.import_tick()) == {"polled": 1, "scan_requested": 1}
     body = stack.get(acq_id)
     assert body["state"] == "IMPORTED"
     assert body["target"]["library_status"] == "owned"
@@ -409,9 +474,110 @@ async def test_history_marking_failure_is_a_warning_not_a_failure(stack) -> None
     assert (await stack.import_tick()) == {"started": 1}
     stack.agent.history_down = True
     stack.agent.finish("job1", imported_album=IMPORTED)
-    assert (await stack.import_tick()) == {"polled": 1}
+    assert (await stack.import_tick()) == {"polled": 1, "scan_requested": 1}
     body = stack.get(acq_id)
     assert body["state"] == "IMPORTED"
     warning = [e for e in body["events"] if e["message"].startswith("could not record")]
     assert warning and warning[0]["level"] == "warning"
     assert stack.agent.history == []
+
+
+async def test_scan_waits_for_the_import_queue_to_drain(stack) -> None:
+    """Two downloads back to back: the scan for the first would walk the second's folder
+    while beets is still writing it (a track read mid-scrub has no tags, and with source
+    mtimes preserved Navidrome never re-reads it). One scan, once nothing is importing."""
+    first = await stack.download()
+    assert (await stack.import_tick()) == {"started": 1}
+    second = stack.ready_twin(first)
+
+    stack.agent.finish("job1", imported_album=IMPORTED)
+    counts = await stack.import_tick()
+    assert counts == {"polled": 1, "started": 1, "scan_deferred": 1}
+    assert stack.get(first)["state"] == "IMPORTED"
+    assert stack.get(second)["state"] == "IMPORTING"
+    assert not stack.scan_calls.called
+    assert not any(m.startswith("Navidrome") for m in stack.messages(first))
+
+    # Still importing: still no scan.
+    assert (await stack.import_tick()) == {"polled": 1, "scan_deferred": 1}
+    assert not stack.scan_calls.called
+
+    stack.agent.finish("job2", imported_album=IMPORTED)
+    assert (await stack.import_tick()) == {"polled": 1, "scan_requested": 1}
+    assert stack.scan_calls.call_count == 1
+    for acq_id in (first, second):
+        assert stack.messages(acq_id)[-1] == "Navidrome scan requested for 2 imports"
+    assert (await stack.import_tick()) == {}
+    assert stack.scan_calls.call_count == 1
+
+
+async def test_import_waits_while_navidrome_is_scanning(stack) -> None:
+    """The other half of the gate: a scan in progress (the nightly one, a manual one) holds
+    a ready import for a tick rather than starting beets under it."""
+    acq_id = await stack.download()
+    stack.scanning = True
+    assert (await stack.import_tick()) == {"waiting_for_scan": 1}
+    assert stack.get(acq_id)["state"] == "READY_FOR_BEETS"
+    assert stack.agent.submitted == []
+    assert (await stack.import_tick()) == {"waiting_for_scan": 1}
+    waits = [m for m in stack.messages(acq_id) if m.startswith("Navidrome is scanning")]
+    assert len(waits) == 1  # noted once, not once per tick
+
+    stack.scanning = False
+    assert (await stack.import_tick()) == {"started": 1}
+    assert stack.get(acq_id)["state"] == "IMPORTING"
+
+    # A human's retry meets the same gate.
+    stack.agent.finish("job1", exit_code=1)
+    await stack.import_tick()
+    assert stack.get(acq_id)["state"] == "IMPORT_NEEDS_REVIEW"
+    stack.scanning = True
+    resp = stack.client.post(f"/api/acquisitions/{acq_id}/retry-import")
+    assert resp.status_code == 409 and "scanning" in resp.json()["detail"]
+    assert stack.get(acq_id)["state"] == "IMPORT_NEEDS_REVIEW"
+    stack.scanning = False
+    assert stack.client.post(f"/api/acquisitions/{acq_id}/retry-import").status_code == 200
+    assert stack.get(acq_id)["state"] == "IMPORTING"
+
+
+async def test_navidrome_being_down_never_holds_an_import(stack, respx_mock: respx.Router) -> None:
+    """Navidrome is optional: no answer to the status question means go ahead, and a failed
+    scan request is a warning on each import it covered, not a retry every tick."""
+    acq_id = await stack.download()
+    stack.navidrome_down = True
+    assert (await stack.import_tick()) == {"started": 1}
+
+    respx_mock.get(f"{NAVIDROME}/rest/startScan").respond(status_code=502)
+    stack.agent.finish("job1", imported_album=IMPORTED)
+    assert (await stack.import_tick()) == {"polled": 1, "scan_failed": 1}
+    body = stack.get(acq_id)
+    assert body["state"] == "IMPORTED"
+    warning = [e for e in body["events"] if e["message"].startswith("Navidrome scan request")]
+    assert len(warning) == 1 and warning[0]["level"] == "warning"
+    assert "502" in warning[0]["message"] and "t=" not in warning[0]["message"]
+    assert (await stack.import_tick()) == {}  # not owed any more
+
+
+async def test_restart_still_owes_the_scan(stack) -> None:
+    """Hermes restarted between an import and the drain: the first tick of the new process
+    reads what is owed from the events (imports after the last scan request)."""
+    acq_id = await stack.download()
+    await stack.import_tick()
+    stack.agent.finish("job1", imported_album=IMPORTED)
+    assert (await stack.import_tick()) == {"polled": 1, "scan_requested": 1}
+    ctx = stack.client.app.state.context
+
+    # A fresh process, nothing new since the scan: nothing to ask for.
+    ctx.navidrome_scan_owed = None
+    assert (await stack.import_tick()) == {}
+    assert stack.scan_calls.call_count == 1
+
+    # The same, but the scan request never happened (the process died first).
+    with stack.client.app.state.session_factory() as session:
+        for event in session.query(Event).filter(Event.message.like("Navidrome scan%")):
+            session.delete(event)
+        session.commit()
+    ctx.navidrome_scan_owed = None
+    assert (await stack.import_tick()) == {"scan_requested": 1}
+    assert stack.scan_calls.call_count == 2
+    assert stack.messages(acq_id)[-1] == "Navidrome scan requested"

@@ -28,6 +28,10 @@ class Context:
     listenbrainz: ListenBrainzClient | None = None
     coverart: CoverArtClient | None = None
     art_dir: Path | None = None  # <data dir>/art, where fetched covers live
+    # Acquisitions imported since Navidrome was last asked to scan; the importer asks once
+    # the import queue drains (a scan during an import reads half-written files). None
+    # until the first tick derives it from the events, so a restart loses nothing.
+    navidrome_scan_owed: list[int] | None = None
 
     def deluge_for(self, instance: str) -> DelugeClient:
         try:

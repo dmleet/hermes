@@ -29,7 +29,8 @@ beets. Every step is recorded on the acquisition so you can see why it did what 
 - **Deluge**: the torrent client, one or more instances routed per indexer with per-torrent
   download paths and a label. Hermes adds torrents and polls them; it never pauses, removes
   or modifies one.
-- **Navidrome** (optional): pinged and asked to rescan after an import when configured.
+- **Navidrome** (optional): pinged, and asked to rescan once a batch of imports has
+  finished; imports wait while it is scanning, so a scan never reads a half-written album.
 - **Development stack** (`docker-compose.yaml`, `dev/`): beets with the plugin, one Deluge,
   and Prowlarr with PandaCD, a Creative Commons tracker, so the whole path runs locally on
   legal downloads with no production credentials.

@@ -59,4 +59,8 @@ spec:
               cpu: 25m
               memory: 128Mi
             limits:
-              memory: 1Gi   # replaygain/ffmpeg during imports
+              # Albums copied through the pod stay in its page cache and count against
+              # the limit (measured 2026-09-19: 54Mi resident, 880Mi cache, working set
+              # 500Mi at rest); an import's own memory rides on top, and at 1Gi the
+              # first import after two days of uptime was OOM-killed mid-copy.
+              memory: 2Gi

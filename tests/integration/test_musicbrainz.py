@@ -66,6 +66,13 @@ async def test_lookup_release_group_and_release(respx_mock: respx.Router) -> Non
         and rg.releases[0].country == "XE"
     )
     assert rel.release_group.id == DUMMY_RG and rel.artist_credits[0].mbid
+    # Genres ride along on the lookup: most votes first, ties by name.
+    assert [(g.name, g.count) for g in rg.genres[:4]] == [
+        ("trip hop", 12),
+        ("electronic", 5),
+        ("downtempo", 4),
+        ("alternative rock", 1),
+    ]
 
 
 async def test_not_found_raises(respx_mock: respx.Router) -> None:

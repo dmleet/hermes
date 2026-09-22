@@ -33,8 +33,10 @@
     <td>
       <a class="row" href="/acquisitions/{{ a.id }}">{% if t %}{{ t.artist_name }} – {{ t.title }}{% else %}{{ requested(a) or "unknown" }}{% endif %}</a>
       {% if t %}<span class="muted">({{ t.first_release_year or "?" }})</span>{% else %}<span class="muted">(unresolved)</span>{% endif %}
+      {% set genre_names = t | genres %}
+      {% if genre_names %}<span class="stack genres">{{ genre_names | join(" · ") }}</span>{% endif %}
       <span class="stack">
-        <span class="m-only"><span class="state {{ a.state }}">{{ a.state }}</span> · </span>{% if a.origin == "auto" %}discovered{% if a.signal and a.signal.source_playlist_name %} in {{ a.signal.source_playlist_name }}{% endif %}{% else %}requested{% endif %}<span class="m-only"> · {{ a.updated_at | dt("%m-%d %H:%M") }}</span>
+        <span class="m-only"><span class="state {{ a.state }}">{{ a.state }}</span> · </span>{% if a.origin == "auto" %}discovered{% if a.signal and a.signal.source_playlist_name %} in {{ a.signal.source_playlist_name | playlist }}{% endif %}{% else %}requested{% endif %}<span class="m-only"> · {{ a.updated_at | dt("%m-%d %H:%M") }}</span>
       </span>
     </td>
     <td class="opt"><span class="state {{ a.state }}">{{ a.state }}</span></td>

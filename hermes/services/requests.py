@@ -25,6 +25,7 @@ from hermes.domain.models import (
 from hermes.domain.state import TERMINAL, transition
 from hermes.domain.state import AcquisitionState as S
 from hermes.integrations.musicbrainz import ReleaseGroup
+from hermes.services import genres
 from hermes.services.approval import decide
 from hermes.services.context import Context
 from hermes.services.library_check import check_library
@@ -44,6 +45,7 @@ def upsert_target(session: Session, rg: ReleaseGroup, preferred_release: str | N
     target.secondary_types = {"types": rg.secondary_types}
     target.first_release_year = rg.first_release_year
     target.release_mbids = {"ids": [r.id for r in rg.releases]}
+    target.genres = genres.stored(rg)
     if preferred_release:
         target.preferred_release_mbid = preferred_release
     session.flush()

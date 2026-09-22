@@ -3,7 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 from typing import Any
 
-from pydantic import BaseModel, ConfigDict, model_validator
+from pydantic import BaseModel, ConfigDict, field_validator, model_validator
 
 from hermes.domain.models import Acquisition, AlbumTarget, Event
 
@@ -106,6 +106,14 @@ class AlbumTargetOut(BaseModel):
     first_release_year: int | None
     preferred_release_mbid: str | None
     library_status: str
+    genres: list[str] = []  # MusicBrainz release-group genres, most votes first
+
+    @field_validator("genres", mode="before")
+    @classmethod
+    def _genre_names(cls, value: Any) -> list[str]:
+        if isinstance(value, dict):  # the model's {"top": [{"name", "count"}, ...]}
+            return [str(g["name"]) for g in value.get("top") or [] if g.get("name")]
+        return list(value or [])
 
 
 class AcquisitionOut(BaseModel):

@@ -24,7 +24,7 @@ from hermes.domain.models import Acquisition, AlbumTarget, Candidate, Playlist, 
 from hermes.domain.state import TERMINAL, InvalidTransition, can_transition
 from hermes.domain.state import AcquisitionState as S
 from hermes.integrations.musicbrainz import NotFound
-from hermes.services import approval, art, importer
+from hermes.services import approval, art, genres, importer
 from hermes.services.context import Context
 from hermes.services.pipeline import search_and_decide
 from hermes.services.requests import (
@@ -111,7 +111,25 @@ def _initial(acq: Acquisition) -> str:
     return next((ch for ch in name if ch.isalnum()), "?").upper()
 
 
+_WEEKLY = re.compile(r"^(?P<name>.+?) for \S+, week of \d{4}-(?P<md>\d\d-\d\d)(?: \w+)?$")
+
+
+def _playlist(name: str | None) -> str:
+    """ListenBrainz's generated names carry the user and the full date ("Weekly Exploration
+    for someone, week of 2026-09-14 Mon"); a row has room for the series and the day."""
+    if not name:
+        return ""
+    m = _WEEKLY.match(name)
+    return f"{m['name']}, {m['md']}" if m else name
+
+
+def _genres(target: AlbumTarget | None, limit: int = genres.ON_ROW) -> list[str]:
+    return genres.display(target.genres, limit) if target is not None else []
+
+
 templates.env.filters["mb"] = _mb
+templates.env.filters["playlist"] = _playlist
+templates.env.filters["genres"] = _genres
 templates.env.filters["dt"] = _dt
 templates.env.filters["event_data"] = _event_data
 templates.env.filters["initial"] = _initial

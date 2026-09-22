@@ -32,8 +32,10 @@
       {% if t %}<span class="muted">({{ t.first_release_year or "?" }})</span>{% else %}<span class="muted">(unresolved)</span>{% endif %}
       {% set ns = namespace(parts=[]) %}
       {% if t and t.library_status != "unknown" %}{% set ns.parts = ns.parts + [t.library_status] %}{% endif %}
-      {% if a.origin == "auto" and a.signal and a.signal.source_playlist_name %}{% set ns.parts = ns.parts + ["from " ~ a.signal.source_playlist_name] %}{% endif %}
+      {% if a.origin == "auto" and a.signal and a.signal.source_playlist_name %}{% set ns.parts = ns.parts + ["from " ~ (a.signal.source_playlist_name | playlist)] %}{% endif %}
       {% set meta = ns.parts | join(" · ") %}
+      {% set genre_names = t | genres %}
+      {% if genre_names %}<span class="stack genres">{{ genre_names | join(" · ") }}</span>{% endif %}
       <span class="stack">
         <span class="m-only"><span class="state {{ a.state }}">{{ a.state }}</span> · </span>{{ meta }}<span class="m-only">{% if meta %} · {% endif %}{{ a.updated_at | dt("%m-%d %H:%M") }}</span>
       </span>

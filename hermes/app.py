@@ -31,7 +31,7 @@ from hermes.integrations.listenbrainz import ListenBrainzClient
 from hermes.integrations.musicbrainz import MusicBrainzClient
 from hermes.integrations.navidrome import NavidromeClient
 from hermes.integrations.prowlarr import ProwlarrClient
-from hermes.services import art, discovery, importer, observer
+from hermes.services import art, discovery, genres, importer, observer
 from hermes.services.context import Context
 from hermes.ui.routes import render_error
 from hermes.ui.routes import router as ui_router
@@ -319,6 +319,16 @@ def _start_scheduler(app: FastAPI) -> AsyncIOScheduler:
         if counts:
             log.info("art: %s", counts)
 
+    async def genres_job() -> None:
+        with app.state.session_factory() as session:
+            try:
+                counts = await genres.tick(session, app.state.context)
+            except Exception:  # noqa: BLE001
+                log.exception("genres tick failed")
+                return
+        if counts:
+            log.info("genres: %s", counts)
+
     async def research_job() -> None:
         with app.state.session_factory() as session:
             try:
@@ -336,6 +346,7 @@ def _start_scheduler(app: FastAPI) -> AsyncIOScheduler:
         ("import", import_job, {"seconds": policy.deluge.poll_seconds}),
         ("discover", discover_job, {"hours": policy.listenbrainz.poll_hours}),
         ("research", research_job, {"hours": 24}),
+        ("genres", genres_job, {"minutes": 5}),
         *((("art", art_job, {"minutes": 5}),) if app.state.context.coverart else ()),
     )
     for job_id, func, every in jobs:

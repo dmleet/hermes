@@ -42,6 +42,7 @@ uv run hermes discover           # one discovery tick: new ListenBrainz playlist
 uv run hermes ingest-playlist <mbid> [--mode ignore]   # one playlist by MBID, as if in extra_playlists
 uv run hermes research           # one re-search tick (NO_MATCH rows past search.retry_days)
 uv run hermes art                # one album-art tick against the Cover Art Archive
+uv run hermes genres             # one genres tick: MusicBrainz genres for targets that have none
 uv run hermes db revision "msg"  # autogenerate an Alembic migration after model changes
 ```
 
@@ -125,12 +126,15 @@ this stack, not the cluster (docs/plan.md A12).
   retries), `importer.py` (READY_FOR_BEETS → IMPORTING → IMPORTED | IMPORT_NEEDS_REVIEW via
   the agent, release chosen from the download's shape), `pipeline.py` (search then
   decide), `art.py` (album art per target into `<data dir>/art`, active rows first, backoff
-  on failure; the only files Hermes keeps), `context.py` (policy + clients + `art_dir`, what
+  on failure; the only files Hermes keeps), `genres.py` (MusicBrainz release-group
+  genres on the target, stored with the lookup that creates it, backfilled by a job;
+  the page rule: two on a row, three on the detail page, a general genre dropped for a
+  specific one), `context.py` (policy + clients + `art_dir`, what
   every stage receives).
-- Observer, importer, discovery, re-search and art run on an in-process APScheduler started
-  in the app lifespan (`policy.deluge.poll_seconds`, `listenbrainz.poll_hours`, daily, five
-  minutes), each with one immediate run as the reconcile; a manual request also kicks the
-  art job (`kick_art`).
+- Observer, importer, discovery, re-search, art and genres run on an in-process APScheduler
+  started in the app lifespan (`policy.deluge.poll_seconds`, `listenbrainz.poll_hours`,
+  daily, five minutes, five minutes), each with one immediate run as the reconcile; a
+  manual request also kicks the art job (`kick_art`).
 - `hermes/app.py`: FastAPI factory; `create_app(settings, policy, clients)` takes injected
   clients so tests mock HTTP with respx. `/healthz` returns 503 when any configured
   dependency is unhealthy. Startup removes torrent files an older version kept.

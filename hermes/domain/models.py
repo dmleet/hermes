@@ -144,6 +144,10 @@ class AlbumTarget(Base):
     # Track lengths of one release in the group ({"release": mbid, "ms": [...]}), fetched
     # once: with a candidate's size they give its bitrate, and so its sample rate band.
     track_lengths: Mapped[dict[str, Any]] = mapped_column(JSON, default=dict)
+    # MusicBrainz's genres for the release group ({"top": [{"name", "count"}, ...]}, most
+    # votes first, five at most), for the queue and detail pages (services/genres.py).
+    # NULL means never fetched: the genres job fills those in, active rows first.
+    genres: Mapped[dict[str, Any] | None] = mapped_column(JSON(none_as_null=True))
 
     signals: Mapped[list[Signal]] = relationship(back_populates="album_target")
     acquisitions: Mapped[list[Acquisition]] = relationship(back_populates="album_target")

@@ -151,6 +151,24 @@ def prefer(acquisition_id: int, candidate_id: int, by: str = "cli") -> None:
 
 
 @app.command()
+def genres() -> None:
+    """Run one genres tick: MusicBrainz genres for targets that have none recorded."""
+    from hermes.services import genres as genres_service
+
+    _, _, engine, clients, ctx = _runtime()
+
+    async def run() -> None:
+        try:
+            with make_session_factory(engine)() as session:
+                typer.echo(json.dumps(await genres_service.tick(session, ctx)))
+        finally:
+            await clients.aclose()
+            engine.dispose()
+
+    asyncio.run(run())
+
+
+@app.command()
 def art() -> None:
     """Run one album-art tick: fetch covers for targets that are due (Cover Art Archive)."""
     from hermes.services import art as art_service

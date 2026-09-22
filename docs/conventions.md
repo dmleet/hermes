@@ -118,6 +118,10 @@ add a regression test in `tests/integration/test_review_fixes.py`.
 
 ## UI
 
+- Genres are plain muted text on their own line under the title, never pills (pills are
+  the state, chips are the filters): two on a row, three on the detail page, through the
+  `genres` template filter (`services/genres.display`). Playlist names on rows go through
+  the `playlist` filter, which keeps the series and the day.
 - Jinja2 pages (request form at `/`, queue at `/queue`, history at `/history`, acquisition
   detail, error page) using plain forms and POST-redirect-GET; the redirect carries a
   one-line `?notice=` that the base template shows. The page design is `docs/ui-plan.md`.

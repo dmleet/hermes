@@ -19,8 +19,9 @@ beets. Every step is recorded on the acquisition so you can see why it did what 
 - **ListenBrainz**: the discovery source. Hermes reads the playlists generated for your
   user (Weekly Exploration by default) plus any playlist MBIDs you list; a token is optional.
 - **MusicBrainz**: resolution. Each recording or typed request becomes one release group,
-  and the importer picks the release whose track count and disc layout match the download.
-  One rate limiter, one identifying User-Agent.
+  and the importer picks the release whose track count and disc layout match the download;
+  its release-group genres are what the queue shows beside each album. One rate limiter,
+  one identifying User-Agent.
 - **beets**: owns the library. Imports copy files; the agent refuses a config that would
   move, link or retag in place, so seeding is never disturbed.
 - **Prowlarr**: search only. Hermes fetches the `.torrent` itself, computes the infohash

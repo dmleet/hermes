@@ -47,6 +47,14 @@ class ReleaseRef(BaseModel):
     formats: list[str] = Field(default_factory=list)
 
 
+class Genre(BaseModel):
+    """One of MusicBrainz's curated genres (the moderated subset of its tags) with its vote
+    count, as they come on a release group."""
+
+    name: str
+    count: int
+
+
 class ReleaseGroup(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
@@ -59,6 +67,7 @@ class ReleaseGroup(BaseModel):
     releases: list[ReleaseRef] = Field(default_factory=list)
     score: int | None = None  # search results only
     disambiguation: str | None = None
+    genres: list[Genre] = Field(default_factory=list)  # most votes first; lookups only
 
     @property
     def artist_name(self) -> str:
@@ -165,6 +174,14 @@ def parse_release_group(raw: dict[str, Any]) -> ReleaseGroup:
         ],
         score=raw.get("score"),
         disambiguation=raw.get("disambiguation") or None,
+        genres=sorted(
+            (
+                Genre(name=str(g["name"]), count=int(g.get("count") or 0))
+                for g in raw.get("genres") or []
+                if g.get("name")
+            ),
+            key=lambda g: (-g.count, g.name),
+        ),
     )
 
 
@@ -311,8 +328,11 @@ class MusicBrainzClient:
 
     async def release_group(self, mbid: str) -> ReleaseGroup:
         """The group with every release and, per release, its track count (``media``), which
-        is what tells a 9-track "Ghosts I" from the 36-track "Ghosts I-IV" in one group."""
-        body = await self._get(f"/release-group/{mbid}", {"inc": "releases+media+artist-credits"})
+        is what tells a 9-track "Ghosts I" from the 36-track "Ghosts I-IV" in one group; and
+        its genres, which ride along on the same request."""
+        body = await self._get(
+            f"/release-group/{mbid}", {"inc": "releases+media+artist-credits+genres"}
+        )
         return parse_release_group(body)
 
     async def release(self, mbid: str) -> Release:

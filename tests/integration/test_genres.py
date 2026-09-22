@@ -87,7 +87,9 @@ def test_request_stores_genres_and_pages_show_them(
     assert body["target"]["genres"][:3] == ["trip hop", "electronic", "downtempo"]
 
     queue = _html(client, "/queue").text
-    assert '<span class="stack genres">trip hop · electronic</span>' in queue
+    # The genres share the state pill's line on a phone (the pill span is mobile-only).
+    assert "</span> · </span>trip hop · electronic</span>" in queue
+    assert queue.count('class="stack genres"') == 1
     detail = _html(client, f"/acquisitions/{acq_id}").text
     assert "1994) · trip hop · electronic · downtempo</span>" in detail
 
@@ -102,6 +104,7 @@ def test_request_without_genres_stores_an_empty_answer(
     assert _target(client, SLIP_RG).genres == {"top": []}
     queue = _html(client, "/queue").text
     assert 'class="stack genres"' not in queue
+    assert '<span class="stack m-only"><span class="state ' in queue  # the pill line stays
 
 
 async def test_job_fills_older_targets_active_rows_first(

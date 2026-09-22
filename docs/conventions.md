@@ -118,8 +118,9 @@ add a regression test in `tests/integration/test_review_fixes.py`.
 
 ## UI
 
-- Genres are plain muted text on their own line under the title, never pills (pills are
-  the state, chips are the filters): two on a row, three on the detail page, through the
+- Genres are plain muted text under the title, never pills (pills are the state, chips
+  are the filters): on their own line on desktop, on the state pill's line on mobile so a
+  row keeps two lines under the title; two on a row, three on the detail page, through the
   `genres` template filter (`services/genres.display`). Playlist names on rows go through
   the `playlist` filter, which keeps the series and the day.
 - Jinja2 pages (request form at `/`, queue at `/queue`, history at `/history`, acquisition

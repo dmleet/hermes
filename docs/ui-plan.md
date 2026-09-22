@@ -115,7 +115,7 @@ Desktop table, columns in order:
 | ~~`#`~~ | Removed 2026-09-17. The position went stale every observer tick and looked like the acquisition id in notices ("Rejected #12"); the walk bar's "3 of 103" is computed from the sort key and needs no list number. |
 | art | 56px thumbnail (Phase B) or the placeholder box; `width`/`height` set, `loading="lazy"`. |
 | state | State badge, as today. Hidden on mobile, where the stacked cell repeats it. |
-| album | `artist – title (year)` is the link to the detail page. Below it, small: the top two genres (2026-09-22: MusicBrainz release-group genres, plain muted text on their own line, general genres dropped for specific ones; three in the detail header); then library status · "from *playlist*" with the playlist name shortened to series and day; and the state badge (mobile only, via a class). |
+| album | `artist – title (year)` is the link to the detail page. Below it, small: the top two genres (2026-09-22: MusicBrainz release-group genres, plain muted text, general genres dropped for specific ones; three in the detail header) on their own line on desktop and on the state badge's line on mobile, where the badge already has one; then library status · "from *playlist*" with the playlist name shortened to series and day; and the state badge (mobile only, via a class). |
 | best candidate | Title in mono, linked to the indexer page, as today. Hidden on mobile. |
 | updated | As today. Hidden on mobile. |
 | actions | As today. Hidden on mobile; actions live on the detail page. |
@@ -126,8 +126,8 @@ padding gives the phone a large enough target.
 
 ```
  3  [art]  Godspeed You! Black Emperor – F♯ A♯ ∞  (1997)
-           post-rock · experimental
-           AWAITING_APPROVAL · missing · 09-15 10:42
+           AWAITING_APPROVAL · post-rock · experimental
+           missing · from Weekly Exploration, 09-14 · 09-15 10:42
 ```
 
 **Filters** (2026-09-17) are seven stable chips: `all` · `needs you` · `in flight` ·

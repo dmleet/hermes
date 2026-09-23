@@ -115,7 +115,7 @@ Desktop table, columns in order:
 | ~~`#`~~ | Removed 2026-09-17. The position went stale every observer tick and looked like the acquisition id in notices ("Rejected #12"); the walk bar's "3 of 103" is computed from the sort key and needs no list number. |
 | art | 56px thumbnail (Phase B) or the placeholder box; `width`/`height` set, `loading="lazy"`. |
 | state | State badge, as today. Hidden on mobile, where the stacked cell repeats it. |
-| album | `artist – title (year)` is the link to the detail page. Below it, small: the top two genres (2026-09-22: MusicBrainz release-group genres, plain muted text, general genres dropped for specific ones; three in the detail header) on their own line on desktop and on the state badge's line on mobile, where the badge already has one; then library status · "from *playlist*" with the playlist name shortened to series and day; and the state badge (mobile only, via a class). |
+| album | `artist – title (year)` is the link to the detail page. Below it, small, two lines at most (2026-09-23): the top two genres (MusicBrainz release-group genres, plain muted text, each a no-wrap unit, general genres dropped for specific ones; three in the detail header); then what varies between rows: the library status only when it is not `missing` (a queued album is missing by definition; an owned lossy copy is the status worth seeing) · "from *playlist*" shortened to series and day. On mobile the state badge leads the second line; the updated time is not on the phone row (the order already encodes age, the detail page has the history). |
 | best candidate | Title in mono, linked to the indexer page, as today. Hidden on mobile. |
 | updated | As today. Hidden on mobile. |
 | actions | As today. Hidden on mobile; actions live on the detail page. |
@@ -126,8 +126,8 @@ padding gives the phone a large enough target.
 
 ```
  3  [art]  Godspeed You! Black Emperor – F♯ A♯ ∞  (1997)
-           AWAITING_APPROVAL · post-rock · experimental
-           missing · from Weekly Exploration, 09-14 · 09-15 10:42
+           post-rock · experimental
+           AWAITING_APPROVAL · from Weekly Exploration, 09-14
 ```
 
 **Filters** (2026-09-17) are seven stable chips: `all` · `needs you` · `in flight` ·

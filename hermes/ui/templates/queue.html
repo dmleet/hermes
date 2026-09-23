@@ -31,13 +31,12 @@
       <a class="row" href="/acquisitions/{{ a.id }}{{ walk }}">{% if t %}{{ t.artist_name }} – {{ t.title }}{% else %}{{ requested(a) or "unknown" }}{% endif %}</a>
       {% if t %}<span class="muted">({{ t.first_release_year or "?" }})</span>{% else %}<span class="muted">(unresolved)</span>{% endif %}
       {% set ns = namespace(parts=[]) %}
-      {% if t and t.library_status != "unknown" %}{% set ns.parts = ns.parts + [t.library_status] %}{% endif %}
+      {% if t and t.library_status not in ("unknown", "missing") %}{% set ns.parts = ns.parts + [t.library_status] %}{% endif %}
       {% if a.origin == "auto" and a.signal and a.signal.source_playlist_name %}{% set ns.parts = ns.parts + ["from " ~ (a.signal.source_playlist_name | playlist)] %}{% endif %}
-      {% set meta = ns.parts | join(" · ") %}
       {% set genre_names = t | genres %}
-      {% if genre_names %}<span class="stack genres"><span class="m-only"><span class="state {{ a.state }}">{{ a.state }}</span> · </span>{{ genre_names | join(" · ") }}</span>{% else %}<span class="stack m-only"><span class="state {{ a.state }}">{{ a.state }}</span></span>{% endif %}
-      <span class="stack">
-        {{ meta }}<span class="m-only">{% if meta %} · {% endif %}{{ a.updated_at | dt("%m-%d %H:%M") }}</span>
+      {% if genre_names %}<span class="stack genres">{% for g in genre_names %}<span class="unit">{{ g }}</span>{% if not loop.last %} · {% endif %}{% endfor %}</span>{% endif %}
+      <span class="stack{% if not ns.parts %} m-only{% endif %}">
+        <span class="m-only"><span class="state {{ a.state }}">{{ a.state }}</span>{% if ns.parts %} · {% endif %}</span>{% for p in ns.parts %}<span class="unit">{{ p }}</span>{% if not loop.last %} · {% endif %}{% endfor %}
       </span>
     </td>
     <td class="mono opt">{% if best and best.info_link %}<a href="{{ best.info_link }}" target="_blank" rel="noopener noreferrer" title="open this release on {{ best.indexer_name }}">{{ best.title }}</a>{% else %}{{ best.title if best else "" }}{% endif %}</td>

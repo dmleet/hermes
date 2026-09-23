@@ -118,11 +118,13 @@ add a regression test in `tests/integration/test_review_fixes.py`.
 
 ## UI
 
-- Genres are plain muted text under the title, never pills (pills are the state, chips
-  are the filters): on their own line on desktop, on the state pill's line on mobile so a
-  row keeps two lines under the title; two on a row, three on the detail page, through the
-  `genres` template filter (`services/genres.display`). Playlist names on rows go through
-  the `playlist` filter, which keeps the series and the day.
+- A row has two lines under the title at most, on any width: what the album is (the
+  genres, plain muted text, never pills: pills are the state, chips are the filters) and
+  where it stands (the state pill on mobile, a library status other than `missing`, the
+  playlist). Every phrase on those lines is a no-wrap `unit`, so a line wraps between
+  phrases, never inside one. No timestamp on the phone row. Two genres on a row, three on
+  the detail page, through the `genres` filter (`services/genres.display`); playlist names
+  through the `playlist` filter, which keeps the series and the day.
 - Jinja2 pages (request form at `/`, queue at `/queue`, history at `/history`, acquisition
   detail, error page) using plain forms and POST-redirect-GET; the redirect carries a
   one-line `?notice=` that the base template shows. The page design is `docs/ui-plan.md`.

@@ -17,7 +17,7 @@
   {{ art(acq, big=True) }}
   <div>
     <h1>
-      <span class="state {{ acq.state }}">{{ acq.state }}</span>
+      <span class="state {{ acq.state }}">{{ acq.state | label }}</span>
       {% if t %}{{ t.artist_name }} – {{ t.title }} <span class="muted">({{ t.primary_type }}, {{ t.first_release_year or "?" }}){% set genre_names = t | genres(3) %}{% if genre_names %} · {{ genre_names | join(" · ") }}{% endif %}</span>
       {% else %}{{ requested or "Unresolved request" }}{% endif %}
     </h1>

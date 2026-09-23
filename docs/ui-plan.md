@@ -127,7 +127,7 @@ padding gives the phone a large enough target.
 ```
  3  [art]  Godspeed You! Black Emperor – F♯ A♯ ∞  (1997)
            post-rock · experimental
-           AWAITING_APPROVAL · from Weekly Exploration, 09-14
+           needs approval · from Weekly Exploration, 09-14
 ```
 
 **Filters** (2026-09-17) are seven stable chips: `all` · `needs you` · `in flight` ·
@@ -150,9 +150,14 @@ end of the first row was the first render). Each state-group chip has its group'
 as its outline (amber for needs you, blue for in flight, red for not found) and that
 colour's tint as its background when selected; the other chips are neutral with the
 accent when selected. A dot inside the chip was tried first and dropped: it spent width
-the phone does not have. The row's state pill keeps its own colour (a red `FAILED` inside
+the phone does not have. The row's state pill keeps its own colour (a red `failed` inside
 the amber "needs you" group is right: the chip says whose turn it is, the pill says what
-happened). The selected chip is filled and bold; a zero count is muted. Chips wrap and grow to about 28px tall
+happened). Since 2026-09-23 the pill's text is a short human label, the same everywhere
+(rows, the history chips, the detail header, notices, the per-state count line):
+`needs approval`, `needs review`, `import review`, `ready to import`, `candidates`,
+`no match`, `owned`, `requested`, the rest the state's own word. The raw name stays the
+CSS class and the API value. Reason: on a phone `AWAITING_APPROVAL` was the widest thing
+on the row and pushed the playlist onto a third line. The selected chip is filled and bold; a zero count is muted. Chips wrap and grow to about 28px tall
 with more padding. A horizontally scrolling chip row was considered and dropped: it hides
 that more chips exist.
 

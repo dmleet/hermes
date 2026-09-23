@@ -26,7 +26,7 @@
   {% set best = (a.candidates | selectattr("rank", "equalto", 1) | list | first) %}
   <tr>
     <td class="artcell">{{ art(a) }}</td>
-    <td class="opt"><span class="state {{ a.state }}">{{ a.state }}</span></td>
+    <td class="opt"><span class="state {{ a.state }}">{{ a.state | label }}</span></td>
     <td>
       <a class="row" href="/acquisitions/{{ a.id }}{{ walk }}">{% if t %}{{ t.artist_name }} – {{ t.title }}{% else %}{{ requested(a) or "unknown" }}{% endif %}</a>
       {% if t %}<span class="muted">({{ t.first_release_year or "?" }})</span>{% else %}<span class="muted">(unresolved)</span>{% endif %}
@@ -36,7 +36,7 @@
       {% set genre_names = t | genres %}
       {% if genre_names %}<span class="stack genres">{% for g in genre_names %}<span class="unit">{{ g }}</span>{% if not loop.last %} · {% endif %}{% endfor %}</span>{% endif %}
       <span class="stack{% if not ns.parts %} m-only{% endif %}">
-        <span class="m-only"><span class="state {{ a.state }}">{{ a.state }}</span>{% if ns.parts %} · {% endif %}</span>{% for p in ns.parts %}<span class="unit">{{ p }}</span>{% if not loop.last %} · {% endif %}{% endfor %}
+        <span class="m-only"><span class="state {{ a.state }}">{{ a.state | label }}</span>{% if ns.parts %} · {% endif %}</span>{% for p in ns.parts %}<span class="unit">{{ p }}</span>{% if not loop.last %} · {% endif %}{% endfor %}
       </span>
     </td>
     <td class="mono opt">{% if best and best.info_link %}<a href="{{ best.info_link }}" target="_blank" rel="noopener noreferrer" title="open this release on {{ best.indexer_name }}">{{ best.title }}</a>{% else %}{{ best.title if best else "" }}{% endif %}</td>

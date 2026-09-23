@@ -32,7 +32,7 @@
   {% for a in recent %}
   {% set t = a.album_target %}
   <tr>
-    <td><span class="state {{ a.state }}">{{ a.state }}</span></td>
+    <td><span class="state {{ a.state }}">{{ a.state | label }}</span></td>
     <td><a class="row" href="/acquisitions/{{ a.id }}">{% if t %}{{ t.artist_name }} – {{ t.title }}{% else %}{{ requested(a) or "unknown" }}{% endif %}</a></td>
     <td class="muted nowrap opt">{{ a.created_at | dt("%m-%d %H:%M") }}</td>
   </tr>

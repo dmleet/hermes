@@ -14,7 +14,7 @@
 <p class="filters">
   <span class="group">
     <a class="chip {{ 'on' if not state_filter else '' }}" href="{{ link(state='', page=1) }}">all</a>
-    {% for state, n in state_counts %}<a class="chip {{ 'on' if state_filter == state else '' }}" href="{{ link(state=state, page=1) }}"><span class="state {{ state }}">{{ state }}</span> {{ n }}</a>{% endfor %}
+    {% for state, n in state_counts %}<a class="chip {{ 'on' if state_filter == state else '' }}" href="{{ link(state=state, page=1) }}"><span class="state {{ state }}">{{ state | label }}</span> {{ n }}</a>{% endfor %}
   </span>
   <span class="group">
     <a class="chip {{ 'on' if not origin_filter else '' }}" href="{{ link(origin='', page=1) }}">any origin</a>
@@ -36,10 +36,10 @@
       {% set genre_names = t | genres %}
       {% if genre_names %}<span class="stack genres">{% for g in genre_names %}<span class="unit">{{ g }}</span>{% if not loop.last %} · {% endif %}{% endfor %}</span>{% endif %}
       <span class="stack">
-        <span class="m-only"><span class="state {{ a.state }}">{{ a.state }}</span> · </span><span class="unit">{% if a.origin == "auto" %}discovered{% if a.signal and a.signal.source_playlist_name %} in {{ a.signal.source_playlist_name | playlist }}{% endif %}{% else %}requested{% endif %}</span>
+        <span class="m-only"><span class="state {{ a.state }}">{{ a.state | label }}</span> · </span><span class="unit">{% if a.origin == "auto" %}discovered{% if a.signal and a.signal.source_playlist_name %} in {{ a.signal.source_playlist_name | playlist }}{% endif %}{% else %}requested{% endif %}</span>
       </span>
     </td>
-    <td class="opt"><span class="state {{ a.state }}">{{ a.state }}</span></td>
+    <td class="opt"><span class="state {{ a.state }}">{{ a.state | label }}</span></td>
     <td class="muted nowrap opt">{{ a.updated_at | dt("%m-%d %H:%M") }}</td>
   </tr>
   {% endfor %}

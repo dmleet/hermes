@@ -85,6 +85,38 @@ _TERMINAL = [s.value for s in TERMINAL]
 _ATTENTION = [s.value for s in ATTENTION]
 
 
+# What a state pill says. The raw name stays the CSS class (colour) and the API value;
+# the words are for people, and short: the phone row has the pill beside the playlist.
+STATE_LABELS: dict[S, str] = {
+    S.DISCOVERED: "discovered",
+    S.MANUAL: "requested",
+    S.RESOLVED: "resolved",
+    S.NEEDS_REVIEW: "needs review",
+    S.ALREADY_OWNED: "owned",
+    S.SEARCHING: "searching",
+    S.NO_MATCH: "no match",
+    S.CANDIDATES_READY: "candidates",
+    S.AWAITING_APPROVAL: "needs approval",
+    S.REJECTED: "rejected",
+    S.SUBMITTED: "submitted",
+    S.DOWNLOADING: "downloading",
+    S.STALLED: "stalled",
+    S.READY_FOR_BEETS: "ready to import",
+    S.IMPORTING: "importing",
+    S.IMPORT_NEEDS_REVIEW: "import review",
+    S.IMPORTED: "imported",
+    S.FAILED: "failed",
+    S.CANCELLED: "cancelled",
+}
+
+
+def state_label(state: str) -> str:
+    try:
+        return STATE_LABELS[S(state)]
+    except (ValueError, KeyError):
+        return state.lower().replace("_", " ")
+
+
 def _mb(n: int | None) -> str:
     return f"{(n or 0) / 1e6:.0f} MB"
 
@@ -128,6 +160,7 @@ def _genres(target: AlbumTarget | None, limit: int = genres.ON_ROW) -> list[str]
 
 
 templates.env.filters["mb"] = _mb
+templates.env.filters["label"] = state_label
 templates.env.filters["playlist"] = _playlist
 templates.env.filters["genres"] = _genres
 templates.env.filters["dt"] = _dt
@@ -532,7 +565,7 @@ def queue(request: Request, session: DbSession, ctx: Ctx) -> HTMLResponse:
             # The per-state breakdown, as text under the chips: a glance at what the
             # machine is doing, not a filter (docs/ui-plan.md 3.2).
             state_line=" · ".join(
-                f"{state.lower().replace('_', ' ')} {n}"
+                f"{state_label(state)} {n}"
                 for state, n in sorted(
                     counts.items(),
                     key=lambda kv: STATE_ORDER.index(S(kv[0])) if kv[0] in STATE_ORDER else 99,
@@ -701,7 +734,7 @@ async def ui_approve(
     elif acq.state == "SUBMITTED":
         notice = f"Approved #{acq.id} and sent to Deluge."
     else:
-        notice = f"Approved #{acq.id}; now {acq.state}."
+        notice = f"Approved #{acq.id}; now {state_label(acq.state)}."
     return _finish(request, session, acq, key, notice)
 
 
@@ -775,7 +808,7 @@ async def ui_search(
     elif acq.state == S.AWAITING_APPROVAL:
         notice = "Searched: a candidate is waiting for your approval."
     else:
-        notice = f"Searched; now {acq.state}."
+        notice = f"Searched; now {state_label(acq.state)}."
     return _finish(request, session, acq, key, notice, advance=False)
 
 
@@ -789,7 +822,9 @@ async def ui_retry_import(
         await importer.retry_import(session, ctx, acq)
     except (ValueError, InvalidTransition) as exc:
         raise HTTPException(409, str(exc)) from exc
-    return _finish(request, session, acq, key, f"Import retried; now {acq.state}.", advance=False)
+    return _finish(
+        request, session, acq, key, f"Import retried; now {state_label(acq.state)}.", advance=False
+    )
 
 
 @router.post("/acquisitions/{acquisition_id}/retry")
@@ -822,7 +857,7 @@ async def ui_resolve(
             f"That album is already in flight as #{acq.id} ({_state_phrase(acq.state)}); "
             f"#{acquisition_id} was closed.",
         )
-    return _redirect(acq.id, f"Release group chosen; now {acq.state}.")
+    return _redirect(acq.id, f"Release group chosen; now {state_label(acq.state)}.")
 
 
 @router.post("/requests")

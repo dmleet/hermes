@@ -121,7 +121,9 @@ add a regression test in `tests/integration/test_review_fixes.py`.
 - A row has two lines under the title at most, on any width: what the album is (the
   genres, plain muted text, never pills: pills are the state, chips are the filters) and
   where it stands (the state pill on mobile, a library status other than `missing`, the
-  playlist). Every phrase on those lines is a no-wrap `unit`, so a line wraps between
+  playlist). A pill's text is `STATE_LABELS` in `ui/routes.py` (the `label` filter), one
+  short human phrase per state used everywhere a state is shown to a person; its class
+  and the API keep the raw name. Every phrase on those lines is a no-wrap `unit`, so a line wraps between
   phrases, never inside one. No timestamp on the phone row. Two genres on a row, three on
   the detail page, through the `genres` filter (`services/genres.display`); playlist names
   through the `playlist` filter, which keeps the series and the day.

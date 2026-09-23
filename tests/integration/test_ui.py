@@ -363,7 +363,7 @@ def test_queue_filters_and_paging(respx_mock: respx.Router, client: TestClient) 
     assert 'href="/queue?state=NO_MATCH"' in queue and "not found" in queue
     assert queue.count('<span class="group">') == 2 and "\u00b7</span>" not in queue
     assert 'href="/queue?origin=auto"' in queue and 'href="/queue?state=FAILED"' not in queue
-    assert '<p class="muted">awaiting approval 1 · failed 1</p>' in queue
+    assert '<p class="muted">needs approval 1 · failed 1</p>' in queue
     filtered = _html(client, "/queue?state=attention").text
     assert "The Slip" in filtered and "Nobody - Nothing" in filtered
     assert "Nothing matches this filter" in _html(client, "/queue?state=inflight").text

@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections.abc import Iterator
 from typing import Annotated, Any
 
-from fastapi import APIRouter, Depends, HTTPException, Request
+from fastapi import APIRouter, Depends, HTTPException, Request, Response
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -19,7 +19,7 @@ from hermes.api.schemas import (
 from hermes.domain.models import Acquisition, Candidate, Playlist
 from hermes.domain.state import InvalidTransition
 from hermes.integrations.musicbrainz import NotFound
-from hermes.services import approval, discovery, importer, observer
+from hermes.services import approval, discovery, importer, observer, suggest
 from hermes.services.context import Context
 from hermes.services.pipeline import search_and_decide
 from hermes.services.requests import resolve_manually, retry_request, submit_manual_request
@@ -81,6 +81,22 @@ def list_acquisitions(
     if origin:
         stmt = stmt.where(Acquisition.origin == origin)
     return [AcquisitionSummary.from_model(a) for a in session.scalars(stmt)]
+
+
+@router.get("/suggest/artists")
+async def suggest_artists(q: str, ctx: Ctx, response: Response) -> list[dict[str, Any]]:
+    """Artists for the request form as you type (services/suggest.py): an empty list for
+    anything but a good answer, so the page never has an error to show."""
+    response.headers["Cache-Control"] = "private, max-age=300"
+    return await suggest.artists(ctx, q)
+
+
+@router.get("/suggest/albums")
+async def suggest_albums(artist: str, ctx: Ctx, response: Response) -> list[dict[str, Any]]:
+    """The artist's official albums and EPs by MBID, newest first, each marked with the
+    policy's verdict; the form filters the list locally as you type."""
+    response.headers["Cache-Control"] = "private, max-age=3600"
+    return await suggest.albums(ctx, artist)
 
 
 @router.get("/playlists", response_model=list[PlaylistOut])

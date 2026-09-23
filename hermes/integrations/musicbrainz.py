@@ -11,7 +11,7 @@ from __future__ import annotations
 import asyncio
 import re
 import time
-from collections.abc import Awaitable, Callable
+from collections.abc import Awaitable, Callable, Sequence
 from typing import Any
 
 import httpx
@@ -82,6 +82,19 @@ class ReleaseGroup(BaseModel):
         if self.first_release_date and self.first_release_date[:4].isdigit():
             return int(self.first_release_date[:4])
         return None
+
+
+class ArtistHit(BaseModel):
+    """An artist from a search: what a suggestion list shows to tell homonyms apart."""
+
+    model_config = ConfigDict(extra="ignore")
+
+    id: str
+    name: str
+    disambiguation: str | None = None
+    country: str | None = None
+    type: str | None = None
+    score: int | None = None
 
 
 class Release(BaseModel):
@@ -182,6 +195,17 @@ def parse_release_group(raw: dict[str, Any]) -> ReleaseGroup:
             ),
             key=lambda g: (-g.count, g.name),
         ),
+    )
+
+
+def parse_artist(raw: dict[str, Any]) -> ArtistHit:
+    return ArtistHit(
+        id=raw["id"],
+        name=raw.get("name") or "",
+        disambiguation=raw.get("disambiguation") or None,
+        country=raw.get("country") or None,
+        type=raw.get("type") or None,
+        score=raw.get("score"),
     )
 
 
@@ -288,20 +312,35 @@ class MusicBrainzClient:
             data={"user_agent": self._http.headers["User-Agent"]},
         )
 
-    async def _get(self, path: str, params: dict[str, str]) -> dict[str, Any]:
+    async def _get(
+        self,
+        path: str,
+        params: dict[str, str],
+        *,
+        retries: int | None = None,
+        timeout: float | None = None,
+    ) -> dict[str, Any]:
+        """``retries`` and ``timeout`` default to the client's; an interactive caller (the
+        request form's suggestions) passes 0 and a few seconds, since a late answer is
+        worth nothing to it and the pipeline's calls are waiting on the same limiter."""
         params = {**params, "fmt": "json"}
-        for attempt in range(self._busy_retries + 1):
+        retries = self._busy_retries if retries is None else retries
+        for attempt in range(retries + 1):
             try:
                 async with self._limiter:
-                    resp = await self._http.get(path, params=params)
+                    resp = await self._http.get(
+                        path,
+                        params=params,
+                        timeout=httpx.USE_CLIENT_DEFAULT if timeout is None else timeout,
+                    )
             except httpx.TimeoutException:
                 # MusicBrainz stalls now and then; treated like its "busy" reply.
-                if attempt < self._busy_retries:
+                if attempt < retries:
                     await asyncio.sleep(2.0 * (attempt + 1))
                     continue
                 raise
             # 503 is MusicBrainz's "busy" reply; 502 and 504 are its gateway on a bad day.
-            if resp.status_code in (502, 503, 504) and attempt < self._busy_retries:
+            if resp.status_code in (502, 503, 504) and attempt < retries:
                 await asyncio.sleep(2.0 * (attempt + 1))
                 continue
             if resp.status_code == 404:
@@ -325,6 +364,50 @@ class MusicBrainzClient:
             query = f'artist:"{lucene_escape(artist)}" AND releasegroup:"{lucene_escape(title)}"'
         body = await self._get("/release-group/", {"query": query, "limit": str(limit)})
         return [parse_release_group(r) for r in body.get("release-groups", [])]
+
+    async def search_artists(
+        self,
+        text: str,
+        *,
+        limit: int = 8,
+        retries: int | None = None,
+        timeout: float | None = None,
+    ) -> list[ArtistHit]:
+        """Artists for free text as bare terms, MusicBrainz's ranking. Its artist index
+        carries an n-gram field with a popularity boost, so a fragment of three characters
+        or more finds the artist without a wildcard."""
+        terms = lucene_terms(text)
+        if not terms:
+            return []
+        body = await self._get(
+            "/artist/", {"query": terms, "limit": str(limit)}, retries=retries, timeout=timeout
+        )
+        return [parse_artist(a) for a in body.get("artists", [])]
+
+    async def official_release_groups(
+        self,
+        artist_mbid: str,
+        primary_types: Sequence[str],
+        *,
+        limit: int = 100,
+        offset: int = 0,
+        retries: int | None = None,
+        timeout: float | None = None,
+    ) -> tuple[list[ReleaseGroup], int]:
+        """One page of the artist's release groups that have an official release, of the
+        given primary types, with the total. A search rather than a browse: browse cannot
+        filter by release status, and bootleg live recordings outnumber official albums
+        ten to one for a well-loved artist."""
+        types = " OR ".join(primary_types)
+        query = f"arid:{artist_mbid} AND status:official AND primarytype:({types})"
+        body = await self._get(
+            "/release-group/",
+            {"query": query, "limit": str(limit), "offset": str(offset)},
+            retries=retries,
+            timeout=timeout,
+        )
+        groups = [parse_release_group(r) for r in body.get("release-groups", [])]
+        return groups, int(body.get("count") or 0)
 
     async def release_group(self, mbid: str) -> ReleaseGroup:
         """The group with every release and, per release, its track count (``media``), which

@@ -397,7 +397,9 @@ def test_request_page_is_the_landing_page(respx_mock: respx.Router, client: Test
     page = _html(client, "/").text
     assert 'name="artist"' in page and 'name="title"' in page and 'name="mbid"' in page
     assert page.count("<form") == 2, "name form and MBID form are separate, so required works"
-    assert 'required autofocus autocapitalize="words" enterkeyhint="next"' in page
+    assert (
+        'required autofocus autocapitalize="words" autocomplete="off" enterkeyhint="next"' in page
+    )
     assert "<summary>or paste a MusicBrainz ID</summary>" in page
     assert "Recent requests" not in page and "need you" not in page
     assert 'href="/manifest.webmanifest"' in page

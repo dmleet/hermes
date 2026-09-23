@@ -71,6 +71,22 @@ add a regression test in `tests/integration/test_review_fixes.py`.
   (`tests/fixtures/prowlarr/gazelle/`, download links redacted). Add a case there whenever a
   real result set ranks wrongly rather than adjusting a weight by hand.
 
+## MusicBrainz budget
+
+- Every call goes through the one client and its limiter (1 req/s). The limiter's lock is
+  held only while waiting for the interval, not during the request, so callers queue for
+  at most a second or two each; there is no priority scheme and none is needed.
+- Interactive calls (the request form's suggestions, `services/suggest.py`) pass
+  `retries=0` and a five-second `timeout` to the client, run one at a time behind a
+  process-wide slot that answers empty when busy, and are cached (five minutes per typed
+  text, an hour per artist). A suggestion route must never answer anything but a list:
+  an error is an empty list. Various Artists is excluded by MBID.
+- Artist suggestions send the typed text as bare terms (`lucene_terms`, casefolded):
+  MusicBrainz's artist index has an n-gram field (3 to 10 characters) with a popularity
+  boost, so no wildcard or fuzzy term is needed and nothing needs escaping. Album lists
+  are a search with `status:official`, not a browse (measured 2026-09-23: Radiohead has
+  415 album or EP release groups by browse, 39 with an official release).
+
 ## Matching
 
 - The Prowlarr query is `text.search_form("<artist> <title>")`: all punctuation to spaces, the noise words a/an/the/and/or/of dropped, accents kept. Measured on a Gazelle tracker (2026-09-19): "Deserter s Songs" found every edition and "Deserter's"/"Deserter’s"/"Deserters" none; "Belle Sebastian" found the albums and "Belle and Sebastian" none (the tracker spells `&`, which Prowlarr strips); the accented "Sigur Rós" found 26 and the stripped spelling 0. Every query word is required by the index, so dropping a word only widens. Prowlarr's own sanitiser already folds U+2019 to `'`, so folding alone changes nothing. An empty answer is checked against Prowlarr's indexer status before anything else, then retried with the artist alone; before blaming a query by hand, confirm the indexer answers a broader one. The dev Prowlarr can carry the real tracker's indexer, so tracker search behaviour is measured with a handful of queries rather than guessed.

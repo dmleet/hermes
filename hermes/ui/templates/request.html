@@ -4,12 +4,13 @@
 <h1>Request an album</h1>
 <form method="post" action="/requests" class="request">
   <label class="sr" for="artist">Artist</label>
-  <input type="text" id="artist" name="artist" placeholder="Artist" required autofocus autocapitalize="words" enterkeyhint="next">
+  <input type="text" id="artist" name="artist" placeholder="Artist" required autofocus autocapitalize="words" autocomplete="off" enterkeyhint="next">
   <label class="sr" for="title">Album title</label>
-  <input type="text" id="title" name="title" placeholder="Album title" required autocapitalize="words" enterkeyhint="go">
+  <input type="text" id="title" name="title" placeholder="Album title" required autocapitalize="words" autocomplete="off" enterkeyhint="go">
+  <input type="hidden" id="picked-mbid" name="mbid" value="">
   <button class="primary big" type="submit">Request</button>
 </form>
-<p class="hint">Takes a few seconds; a slow MusicBrainz can take longer. Requesting an album that is already in flight attaches to that request.</p>
+<p class="hint">Suggestions come from MusicBrainz as you type; picking an album requests exactly that release group. Takes a few seconds; a slow MusicBrainz can take longer. Requesting an album that is already in flight attaches to that request.</p>
 <details class="alt">
   <summary>or paste a MusicBrainz ID</summary>
   <form method="post" action="/requests">
@@ -39,4 +40,123 @@
   {% endfor %}
 </table>
 {% endif %}
+<script src="/static/autoComplete-10.2.10.min.js"></script>
+<script>
+// Suggestions for the two fields (docs/ui-plan.md 3.1). Artist: the server asks
+// MusicBrainz for the typed text after a pause. Album: once an artist is picked, its
+// official albums are fetched once and filtered here. A pick fills the hidden MBID, so
+// the request resolves by id; editing either field afterwards clears it and the names go
+// the ordinary way. Without this script, or when a fetch fails, the form is unchanged.
+(function () {
+  if (typeof autoComplete !== "function") return;
+  var artist = document.getElementById("artist");
+  var title = document.getElementById("title");
+  var picked = document.getElementById("picked-mbid");
+  var albums = [];
+  var pending = null;
+
+  function meta(item, text, cls) {
+    if (!text) return;
+    var s = document.createElement("span");
+    s.className = cls || "sug-meta";
+    s.textContent = text;
+    item.appendChild(s);
+  }
+  function render(item, main, extra, cls) {
+    item.textContent = "";
+    var m = document.createElement("span");
+    m.textContent = main;
+    item.appendChild(m);
+    meta(item, extra, cls);
+  }
+  async function getJSON(url) {
+    if (pending) pending.abort();
+    pending = new AbortController();
+    try {
+      var r = await fetch(url, { signal: pending.signal, headers: { accept: "application/json" } });
+      return r.ok ? await r.json() : [];
+    } catch (e) {
+      return [];
+    }
+  }
+  // Enter with the list open and nothing highlighted picks the first row instead of
+  // sending a half-typed name.
+  function enterPicksFirst(ac) {
+    return function (e) {
+      if (e.key !== "Enter" || !ac.isOpen) return;
+      if (ac.cursor < 0 && ac.feedback && ac.feedback.results.length) {
+        e.preventDefault();
+        ac.select(0);
+      }
+    };
+  }
+
+  var artistAC = new autoComplete({
+    selector: "#artist",
+    threshold: 3,
+    debounce: 300,
+    searchEngine: function (q, record) { return record; },  // the server ranks
+    data: {
+      src: async function (q) { return await getJSON("/api/suggest/artists?q=" + encodeURIComponent(q)); },
+      keys: ["name"]
+    },
+    resultsList: { maxResults: 8, noResults: false, tabSelect: true },
+    resultItem: {
+      element: function (item, data) {
+        var v = data.value;
+        var extra = [v.disambiguation, v.country].filter(Boolean).join(" · ");
+        render(item, v.name, extra);
+      }
+    },
+    events: {
+      input: {
+        selection: function (e) {
+          var v = e.detail.selection.value;
+          artist.value = v.name;
+          picked.value = "";
+          albums = [];
+          getJSON("/api/suggest/albums?artist=" + encodeURIComponent(v.mbid)).then(function (list) {
+            albums = list;
+            if (document.activeElement === title) albumAC.start();
+          });
+          title.focus();
+        }
+      }
+    }
+  });
+  artist.addEventListener("keydown", enterPicksFirst(artistAC));
+  artist.addEventListener("input", function () { albums = []; picked.value = ""; });
+
+  var albumAC = new autoComplete({
+    selector: "#title",
+    threshold: 0,
+    debounce: 0,
+    submit: true,  // Enter on a highlighted row picks it and sends the request
+    diacritics: true,
+    trigger: function () { return albums.length > 0; },
+    data: { src: function () { return albums; }, keys: ["title"] },
+    resultsList: { maxResults: 60, noResults: false, tabSelect: true },
+    resultItem: {
+      element: function (item, data) {
+        var v = data.value;
+        var extra = [v.year, v.type].filter(Boolean).join(" · ");
+        render(item, v.title, extra);
+        if (v.rejected) meta(item, v.rejected, "sug-meta sug-rejected");
+      }
+    },
+    events: {
+      input: {
+        focus: function () { if (albums.length) albumAC.start(); },
+        selection: function (e) {
+          var v = e.detail.selection.value;
+          title.value = v.title;
+          picked.value = v.mbid;
+        }
+      }
+    }
+  });
+  title.addEventListener("keydown", enterPicksFirst(albumAC));
+  title.addEventListener("input", function () { picked.value = ""; });
+})();
+</script>
 {% endblock %}

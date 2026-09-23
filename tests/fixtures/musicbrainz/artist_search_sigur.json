@@ -1,0 +1,57 @@
+{
+ "created": "2026-09-23T01:48:43.784Z",
+ "count": 591,
+ "offset": 0,
+ "artists": [
+  {
+   "id": "f6f2326f-6b25-4170-b89d-e235b25508e8",
+   "type": "Group",
+   "score": 100,
+   "name": "Sigur Rós",
+   "sort-name": "Sigur Rós",
+   "country": "IS",
+   "disambiguation": "Icelandic post‐rock band",
+   "life-span": {
+    "begin": "1994-01-04",
+    "ended": null
+   }
+  },
+  {
+   "id": "e7f7ac30-16b0-4f7a-96fa-1075c0323bf7",
+   "type": "Person",
+   "score": 90,
+   "name": "Sigur",
+   "sort-name": "Sigur",
+   "country": "NO",
+   "life-span": {
+    "begin": "2001-04-03",
+    "ended": null
+   }
+  },
+  {
+   "id": "36cf5c5e-14fb-42c0-a232-56bd449a81df",
+   "type": "Person",
+   "score": 81,
+   "name": "Z‐Ro",
+   "sort-name": "Z‐Ro",
+   "disambiguation": "rapper from Houston, Texas",
+   "life-span": {
+    "begin": "1977-01-19",
+    "ended": null
+   }
+  },
+  {
+   "id": "6baa862e-65dc-418d-a994-80cb89775c07",
+   "type": "Person",
+   "score": 80,
+   "name": "Angela Ro Ro",
+   "sort-name": "Ro Ro, Angela",
+   "country": "BR",
+   "life-span": {
+    "begin": "1949-12-05",
+    "end": "2025-09-08",
+    "ended": true
+   }
+  }
+ ]
+}

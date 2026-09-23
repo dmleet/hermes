@@ -1,0 +1,157 @@
+{
+ "created": "2026-09-23T01:48:45.337Z",
+ "count": 8,
+ "offset": 0,
+ "release-groups": [
+  {
+   "id": "b67d5f9d-831e-4d88-984f-d0f7587f4157",
+   "score": 88,
+   "title": "Route One",
+   "first-release-date": "2017-12-27",
+   "primary-type": "Album",
+   "artist-credit": [
+    {
+     "name": "Sigur Rós",
+     "joinphrase": "",
+     "artist": {
+      "id": "f6f2326f-6b25-4170-b89d-e235b25508e8",
+      "name": "Sigur Rós"
+     }
+    }
+   ],
+   "releases": []
+  },
+  {
+   "id": "9fa7397e-7212-425f-8158-87c3bfb79602",
+   "score": 88,
+   "title": "Kveikur",
+   "first-release-date": "2013-06-12",
+   "primary-type": "Album",
+   "artist-credit": [
+    {
+     "name": "Sigur Rós",
+     "joinphrase": "",
+     "artist": {
+      "id": "f6f2326f-6b25-4170-b89d-e235b25508e8",
+      "name": "Sigur Rós"
+     }
+    }
+   ],
+   "releases": []
+  },
+  {
+   "id": "0e38be18-6c2e-4c44-af56-0744ba488570",
+   "score": 88,
+   "title": "22° Lunar Halo",
+   "first-release-date": "2019-04-13",
+   "primary-type": "Album",
+   "artist-credit": [
+    {
+     "name": "Sigur Rós",
+     "joinphrase": "",
+     "artist": {
+      "id": "f6f2326f-6b25-4170-b89d-e235b25508e8",
+      "name": "Sigur Rós"
+     }
+    }
+   ],
+   "releases": []
+  },
+  {
+   "id": "321ee51f-ef6c-404d-8a69-25d0f23090b8",
+   "score": 88,
+   "title": "Variations on Darkness",
+   "first-release-date": "2019-04-13",
+   "primary-type": "Album",
+   "artist-credit": [
+    {
+     "name": "Sigur Rós",
+     "joinphrase": "",
+     "artist": {
+      "id": "f6f2326f-6b25-4170-b89d-e235b25508e8",
+      "name": "Sigur Rós"
+     }
+    }
+   ],
+   "releases": []
+  },
+  {
+   "id": "7a6e4394-1bbe-434c-a8e0-679d5d58e649",
+   "score": 88,
+   "title": "ÁTTA",
+   "first-release-date": "2023-06-16",
+   "primary-type": "Album",
+   "artist-credit": [
+    {
+     "name": "Sigur Rós",
+     "joinphrase": "",
+     "artist": {
+      "id": "f6f2326f-6b25-4170-b89d-e235b25508e8",
+      "name": "Sigur Rós"
+     }
+    }
+   ],
+   "releases": []
+  },
+  {
+   "id": "d4da6808-2e66-49bc-9068-1a4538c7e27b",
+   "score": 100,
+   "title": "Takk…",
+   "first-release-date": "2025-09-05",
+   "primary-type": "EP",
+   "artist-credit": [
+    {
+     "name": "Sigur Rós",
+     "joinphrase": "",
+     "artist": {
+      "id": "f6f2326f-6b25-4170-b89d-e235b25508e8",
+      "name": "Sigur Rós"
+     }
+    }
+   ],
+   "releases": []
+  },
+  {
+   "id": "7980fd96-8a4a-4294-8b3d-53768893c74c",
+   "score": 100,
+   "title": "Kveikur",
+   "first-release-date": "2019-02-15",
+   "primary-type": "EP",
+   "secondary-types": [
+    "Live"
+   ],
+   "artist-credit": [
+    {
+     "name": "Sigur Rós",
+     "joinphrase": "",
+     "artist": {
+      "id": "f6f2326f-6b25-4170-b89d-e235b25508e8",
+      "name": "Sigur Rós"
+     }
+    }
+   ],
+   "releases": []
+  },
+  {
+   "id": "22e72e76-3a9c-38d3-b00a-bb8d96856d47",
+   "score": 88,
+   "title": "Hlemmur",
+   "first-release-date": "2003-08-20",
+   "primary-type": "Album",
+   "secondary-types": [
+    "Soundtrack"
+   ],
+   "artist-credit": [
+    {
+     "name": "Sigur Rós",
+     "joinphrase": "",
+     "artist": {
+      "id": "f6f2326f-6b25-4170-b89d-e235b25508e8",
+      "name": "Sigur Rós"
+     }
+    }
+   ],
+   "releases": []
+  }
+ ]
+}

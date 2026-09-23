@@ -129,7 +129,9 @@ this stack, not the cluster (docs/plan.md A12).
   on failure; the only files Hermes keeps), `genres.py` (MusicBrainz release-group
   genres on the target, stored with the lookup that creates it, backfilled by a job;
   the page rule: two on a row, three on the detail page, a general genre dropped for a
-  specific one), `context.py` (policy + clients + `art_dir`, what
+  specific one), `suggest.py` (the request form's suggestions: artists for typed text, then an
+  artist's official albums, one at a time, one MusicBrainz attempt, cached),
+  `context.py` (policy + clients + `art_dir`, what
   every stage receives).
 - Observer, importer, discovery, re-search, art and genres run on an in-process APScheduler
   started in the app lifespan (`policy.deluge.poll_seconds`, `listenbrainz.poll_hours`,
@@ -138,8 +140,8 @@ this stack, not the cluster (docs/plan.md A12).
 - `hermes/app.py`: FastAPI factory; `create_app(settings, policy, clients)` takes injected
   clients so tests mock HTTP with respx. `/healthz` returns 503 when any configured
   dependency is unhealthy. Startup removes torrent files an older version kept.
-- `hermes/api/`: JSON routes (`POST /api/requests`, `GET /api/acquisitions/{id}`) with
-  pydantic schemas. `hermes/ui/`: Jinja2 pages, plain forms, POST-redirect-GET; button
+- `hermes/api/`: JSON routes (`POST /api/requests`, `GET /api/acquisitions/{id}`,
+  `GET /api/suggest/...`) with pydantic schemas. `hermes/ui/`: Jinja2 pages, plain forms, POST-redirect-GET; button
   availability derives from `can_transition`; `docs/ui-plan.md` is the page design.
 - `beets-hermes/beetsplug/hermes.py`: a beets plugin adding `beet hermes-agent` (also the
   `hermes-agent` console script): `/library/...` reads built on beets' `Library` query

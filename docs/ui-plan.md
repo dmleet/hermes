@@ -89,9 +89,28 @@ The page for pulling out a phone and queueing an album.
   ID" with its own button. One form with both alternatives cannot use `required`, and the
   server's 422 is a full page.
 - Inputs: full width, at least 44px tall. `autocapitalize="words"` on both;
-  `enterkeyhint="next"` on artist and `"go"` on title. Leave `autocomplete` alone: the
-  browser's artist history is useful. `autofocus` stays on artist for desktop; on phones
-  it does not open the keyboard, so nothing relies on it.
+  `enterkeyhint="next"` on artist and `"go"` on title. `autocomplete="off"` on both since
+  2026-09-23: the browser's own dropdown would cover the suggestion list. `autofocus`
+  stays on artist for desktop; on phones it does not open the keyboard, so nothing relies
+  on it.
+- **Suggestions** (2026-09-23). Artist: after 300 ms idle and three characters, one
+  `GET /api/suggest/artists?q=` asks MusicBrainz for the typed text as bare terms (its
+  artist index has an n-gram field with a popularity boost, so "sigur ro" ranks Sigur Rós
+  first; no wildcard, nothing to escape); a list of up to eight rows shows name,
+  disambiguation and country. Picking one fills the field and fetches that artist's
+  official albums and EPs once (`GET /api/suggest/albums?artist=<mbid>`: a search with
+  `status:official`, since browse cannot filter status and a well-loved artist has
+  hundreds of bootleg live groups; cached an hour), then focuses the title field, where
+  the list opens at once, newest first, each row with year and type and the policy's
+  objection when it has one. Typing filters that list locally. A pick fills a hidden
+  `mbid`, so the request takes the MBID path and skips fuzzy resolution; editing either
+  field clears it. Enter with a list open and no row highlighted picks the first row
+  rather than sending a half-typed name; Enter on a highlighted album row picks it and
+  sends. The widget is autoComplete.js (Apache-2.0, vendored under `/static/` with its
+  licence, version in the file name); the styles are in `base.html`. Without the script,
+  or when a fetch fails, the form is exactly as before. The server answers an empty list
+  for anything but a good answer, one suggestion at a time, one MusicBrainz attempt with a
+  five-second timeout, so a page can never spend more than one request a second.
 - The POST waits on MusicBrainz, the library check and, for a missing album, the Prowlarr
   search. A MusicBrainz stall can hold the page for minutes with only "Working…". The
   hint under the button says "takes a few seconds; a stalled MusicBrainz can take
@@ -104,7 +123,8 @@ The page for pulling out a phone and queueing an album.
   table, which is the right next step after a quick add.
 - A static `manifest.webmanifest` with two PNG icons served from `/static/`, a
   `theme-color`, and an `apple-touch-icon` link, so "Add to Home Screen" gives an app icon
-  that opens `/`. No service worker, no script.
+  that opens `/`. No service worker; the only scripts are the submit guard and the
+  suggestions above.
 
 ### 3.2 Queue (`/queue`)
 

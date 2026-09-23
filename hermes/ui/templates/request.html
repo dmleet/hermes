@@ -127,14 +127,19 @@
   artist.addEventListener("keydown", enterPicksFirst(artistAC));
   artist.addEventListener("input", function () { albums = []; picked.value = ""; });
 
+  // Accent- and case-insensitive substring match; an empty query keeps every row, so the
+  // list opens on focus. (The library's own engine returns the matched text, which for an
+  // empty query is "", and "" counts as no match.)
+  function fold(s) { return String(s).normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase(); }
   var albumAC = new autoComplete({
     selector: "#title",
     threshold: 0,
     debounce: 0,
     submit: true,  // Enter on a highlighted row picks it and sends the request
-    diacritics: true,
     trigger: function () { return albums.length > 0; },
-    data: { src: function () { return albums; }, keys: ["title"] },
+    searchEngine: function (q, record) { return fold(record).indexOf(fold(q).trim()) >= 0 ? record : false; },
+    // The library calls .then on the source's result, so it must be a promise.
+    data: { src: async function () { return albums; }, keys: ["title"] },
     resultsList: { maxResults: 60, noResults: false, tabSelect: true },
     resultItem: {
       element: function (item, data) {

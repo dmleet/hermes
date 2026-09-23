@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "beets-hermes"
-version = "0.10.4"
+version = "0.10.5"
 description = "beets plugin exposing an HTTP agent that runs `beet import` jobs for Hermes"
 readme = "README.md"
 license = "MIT"

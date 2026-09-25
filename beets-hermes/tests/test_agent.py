@@ -325,3 +325,60 @@ def test_no_release_group_means_no_check(agent):
     status, body = call(f"{base}/import", "POST", {"path": str(album), "acquisition_id": "a1"})
     job = wait_finished(base, body["job_id"])
     assert job["refused"] is False and job["exit_code"] == 0
+
+
+def test_a_hung_import_is_killed_and_the_queue_moves_on(tmp_path):
+    hang = tmp_path / "stub.py"
+    hang.write_text("import sys, time\nif 'hang' in ' '.join(sys.argv[1:]): time.sleep(60)\n")
+    store = JobStore(tmp_path / "jobs", [sys.executable, str(hang)], import_timeout=0.5)
+    (tmp_path / "hang").mkdir()
+    (tmp_path / "next").mkdir()
+    first = store.submit(str(tmp_path / "hang"), "a1", "rel")
+    second = store.submit(str(tmp_path / "next"), "a2", "rel")
+    deadline = time.time() + 10
+    while time.time() < deadline and store.get(second)["status"] != "finished":
+        time.sleep(0.05)
+    assert "timed out" in store.get(first)["error"] and store.get(first)["exit_code"] is None
+    assert store.get(second)["exit_code"] == 0
+
+
+def test_an_agent_error_finishes_the_job_and_the_worker_lives(tmp_path, monkeypatch):
+    store = JobStore(tmp_path / "jobs", [sys.executable, "-c", "pass"])
+    real_run = store._run
+    calls = []
+
+    def flaky(job_id):
+        calls.append(job_id)
+        if len(calls) == 1:
+            raise OSError("no space left on device")
+        real_run(job_id)
+
+    monkeypatch.setattr(store, "_run", flaky)
+    (tmp_path / "a").mkdir()
+    first = store.submit(str(tmp_path / "a"), "a1", None)
+    second = store.submit(str(tmp_path / "a"), "a2", None)
+    deadline = time.time() + 10
+    while time.time() < deadline and store.get(second)["status"] != "finished":
+        time.sleep(0.05)
+    assert store.get(first)["status"] == "finished"
+    assert "no space left" in store.get(first)["error"]
+    assert store.get(second)["exit_code"] == 0
+
+
+def test_the_overlay_restates_the_import_safety_settings(tmp_path):
+    import confuse
+
+    from beetsplug.hermes import IMPORT_OVERLAY, config_problems
+
+    config.clear()
+    config.read(user=False, defaults=True)
+    config["import"]["move"] = True
+    config["import"]["copy"] = False
+    config["import"]["quiet_fallback"] = "asis"
+    assert config_problems()
+    overlay = tmp_path / "overlay.yaml"
+    overlay.write_text(IMPORT_OVERLAY)
+    config.set_file(overlay)
+    assert config_problems() == []
+    assert config["import"]["quiet_fallback"].get() == "skip"
+    assert isinstance(config, confuse.Configuration)

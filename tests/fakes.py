@@ -21,6 +21,7 @@ class FakeDeluge:
         self.labels: set[str] = set()
         self.added: list[dict[str, Any]] = []
         self.plugins = plugins if plugins is not None else ["Label"]
+        self.hidden: set[str] = set()
         self.fail_add: str | None = None
         router.post(f"{url}/json").mock(side_effect=self._handle)
 
@@ -92,7 +93,7 @@ class FakeDeluge:
 
             out = {}
             for h, t in self.torrents.items():
-                if ids is not None and h not in ids:
+                if h in self.hidden or (ids is not None and h not in ids):
                     continue
                 if any(value(t, k) != v for k, v in filters.items()):
                     continue
@@ -117,6 +118,14 @@ class FakeDeluge:
 
     def remove(self, infohash: str) -> None:
         del self.torrents[infohash]
+
+    def hide(self, infohash: str, hidden: bool = True) -> None:
+        """Leave the torrent out of status replies (a daemon still loading its session)."""
+        (self.hidden.add if hidden else self.hidden.discard)(infohash)
+
+    def queue(self, infohash: str) -> None:
+        """Deluge holds the torrent back (its active-download limit): no bytes, Queued."""
+        self.torrents[infohash]["state"] = "Queued"
 
 
 class FakeBeetsAgent:
@@ -206,6 +215,14 @@ class FakeBeetsAgent:
             self.library.setdefault(job["acquisition_id"], []).append(
                 {**imported_album, "hermes_acquisition": job["acquisition_id"]}
             )
+
+    def start(self, job_id: str) -> None:
+        """The agent's worker picked the job up (it was queued until now)."""
+        from datetime import UTC, datetime
+
+        self.jobs[job_id].update(
+            status="running", started_at=datetime.now(UTC).isoformat(timespec="seconds")
+        )
 
     def refuse(self, job_id: str, reason: str) -> None:
         """The agent's release-group check refused the job before beets ran."""

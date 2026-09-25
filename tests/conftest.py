@@ -51,3 +51,14 @@ def session(settings: Settings) -> Iterator[Session]:
     with factory() as s:
         yield s
     engine.dispose()
+
+
+@pytest.fixture(autouse=True)
+def _observer_memory() -> Iterator[None]:
+    """The observer remembers per process when a torrent went missing or into Error; attempt
+    ids restart with every test database, so that memory must not carry over."""
+    from hermes.services import observer
+
+    yield
+    observer._missing_since.clear()
+    observer._error_since.clear()

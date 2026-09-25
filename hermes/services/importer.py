@@ -18,7 +18,7 @@ from __future__ import annotations
 import asyncio
 import logging
 from collections import defaultdict
-from collections.abc import Sequence
+from collections.abc import Awaitable, Sequence
 from dataclasses import dataclass, field
 from datetime import UTC, datetime, timedelta
 from typing import Any
@@ -57,6 +57,14 @@ PREFERRED_COUNTRIES = ("XW", "US", "GB")
 
 def _aware(dt: datetime) -> datetime:
     return dt if dt.tzinfo is not None else dt.replace(tzinfo=UTC)
+
+
+def _parse_time(value: Any) -> datetime | None:
+    """An ISO timestamp from the agent, or None."""
+    try:
+        return datetime.fromisoformat(value) if isinstance(value, str) else None
+    except ValueError:
+        return None
 
 
 def completed_attempt(acq: Acquisition) -> GrabAttempt | None:
@@ -148,12 +156,12 @@ def download_shape(attempt: GrabAttempt, parsed_media: str | None) -> DownloadSh
 async def choose_search_id(
     ctx: Context, target: AlbumTarget, hint_year: int | None, shape: DownloadShape | None = None
 ) -> str | None:
+    """The release to pin the import to, or None when the group has no release to pick.
+    Raises ``httpx.HTTPError`` and ``NotFound`` from MusicBrainz: an import is never run
+    unpinned for want of an answer (the caller waits, or asks a human)."""
     if target.preferred_release_mbid:
         return target.preferred_release_mbid
-    try:
-        rg = await ctx.musicbrainz.release_group(target.release_group_mbid)
-    except (httpx.HTTPError, NotFound):
-        return None
+    rg = await ctx.musicbrainz.release_group(target.release_group_mbid)
     return pick_release(rg, hint_year or target.first_release_year, shape)
 
 
@@ -190,7 +198,34 @@ async def start_import(session: Session, ctx: Context, acq: Acquisition) -> Acqu
         hint_year = parsed.get("remaster_year") or parsed.get("year")
         parsed_media = parsed.get("media")
     shape = download_shape(attempt, parsed_media)
-    search_id = await choose_search_id(ctx, target, hint_year, shape)
+    # Without a pinned release beets would search, and the import overlay (which drops the
+    # fields that order candidates) would not apply: a MusicBrainz outage waits for the
+    # next tick instead, and a group with nothing to pick goes to a human.
+    try:
+        search_id = await choose_search_id(ctx, target, hint_year, shape)
+    except httpx.HTTPError as exc:
+        _note_once(
+            session,
+            acq,
+            f"MusicBrainz unavailable ({type(exc).__name__}); the import waits until it can "
+            "pin the release",
+        )
+        session.commit()
+        return acq
+    except NotFound:
+        search_id = None
+    if search_id is None:
+        message = (
+            f"no release to pin in MusicBrainz release group {target.release_group_mbid} "
+            "(merged or emptied?); import by hand"
+        )
+        session.refresh(acq, attribute_names=["state"])
+        if acq.state == S.READY_FOR_BEETS:
+            transition(session, acq, S.IMPORT_NEEDS_REVIEW, message, level="warning")
+        else:
+            _note_once(session, acq, message)
+        session.commit()
+        return acq
 
     # Another actor may have started this import while we were talking to MusicBrainz.
     session.refresh(acq, attribute_names=["state"])
@@ -289,7 +324,16 @@ async def poll_import(
         return acq  # transient; next tick
 
     if job.get("status") != "finished":
-        started = _aware(attempt.import_started_at or attempt.completed_at or attempt.added_at)
+        if job.get("status") == "queued":
+            # Waiting behind other imports on the agent's single worker: not running yet,
+            # so not late. The agent's own subprocess timeout bounds each job it runs.
+            return acq
+        started = _aware(
+            _parse_time(job.get("started_at"))
+            or attempt.import_started_at
+            or attempt.completed_at
+            or attempt.added_at
+        )
         timeout = timedelta(seconds=ctx.policy.beets.import_timeout_seconds)
         if _aware(now) - started > timeout:
             transition(
@@ -303,7 +347,10 @@ async def poll_import(
             session.commit()
         return acq
 
-    albums = await ctx.beets.albums_for_acquisition(acq.id)
+    try:
+        albums = await ctx.beets.albums_for_acquisition(acq.id)
+    except httpx.HTTPError:
+        return acq  # the library is busy (an import committing) or the agent is away
     evidence = {
         "job_id": attempt.import_job_id,
         "exit_code": job.get("exit_code"),
@@ -351,6 +398,28 @@ async def poll_import(
         )
         session.commit()
         return acq
+    # The import was pinned to a release in the target's group, so an album from another
+    # group means beets did not import what was asked (a hand import of the wrong album,
+    # or a free search). Say so rather than mark the album owned.
+    target = acq.album_target
+    wanted_group = target.release_group_mbid if target is not None else None
+    foreign = [
+        a
+        for a in albums
+        if wanted_group and a.mb_releasegroupid and a.mb_releasegroupid != wanted_group
+    ]
+    if foreign:
+        transition(
+            session,
+            acq,
+            S.IMPORT_NEEDS_REVIEW,
+            f"beets imported {foreign[0].albumartist} - {foreign[0].album} from release group "
+            f"{foreign[0].mb_releasegroupid}, not the target's {wanted_group}",
+            data={**evidence, "mb_albumid": foreign[0].mb_albumid},
+            level="warning",
+        )
+        session.commit()
+        return acq
     library_root = ctx.policy.beets.library_root.rstrip("/")
     outside = [a.path for a in albums if not (a.path or "").startswith(library_root + "/")]
     if outside:
@@ -371,7 +440,6 @@ async def poll_import(
         session.commit()
         return acq
 
-    target = acq.album_target
     if target is not None:
         target.library_status = LibraryStatus.OWNED
         target.library_checked_at = now
@@ -425,6 +493,11 @@ async def poll_import(
     return acq
 
 
+# A Navidrome scan that reports "scanning" for longer than this (a scanner wedged on a read)
+# no longer holds imports: they go ahead, each with a note, rather than wait forever.
+SCAN_HOLD_LIMIT = timedelta(hours=2)
+
+
 def _scan_wanted(ctx: Context) -> bool:
     return ctx.navidrome is not None and ctx.policy.navidrome.trigger_scan
 
@@ -448,6 +521,7 @@ async def navidrome_scanning(
     left for the next tick with a note. Navidrome being unreachable never holds an import:
     it is optional, and its health check says so."""
     if not _scan_wanted(ctx) or not waiting:
+        ctx.navidrome_scanning_since = None  # nothing held, so no hold to time
         return False
     assert ctx.navidrome is not None
     try:
@@ -456,6 +530,19 @@ async def navidrome_scanning(
         log.warning("navidrome scan status unavailable (%s); not holding imports", exc)
         return False
     if not status.get("scanning"):
+        ctx.navidrome_scanning_since = None
+        return False
+    now = utcnow()
+    since = ctx.navidrome_scanning_since = ctx.navidrome_scanning_since or now
+    if _aware(now) - _aware(since) > SCAN_HOLD_LIMIT:
+        for acq in waiting:
+            _note_once(
+                session,
+                acq,
+                f"Navidrome has reported a scan for over {SCAN_HOLD_LIMIT}; importing anyway "
+                "(a stuck scanner?); if this album shows up split, run a full scan",
+            )
+        session.commit()
         return False
     for acq in waiting:
         _note_once(
@@ -522,6 +609,23 @@ async def retry_import(session: Session, ctx: Context, acq: Acquisition) -> Acqu
         return await start_import(session, ctx, acq)
 
 
+async def _guarded(session: Session, acq: Acquisition, work: Awaitable[Acquisition]) -> bool:
+    """Run one row's step; an unexpected error is noted on that row and the tick goes on,
+    so one bad row cannot stop every other import, tick after tick."""
+    try:
+        await work
+        return True
+    except Exception as exc:  # noqa: BLE001 - per-row isolation
+        log.exception("import step failed for acquisition %s", acq.id)
+        session.rollback()
+        try:
+            _note_once(session, acq, f"import step failed: {type(exc).__name__}: {exc}"[:500])
+            session.commit()
+        except Exception:  # noqa: BLE001 - the database itself may be the problem
+            session.rollback()
+        return False
+
+
 async def tick(session: Session, ctx: Context, now: datetime | None = None) -> dict[str, int]:
     """Start imports for downloads that are ready; poll the ones in progress; when the queue
     has drained, ask Navidrome to scan."""
@@ -537,8 +641,8 @@ async def _tick(session: Session, ctx: Context, now: datetime) -> dict[str, int]
         select(Acquisition).where(Acquisition.state == S.IMPORTING).order_by(Acquisition.id)
     ).all()
     for acq in importing:
-        await poll_import(session, ctx, acq, now)
-        counts["polled"] += 1
+        if await _guarded(session, acq, poll_import(session, ctx, acq, now)):
+            counts["polled"] += 1
     ready = session.scalars(
         select(Acquisition).where(Acquisition.state == S.READY_FOR_BEETS).order_by(Acquisition.id)
     ).all()
@@ -546,8 +650,10 @@ async def _tick(session: Session, ctx: Context, now: datetime) -> dict[str, int]
         counts["waiting_for_scan"] = len(ready)
     else:
         for acq in ready:
-            await start_import(session, ctx, acq)
-            counts["started" if acq.state == S.IMPORTING else "not_started"] += 1
+            if await _guarded(session, acq, start_import(session, ctx, acq)):
+                counts["started" if acq.state == S.IMPORTING else "not_started"] += 1
+            else:
+                counts["errors"] += 1
     # Last, after this tick's starts: the scan goes out only when nothing is importing.
     outcome = await request_scan_if_idle(session, ctx)
     if outcome:

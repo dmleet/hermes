@@ -21,7 +21,9 @@ def decode(data: bytes) -> Any:
     except (ValueError, IndexError, KeyError, TypeError, RecursionError) as exc:
         if isinstance(exc, BencodeError):
             raise
-        raise BencodeError(f"malformed bencode: {exc}") from exc
+        # The type only: the exception's text can quote the torrent's bytes, which carry the
+        # announce URL and so the account passkey, and this message reaches the database.
+        raise BencodeError(f"malformed bencode ({type(exc).__name__})") from exc
     if end != len(data):
         raise BencodeError(f"trailing data after position {end}")
     return value
@@ -132,7 +134,7 @@ class TorrentInfo:
                 self.sizes = [self.total_size]
             self.single_file = files is None
         except (ValueError, KeyError, TypeError, AttributeError) as exc:
-            raise BencodeError(f"malformed torrent info: {exc}") from exc
+            raise BencodeError(f"malformed torrent info ({type(exc).__name__})") from exc
 
     @property
     def audio_file_count(self) -> int:

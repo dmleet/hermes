@@ -64,7 +64,15 @@ def _slip() -> dict:
                 "artist-credit": [
                     {"name": "Nine Inch Nails", "artist": {"id": "x", "name": "Nine Inch Nails"}}
                 ],
-                "releases": [],
+                "releases": [
+                    {
+                        "id": "rel-slip",
+                        "title": "The Slip",
+                        "status": "Official",
+                        "date": "2008-05-05",
+                        "country": "XW",
+                    }
+                ],
             }
         ],
     }
@@ -183,7 +191,7 @@ async def test_research_after_attempt_keeps_referenced_candidates(stack) -> None
     acq_id = body["id"]
     stack.deluge.remove(INFOHASH)
     await stack.tick()
-    await stack.tick()
+    await stack.tick(hours_later=0.3)  # missing past the observer's grace
     assert stack.get(acq_id)["state"] == "FAILED"
     body = client.post(f"/api/acquisitions/{acq_id}/search").json()
     assert body["state"] != "SEARCHING", "never stranded"

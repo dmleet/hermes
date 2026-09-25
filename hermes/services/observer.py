@@ -5,13 +5,15 @@ One ``tick`` polls every instance that has active attempts and moves acquisition
     SUBMITTED   -> DOWNLOADING      first bytes arrive
     DOWNLOADING -> READY_FOR_BEETS  finished, seeding, and moved to the completed path
     DOWNLOADING -> STALLED -> SUBMITTED (next candidate) | FAILED   no progress for stall_hours
-    any         -> FAILED           torrent vanished from Deluge, or Deluge reports an error
+    SUBMITTED   -> STALLED          no first byte for stall_hours (queued or paused in Deluge)
+    any         -> FAILED           torrent gone from Deluge, or in Error, for TROUBLE_GRACE
 
 The same function is the startup reconcile: it trusts Deluge, never memory.
 """
 
 from __future__ import annotations
 
+import logging
 from collections import defaultdict
 from datetime import UTC, datetime, timedelta
 from typing import Any
@@ -27,8 +29,15 @@ from hermes.integrations.deluge import STATUS_KEYS, DelugeError
 from hermes.services.context import Context
 from hermes.services.submit import submit
 
+log = logging.getLogger(__name__)
+
 ACTIVE_STATES = {S.SUBMITTED, S.DOWNLOADING}
 MOVE_GRACE = timedelta(minutes=10)
+# How long a torrent may be missing from Deluge, or in its Error state, before Hermes gives
+# up on it. A restarted daemon loads a large session in the background and answers with a
+# partial map for minutes; a storage blip puts torrents in Error until a recheck. Giving up
+# on a tick count wrote off downloads that came back and finished.
+TROUBLE_GRACE = timedelta(minutes=15)
 
 
 def active_attempts(session: Session) -> list[GrabAttempt]:
@@ -86,9 +95,16 @@ async def _fallback(session: Session, ctx: Context, acq: Acquisition, reason: st
         session.commit()
 
 
-# Attempts whose hash was missing from Deluge on the previous tick (a daemon that is still
-# loading its session can answer with a partial map; one miss is not a removal).
-_missing_once: set[int] = set()
+# When each attempt was first seen missing from Deluge, or in Error, in this process. A
+# restart forgets them and the grace starts over: that only ever waits longer.
+_missing_since: dict[int, datetime] = {}
+_error_since: dict[int, datetime] = {}
+
+
+def _trouble_for(seen: dict[int, datetime], attempt_id: int, now: datetime) -> timedelta:
+    """How long the trouble recorded in ``seen`` has lasted, starting the clock now."""
+    first = seen.setdefault(attempt_id, now)
+    return _aware(now) - _aware(first)
 
 
 async def observe_attempt(
@@ -100,16 +116,16 @@ async def observe_attempt(
 ) -> None:
     acq = attempt.acquisition
     if status is None:
-        if attempt.id not in _missing_once:
-            _missing_once.add(attempt.id)
+        if _trouble_for(_missing_since, attempt.id, now) < TROUBLE_GRACE:
             _note_once(
                 session,
                 acq,
-                f"torrent {attempt.infohash} not reported by Deluge; checking again next tick",
+                f"torrent {attempt.infohash} not reported by Deluge; giving it "
+                f"{TROUBLE_GRACE} to reappear (a restarting daemon loads its session slowly)",
             )
             session.commit()
             return
-        _missing_once.discard(attempt.id)
+        _missing_since.pop(attempt.id, None)
         attempt.outcome = GrabOutcome.REMOVED
         transition(
             session,
@@ -120,7 +136,7 @@ async def observe_attempt(
         )
         session.commit()
         return
-    _missing_once.discard(attempt.id)
+    _missing_since.pop(attempt.id, None)
 
     state = str(status.get("state") or "")
     total_done = int(status.get("total_done") or 0)
@@ -129,9 +145,21 @@ async def observe_attempt(
         attempt.last_progress_at = now
 
     if state == "Error":
+        if _trouble_for(_error_since, attempt.id, now) < TROUBLE_GRACE:
+            _note_once(
+                session,
+                acq,
+                f"Deluge reports an error for {status.get('name')}; giving it {TROUBLE_GRACE} "
+                "to recover (a storage blip clears on a recheck)",
+                level="warning",
+            )
+            session.commit()
+            return
+        _error_since.pop(attempt.id, None)
         attempt.outcome = GrabOutcome.FAILED
         await _fallback(session, ctx, acq, f"Deluge reports an error for {status.get('name')}")
         return
+    _error_since.pop(attempt.id, None)
 
     if acq.state == S.SUBMITTED and (total_done > 0 or state in ("Downloading", "Seeding")):
         transition(
@@ -194,7 +222,9 @@ async def observe_attempt(
 
     stall_after = timedelta(hours=ctx.policy.deluge.stall_hours)
     last = _aware(attempt.last_progress_at or attempt.added_at)
-    if acq.state == S.DOWNLOADING and _aware(now) - last > stall_after:
+    # SUBMITTED too: a torrent Deluge keeps queued (its active-download limit) or paused
+    # never gets a first byte, and without this it would wait there for good.
+    if acq.state in (S.SUBMITTED, S.DOWNLOADING) and _aware(now) - last > stall_after:
         attempt.outcome = GrabOutcome.STALLED
         await _fallback(
             session,
@@ -224,9 +254,14 @@ async def tick(session: Session, ctx: Context, now: datetime | None = None) -> d
             counts["unreachable"] += len(attempts)
             continue  # transient; try again next tick, never fail acquisitions for this
         for attempt in attempts:
-            await observe_attempt(
-                session, ctx, attempt, statuses.get(attempt.infohash.lower()), now
-            )
-            session.commit()  # progress bookkeeping must persist even when no state changed
-            counts["observed"] += 1
+            try:
+                await observe_attempt(
+                    session, ctx, attempt, statuses.get(attempt.infohash.lower()), now
+                )
+                session.commit()  # progress bookkeeping must persist even when no state changed
+                counts["observed"] += 1
+            except Exception:  # noqa: BLE001 - one bad row must not stop the others
+                log.exception("observing attempt %s failed", attempt.id)
+                session.rollback()
+                counts["errors"] += 1
     return dict(counts)

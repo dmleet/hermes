@@ -33,3 +33,11 @@ def test_fixture_torrent_infohash_and_layout() -> None:
 def test_bad_input_raises(junk: bytes) -> None:
     with pytest.raises((BencodeError, ValueError, IndexError, KeyError)):
         TorrentInfo(junk)
+
+
+def test_a_malformed_torrent_error_never_quotes_its_bytes() -> None:
+    # A wrong length prefix makes int() quote the bytes that follow: here, a passkey.
+    data = b"d8:announce4x:http://tracker.example/8e7d6c5b4a39281706aabbccdd/announce4:infod4:name1:aee"
+    with pytest.raises(BencodeError) as err:
+        decode(data)
+    assert "8e7d6c5b4a" not in str(err.value) and "announce" not in str(err.value)

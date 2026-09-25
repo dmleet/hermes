@@ -5,6 +5,7 @@ files is ``art_dir``, for album art thumbnails; Hermes stores no torrent files
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from datetime import datetime
 from pathlib import Path
 
 from hermes.config import Policy
@@ -32,6 +33,9 @@ class Context:
     # the import queue drains (a scan during an import reads half-written files). None
     # until the first tick derives it from the events, so a restart loses nothing.
     navidrome_scan_owed: list[int] | None = None
+    # When the importer first saw the running Navidrome scan it is waiting on; a scan that
+    # never ends holds imports only so long (importer.SCAN_HOLD_LIMIT).
+    navidrome_scanning_since: datetime | None = None
 
     def deluge_for(self, instance: str) -> DelugeClient:
         try:

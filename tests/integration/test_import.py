@@ -421,7 +421,11 @@ async def test_refused_import_needs_review_then_retry(stack) -> None:
 async def test_import_timeout_and_lost_job(stack) -> None:
     acq_id = await stack.download()
     await stack.import_tick()
-    await stack.import_tick(hours_later=1)  # 600 s timeout exceeded
+    await stack.import_tick(hours_later=1)
+    # Queued behind other imports on the agent's single worker: not late, however long.
+    assert stack.get(acq_id)["state"] == "IMPORTING"
+    stack.agent.start("job1")
+    await stack.import_tick(hours_later=1)  # running: the 600 s timeout counts from here
     body = stack.get(acq_id)
     assert (
         body["state"] == "IMPORT_NEEDS_REVIEW" and "still running" in body["events"][-1]["message"]
@@ -527,7 +531,8 @@ async def test_scan_waits_for_the_import_queue_to_drain(stack) -> None:
     assert (await stack.import_tick()) == {"polled": 1, "scan_deferred": 1}
     assert not stack.scan_calls.called
 
-    stack.agent.finish("job2", imported_album=IMPORTED)
+    twin_group = stack.get(second)["target"]["release_group_mbid"]
+    stack.agent.finish("job2", imported_album={**IMPORTED, "mb_releasegroupid": twin_group})
     assert (await stack.import_tick()) == {"polled": 1, "scan_requested": 1}
     assert stack.scan_calls.call_count == 1
     for acq_id in (first, second):
@@ -606,3 +611,83 @@ async def test_restart_still_owes_the_scan(stack) -> None:
     assert (await stack.import_tick()) == {"scan_requested": 1}
     assert stack.scan_calls.call_count == 2
     assert stack.messages(acq_id)[-1] == "Navidrome scan requested"
+
+
+async def test_musicbrainz_down_waits_instead_of_importing_unpinned(
+    stack, respx_mock: respx.Router
+) -> None:
+    acq_id = await stack.download()
+    respx_mock.get(f"{MB}/release-group/{SLIP_RG}").respond(503)
+    await stack.import_tick()
+    await stack.import_tick()
+    assert stack.get(acq_id)["state"] == "READY_FOR_BEETS"
+    assert stack.agent.submitted == []
+    waits = [m for m in stack.messages(acq_id) if m.startswith("MusicBrainz unavailable")]
+    assert len(waits) == 1
+
+    respx_mock.get(f"{MB}/release-group/{SLIP_RG}").respond(json=_slip_rg())
+    assert (await stack.import_tick()) == {"started": 1}
+    assert stack.agent.submitted[0]["search_id"]
+
+
+async def test_a_group_musicbrainz_no_longer_knows_goes_to_a_human(
+    stack, respx_mock: respx.Router
+) -> None:
+    acq_id = await stack.download()
+    respx_mock.get(f"{MB}/release-group/{SLIP_RG}").respond(404)
+    await stack.import_tick()
+    body = stack.get(acq_id)
+    assert body["state"] == "IMPORT_NEEDS_REVIEW"
+    assert "no release to pin" in body["events"][-1]["message"]
+    assert stack.agent.submitted == []
+
+
+async def test_an_album_from_another_release_group_is_not_called_imported(stack) -> None:
+    acq_id = await stack.download()
+    await stack.import_tick()
+    stack.agent.finish("job1", imported_album={**IMPORTED, "mb_releasegroupid": "rg-other"})
+    await stack.import_tick()
+    body = stack.get(acq_id)
+    assert body["state"] == "IMPORT_NEEDS_REVIEW"
+    assert "from release group rg-other" in body["events"][-1]["message"]
+    assert body["target"]["library_status"] != "owned"
+
+
+async def test_a_scan_that_never_ends_holds_imports_only_so_long(stack) -> None:
+    acq_id = await stack.download()
+    stack.scanning = True
+    assert (await stack.import_tick()) == {"waiting_for_scan": 1}
+    ctx = stack.client.app.state.context
+    ctx.navidrome_scanning_since = utcnow() - importer.SCAN_HOLD_LIMIT - timedelta(minutes=1)
+    assert (await stack.import_tick()) == {"started": 1}
+    assert any("importing anyway" in m for m in stack.messages(acq_id))
+    stack.scanning = False
+    await stack.import_tick()
+    assert ctx.navidrome_scanning_since is None  # a finished scan resets the clock
+
+
+async def test_one_failing_row_does_not_stop_the_others(stack, monkeypatch) -> None:
+    first = await stack.download()
+    second = stack.ready_twin(first)
+    real = importer.start_import
+
+    async def flaky(session, ctx, acq):
+        if acq.id == first:
+            raise KeyError("unexpected shape")
+        return await real(session, ctx, acq)
+
+    monkeypatch.setattr(importer, "start_import", flaky)
+    counts = await stack.import_tick()
+    assert counts == {"errors": 1, "started": 1}
+    assert stack.get(second)["state"] == "IMPORTING"
+    assert any("import step failed: KeyError" in m for m in stack.messages(first))
+
+
+async def test_import_review_can_be_cancelled(stack) -> None:
+    acq_id = await stack.download()
+    await stack.import_tick()
+    stack.agent.refuse("job1", "the files are tagged as another release group")
+    await stack.import_tick()
+    assert stack.get(acq_id)["state"] == "IMPORT_NEEDS_REVIEW"
+    resp = stack.client.post(f"/api/acquisitions/{acq_id}/cancel", json={"by": "me"})
+    assert resp.status_code == 200 and resp.json()["state"] == "CANCELLED"

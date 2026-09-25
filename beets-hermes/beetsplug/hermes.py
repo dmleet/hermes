@@ -201,11 +201,21 @@ def config_problems() -> list[str]:
 # mono, say) had every file put on the other disc. At 0.01 they break that tie and cost
 # a correct import well under a point. Only a pinned import uses this file (`_command`):
 # without a release id beets searches, and these fields are what order its candidates.
-# Manual imports do not use it either and keep the preferences and weights.
+# Manual imports do not use it either and keep the preferences and weights. The `import`
+# block restates the settings that keep seeded files untouched and an unsure match out
+# of the library: `config_problems` reads the config the agent loaded at start, and an
+# edit made while it runs would otherwise reach `beet import` unchecked.
 IMPORT_OVERLAY = """\
 # Written by hermes-agent at start; do not edit. Hermes imports run with `beet -c` this
 # file: the release id is already chosen, so candidate preferences only cost confidence,
 # and edition, disc and id tags describe the uploader's tagging, not the audio.
+import:
+  copy: yes
+  move: no
+  link: no
+  hardlink: no
+  delete: no
+  quiet_fallback: skip
 match:
   preferred:
     media: []
@@ -228,10 +238,17 @@ match:
 class JobStore:
     """Runs import jobs sequentially on one worker thread; persists outcomes to jobs.json."""
 
-    def __init__(self, jobs_dir: Path, beet_command: list[str], log: Any = None) -> None:
+    def __init__(
+        self,
+        jobs_dir: Path,
+        beet_command: list[str],
+        log: Any = None,
+        import_timeout: float = 3600.0,
+    ) -> None:
         self.jobs_dir = jobs_dir
         self.beet_command = beet_command
         self._log = log
+        self.import_timeout = import_timeout
         self._jobs: dict[str, dict[str, Any]] = {}
         self._order: deque[str] = deque()
         self._lock = threading.Lock()
@@ -345,6 +362,17 @@ class JobStore:
             self.busy = True
             try:
                 self._run(job_id)
+            except Exception as exc:  # noqa: BLE001 - this thread is the only worker
+                # An escape would end the loop: every later job would stay queued while
+                # the health check stayed green. Finish the job with the error instead.
+                with self._lock:
+                    self._jobs[job_id].update(
+                        status="finished",
+                        error=f"agent error: {type(exc).__name__}: {exc}",
+                        finished_at=_now(),
+                    )
+                if self._log:
+                    self._log.exception("hermes job {} failed in the agent", job_id)
             finally:
                 self.busy = False
                 self._queue.task_done()
@@ -390,8 +418,13 @@ class JobStore:
                     stdout=out,
                     stderr=subprocess.STDOUT,
                     check=False,
+                    # One job at a time: a hung beets (a stalled network lookup or mount)
+                    # would otherwise hold every later import. run() kills it on expiry.
+                    timeout=self.import_timeout,
                 )
             exit_code, error = result.returncode, None
+        except subprocess.TimeoutExpired:
+            exit_code, error = None, f"beet import timed out after {self.import_timeout:.0f}s"
         except OSError as exc:
             exit_code, error = None, f"could not start beets: {exc}"
         with self._lock:
@@ -583,6 +616,8 @@ class HermesPlugin(BeetsPlugin):
             {
                 "beet_command": [sys.executable, "-m", "beets"],
                 "jobs_dir": str(Path(config.config_dir()) / "hermes-jobs"),
+                "import_timeout": 3600,  # seconds; a `beet import` running longer is killed
+                "shutdown_wait": 280,  # seconds a running import may finish on SIGTERM
             }
         )
 
@@ -598,6 +633,7 @@ class HermesPlugin(BeetsPlugin):
             Path(self.config["jobs_dir"].as_str()),
             self.config["beet_command"].as_str_seq(),
             self._log,
+            import_timeout=float(self.config["import_timeout"].as_number()),
         )
         server = AgentServer((opts.host, opts.port), store, self._log, lib=lib)
         self._log.info("hermes-agent listening on {}:{}", opts.host, opts.port)
@@ -606,7 +642,8 @@ class HermesPlugin(BeetsPlugin):
 
         # As PID 1 in a container the agent gets SIGTERM on pod shutdown. Stop accepting
         # work, then give a running `beet import` most of the grace period to finish so the
-        # library is not left pointing at half-copied files.
+        # library is not left pointing at half-copied files. `shutdown_wait` must sit below
+        # the pod's terminationGracePeriodSeconds (Kubernetes' default is 30).
         def _terminate(signum: int, _frame: Any) -> None:
             self._log.info("hermes-agent: signal {}, shutting down", signum)
             threading.Thread(target=server.shutdown, daemon=True).start()
@@ -617,7 +654,7 @@ class HermesPlugin(BeetsPlugin):
             server.serve_forever()
         finally:
             server.server_close()
-            if not store.wait_idle(timeout=25.0):
+            if not store.wait_idle(timeout=float(self.config["shutdown_wait"].as_number())):
                 self._log.warning("hermes-agent: exiting with an import still running")
 
 

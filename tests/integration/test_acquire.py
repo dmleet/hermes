@@ -531,10 +531,12 @@ async def test_removed_torrent_fails_and_error_state_falls_back(stack) -> None:
     client = stack.app(_policy())
     body = _request(client)
     stack.deluge.remove(INFOHASH)
-    await _tick(client)  # one miss is tolerated (a daemon still loading its session)
+    await _tick(client)  # a miss is tolerated for a while (a daemon still loading its session)
     body = client.get(f"/api/acquisitions/{body['id']}").json()
-    assert body["state"] == "SUBMITTED" and "checking again" in body["events"][-1]["message"]
-    await _tick(client)
+    assert body["state"] == "SUBMITTED" and "to reappear" in body["events"][-1]["message"]
+    await _tick(client, hours_later=0.2)  # 12 minutes: still within the grace
+    assert client.get(f"/api/acquisitions/{body['id']}").json()["state"] == "SUBMITTED"
+    await _tick(client, hours_later=0.3)  # 18 minutes
     body = client.get(f"/api/acquisitions/{body['id']}").json()
     assert body["state"] == "FAILED" and "no longer in Deluge" in body["error"]
     assert body["attempts"][0]["outcome"] == "removed"
@@ -543,7 +545,12 @@ async def test_removed_torrent_fails_and_error_state_falls_back(stack) -> None:
     client.post(f"/api/acquisitions/{acq_id}/approve")
     h = client.get(f"/api/acquisitions/{acq_id}").json()["attempts"][0]["infohash"]
     stack.deluge.error(h)
-    await _tick(client)
+    await _tick(client)  # an error may be a storage blip: wait before giving up
+    body = client.get(f"/api/acquisitions/{acq_id}").json()
+    assert (
+        body["attempts"][0]["outcome"] == "active" and "to recover" in body["events"][-1]["message"]
+    )
+    await _tick(client, hours_later=0.3)
     body = client.get(f"/api/acquisitions/{acq_id}").json()
     assert body["attempts"][0]["outcome"] == "failed"
     assert any("Deluge reports an error" in e["message"] for e in body["events"])
@@ -647,3 +654,29 @@ def test_flat_layout_lands_in_the_pool_and_skips_directory_adoption(stack) -> No
     assert added["options"]["download_location"] == "/downloads/pending"
     assert added["options"]["move_completed_path"] == "/downloads/complete"
     assert not any("not adopted" in e["message"] for e in body["events"])
+
+
+async def test_a_torrent_that_comes_back_is_not_written_off(stack) -> None:
+    """A restarted Deluge answers with a partial session for minutes: the torrent returns."""
+    client = stack.app(_policy())
+    body = _request(client)
+    stack.deluge.hide(INFOHASH)
+    await _tick(client)
+    await _tick(client, hours_later=0.1)
+    stack.deluge.hide(INFOHASH, False)
+    stack.deluge.progress(INFOHASH, 5_000_000)
+    await _tick(client, hours_later=0.2)
+    body = client.get(f"/api/acquisitions/{body['id']}").json()
+    assert body["state"] == "DOWNLOADING" and body["attempts"][0]["outcome"] == "active"
+
+
+async def test_a_torrent_deluge_keeps_queued_stalls_like_a_download(stack) -> None:
+    client = stack.app(_policy())
+    body = _request(client)
+    stack.deluge.queue(INFOHASH)
+    await _tick(client)
+    assert client.get(f"/api/acquisitions/{body['id']}").json()["state"] == "SUBMITTED"
+    await _tick(client, hours_later=3)  # the test policy's stall_hours is 2
+    body = client.get(f"/api/acquisitions/{body['id']}").json()
+    assert body["attempts"][0]["outcome"] == "stalled"
+    assert any("no progress for 2h" in e["message"] for e in body["events"])

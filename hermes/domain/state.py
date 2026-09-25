@@ -76,6 +76,9 @@ _CANCELLABLE: frozenset[AcquisitionState] = frozenset(
         S.CANDIDATES_READY,
         S.AWAITING_APPROVAL,
         S.STALLED,  # the torrent is dead; nothing is downloading
+        # beets would not take the download (refused, skipped, a stuck agent): a human can
+        # let the album go; the torrent keeps seeding, and a new request starts afresh.
+        S.IMPORT_NEEDS_REVIEW,
         S.FAILED,
     }
 )

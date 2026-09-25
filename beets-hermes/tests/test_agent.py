@@ -70,7 +70,7 @@ def test_healthz_shape(agent):
     assert body["ok"] is True and body["config_ok"] is True
     assert body["config_problems"] == [] and body["worker_busy"] is False
     assert isinstance(body["beets_version"], str) and body["beets_version"]
-    assert body["agent_api"] == 1 and isinstance(body["agent_version"], str)
+    assert body["agent_api"] == 2 and isinstance(body["agent_version"], str)
 
 
 def test_unsafe_config_rejects_import(agent):
@@ -216,3 +216,77 @@ def test_corrupt_jobs_file_is_moved_aside(tmp_path):
     store = JobStore(jobs_dir, [sys.executable, "-c", "pass"])
     assert store.list() == []
     assert (jobs_dir / "jobs.corrupt").exists()
+
+
+def _flac(path: Path, release_group: str | None) -> None:
+    """A minimal valid FLAC (STREAMINFO only) with a title and a release-group tag."""
+    import struct
+
+    from mediafile import MediaFile
+
+    streaminfo = (
+        struct.pack(">HH", 4096, 4096)
+        + b"\0" * 6
+        + struct.pack(">Q", (44100 << 44) | (1 << 41) | (15 << 36))
+        + b"\0" * 16
+    )
+    path.write_bytes(b"fLaC" + bytes([0x80, 0, 0, 34]) + streaminfo)
+    tags = MediaFile(str(path))
+    tags.title = path.stem
+    if release_group:
+        tags.mb_releasegroupid = release_group
+    tags.save()
+
+
+def test_files_tagged_as_another_release_group_are_refused_without_running_beets(agent):
+    base, store, tmp_path = agent
+    album = tmp_path / "Artist - Album"
+    (album / "CD1").mkdir(parents=True)
+    (album / "CD2").mkdir()
+    _flac(album / "CD1" / "01.flac", "other-group")
+    _flac(album / "CD2" / "01.flac", "other-group")
+    _flac(album / "CD2" / "02.flac", None)  # an untagged file does not outvote the rest
+    status, body = call(
+        f"{base}/import",
+        "POST",
+        {"path": str(album), "acquisition_id": "a1", "release_group_id": "target-group"},
+    )
+    assert status == 202
+    job = wait_finished(base, body["job_id"])
+    assert job["refused"] is True and job["exit_code"] is None
+    assert "other-group" in job["error"] and "target-group" in job["error"]
+    assert not any(line.startswith("ARGS") for line in job["log_tail"])  # beets never ran
+
+
+@pytest.mark.parametrize(
+    "tags",
+    [
+        ["target-group", "target-group"],  # the target's own group
+        [None, None],  # no MusicBrainz tags: titles and lengths decide
+        ["other-group", "third-group"],  # tags disagree among themselves
+    ],
+)
+def test_files_that_do_not_name_another_group_are_imported(agent, tags):
+    base, store, tmp_path = agent
+    album = tmp_path / "Artist - Album"
+    album.mkdir()
+    for n, tag in enumerate(tags, start=1):
+        _flac(album / f"0{n}.flac", tag)
+    status, body = call(
+        f"{base}/import",
+        "POST",
+        {"path": str(album), "acquisition_id": "a1", "release_group_id": "target-group"},
+    )
+    job = wait_finished(base, body["job_id"])
+    assert job["refused"] is False and job["exit_code"] == 0
+    assert any(line.startswith("ARGS") for line in job["log_tail"])
+
+
+def test_no_release_group_means_no_check(agent):
+    base, store, tmp_path = agent
+    album = tmp_path / "Artist - Album"
+    album.mkdir()
+    _flac(album / "01.flac", "other-group")
+    status, body = call(f"{base}/import", "POST", {"path": str(album), "acquisition_id": "a1"})
+    job = wait_finished(base, body["job_id"])
+    assert job["refused"] is False and job["exit_code"] == 0

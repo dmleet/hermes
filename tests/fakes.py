@@ -129,7 +129,7 @@ class FakeBeetsAgent:
         self.library: dict[str, list[dict[str, Any]]] = {}  # acquisition id -> albums
         self.missing_paths: set[str] = set()
         self.history: list[str] = []  # folders recorded in beets' incremental history
-        self.agent_api = 1
+        self.agent_api = 2
         self.history_down = False
         self.next_job = 1
         router.get(f"{url}/healthz").mock(side_effect=self._health)
@@ -171,7 +171,9 @@ class FakeBeetsAgent:
             "acquisition_id": body["acquisition_id"],
             "path": body["path"],
             "search_id": body.get("search_id"),
+            "release_group_id": body.get("release_group_id"),
             "status": "queued",
+            "refused": False,
             "exit_code": None,
             "error": None,
             "log_tail": [],
@@ -204,3 +206,7 @@ class FakeBeetsAgent:
             self.library.setdefault(job["acquisition_id"], []).append(
                 {**imported_album, "hermes_acquisition": job["acquisition_id"]}
             )
+
+    def refuse(self, job_id: str, reason: str) -> None:
+        """The agent's release-group check refused the job before beets ran."""
+        self.jobs[job_id].update(status="finished", refused=True, error=reason)

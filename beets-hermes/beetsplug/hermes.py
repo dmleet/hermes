@@ -39,7 +39,8 @@ from beets.util import displayable_path
 # The HTTP contract between Hermes and this agent. Bump when a route, its request body or
 # its response shape changes in a way an older Hermes would misread; Hermes refuses to
 # import against an agent whose agent_api differs from the one it was built for.
-AGENT_API = 1
+# 2: POST /import takes release_group_id; a job may finish refused, without running beets.
+AGENT_API = 2
 
 
 def _plugin_version() -> str:
@@ -278,14 +279,22 @@ class JobStore:
         return not self.busy
 
     # -- public API ----------------------------------------------------------
-    def submit(self, path: str, acquisition_id: str, search_id: str | None) -> str:
+    def submit(
+        self,
+        path: str,
+        acquisition_id: str,
+        search_id: str | None,
+        release_group_id: str | None = None,
+    ) -> str:
         job_id = uuid.uuid4().hex[:12]
         job = {
             "job_id": job_id,
             "acquisition_id": acquisition_id,
             "path": path,
             "search_id": search_id,
+            "release_group_id": release_group_id,
             "status": "queued",
+            "refused": False,
             "exit_code": None,
             "error": None,
             "created_at": _now(),
@@ -359,6 +368,14 @@ class JobStore:
             job = self._jobs[job_id]
             job.update(status="running", started_at=_now())
         self._save()
+        refusal = release_group_refusal(job["path"], job.get("release_group_id"))
+        if refusal:
+            with self._lock:
+                job.update(status="finished", refused=True, error=refusal, finished_at=_now())
+            self._save()
+            if self._log:
+                self._log.info("hermes job {} refused: {}", job_id, refusal)
+            return
         cmd = self._command(job)
         if self._log:
             self._log.info("hermes job {} starting: {}", job_id, " ".join(cmd))
@@ -456,6 +473,7 @@ class AgentHandler(BaseHTTPRequestHandler):
             body = json.loads(self.rfile.read(int(self.headers.get("Content-Length", 0)) or b"{}"))
             path, acquisition_id = str(body["path"]), str(body["acquisition_id"])
             search_id = body.get("search_id") or None
+            release_group_id = body.get("release_group_id") or None
         except (ValueError, KeyError, TypeError) as exc:
             return self._json(400, {"error": f"bad request: {exc}"})
         problems = config_problems()
@@ -465,9 +483,8 @@ class AgentHandler(BaseHTTPRequestHandler):
             )
         if not Path(path).exists():
             return self._json(404, {"error": f"path does not exist: {path}"})
-        return self._json(
-            202, {"job_id": self.server.store.submit(path, acquisition_id, search_id)}
-        )
+        job_id = self.server.store.submit(path, acquisition_id, search_id, release_group_id)
+        return self._json(202, {"job_id": job_id})
 
     def _mark_history(self) -> None:
         """Record an imported folder in beets' incremental history (the state file's
@@ -490,6 +507,40 @@ class AgentHandler(BaseHTTPRequestHandler):
         # http.server passes printf-style args; the beets logger formats with str.format.
         if self.server.log:
             self.server.log.debug("hermes-agent {}", format % args)
+
+
+def release_group_refusal(path: str, release_group_id: str | None) -> str | None:
+    """Why the files under ``path`` must not be imported as ``release_group_id``, or None.
+
+    Hermes imports score none of the uploader's edition or id tags (IMPORT_OVERLAY), so
+    this is where those tags still count, as positive evidence only: when every file that
+    carries a MusicBrainz release-group id carries the same one and it is not the
+    target's, the files are some other album (a different recording under the same track
+    list, say) and beets would tag them as the target. Files without the tag, or whose
+    tags disagree among themselves, pass: titles and lengths decide, as for any upload.
+    A group merged in MusicBrainz after the files were tagged also refuses; that errs
+    toward review, and a human imports it by hand."""
+    if not release_group_id:
+        return None
+    from beets.importer.tasks import albums_in_dir
+    from beets.library import Item
+    from beets.util import bytestring_path
+
+    found: set[str] = set()
+    for _, files in albums_in_dir(bytestring_path(path)):
+        for file in files:
+            try:
+                tag = Item.from_path(file).mb_releasegroupid
+            except Exception:  # noqa: BLE001 - an unreadable file is beets' to report
+                continue
+            if tag:
+                found.add(tag)
+    if len(found) == 1 and release_group_id not in found:
+        return (
+            f"the files are tagged as MusicBrainz release group {found.pop()}, "
+            f"not the target's {release_group_id}"
+        )
+    return None
 
 
 def record_in_history(path: str) -> list[list[str]]:

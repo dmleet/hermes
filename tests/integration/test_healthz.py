@@ -39,7 +39,7 @@ def _all_healthy(router: respx.Router) -> None:
         json={
             "ok": True,
             "beets_version": "2.13.1",
-            "agent_api": 1,
+            "agent_api": 2,
             "agent_version": "0.5.0",
             "config_ok": True,
             "config_problems": [],
@@ -87,7 +87,7 @@ def test_healthz_reports_beets_config_problem(respx_mock: respx.Router, client: 
         json={
             "ok": True,
             "beets_version": "2.13.1",
-            "agent_api": 1,
+            "agent_api": 2,
             "config_ok": False,
             "config_problems": ["import.copy is false"],
         }

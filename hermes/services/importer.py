@@ -198,7 +198,9 @@ async def start_import(session: Session, ctx: Context, acq: Acquisition) -> Acqu
         return acq
 
     try:
-        job_id = await ctx.beets.submit_import(beets_path, acq.id, search_id)
+        job_id = await ctx.beets.submit_import(
+            beets_path, acq.id, search_id, target.release_group_mbid
+        )
     except httpx.HTTPStatusError as exc:
         body = exc.response.text[:300]
         if exc.response.status_code == 409:
@@ -309,6 +311,20 @@ async def poll_import(
         "log_tail": job.get("log_tail", [])[-20:],
         "import_log_tail": job.get("import_log_tail", [])[-20:],
     }
+    # The agent refused before running beets: the files' own MusicBrainz tags name another
+    # album, so nothing was imported and there is no library entry to check.
+    if job.get("refused"):
+        transition(
+            session,
+            acq,
+            S.IMPORT_NEEDS_REVIEW,
+            f"beets import refused: {job.get('error')}; if these are the right files, "
+            "import them by hand",
+            data=evidence,
+            level="warning",
+        )
+        session.commit()
+        return acq
     # beets adds the album to its database (with our --set field) before it copies the
     # files, so an interrupted or failed import can leave a library entry that points at
     # the seeded files. Never call that done.

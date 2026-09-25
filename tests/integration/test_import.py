@@ -355,6 +355,8 @@ async def test_import_end_to_end(stack) -> None:
     assert submitted["path"] == f"/downloads/hermes/{acq_id}/gettysburg_shurtagal_librivox"
     assert submitted["acquisition_id"] == str(acq_id)
     assert submitted["search_id"] == "rel-xw-2008"
+    target = stack.get(acq_id)["target"]
+    assert submitted["release_group_id"] == target["release_group_mbid"]
     job_id = body["attempts"][0]["import_job_id"]
     assert job_id == "job1"
 
@@ -388,6 +390,29 @@ async def test_quiet_skip_needs_review_then_retry(stack) -> None:
 
     body = stack.client.post(f"/api/acquisitions/{acq_id}/retry-import").json()
     assert body["state"] == "IMPORTING" and body["attempts"][0]["import_job_id"] == "job2"
+    stack.agent.finish("job2", imported_album=IMPORTED)
+    await stack.import_tick()
+    assert stack.get(acq_id)["state"] == "IMPORTED"
+
+
+async def test_refused_import_needs_review_then_retry(stack) -> None:
+    """The agent refused: the files' MusicBrainz tags name another release group. Nothing
+    was imported, so the review says why and does not ask to check a library entry."""
+    acq_id = await stack.download()
+    await stack.import_tick()
+    stack.agent.refuse("job1", "the files are tagged as MusicBrainz release group rg-other")
+    await stack.import_tick()
+    body = stack.get(acq_id)
+    assert body["state"] == "IMPORT_NEEDS_REVIEW"
+    review = body["events"][-1]
+    assert review["message"] == (
+        "beets import refused: the files are tagged as MusicBrainz release group rg-other; "
+        "if these are the right files, import them by hand"
+    )
+    assert review["level"] == "warning"
+
+    body = stack.client.post(f"/api/acquisitions/{acq_id}/retry-import").json()
+    assert body["state"] == "IMPORTING"
     stack.agent.finish("job2", imported_album=IMPORTED)
     await stack.import_tick()
     assert stack.get(acq_id)["state"] == "IMPORTED"

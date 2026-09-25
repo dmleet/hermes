@@ -49,7 +49,7 @@ class LibraryAlbum(BaseModel):
 # The agent API this Hermes speaks (AGENT_API in beetsplug/hermes.py). Both images are built
 # from one commit and share a version, but a cluster can still pair an old agent with a new
 # Hermes: the health check turns red and imports wait until the pair matches.
-REQUIRED_AGENT_API = 1
+REQUIRED_AGENT_API = 2
 
 
 class BeetsClient:
@@ -139,10 +139,24 @@ class BeetsClient:
 
     # -- writes --------------------------------------------------------------------
 
-    async def submit_import(self, path: str, acquisition_id: int, search_id: str | None) -> str:
+    async def submit_import(
+        self,
+        path: str,
+        acquisition_id: int,
+        search_id: str | None,
+        release_group_id: str | None = None,
+    ) -> str:
+        """Queue a quiet import. With ``release_group_id`` the agent first reads the files'
+        MusicBrainz release-group tags and refuses the job, without running beets, when
+        they all name one other group."""
         resp = await self._http.post(
             "/import",
-            json={"path": path, "acquisition_id": str(acquisition_id), "search_id": search_id},
+            json={
+                "path": path,
+                "acquisition_id": str(acquisition_id),
+                "search_id": search_id,
+                "release_group_id": release_group_id,
+            },
         )
         resp.raise_for_status()
         return str(resp.json()["job_id"])

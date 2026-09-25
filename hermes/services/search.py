@@ -19,6 +19,7 @@ from hermes.domain.state import AcquisitionState as S
 from hermes.domain.state import transition
 from hermes.integrations.musicbrainz import MusicBrainzClient, NotFound
 from hermes.integrations.prowlarr import ProwlarrClient
+from hermes.services.matching import title_head
 from hermes.services.ranking import RankedCandidate, evaluate
 from hermes.services.text import search_form
 
@@ -26,8 +27,10 @@ log = logging.getLogger("hermes.search")
 
 # MusicBrainz's special-purpose artist for compilations.
 VARIOUS_ARTISTS_MBID = "89ad4ac3-39f7-470e-963a-56509c546377"
-# The artist-only fallback must not truncate a large catalogue; the album may sit at
-# the end of it. Prowlarr pages the indexer as needed.
+# The artist-only fallback must not truncate a catalogue Prowlarr can page. On a Gazelle
+# indexer it cannot: the answer is one page of groups whatever the limit (measured
+# 2026-09-24: 163 rows for "CAN" at 500, newest first), so there the fallback sees a
+# small catalogue whole and a large one's newest uploads.
 ARTIST_SEARCH_LIMIT = 500
 
 SEARCHABLE = {S.RESOLVED, S.NO_MATCH, S.FAILED, S.CANDIDATES_READY}
@@ -190,6 +193,24 @@ async def run_search(
                 )
                 session.commit()
                 return acq
+            head = title_head(target.title)
+            head_query = search_form(f"{target.artist_name} {head}") if head else ""
+            if head_query and head_query != query:
+                # A subtitle or soundtrack label is what a listing drops ("Anthology"
+                # for "Anthology: 25 Years"), and every query word is required, so the
+                # head is the query that can find it; matching splits the title the
+                # same way.
+                session.add(
+                    Event(
+                        acquisition=acq,
+                        message=f"nothing for {query!r}; searching the title before its subtitle",
+                        data={"query": head_query},
+                    )
+                )
+                session.commit()
+                query = head_query
+                releases = await prowlarr.search(query, indexer_ids=indexer_ids)
+        if not releases:
             artist_query = search_form(target.artist_name)
             if artist_query and artist_query != query and not is_various_artists(target):
                 # The title is what uploaders spell differently ("Vol." for "Volume", a

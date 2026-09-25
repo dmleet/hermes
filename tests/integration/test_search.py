@@ -147,6 +147,64 @@ def test_empty_search_falls_back_to_the_artist_alone(
     ]
 
 
+def test_empty_search_tries_the_title_head_before_the_artist(
+    respx_mock: respx.Router, client: TestClient
+) -> None:
+    """A subtitle the listing drops is left out of the query before the artist's whole
+    catalogue is searched, which on a large one is a page of the newest uploads."""
+    mb = _slip_search()
+    mb["release-groups"][0]["title"] = "The Slip: Halo 27"
+    respx_mock.get(f"{MB}/release-group/").respond(json=mb)
+    respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
+    respx_mock.get(f"{PROWLARR}/api/v1/indexerstatus").respond(json=[])
+    search = respx_mock.get(f"{PROWLARR}/api/v1/search").mock(
+        side_effect=[
+            httpx.Response(200, json=[]),
+            httpx.Response(200, json=load("prowlarr/search_pandacd_nin")),
+        ]
+    )
+    body = client.post(
+        "/api/requests", json={"artist": "Nine Inch Nails", "title": "The Slip: Halo 27"}
+    ).json()
+    assert body["state"] == "AWAITING_APPROVAL", body["events"]
+    queries = [c.request.url.params["query"] for c in search.calls]
+    assert queries == ["Nine Inch Nails Slip Halo 27", "Nine Inch Nails Slip"]
+    messages = [e["message"] for e in body["events"]]
+    assert (
+        "nothing for 'Nine Inch Nails Slip Halo 27'; searching the title before its subtitle"
+        in messages
+    )
+    assert not any("artist alone" in m for m in messages)
+    assert [c["title"] for c in body["candidates"] if c["rank"] == 1] == [
+        "Nine Inch Nails - The Slip [2008] [FLAC Lossless]"
+    ]
+
+
+def test_empty_head_search_still_falls_back_to_the_artist(
+    respx_mock: respx.Router, client: TestClient
+) -> None:
+    mb = _slip_search()
+    mb["release-groups"][0]["title"] = "The Slip: Halo 27"
+    respx_mock.get(f"{MB}/release-group/").respond(json=mb)
+    respx_mock.get(url__regex=rf"{BEETS}/library/.*").respond(json={"albums": []})
+    respx_mock.get(f"{PROWLARR}/api/v1/indexerstatus").respond(json=[])
+    search = respx_mock.get(f"{PROWLARR}/api/v1/search").mock(
+        side_effect=[
+            httpx.Response(200, json=[]),
+            httpx.Response(200, json=[]),
+            httpx.Response(200, json=load("prowlarr/search_pandacd_nin")),
+        ]
+    )
+    body = client.post(
+        "/api/requests", json={"artist": "Nine Inch Nails", "title": "The Slip: Halo 27"}
+    ).json()
+    assert body["state"] == "AWAITING_APPROVAL", body["events"]
+    queries = [c.request.url.params["query"] for c in search.calls]
+    assert queries == ["Nine Inch Nails Slip Halo 27", "Nine Inch Nails Slip", "Nine Inch Nails"]
+    messages = [e["message"] for e in body["events"]]
+    assert "nothing for 'Nine Inch Nails Slip'; searching the artist alone" in messages
+
+
 def test_empty_search_with_a_disabled_indexer_fails_retryably(
     respx_mock: respx.Router, client: TestClient
 ) -> None:

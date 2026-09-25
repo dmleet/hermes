@@ -82,6 +82,15 @@ def _split_tail(title: str) -> tuple[str, str | None, str | None]:
     return title, None, None
 
 
+def title_head(title: str) -> str | None:
+    """The title before its subtitle, soundtrack label or parenthesised alternative, or
+    None when it has none: the words a tracker's listing keeps when it drops the tail
+    ("Anthology" for "Anthology: 25 Years"). A query made of the head finds what
+    `title_similarity` then judges by the same split."""
+    head, tail, _ = _split_tail(title)
+    return head if tail else None
+
+
 def _tail_similarity(a: str, b: str) -> float:
     """Tails that differ in a number ("Day One" / "Day Two", "Volume 1" / "Volume 2") name
     different releases however alike the words are."""

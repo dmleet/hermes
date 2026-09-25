@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from hermes.services.matching import match, strip_edition
+from hermes.services.matching import match, strip_edition, title_head
 from hermes.services.title_parser import parse_title
 
 
@@ -134,3 +134,12 @@ def test_subtitle_handling_still_matches_the_same_release(target: str, tracker: 
 def test_unparsed_title_scores_zero() -> None:
     m = _m("random garbage")
     assert m.score == 0.0 and m.notes == ["title did not parse"]
+
+
+def test_title_head_is_the_title_before_its_tail() -> None:
+    """The query a listing without the subtitle can answer; None when there is no tail."""
+    assert title_head("Anthology: 25 Years") == "Anthology"
+    assert title_head("Interstellar: Original Motion Picture Soundtrack") == "Interstellar"
+    assert title_head("Homogenic - Live") == "Homogenic"
+    assert title_head("Anthology 1968-93") is None
+    assert title_head("The Slip") is None

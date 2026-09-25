@@ -406,7 +406,41 @@
   listing: "Artist - Album (Instrumentals) (2019) [Album] [FLAC Lossless / WEB]"
   expect: reject
   why: "a variant in parentheses that is not an alternative title"
-  gap: "any parenthesis on the listing reads as an alternative title"
+
+- artist: Artist
+  title: Album
+  year: 2019
+  listing: "Artist - Album (Live) (2019) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a live recording of the album; its track titles can equal the album's"
+
+- artist: Artist
+  title: Album
+  year: 2019
+  listing: "Artist - Album [Karaoke Version] (2019) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a variant the edition stripper must not strip as an edition ('Version')"
+
+- artist: Artist
+  title: Album
+  year: 2019
+  listing: "Artist - Album (Remixes) (2019) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a remix album in parentheses"
+
+- artist: Artist
+  title: Album (Live)
+  year: 2019
+  listing: "Artist - Album (Live) (2019) [Live album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "the target is the live album itself"
+
+- artist: Artist
+  title: Live Through This
+  year: 1994
+  listing: "Artist - Live Through This (Deluxe Edition) (1994) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "'Live' as a word of the title, and an edition that is stripped"
 
 - artist: Artist
   title: Album

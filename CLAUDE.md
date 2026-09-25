@@ -139,7 +139,8 @@ this stack, not the cluster (docs/plan.md A12).
   manual request also kicks the art job (`kick_art`).
 - `hermes/app.py`: FastAPI factory; `create_app(settings, policy, clients)` takes injected
   clients so tests mock HTTP with respx. `/healthz` returns 503 when any configured
-  dependency is unhealthy. Startup removes torrent files an older version kept.
+  dependency is unhealthy or a scheduled job has been failing (`hermes/job_status.py`, also a
+  banner on every page); `/livez` (process and database only) is for the pod's probes. Startup removes torrent files an older version kept.
 - `hermes/api/`: JSON routes (`POST /api/requests`, `GET /api/acquisitions/{id}`,
   `GET /api/suggest/...`) with pydantic schemas. `hermes/ui/`: Jinja2 pages, plain forms, POST-redirect-GET; button
   availability derives from `can_transition`; `docs/ui-plan.md` is the page design.

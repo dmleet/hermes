@@ -24,6 +24,7 @@ from hermes.domain.models import Acquisition, AlbumTarget, Candidate, Playlist, 
 from hermes.domain.state import TERMINAL, InvalidTransition, can_transition
 from hermes.domain.state import AcquisitionState as S
 from hermes.integrations.musicbrainz import NotFound
+from hermes.job_status import job_problems
 from hermes.services import approval, art, genres, importer
 from hermes.services.context import Context
 from hermes.services.pipeline import search_and_decide
@@ -41,6 +42,9 @@ templates = Jinja2Templates(directory=str(Path(__file__).parent / "templates"))
 # Every page shows which Hermes it is, error pages included: the cluster pins commit
 # tags, so the header is the quickest way to tell whether a roll actually landed.
 templates.env.globals["version"] = __version__
+templates.env.globals["job_problems"] = lambda request: job_problems(
+    getattr(request.app.state, "job_status", {})
+)
 
 # The queue's order: rows a person has to act on first, then what Hermes, Deluge and
 # beets are working on in pipeline order (read top to bottom it is a progress board), then

@@ -260,6 +260,22 @@ def test_prowlarr_outage_fails_retryably(respx_mock: respx.Router, client: TestC
     assert body["state"] == "AWAITING_APPROVAL"
 
 
+def test_an_unexpected_prowlarr_reply_fails_retryably_not_stranded(
+    respx_mock: respx.Router, client: TestClient
+) -> None:
+    """A 200 that is not JSON (a proxy's error page): FAILED and retryable, never left in
+    SEARCHING, where nothing would move it on."""
+    _mock_upstreams(respx_mock)
+    respx_mock.get(f"{PROWLARR}/api/v1/search").respond(200, text="<html>bad gateway</html>")
+    body = client.post(
+        "/api/requests", json={"artist": "Nine Inch Nails", "title": "The Slip"}
+    ).json()
+    assert body["state"] == "FAILED" and "search failed" in body["error"]
+    respx_mock.get(f"{PROWLARR}/api/v1/search").respond(json=load("prowlarr/search_pandacd_nin"))
+    body = client.post(f"/api/acquisitions/{body['id']}/search").json()
+    assert body["state"] == "AWAITING_APPROVAL"
+
+
 def test_search_endpoint_refuses_unresolved(respx_mock: respx.Router, client: TestClient) -> None:
     respx_mock.get(f"{MB}/release-group/").respond(json=load("musicbrainz/search_nothing"))
     body = client.post("/api/requests", json={"artist": "Nobody", "title": "Nothing"}).json()

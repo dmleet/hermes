@@ -23,7 +23,7 @@ from hermes.bencode import BencodeError, TorrentInfo
 from hermes.domain.models import Acquisition, Candidate, Event, GrabAttempt, GrabOutcome, utcnow
 from hermes.domain.state import AcquisitionState as S
 from hermes.domain.state import transition
-from hermes.integrations.deluge import DelugeError
+from hermes.integrations.deluge import DelugeClient, DelugeError
 from hermes.services.context import Context
 from hermes.services.ranking import torrent_rate_verdict
 
@@ -129,6 +129,15 @@ async def _adopt_existing(
     return None
 
 
+async def _in_session(deluge: DelugeClient, infohash: str) -> bool:
+    """Whether Deluge holds the torrent (after an add whose answer was lost)."""
+    try:
+        statuses = await deluge.torrents_status([infohash], ["name"])
+    except (httpx.HTTPError, DelugeError):
+        return False
+    return infohash.lower() in {h.lower() for h in statuses}
+
+
 async def submit(session: Session, ctx: Context, acq: Acquisition) -> Acquisition:
     if ctx.prowlarr is None:
         raise ValueError("Prowlarr is not configured")
@@ -220,15 +229,33 @@ async def submit(session: Session, ctx: Context, acq: Acquisition) -> Acquisitio
                 },
             )
         except (httpx.HTTPError, DelugeError) as exc:
-            transition(
-                session,
-                acq,
-                S.FAILED,
-                f"Deluge {instance} unavailable: {type(exc).__name__}: {exc}",
-                data={"retryable": True, "candidate_id": candidate.id},
-            )
-            session.commit()
-            return acq
+            # A timed-out add may still have landed: the daemon can accept the torrent and
+            # answer too late. Failing it would leave a download Hermes does not track, and
+            # the retry could grab a second torrent for the same album.
+            if await _in_session(deluge, torrent.infohash):
+                reported = torrent.infohash
+                session.add(
+                    Event(
+                        acquisition=acq,
+                        level="warning",
+                        message=f"adding to Deluge {instance} failed ({type(exc).__name__}) "
+                        "but the torrent is in its session; tracking it",
+                    )
+                )
+            else:
+                transition(
+                    session,
+                    acq,
+                    S.FAILED,
+                    f"Deluge {instance} unavailable: {type(exc).__name__}: {exc}",
+                    data={
+                        "retryable": True,
+                        "candidate_id": candidate.id,
+                        "infohash": torrent.infohash,
+                    },
+                )
+                session.commit()
+                return acq
 
         # Another actor (a second tick, a second click) may have moved this acquisition
         # while we were talking to Prowlarr and Deluge. Do not double-transition.
@@ -271,16 +298,6 @@ async def submit(session: Session, ctx: Context, acq: Acquisition) -> Acquisitio
         session.add(attempt)
         session.flush()
         acq.active_grab_id = attempt.id
-        try:
-            await deluge.set_label(reported, policy.deluge.label)
-        except (httpx.HTTPError, DelugeError) as exc:
-            session.add(
-                Event(
-                    acquisition=acq,
-                    level="warning",
-                    message=f"could not label torrent {reported} in Deluge {instance}: {exc}",
-                )
-            )
         transition(
             session,
             acq,
@@ -298,4 +315,17 @@ async def submit(session: Session, ctx: Context, acq: Acquisition) -> Acquisitio
             },
         )
         session.commit()
+        # Labelling is cosmetic and a network call: after the commit, so a slow Deluge
+        # never holds the database's write lock.
+        try:
+            await deluge.set_label(reported, policy.deluge.label)
+        except (httpx.HTTPError, DelugeError) as exc:
+            session.add(
+                Event(
+                    acquisition=acq,
+                    level="warning",
+                    message=f"could not label torrent {reported} in Deluge {instance}: {exc}",
+                )
+            )
+            session.commit()
         return acq

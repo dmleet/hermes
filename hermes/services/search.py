@@ -191,14 +191,13 @@ async def run_search(
 
     duration_ms = None
     track_count = 0
-    if musicbrainz is not None and policy.quality.max_sample_rate_khz is not None:
-        lengths = await ensure_track_lengths(
-            session, musicbrainz, target, target.first_release_year
-        )
-        duration_ms = complete_duration_ms(lengths)
-        track_count = len(lengths) if duration_ms else 0
-
     try:
+        if musicbrainz is not None and policy.quality.max_sample_rate_khz is not None:
+            lengths = await ensure_track_lengths(
+                session, musicbrainz, target, target.first_release_year
+            )
+            duration_ms = complete_duration_ms(lengths)
+            track_count = len(lengths) if duration_ms else 0
         indexer_ids = await _allowed_indexer_ids(session, prowlarr, policy, acq)
         if policy.search.indexers and not indexer_ids:
             transition(
@@ -245,6 +244,17 @@ async def run_search(
             acq,
             S.FAILED,
             f"Prowlarr unavailable: {type(exc).__name__}: {exc}",
+            data={"retryable": True},
+        )
+        session.commit()
+        return acq
+    except Exception as exc:  # noqa: BLE001 - never strand the acquisition in SEARCHING
+        session.rollback()
+        transition(
+            session,
+            acq,
+            S.FAILED,
+            f"search failed: {type(exc).__name__}: {exc}",
             data={"retryable": True},
         )
         session.commit()

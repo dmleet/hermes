@@ -152,3 +152,52 @@ def test_agent_api_mismatch_is_unhealthy(respx_mock: respx.Router, client: TestC
     beets = resp.json()["checks"]["beets"]
     assert beets["ok"] is False and "agent API unknown" in beets["detail"]
     assert "deploy the beets-hermes image" in beets["detail"]
+
+
+def test_livez_answers_without_calling_any_dependency(
+    respx_mock: respx.Router, client: TestClient
+) -> None:
+    """The probe route: every dependency could be down and the UI stays in the Service."""
+    resp = client.get("/livez")
+    assert resp.status_code == 200 and resp.json() == {"ok": True}
+    assert not respx_mock.calls  # no network call at all
+
+
+async def test_a_job_failing_for_two_intervals_shows_in_healthz_and_on_pages(
+    respx_mock: respx.Router, client: TestClient
+) -> None:
+    from datetime import UTC, datetime, timedelta
+
+    from alembic import command
+
+    from hermes.app import _job
+    from hermes.cli import alembic_config
+    from hermes.job_status import JobStatus
+
+    command.upgrade(alembic_config(client.app.state.settings), "head")  # the queue page
+    _all_healthy(respx_mock)
+    app = client.app
+    status = JobStatus(every=timedelta(seconds=45))
+    app.state.job_status["import"] = status
+
+    async def broken(session, ctx):
+        raise RuntimeError("database is locked")
+
+    async def fine(session, ctx):
+        return {}
+
+    await _job(app, "import", broken)()
+    assert status.failing_since is not None and "database is locked" in status.last_error
+    # One bad tick is noise: still green.
+    assert client.get("/healthz").json()["checks"]["jobs"]["ok"] is True
+    status.failing_since = datetime.now(UTC) - timedelta(minutes=5)
+    body = client.get("/healthz").json()
+    assert body["ok"] is False and body["checks"]["jobs"]["ok"] is False
+    assert "import job has been failing" in body["checks"]["jobs"]["detail"]
+    page = client.get("/queue", headers={"accept": "text/html"}).text
+    assert "import job has been failing" in page and "database is locked" in page
+
+    await _job(app, "import", fine)()
+    assert status.failing_since is None and status.last_ok is not None
+    assert client.get("/healthz").json()["checks"]["jobs"]["ok"] is True
+    assert "has been failing" not in client.get("/queue", headers={"accept": "text/html"}).text

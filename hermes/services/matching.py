@@ -34,9 +34,26 @@ class MatchResult:
         }
 
 
+# Words that make a parenthesis name a different recording of the album, not an edition of
+# it or an alternative title: "(Instrumentals)", "(Live)", "[Karaoke Version]". The track
+# titles and lengths of such a release can equal the album's, so beets would not tell them
+# apart; the listing's title is where it has to be caught.
+_VARIANT = re.compile(
+    r"\b(instrumentals?|a ?cappellas?|acapellas?|karaoke|live|remix(?:es|ed)?|demos?)\b",
+    re.IGNORECASE,
+)
+
+
+def _variant_words(text: str) -> set[str]:
+    return {m.group(0).lower() for m in _VARIANT.finditer(text)}
+
+
 def strip_edition(album: str) -> str:
-    """'OK Computer (Deluxe Edition)' -> 'OK Computer'."""
-    return _EDITION_PAREN.sub("", album).strip()
+    """'OK Computer (Deluxe Edition)' -> 'OK Computer'. A variant in brackets stays
+    ("(Instrumental Version)" is another recording, not an edition)."""
+    return _EDITION_PAREN.sub(
+        lambda m: m.group(0) if _VARIANT.search(m.group(0)) else "", album
+    ).strip()
 
 
 _SUBTITLE = re.compile(r"\s*[:\u2013\u2014-]\s+.*$")
@@ -197,6 +214,10 @@ def title_similarity(target: str, album: str) -> tuple[float, str | None]:
         if a_kind == "soundtrack":
             cand = _similar(target, a_head)
         elif a_kind == "alt":
+            if _variant_words(a_tail) - _variant_words(target):
+                # "(Instrumentals)", "(Live)": the same tracks recorded differently. Capped
+                # below the threshold like a subtitle only the tracker has.
+                return min(base, 0.8), "the listing names a variant the target lacks"
             cand = max(_similar(target, a_head), _similar(target, a_tail))
         else:
             # A subtitle only the tracker has ("Remixes", "Live") is a different release,

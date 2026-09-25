@@ -5,10 +5,10 @@ from __future__ import annotations
 import asyncio
 import logging
 import re
-from collections.abc import AsyncIterator
+from collections.abc import AsyncIterator, Awaitable, Callable
 from contextlib import asynccontextmanager
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -18,6 +18,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy import text
+from sqlalchemy.orm import Session
 
 from hermes import __version__
 from hermes.api.routes import router as api_router
@@ -31,6 +32,7 @@ from hermes.integrations.listenbrainz import ListenBrainzClient
 from hermes.integrations.musicbrainz import MusicBrainzClient
 from hermes.integrations.navidrome import NavidromeClient
 from hermes.integrations.prowlarr import ProwlarrClient
+from hermes.job_status import JobStatus, job_problems
 from hermes.services import art, discovery, genres, importer, observer
 from hermes.services.context import Context
 from hermes.ui.routes import render_error
@@ -210,6 +212,7 @@ def create_app(
         app.state.context = app.state.clients.context(settings, policy)
         remove_kept_torrents(settings.hermes_data_dir / "torrents")
         app.state.scheduler = None
+        app.state.job_status = {}
         if scheduler:
             app.state.scheduler = _start_scheduler(app)
         try:
@@ -243,6 +246,18 @@ def create_app(
             return render_error(request, 422, "The form was incomplete or invalid.")
         return JSONResponse({"detail": exc.errors()}, status_code=422)
 
+    @app.get("/livez")
+    async def livez(request: Request) -> JSONResponse:
+        """For the pod's probes: the process serves and its database answers. No dependency
+        is called, so an outage elsewhere (a Prowlarr down all day, a Deluge hung on a
+        mount) never takes the UI out of the Service; /healthz is for people."""
+        try:
+            with request.app.state.engine.connect() as conn:
+                conn.execute(text("SELECT 1"))
+        except Exception as exc:  # noqa: BLE001 - a probe answer, not an error page
+            return JSONResponse({"ok": False, "detail": str(exc)}, status_code=503)
+        return JSONResponse({"ok": True})
+
     @app.get("/healthz")
     async def healthz(request: Request) -> JSONResponse:
         state = request.app.state
@@ -255,6 +270,21 @@ def create_app(
             checks["db"] = {"ok": False, "configured": True, "detail": str(exc)}
         for result in await state.clients.health():
             checks[result.name] = result.as_dict()
+        if state.job_status:
+            problems = job_problems(state.job_status)
+            checks["jobs"] = {
+                "ok": not problems,
+                "configured": True,
+                "detail": "; ".join(problems) or "ok",
+                "data": {
+                    job_id: {
+                        "last_ok": st.last_ok.isoformat() if st.last_ok else None,
+                        "failing_since": st.failing_since.isoformat() if st.failing_since else None,
+                        "last_error": st.last_error,
+                    }
+                    for job_id, st in state.job_status.items()
+                },
+            }
         ok = all(c["ok"] for c in checks.values())
         body = {
             "ok": ok,
@@ -276,68 +306,37 @@ def kick_art(app: FastAPI) -> None:
         sched.modify_job("art", next_run_time=datetime.now())
 
 
+def _job(
+    app: FastAPI, job_id: str, tick: Callable[[Session, Context], Awaitable[dict[str, int]]]
+) -> Callable[[], Awaitable[None]]:
+    async def run() -> None:
+        status: JobStatus | None = app.state.job_status.get(job_id)
+        with app.state.session_factory() as session:
+            try:
+                counts = await tick(session, app.state.context)
+            except Exception as exc:  # noqa: BLE001 - a bad tick must not kill the scheduler
+                log.exception("%s tick failed", job_id)
+                if status is not None:
+                    status.failing_since = status.failing_since or datetime.now(UTC)
+                    status.last_error = f"{type(exc).__name__}: {exc}"[:300]
+                return
+        if status is not None:
+            status.last_ok, status.failing_since = datetime.now(UTC), None
+        if counts:
+            log.info("%s: %s", job_id, counts)
+
+    return run
+
+
 def _start_scheduler(app: FastAPI) -> AsyncIOScheduler:
     """In-process jobs (docs/plan.md A6). The observer tick doubles as the startup reconcile."""
 
-    async def observe_job() -> None:
-        with app.state.session_factory() as session:
-            try:
-                counts = await observer.tick(session, app.state.context)
-            except Exception:  # noqa: BLE001 - a bad tick must not kill the scheduler
-                log.exception("observer tick failed")
-                return
-        if counts:
-            log.info("observer: %s", counts)
-
-    async def import_job() -> None:
-        with app.state.session_factory() as session:
-            try:
-                counts = await importer.tick(session, app.state.context)
-            except Exception:  # noqa: BLE001
-                log.exception("import tick failed")
-                return
-        if counts:
-            log.info("importer: %s", counts)
-
-    async def discover_job() -> None:
-        with app.state.session_factory() as session:
-            try:
-                counts = await discovery.tick(session, app.state.context)
-            except Exception:  # noqa: BLE001
-                log.exception("discovery tick failed")
-                return
-        if counts:
-            log.info("discovery: %s", counts)
-
-    async def art_job() -> None:
-        with app.state.session_factory() as session:
-            try:
-                counts = await art.tick(session, app.state.context)
-            except Exception:  # noqa: BLE001
-                log.exception("art tick failed")
-                return
-        if counts:
-            log.info("art: %s", counts)
-
-    async def genres_job() -> None:
-        with app.state.session_factory() as session:
-            try:
-                counts = await genres.tick(session, app.state.context)
-            except Exception:  # noqa: BLE001
-                log.exception("genres tick failed")
-                return
-        if counts:
-            log.info("genres: %s", counts)
-
-    async def research_job() -> None:
-        with app.state.session_factory() as session:
-            try:
-                counts = await discovery.research_tick(session, app.state.context)
-            except Exception:  # noqa: BLE001
-                log.exception("re-search tick failed")
-                return
-        if counts:
-            log.info("re-search: %s", counts)
+    observe_job = _job(app, "observe", observer.tick)
+    import_job = _job(app, "import", importer.tick)
+    discover_job = _job(app, "discover", discovery.tick)
+    art_job = _job(app, "art", art.tick)
+    genres_job = _job(app, "genres", genres.tick)
+    research_job = _job(app, "research", discovery.research_tick)
 
     sched = AsyncIOScheduler()
     policy = app.state.policy
@@ -350,6 +349,7 @@ def _start_scheduler(app: FastAPI) -> AsyncIOScheduler:
         *((("art", art_job, {"minutes": 5}),) if app.state.context.coverart else ()),
     )
     for job_id, func, every in jobs:
+        app.state.job_status[job_id] = JobStatus(every=timedelta(**every))
         sched.add_job(
             func,
             "interval",

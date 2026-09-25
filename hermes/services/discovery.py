@@ -34,7 +34,7 @@ from hermes.domain.models import (
     SignalKind,
     utcnow,
 )
-from hermes.domain.state import TERMINAL, InvalidTransition, transition
+from hermes.domain.state import TERMINAL, transition
 from hermes.domain.state import AcquisitionState as S
 from hermes.integrations.listenbrainz import ListenBrainzError, Track
 from hermes.integrations.listenbrainz import Playlist as LBPlaylist
@@ -49,6 +49,8 @@ log = logging.getLogger("hermes.discovery")
 # The scheduler's startup run and a manual tick (CLI, API) can coincide; a playlist half
 # ingested by one must not be picked up by the other, so discovery is serialised per process.
 _lock = asyncio.Lock()
+# A row still SEARCHING after this long was cut off mid-search; re-search picks it up.
+STRANDED_SEARCH = timedelta(hours=1)
 
 
 class UpstreamUnavailable(Exception):
@@ -197,6 +199,13 @@ async def _ingest(
             session.commit()
             log.warning("playlist %s: %s", row.title or mbid, row.note)
             return row
+        except Exception:  # noqa: BLE001 - one odd track must not stop the playlist
+            # Left PENDING: the playlist stays PARTIAL and the next poll tries this track
+            # again, after the rest of the playlist has gone through.
+            session.rollback()
+            log.exception("playlist %s: track %s failed", row.title or mbid, track.position + 1)
+            summary["errors"] += 1
+            continue
         summary[outcome] += 1
         row.summary = dict(summary)
         session.commit()
@@ -352,7 +361,7 @@ async def _research(session: Session, ctx: Context) -> dict[str, int]:
     counts: Counter[str] = Counter()
     rows = session.scalars(
         select(Acquisition)
-        .where(Acquisition.state.in_([S.NO_MATCH, S.RESOLVED, S.FAILED]))
+        .where(Acquisition.state.in_([S.NO_MATCH, S.RESOLVED, S.FAILED, S.SEARCHING]))
         .order_by(Acquisition.id)
     ).all()
     for acq in rows:
@@ -360,6 +369,21 @@ async def _research(session: Session, ctx: Context) -> dict[str, int]:
         # discovery tick) may have moved this row since. Act on what is in the database.
         session.refresh(acq)
         state = acq.state
+        if state == S.SEARCHING:
+            # A search takes seconds; one this old was cut off (a restart mid-search) and
+            # nothing else would ever move it on.
+            if _aware(acq.updated_at) > utcnow() - STRANDED_SEARCH:
+                continue
+            transition(
+                session,
+                acq,
+                S.FAILED,
+                "search was interrupted (Hermes restarted mid-search?); searching again",
+                data={"retryable": True},
+                level="warning",
+            )
+            session.commit()
+            state = S.FAILED
         if state == S.NO_MATCH:
             if _aware(acq.updated_at) > cutoff:
                 counts["waiting"] += 1
@@ -390,7 +414,7 @@ async def _research(session: Session, ctx: Context) -> dict[str, int]:
                 await continue_with_target(session, ctx, acq)
             else:
                 await search_and_decide(session, ctx, acq)
-        except (ValueError, InvalidTransition, httpx.HTTPError) as exc:
+        except Exception as exc:  # noqa: BLE001 - one row must not stop the others
             session.rollback()
             log.warning("re-search of acquisition %s failed: %s", acq.id, exc)
             counts["failed"] += 1

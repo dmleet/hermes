@@ -341,6 +341,18 @@ def test_deluge_add_failure_is_retryable(stack) -> None:
     assert body["state"] == "SUBMITTED"
 
 
+def test_an_add_whose_answer_is_lost_is_tracked_not_failed(stack) -> None:
+    """Deluge accepted the torrent but the reply timed out: Hermes finds it in the session
+    and tracks it, rather than failing and grabbing a second torrent on the retry."""
+    client = stack.app(_policy())
+    stack.deluge.lose_add_reply = True
+    body = _request(client)
+    assert body["state"] == "SUBMITTED" and len(body["attempts"]) == 1
+    assert body["attempts"][0]["infohash"] == INFOHASH
+    assert any("in its session; tracking it" in e["message"] for e in body["events"])
+    assert len(stack.deluge.added) == 1
+
+
 # -- approval and budget ---------------------------------------------------------------
 
 

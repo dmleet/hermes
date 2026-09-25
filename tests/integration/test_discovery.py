@@ -247,6 +247,43 @@ async def test_musicbrainz_outage_mid_playlist_resumes_next_tick(
         assert len(acqs) == 1 and acqs[0].state == "NO_MATCH"
 
 
+async def test_an_odd_track_does_not_stop_the_playlist(
+    client: TestClient, respx_mock: respx.Router, monkeypatch
+) -> None:
+    real = discovery._process
+
+    async def flaky(session, ctx, signal, track, row):
+        if track.position == 0:
+            raise KeyError("unexpected shape")
+        return await real(session, ctx, signal, track, row)
+
+    monkeypatch.setattr(discovery, "_process", flaky)
+    assert await _tick(client) == {"partial": 1, "ignored": 2}
+    with client.app.state.session_factory() as session:
+        signals = session.scalars(select(Signal).order_by(Signal.position)).all()
+        # the odd track waits for the next poll; the rest of the playlist went through
+        assert [x.resolution_status for x in signals] == ["pending", "ignored", "resolved"]
+
+
+async def test_a_search_cut_off_mid_flight_is_searched_again(client: TestClient) -> None:
+    await _tick(client)
+    app = client.app
+    with app.state.session_factory() as session:
+        acq = session.scalars(select(Acquisition)).one()
+        acq.state = "SEARCHING"  # as a restart mid-search leaves it
+        session.commit()
+    assert await _research(client) == {}  # a fresh SEARCHING is someone's search in flight
+    with app.state.session_factory() as session:
+        acq = session.scalars(select(Acquisition)).one()
+        acq.updated_at = utcnow() - timedelta(hours=2)
+        session.commit()
+    await _research(client)
+    with app.state.session_factory() as session:
+        acq = session.scalars(select(Acquisition)).one()
+        assert acq.state == "NO_MATCH"
+        assert any("search was interrupted" in e.message for e in acq.events)
+
+
 async def test_prowlarr_outage_fails_retryably_and_research_retries(
     client: TestClient, respx_mock: respx.Router
 ) -> None:
@@ -351,8 +388,8 @@ async def test_interrupted_ingest_resumes_without_duplicates(
         return await real(mb, policy, mbid)
 
     monkeypatch.setattr(disc, "resolve_recording", crash_on_third)
-    with pytest.raises(RuntimeError):
-        await _tick(client)
+    # The error is contained to its track: the tick finishes the other playlists.
+    assert await _tick(client) == {"partial": 1, "ignored": 2}
     app = client.app
     with app.state.session_factory() as session:
         row = session.scalars(select(Playlist).where(Playlist.mbid == WE)).one()
@@ -360,8 +397,7 @@ async def test_interrupted_ingest_resumes_without_duplicates(
         signals = session.scalars(select(Signal).order_by(Signal.position)).all()
         assert [x.resolution_status for x in signals] == ["ignored", "ignored", "pending"]
     monkeypatch.setattr(disc, "resolve_recording", real)
-    # The crash also stopped the tick before the third listed playlist was recorded.
-    assert await _tick(client) == {"ingested": 1, "unchanged": 1, "ignored": 1}
+    assert await _tick(client) == {"ingested": 1, "unchanged": 2}
     with app.state.session_factory() as session:
         assert len(session.scalars(select(Signal)).all()) == 3
         acqs = session.scalars(select(Acquisition)).all()

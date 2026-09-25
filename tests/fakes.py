@@ -23,6 +23,7 @@ class FakeDeluge:
         self.plugins = plugins if plugins is not None else ["Label"]
         self.hidden: set[str] = set()
         self.fail_add: str | None = None
+        self.lose_add_reply = False  # the add lands but its answer times out
         router.post(f"{url}/json").mock(side_effect=self._handle)
 
     def _handle(self, request: httpx.Request) -> httpx.Response:
@@ -30,6 +31,10 @@ class FakeDeluge:
         method, params = body["method"], body["params"]
         try:
             result = self._dispatch(method, params)
+            if method == "core.add_torrent_file" and self.lose_add_reply:
+                raise httpx.ReadTimeout("timed out", request=request)
+        except httpx.HTTPError:
+            raise
         except Exception as exc:  # noqa: BLE001 - mimic Deluge's error envelope
             return httpx.Response(
                 200, json={"id": body["id"], "result": None, "error": {"message": str(exc)}}

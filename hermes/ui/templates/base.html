@@ -34,6 +34,7 @@
   main { max-width: 1100px; margin: 0 auto; padding: 1rem 1.25rem 3rem; }
   h1 { font-size:20px; margin:1rem 0 .5rem; } h2 { font-size:16px; margin:1.5rem 0 .5rem; color:var(--muted); }
   .notice { margin:.75rem 0; padding:.5rem .75rem; border:1px solid var(--notice-line); background:var(--acc-bg); border-radius:.4rem; }
+  .notice.job-problem { background:var(--bad-bg); overflow-wrap:anywhere; }
   .scroll { overflow-x:auto; }
   table { width:100%; border-collapse:collapse; background:var(--card); }
   td.nowrap, th.nowrap { white-space:nowrap; }
@@ -146,6 +147,7 @@
   </span>
 </header>
 <main>
+{% for problem in job_problems(request) %}<div class="notice job-problem">{{ problem }}</div>{% endfor %}
 {% if notice %}<div class="notice">{{ notice }}{% if prev_id %} <a href="/acquisitions/{{ prev_id }}">#{{ prev_id }}</a>{% endif %}</div>{% endif %}
 {% block content %}{% endblock %}
 </main>

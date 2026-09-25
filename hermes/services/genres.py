@@ -95,6 +95,11 @@ async def tick(session: Session, ctx: Context, *, limit: int = BATCH) -> dict[st
             log.warning("genres for %s: MusicBrainz unavailable (%s); stopping", mbid, exc)
             counts["unavailable"] = counts.get("unavailable", 0) + 1
             break
+        except Exception:  # noqa: BLE001 - genres are cosmetic; one odd reply must not stall them
+            # Recorded as none found, so this target does not head every later batch.
+            log.exception("genres for %s failed; recording none", mbid)
+            session.rollback()
+            found, outcome = {"top": []}, "error"
         else:
             found, outcome = stored(rg), "fetched" if rg.genres else "none"
         target = session.get(AlbumTarget, target_id)  # expired by the commit: re-read

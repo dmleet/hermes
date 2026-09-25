@@ -130,20 +130,24 @@ spec:
             allowPrivilegeEscalation: false
             capabilities:
               drop: [ALL]
+          # /livez only checks the process and its database. /healthz calls every
+          # dependency (each with a 30 s timeout, against the probe's 1 s): a Prowlarr down
+          # or a Deluge hung on a mount failed every probe, and after failureThreshold ×
+          # period the pod left the Service and the UI was unreachable. /healthz is for
+          # people; the queue page shows a failing job.
           readinessProbe:
             httpGet:
-              path: /healthz
+              path: /livez
               port: http
             periodSeconds: 30
-            # 503 means a dependency is down, not Hermes; keep the pod ready so the UI
-            # can show which one.
-            failureThreshold: 1000
+            failureThreshold: 3
           livenessProbe:
             httpGet:
-              path: /healthz
+              path: /livez
               port: http
             periodSeconds: 60
-            failureThreshold: 1000
+            timeoutSeconds: 5
+            failureThreshold: 5
           resources:
             requests:
               cpu: 50m

@@ -20,6 +20,10 @@ metadata:
 spec:
   template:
     spec:
+      # The agent lets a running `beet import` finish on SIGTERM for up to its
+      # shutdown_wait (280 s); Kubernetes' default 30 s would kill a copy mid-album and
+      # leave a library entry pointing at the seeded files.
+      terminationGracePeriodSeconds: 300
       containers:
         - name: beets
           image: <namespace>/beets-hermes:2.14.0-<sha>   # <beets release>-<commit> from the images workflow; never :latest or a bare version

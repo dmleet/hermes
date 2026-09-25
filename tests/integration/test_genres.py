@@ -160,6 +160,23 @@ async def test_job_stops_when_musicbrainz_is_down(
     assert _target(client, SLIP_RG).genres is None  # tried again next tick
 
 
+async def test_an_odd_reply_is_recorded_as_none_not_retried_forever(
+    respx_mock: respx.Router, client: TestClient
+) -> None:
+    """A 200 that is not JSON (a maintenance page): genres are cosmetic, so the target is
+    recorded as having none rather than heading every later batch."""
+    respx_mock.get(f"{MB}/release-group/").respond(json=_slip_search())
+    _mock_stack(respx_mock)
+    client.post("/requests", data={"artist": "Nine Inch Nails", "title": "The Slip"})
+    with client.app.state.session_factory() as session:
+        for t in session.scalars(select(AlbumTarget)):
+            t.genres = None
+        session.commit()
+    respx_mock.get(f"{MB}/release-group/{SLIP_RG}").respond(200, text="<html>down</html>")
+    assert (await _tick(client)) == {"error": 1}
+    assert _target(client, SLIP_RG).genres == {"top": []}
+
+
 @pytest.mark.parametrize(
     ("name", "short"),
     [

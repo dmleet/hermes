@@ -184,15 +184,34 @@ def config_problems() -> list[str]:
 # import carries a release id chosen from the files (track count, disc layout, medium),
 # so there is one candidate and `match.preferred` cannot order anything; it can only
 # lower that candidate's score. A correct CD from a country not in the list scored
-# "medium" on those two penalties alone and quiet mode skipped it. Manual imports do
-# not use this file and keep the preferences, which is where they order candidates.
+# "medium" on those two penalties alone and quiet mode skipped it. The same goes for the
+# fields read from the uploader's tags that describe the edition or the packaging (album
+# title, disc count, each file's disc number, year, label, catalogue number, country,
+# media, disambiguation): they say how the files were tagged, not what is on them, and
+# `from_scratch` discards them. A 2-CD set tagged as two albums, "... (CD 1)" and
+# "... (CD 2)", every file disc 1 of 1, scored 90.6% on its correct release, mostly on
+# the 17 second-disc files' disc number. What still decides the match: the artist, every
+# track's title, length and index (per disc or per release), and `max_rec` on missing
+# or unmatched tracks. Manual imports do not use this file and keep the preferences and
+# weights, which is where they order candidates.
 IMPORT_OVERLAY = """\
 # Written by hermes-agent at start; do not edit. Hermes imports run with `beet -c` this
-# file: the release id is already chosen, so candidate preferences only cost confidence.
+# file: the release id is already chosen, so candidate preferences only cost confidence,
+# and edition and disc tags describe the uploader's tagging, not the audio.
 match:
   preferred:
     media: []
     countries: []
+  distance_weights:
+    album: 0.0
+    mediums: 0.0
+    medium: 0.0
+    year: 0.0
+    label: 0.0
+    catalognum: 0.0
+    country: 0.0
+    media: 0.0
+    albumdisambig: 0.0
 """
 
 

@@ -149,3 +149,63 @@ def test_a_different_album_on_the_same_release_shape_still_fails(tmp_path):
     pairs, _, _ = assign_items(items, info.tracks)
     dist = distance(Source.from_items(items).data, info, pairs, 0)
     assert dist.distance > config["match"]["medium_rec_thresh"].as_number()
+
+
+def test_another_releases_id_in_the_tags_no_longer_costs_the_pinned_release(tmp_path):
+    # A 1-CD album whose files carry the MusicBrainz ids of another country's release of
+    # the same tracks: interactively beets scored it 82.1%, penalised on the id alone.
+    titles = [
+        "Venus",
+        "Cherry Blossom Girl",
+        "Run",
+        "Universal Traveler",
+        "Mike Mills",
+        "Surfing on a Rocket",
+        "Another Day",
+        "Alpha Beta Gaga",
+        "Biological",
+        "Alone in Kyoto",
+    ]
+    tracks = [
+        TrackInfo(title=t, length=240, index=n, medium=1, medium_index=n, track_id=f"pinned-{n}")
+        for n, t in enumerate(titles, start=1)
+    ]
+    items = [
+        Item(
+            artist="Air",
+            albumartist="Air",
+            album="Talkie Walkie",
+            title=t,
+            length=240,
+            track=n,
+            disc=1,
+            disctotal=1,
+            mb_albumid="other-release",
+            mb_trackid=f"other-{n}",
+        )
+        for n, t in enumerate(titles, start=1)
+    ]
+    info = AlbumInfo(
+        tracks=tracks,
+        album="Talkie Walkie",
+        album_id="pinned",
+        artist="Air",
+        artist_id="a1",
+        mediums=1,
+        media="CD",
+        year=2004,
+    )
+
+    def score(overlay: bool) -> float:
+        config.clear()
+        config.read(user=False, defaults=True)
+        if overlay:
+            path = tmp_path / "overlay.yaml"
+            path.write_text(IMPORT_OVERLAY)
+            config.set_file(path)
+        cached_classproperty.cache.clear()
+        pairs, _, _ = assign_items(items, info.tracks)
+        return distance(Source.from_items(items).data, info, pairs, 0).distance
+
+    assert score(overlay=False) > 0.04
+    assert score(overlay=True) == 0.0

@@ -187,17 +187,19 @@ def config_problems() -> list[str]:
 # "medium" on those two penalties alone and quiet mode skipped it. The same goes for the
 # fields read from the uploader's tags that describe the edition or the packaging (album
 # title, disc count, each file's disc number, year, label, catalogue number, country,
-# media, disambiguation): they say how the files were tagged, not what is on them, and
-# `from_scratch` discards them. A 2-CD set tagged as two albums, "... (CD 1)" and
-# "... (CD 2)", every file disc 1 of 1, scored 90.6% on its correct release, mostly on
-# the 17 second-disc files' disc number. What still decides the match: the artist, every
-# track's title, length and index (per disc or per release), and `max_rec` on missing
-# or unmatched tracks. Manual imports do not use this file and keep the preferences and
-# weights, which is where they order candidates.
+# media, disambiguation, and the MusicBrainz album and track ids): they say how the
+# files were tagged, not what is on them, and `from_scratch` discards them. A 2-CD set
+# tagged as two albums, "... (CD 1)" and "... (CD 2)", every file disc 1 of 1, scored
+# 90.6% on its correct release, mostly on the 17 second-disc files' disc number; a CD
+# tagged with another country's release id of the same tracks scored 82.1% on the id
+# alone. Against a given release an id can only cost: a match adds nothing. What still
+# decides the match: the artist, every track's title, length and index (per disc or per
+# release), and `max_rec` on missing or unmatched tracks. Manual imports do not use this
+# file and keep the preferences and weights, which is where they order candidates.
 IMPORT_OVERLAY = """\
 # Written by hermes-agent at start; do not edit. Hermes imports run with `beet -c` this
 # file: the release id is already chosen, so candidate preferences only cost confidence,
-# and edition and disc tags describe the uploader's tagging, not the audio.
+# and edition, disc and id tags describe the uploader's tagging, not the audio.
 match:
   preferred:
     media: []
@@ -212,6 +214,8 @@ match:
     country: 0.0
     media: 0.0
     albumdisambig: 0.0
+    album_id: 0.0
+    track_id: 0.0
 """
 
 

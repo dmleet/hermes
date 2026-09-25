@@ -92,9 +92,14 @@ add a regression test in `tests/integration/test_review_fixes.py`.
 - The Prowlarr query is `text.search_form("<artist> <title>")`: all punctuation to spaces, the noise words a/an/the/and/or/of dropped, accents kept. Measured on a Gazelle tracker (2026-09-19): "Deserter s Songs" found every edition and "Deserter's"/"Deserter’s"/"Deserters" none; "Belle Sebastian" found the albums and "Belle and Sebastian" none (the tracker spells `&`, which Prowlarr strips); the accented "Sigur Rós" found 26 and the stripped spelling 0. Every query word is required by the index, so dropping a word only widens. Prowlarr's own sanitiser already folds U+2019 to `'`, so folding alone changes nothing. An empty answer is checked against Prowlarr's indexer status before anything else, then retried with the artist and the title's head when the title has a subtitle or tail (`matching.title_head`; "CAN Anthology" for *Anthology: 25 Years*, measured 2026-09-24), then with the artist alone; before blaming a query by hand, confirm the indexer answers a broader one. The artist-only search is one page of groups on a Gazelle indexer whatever the limit, so for a prolific artist it is the newest uploads, not the catalogue. The dev Prowlarr can carry the real tracker's indexer, so tracker search behaviour is measured with a handful of queries rather than guessed.
 
 - `matching.title_similarity` splits tails (soundtrack, alternate title, subtitle) off both
-  titles. A subtitle only the tracker title carries caps the score at 0.8; when both carry
-  one the score is the lower of the head and tail similarities, with numbers compared
-  exactly ("Vol. 2" is not "Vol. 3").
+  titles. A subtitle only the tracker title carries caps the title similarity at 0.8; when
+  both carry one the result is the lower of the head and tail similarities; a target's
+  subtitle may match the listing alone ("Music for Airports"). Numbers are compared
+  exactly wherever two titles are compared, with Roman numerals and number words up to
+  ten read as digits: "Album II" is not "Album", "Pt. 2" is not "Pt. 1", "Volume II" is
+  "Volume 2".
+- The match score is bounded by the title similarity: `min(title, (artist + title) / 2)`.
+  The artist can lower a score, never lift a weak title over the threshold.
 - `artist_variants` accepts "performed by" and "feat." tails so a credited guest does not
   fail the artist check.
 - Add odd real titles to the corpus (`tests/fixtures/titles/`) rather than special-casing
@@ -104,9 +109,7 @@ add a regression test in `tests/integration/test_review_fixes.py`.
   titles it, the verdict, and the query sequence where it matters. Real rows carry the
   acquisition number; invented ones use "Artist"/"Album". A verdict the matcher cannot
   reach yet stays in the corpus with `gap:` (a strict expected failure), so the gap is on
-  record and a fix has to remove the mark. The threshold the corpus judges by is the
-  combined score (half artist, half title): with the artist matching, a title similarity
-  of 0.7 is enough, which is what the gaps on tracker-only subtitles come down to.
+  record and a fix has to remove the mark.
 
 ## Discovery
 

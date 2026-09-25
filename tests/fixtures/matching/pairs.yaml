@@ -29,7 +29,7 @@
   year: 1994
   listing: "Can - Anthology 1968-93 (1993) [Anthology] [Remastered 2011] [FLAC Lossless / WEB]"
   expect: reject
-  why: "#74: the sibling compilation a year earlier; scores 0.846, a thin margin"
+  why: "#74: the sibling compilation a year earlier; its title carries years the target lacks"
 
 - artist: Mercury Rev
   title: "Deserter’s Songs"
@@ -86,8 +86,7 @@
   year: 2004
   listing: "Bloc Party - Silent Alarm Remixed (2005) [Remix] [Japan / with Two More Years EP 2005] [FLAC Lossless / CD / Log (100%) / Cue]"
   expect: reject
-  why: "#69: one word appended to a long title; ranking dropped it for its type only"
-  gap: "a trailing word on a long title keeps whole-string similarity above the threshold"
+  why: "#69: one word appended to a long title; the title alone must clear the threshold"
 
 - artist: Incubus
   title: Morning View
@@ -203,7 +202,7 @@
   year: 1978
   listing: "Brian Eno - Music for Airports (1978) [Album] [FLAC Lossless / WEB]"
   expect: accept
-  why: "#5: a listing that keeps only the subtitle"
+  why: "#5: a listing that keeps only the subtitle; matched by the tail alone"
 
 - artist: Gorillaz
   title: The Mountain
@@ -259,7 +258,6 @@
   listing: "Artist - Interstellar Overdrive (2014) [Album] [FLAC Lossless / WEB]"
   expect: reject
   why: "a different title that shares the head's word"
-  gap: "title 0.78 alone rejects, but the artist half of the score lifts it over the threshold"
 
 - artist: Artist
   title: Dummy
@@ -296,7 +294,6 @@
   listing: "Artist - Phantomime (Volume 2) (2019) [Album] [FLAC Lossless / WEB]"
   expect: accept
   why: "the same volume, one side in Roman numerals"
-  gap: "the tail's number check reads 'ii' and '2' as different numbers"
 
 - artist: Artist
   title: "Title, Pt. 1"
@@ -304,7 +301,6 @@
   listing: "Artist - Title, Pt. 2 (2019) [Album] [FLAC Lossless / WEB]"
   expect: reject
   why: "a part number outside any tail"
-  gap: "numbers are compared only inside a subtitle or parenthesis"
 
 - artist: Artist
   title: "Title, Part 1"
@@ -319,14 +315,13 @@
   listing: "Artist - Album II (1969) [Album] [FLAC Lossless / WEB]"
   expect: reject
   why: "a sequel the same year (Led Zeppelin's first two are both 1969)"
-  gap: "numbers are compared only inside a subtitle or parenthesis"
 
 - artist: Artist
   title: Album II
   year: 2019
   listing: "Artist - Album 2 (2019) [Album] [FLAC Lossless / WEB]"
   expect: accept
-  why: "a Roman numeral in the title itself; whole-string similarity carries it"
+  why: "a Roman numeral against a digit"
 
 - artist: Artist
   title: "Album, Volume 1"
@@ -334,7 +329,6 @@
   listing: "Artist - Album Vol. 2 (2019) [Album] [FLAC Lossless / WEB]"
   expect: reject
   why: "volumes that differ, not set off by a colon"
-  gap: "numbers are compared only inside a subtitle or parenthesis"
 
 - artist: Artist
   title: "Album, Volume 1"
@@ -349,7 +343,6 @@
   listing: "Artist - Rival Dealer: Remixes (2013) [Album] [FLAC Lossless / WEB]"
   expect: reject
   why: "a subtitle only the tracker has"
-  gap: "the 0.8 cap on a tracker-only subtitle sits above the 0.7 a matching artist needs"
 
 - artist: Artist
   title: Homogenic
@@ -357,7 +350,6 @@
   listing: "Artist - Homogenic - Live (1997) [Album] [FLAC Lossless / WEB]"
   expect: reject
   why: "a dash subtitle only the tracker has"
-  gap: "the 0.8 cap on a tracker-only subtitle sits above the 0.7 a matching artist needs"
 
 - artist: Artist
   title: Album

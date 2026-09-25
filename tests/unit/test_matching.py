@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from hermes.services.matching import match, strip_edition, title_head
+from hermes.services.matching import as_digits, match, strip_edition, title_head
 from hermes.services.title_parser import parse_title
 
 
@@ -109,6 +109,7 @@ def test_subtitle_handling_does_not_match_a_different_release(target: str, track
         year=2019,
     )
     assert r.title_similarity < 0.85, (target, tracker, r)
+    assert r.score < 0.85, (target, tracker, r)  # the artist match cannot lift it back
 
 
 @pytest.mark.parametrize(
@@ -143,3 +144,10 @@ def test_title_head_is_the_title_before_its_tail() -> None:
     assert title_head("Homogenic - Live") == "Homogenic"
     assert title_head("Anthology 1968-93") is None
     assert title_head("The Slip") is None
+
+
+def test_numbers_read_the_same_however_they_are_written() -> None:
+    assert as_digits("Phantomime (Volume II)") == "Phantomime (Volume 2)"
+    assert as_digits("Seven Days Walking: Day One") == "7 Days Walking: Day 1"
+    assert as_digits("Vs.") == "Vs."  # no boundary inside a word
+    assert as_digits("X&Y") == "10&Y"  # the same on both sides, so harmless

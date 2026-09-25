@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass, field
 
-from hermes.services.text import similarity
+from hermes.services.text import normalize, similarity
 from hermes.services.title_parser import EDITION_WORDS, ParsedTitle
 
 _EDITION_PAREN = re.compile(
@@ -70,6 +70,21 @@ _NUMBER_WORD = re.compile(
     r"\b(" + "|".join(sorted(_WORD_NUMBERS, key=len, reverse=True)) + r")\b", re.IGNORECASE
 )
 _DIGITS = re.compile(r"\d+")
+# Letters set off by dots ("V.I.P.", "U.S.A."): an initialism, whose letters are not
+# Roman numerals.
+_INITIALISM = re.compile(r"\b(?:[A-Za-z]\.){2,}")
+_TRAILING_I = re.compile(r"\s+I\s*$")
+# Words that name a kind of compilation or edition rather than one record: a subtitle made
+# of nothing else ("Greatest Hits", "25 Years") would match any such listing alone.
+_GENERIC_WORDS = frozenset(
+    {
+        "a", "an", "the", "of", "and", "best", "greatest", "hits", "anthology", "collection",
+        "essential", "essentials", "live", "remix", "remixes", "remixed", "year", "years",
+        "single", "singles", "b", "side", "sides", "rarities", "demos", "instrumentals",
+        "deluxe", "edition", "expanded", "remastered", "volume", "vol", "part", "pt",
+        "chapter", "complete", "definitive", "retrospective",
+    }
+)  # fmt: skip
 
 
 def _split_tail(title: str) -> tuple[str, str | None, str | None]:
@@ -97,24 +112,55 @@ def title_head(title: str) -> str | None:
     return head if tail else None
 
 
-def as_digits(text: str) -> str:
+def as_digits(text: str, *, lone_i: bool = True) -> str:
     """Number words and Roman numerals up to ten as digits ("Volume II" -> "Volume 2",
-    "Day One" -> "Day 1"), so a number reads the same however a title spells it. The
-    pronoun "I" becomes "1" too, on both sides alike, which changes nothing between them."""
-    return _NUMBER_WORD.sub(lambda m: str(_WORD_NUMBERS[m.group(0).lower()]), text)
+    "Day One" -> "Day 1"), so a number reads the same however a title spells it. An
+    initialism's letters stay letters ("V.I.P." -> "VIP"). A lone "I" is the pronoun as
+    often as a numeral; with ``lone_i`` False it stays a word (see `_similar`)."""
+    text = _INITIALISM.sub(lambda m: m.group(0).replace(".", ""), text)
+
+    def digit(m: re.Match[str]) -> str:
+        word = m.group(0)
+        return word if not lone_i and word.lower() == "i" else str(_WORD_NUMBERS[word.lower()])
+
+    return _NUMBER_WORD.sub(digit, text)
 
 
-def _numbers(text: str) -> list[int]:
-    return sorted(int(n) for n in _DIGITS.findall(as_digits(text)))
+def _numbers(text: str, *, lone_i: bool = True) -> list[int]:
+    return sorted(int(n) for n in _DIGITS.findall(as_digits(text, lone_i=lone_i)))
+
+
+def _lone_i_is_a_number(a: str, b: str) -> bool:
+    """A lone "I" counts as a number only when either title has another number: then
+    "Pt. I" is "Pt. 1" and "Album I" is not "Album II". Otherwise it is a word, so the
+    pronoun ("I'm Wide Awake" against "Im Wide Awake") and a first album named only once
+    there was a second ("Led Zeppelin I") compare as words."""
+    return bool(_numbers(a, lone_i=False) or _numbers(b, lone_i=False))
+
+
+def _numbers_differ(a: str, b: str) -> bool:
+    lone_i = _lone_i_is_a_number(a, b)
+    return _numbers(a, lone_i=lone_i) != _numbers(b, lone_i=lone_i)
 
 
 def _similar(a: str, b: str) -> float:
     """Title similarity with the numbers compared exactly: "Album" is not "Album II",
     "Day One" is not "Day Two" and "Pt. 1" is not "Pt. 2", however alike the words are,
     while "Volume II" is "Volume 2"."""
-    if _numbers(a) != _numbers(b):
+    if _numbers_differ(a, b):
         return 0.0
-    return similarity(as_digits(a), as_digits(b))
+    lone_i = _lone_i_is_a_number(a, b)
+    if not lone_i:
+        # A title that ends in "I" with no other number is a first album named after
+        # its second ("Led Zeppelin I"), not the pronoun: that "I" is not a word either.
+        a, b = _TRAILING_I.sub("", a), _TRAILING_I.sub("", b)
+    return similarity(as_digits(a, lone_i=lone_i), as_digits(b, lone_i=lone_i))
+
+
+def _generic(subtitle: str) -> bool:
+    """A subtitle of only numbers and compilation words ("Greatest Hits", "25 Years")."""
+    words = [w for w in normalize(as_digits(subtitle)).split() if not w.isdigit()]
+    return all(w in _GENERIC_WORDS for w in words)
 
 
 def title_similarity(target: str, album: str) -> tuple[float, str | None]:
@@ -135,9 +181,10 @@ def title_similarity(target: str, album: str) -> tuple[float, str | None]:
     if t_tail and not a_tail:
         cand = _similar(t_head, stripped)
         cand_note = "matched the target's title before its subtitle or tail"
-        if t_kind in ("alt", "subtitle"):
+        if t_kind == "alt" or (t_kind == "subtitle" and not _generic(t_tail)):
             # A listing may keep only the subtitle ("Music for Airports" for "Ambient 1:
-            # Music for Airports"), as it may keep only the alternative title.
+            # Music for Airports"), as it may keep only the alternative title; not a
+            # generic one ("Chapter One: Greatest Hits"), which names any compilation.
             by_tail = _similar(t_tail, stripped)
             if by_tail > cand:
                 cand, cand_note = (
@@ -167,7 +214,7 @@ def title_similarity(target: str, album: str) -> tuple[float, str | None]:
             crossed = max(_similar(t_head, a_tail), _similar(t_tail, a_head))
             tails = max(tails, crossed)
         return min(heads, tails), "matched head and subtitle separately"
-    if best == 0.0 and _numbers(target) != _numbers(stripped):
+    if best == 0.0 and _numbers_differ(target, stripped):
         note = "the titles differ in a number"
     return best, note
 

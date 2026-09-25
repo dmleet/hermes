@@ -338,6 +338,55 @@
   why: "'Volume' against 'Vol.'"
 
 - artist: Artist
+  title: Album
+  year: 1969
+  listing: "Artist - Album I (1969) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "a lone I named only once there is a II (Led Zeppelin); no other number, so a word"
+
+- artist: Artist
+  title: Album I
+  year: 1969
+  listing: "Artist - Album II (1969) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a lone I against a II: among numbers, I is a number"
+
+- artist: Artist
+  title: "Title, Pt. I"
+  year: 2019
+  listing: "Artist - Title, Pt. 1 (2019) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "a lone I against a digit"
+
+- artist: Artist
+  title: "I'm Wide Awake, It's Morning"
+  year: 2005
+  listing: "Artist - Im Wide Awake Its Morning (2005) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "the pronoun I, apostrophes dropped by the listing"
+
+- artist: Artist
+  title: V.I.P.
+  year: 2019
+  listing: "Artist - VIP (2019) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "an initialism with and without dots; its letters are not Roman numerals"
+
+- artist: Artist
+  title: "Chapter One: Greatest Hits"
+  year: 2019
+  listing: "Artist - Greatest Hits (2019) [Compilation] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a generic subtitle alone names any compilation, not this one"
+
+- artist: Artist
+  title: "Album: 25 Years"
+  year: 2019
+  listing: "Artist - 25 Years (2019) [Compilation] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a subtitle of a number and a generic word alone"
+
+- artist: Artist
   title: Rival Dealer
   year: 2013
   listing: "Artist - Rival Dealer: Remixes (2013) [Album] [FLAC Lossless / WEB]"

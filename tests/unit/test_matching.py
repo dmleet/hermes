@@ -151,3 +151,5 @@ def test_numbers_read_the_same_however_they_are_written() -> None:
     assert as_digits("Seven Days Walking: Day One") == "7 Days Walking: Day 1"
     assert as_digits("Vs.") == "Vs."  # no boundary inside a word
     assert as_digits("X&Y") == "10&Y"  # the same on both sides, so harmless
+    assert as_digits("V.I.P.") == "VIP"  # an initialism's letters stay letters
+    assert as_digits("I'm Wide Awake", lone_i=False) == "I'm Wide Awake"

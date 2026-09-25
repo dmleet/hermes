@@ -132,6 +132,9 @@ def stack(respx_mock: respx.Router, settings: Settings):
                 json={"count": 1, "release-groups": [{**_slip_rg(), "score": 100}]}
             )
             respx_mock.get(f"{MB}/release-group/{SLIP_RG}").respond(json=_slip_rg())
+            # A release as beets counts it: the fixture releases list no media, so the
+            # count never matches and the ranking's first choice stands.
+            respx_mock.get(url__regex=rf"{MB}/release/[^/?]+").respond(json={"media": []})
             respx_mock.get(f"{PROWLARR}/api/v1/search").respond(
                 json=load("prowlarr/search_pandacd_nin")
             )

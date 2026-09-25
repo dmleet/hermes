@@ -89,6 +89,7 @@ def stack(respx_mock: respx.Router, settings: Settings):
             self.deluge = FakeDeluge(respx_mock, DELUGE)
             self.agent = FakeBeetsAgent(respx_mock, BEETS)
             respx_mock.get(f"{MB}/release-group/").respond(json=_slip())
+            respx_mock.get(url__regex=rf"{MB}/release/[^/?]+").respond(json={"media": []})
             respx_mock.get(f"{MB}/release-group/{SLIP_RG}").respond(
                 json=_slip()["release-groups"][0]
             )

@@ -194,3 +194,77 @@ async def test_loose_search_uses_bare_terms(respx_mock: respx.Router) -> None:
 def test_lucene_terms_strips_operators() -> None:
     assert lucene_terms('a+b -c !d (e) "f" g:h ~i j/k') == "a b c d e f g h i j k"
     assert lucene_terms("!!!") == ""
+
+
+# -- the release to pin: counted as beets counts it --------------------------------------
+
+_SILENT_ALARM_RG = "f3f82b80-b2c5-3151-be53-5cb5803860e0"
+
+
+def _medium(n: int, *, pregap: bool = False, video: int = 0) -> dict:
+    tracks = [{"recording": {"title": f"t{i}", "video": False}} for i in range(n)]
+    tracks += [{"recording": {"title": f"v{i}", "video": True}} for i in range(video)]
+    medium: dict = {"format": "CD", "track-count": n + video, "tracks": tracks}
+    if pregap:
+        medium["pregap"] = {"recording": {"title": "hidden", "video": False}}
+    return medium
+
+
+def test_beets_counts_a_pregap_track_and_not_a_video() -> None:
+    from hermes.integrations.musicbrainz import count_beets_tracks
+
+    assert count_beets_tracks({"media": [_medium(13)]}) == 13
+    assert count_beets_tracks({"media": [_medium(13, pregap=True)]}) == 14
+    assert count_beets_tracks({"media": [_medium(12), _medium(17)]}) == 29
+    assert count_beets_tracks({"media": [_medium(13, video=2)]}) == 13
+
+
+@respx.mock
+async def test_a_release_with_a_hidden_pregap_track_is_not_pinned_for_a_rip_without_it() -> None:
+    """Acquisition 69: a 13-file CD rip was pinned to the US CD, which the group's list
+    shows as 13 tracks but which hides a 14th in the pregap. beets saw a missing track and
+    quiet mode skipped the import. The next candidate that really has 13 is pinned."""
+    from types import SimpleNamespace
+
+    from hermes.domain.models import AlbumTarget
+    from hermes.services.importer import DownloadShape, choose_search_id
+
+    def rel(mbid: str, country: str) -> dict:
+        return {
+            "id": mbid,
+            "title": "Silent Alarm",
+            "status": "Official",
+            "date": "2005-03-14" if country == "US" else "2005-02-14",
+            "country": country,
+            "media": [{"format": "CD", "track-count": 13}],
+        }
+
+    respx.get(f"{DEFAULT_BASE_URL}/release-group/{_SILENT_ALARM_RG}").respond(
+        json={
+            "id": _SILENT_ALARM_RG,
+            "title": "Silent Alarm",
+            "primary-type": "Album",
+            "first-release-date": "2005-02-14",
+            "artist-credit": [{"name": "Bloc Party", "artist": {"id": "x", "name": "Bloc Party"}}],
+            "releases": [rel("us-vice", "US"), rel("gb-wichita", "GB")],
+        }
+    )
+    us = respx.get(f"{DEFAULT_BASE_URL}/release/us-vice").respond(
+        json={"media": [_medium(13, pregap=True)]}
+    )
+    gb = respx.get(f"{DEFAULT_BASE_URL}/release/gb-wichita").respond(json={"media": [_medium(13)]})
+    mb = MusicBrainzClient("t@example.com", min_interval=0.0)
+    ctx = SimpleNamespace(musicbrainz=mb)
+    target = AlbumTarget(
+        release_group_mbid=_SILENT_ALARM_RG, artist_name="Bloc Party", title="Silent Alarm"
+    )
+    shape = DownloadShape(track_count=13, layout=[13], media="CD")
+    try:
+        # The ranking alone prefers the US release (US before GB); the count moves it on.
+        assert await choose_search_id(ctx, target, 2005, shape) == "gb-wichita"  # type: ignore[arg-type]
+        assert us.called and gb.called
+        # A 14-file rip of the US CD, hidden track included, keeps the US release.
+        shape14 = DownloadShape(track_count=14, layout=[14], media="CD")
+        assert await choose_search_id(ctx, target, 2005, shape14) == "us-vice"  # type: ignore[arg-type]
+    finally:
+        await mb.aclose()

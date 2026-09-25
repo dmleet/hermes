@@ -102,6 +102,14 @@ _MEDIA_FORMATS = {
 def pick_release(
     rg: ReleaseGroup, hint_year: int | None, shape: DownloadShape | None = None
 ) -> str | None:
+    """The best release for the files, or None when the group lists none."""
+    ranked = rank_releases(rg, hint_year, shape)
+    return ranked[0] if ranked else None
+
+
+def rank_releases(
+    rg: ReleaseGroup, hint_year: int | None, shape: DownloadShape | None = None
+) -> list[str]:
     """The release beets should be told about. beets in quiet mode skips anything but a
     strong match against the release it is given, so the choice follows the files: official;
     the download's track count (a group can hold a 9-track "Ghosts I" beside the 36-track
@@ -111,7 +119,7 @@ def pick_release(
     worldwide/major country, and a plain release over a disambiguated variant."""
     releases = list(rg.releases)
     if not releases:
-        return None
+        return []
     shape = shape or DownloadShape()
     wanted_formats = _MEDIA_FORMATS.get(shape.media or "", ())
 
@@ -138,7 +146,12 @@ def pick_release(
         plain = 0 if not getattr(r, "disambiguation", None) else 1
         return (status_ok, tracks_ok, layout_ok, media_ok, year_ok, country_rank, plain)
 
-    return str(min(releases, key=key).id)
+    return [str(r.id) for r in sorted(releases, key=key)]
+
+
+# How many ranked releases whose listed track count fits are looked up before settling on
+# the first: each is one MusicBrainz request at 1 req/s.
+VERIFY_RELEASES = 4
 
 
 def download_shape(attempt: GrabAttempt, parsed_media: str | None) -> DownloadShape:
@@ -162,7 +175,21 @@ async def choose_search_id(
     if target.preferred_release_mbid:
         return target.preferred_release_mbid
     rg = await ctx.musicbrainz.release_group(target.release_group_mbid)
-    return pick_release(rg, hint_year or target.first_release_year, shape)
+    ranked = rank_releases(rg, hint_year or target.first_release_year, shape)
+    if not ranked:
+        return None
+    wanted = shape.track_count if shape else None
+    if wanted is None:
+        return ranked[0]
+    # The group's release list counts only a medium's numbered tracks, but beets also
+    # matches a hidden track in the pregap: a 13-track US CD with one is 14 to beets, a
+    # 13-file rip of it is "missing tracks", and `max_rec` makes quiet mode skip it. Count
+    # the way beets does before pinning, on the few best candidates that could fit.
+    listed = {str(r.id): r.track_count for r in rg.releases}
+    for mbid in [m for m in ranked if listed.get(m) in (None, wanted)][:VERIFY_RELEASES]:
+        if await ctx.musicbrainz.release_beets_track_count(mbid) == wanted:
+            return mbid
+    return ranked[0]
 
 
 def _note_once(session: Session, acq: Acquisition, message: str, level: str = "warning") -> None:

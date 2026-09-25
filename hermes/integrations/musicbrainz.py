@@ -431,6 +431,13 @@ class MusicBrainzClient:
             for t in medium.get("tracks") or []
         ]
 
+    async def release_beets_track_count(self, mbid: str) -> int:
+        """The number of tracks beets matches files against for one release: every medium's
+        tracks plus a hidden track in its pregap, less video tracks (beets' default
+        `ignore_video_tracks`; data tracks are ignored by default and not listed here)."""
+        body = await self._get(f"/release/{mbid}", {"inc": "recordings"})
+        return count_beets_tracks(body)
+
     async def recording(self, mbid: str) -> Recording:
         """A recording with every release (and release group) it appears on: one call
         answers "which album is this track from" for discovery."""
@@ -438,3 +445,14 @@ class MusicBrainzClient:
             f"/recording/{mbid}", {"inc": "releases+release-groups+artist-credits"}
         )
         return parse_recording(body)
+
+
+def count_beets_tracks(release: dict[str, Any]) -> int:
+    """See `MusicBrainzClient.release_beets_track_count`."""
+    count = 0
+    for medium in release.get("media") or []:
+        tracks = list(medium.get("tracks") or [])
+        if medium.get("pregap"):
+            tracks.append(medium["pregap"])
+        count += sum(1 for t in tracks if not (t.get("recording") or {}).get("video"))
+    return count

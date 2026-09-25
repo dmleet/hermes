@@ -145,10 +145,12 @@ this stack, not the cluster (docs/plan.md A12).
   availability derives from `can_transition`; `docs/ui-plan.md` is the page design.
 - `beets-hermes/beetsplug/hermes.py`: a beets plugin adding `beet hermes-agent` (also the
   `hermes-agent` console script): `/library/...` reads built on beets' `Library` query
-  objects (never query strings), a job runner that shells out to `beet import` (with an
-  overlay config that clears `match.preferred`: the release id is given), and
-  `POST /history` for beets' incremental history. Hermes talks to beets **only** through
-  this agent; it never opens `library.db` and does not use the `web` plugin.
+  objects (never query strings), a job runner that shells out to `beet import` (when the
+  release id is given, with an overlay config that clears `match.preferred` and the
+  weights of the uploader's edition and id tags; first refusing files whose MusicBrainz
+  release-group tags all name another group), and `POST /history` for beets' incremental
+  history. Hermes talks to beets **only** through this agent; it never opens `library.db`
+  and does not use the `web` plugin.
 
 ## Versions, images and compatibility
 

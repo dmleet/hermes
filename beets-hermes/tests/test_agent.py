@@ -203,10 +203,43 @@ def test_command_terminates_options_and_import_log_is_exposed(agent):
     args_line = next(line for line in job["log_tail"] if line.startswith("ARGS"))
     assert " -- " in args_line and args_line.endswith(str(album))
     assert "import_log_tail" in job
-    # Every Hermes import runs with the overlay that clears beets' candidate preferences:
-    # the release id is given, so they could only lower the one candidate's score.
-    assert f" -c {store.overlay} import " in args_line
+    # Without a release id beets searches, and the overlay would drop the fields that
+    # order its candidates: an unpinned import runs on the user's config alone.
+    assert " -c " not in args_line
     assert "preferred:" in store.overlay.read_text() and "media: []" in store.overlay.read_text()
+
+
+def test_a_pinned_import_runs_with_the_overlay(agent):
+    base, store, tmp_path = agent
+    album = tmp_path / "Artist - Album"
+    album.mkdir()
+    body = call(
+        f"{base}/import",
+        "POST",
+        {"path": str(album), "acquisition_id": "a9", "search_id": "1111-2222"},
+    )[1]
+    job = wait_finished(base, body["job_id"])
+    args_line = next(line for line in job["log_tail"] if line.startswith("ARGS"))
+    assert f" -c {store.overlay} import " in args_line and "--search-id 1111-2222" in args_line
+
+
+def test_a_failing_tag_check_refuses_instead_of_killing_the_worker(agent, monkeypatch):
+    import beetsplug.hermes as agent_module
+
+    def broken(path, release_group_id):
+        raise RecursionError("symlink loop")
+
+    base, store, tmp_path = agent
+    album = tmp_path / "Artist - Album"
+    album.mkdir()
+    monkeypatch.setattr(agent_module, "release_group_refusal", broken)
+    request = {"path": str(album), "acquisition_id": "a1", "release_group_id": "rg"}
+    job = wait_finished(base, call(f"{base}/import", "POST", request)[1]["job_id"])
+    assert job["refused"] is True and "RecursionError" in job["error"]
+    monkeypatch.undo()
+    # the worker is still alive: the next job runs beets (the stub; its exit code is moot)
+    job = wait_finished(base, call(f"{base}/import", "POST", request)[1]["job_id"])
+    assert job["refused"] is False and any(line.startswith("ARGS") for line in job["log_tail"])
 
 
 def test_corrupt_jobs_file_is_moved_aside(tmp_path):
@@ -246,6 +279,8 @@ def test_files_tagged_as_another_release_group_are_refused_without_running_beets
     _flac(album / "CD1" / "01.flac", "other-group")
     _flac(album / "CD2" / "01.flac", "other-group")
     _flac(album / "CD2" / "02.flac", None)  # an untagged file does not outvote the rest
+    (album / "cover.jpg").write_bytes(b"not an image")  # not audio: skipped
+    (album / "CD1" / "rip.log").write_text("EAC log")
     status, body = call(
         f"{base}/import",
         "POST",

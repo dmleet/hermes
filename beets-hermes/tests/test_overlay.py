@@ -208,4 +208,47 @@ def test_another_releases_id_in_the_tags_no_longer_costs_the_pinned_release(tmp_
         return distance(Source.from_items(items).data, info, pairs, 0).distance
 
     assert score(overlay=False) > 0.04
-    assert score(overlay=True) == 0.0
+    assert score(overlay=True) < 0.01
+
+
+def test_two_discs_with_the_same_titles_keep_their_files(tmp_path):
+    # A stereo and a mono mix of one album on two discs: the same titles, lengths seconds
+    # apart. With nothing but the disc number and track id to tell the discs apart, the
+    # overlay must still let beets put each file on its own disc.
+    titles = [f"Song {n}" for n in range(1, 14)]
+    tracks, items, index = [], [], 0
+    for disc in (1, 2):
+        for number, title in enumerate(titles, start=1):
+            index += 1
+            tracks.append(
+                TrackInfo(
+                    title=title,
+                    length=200 + number,
+                    index=index,
+                    medium=disc,
+                    medium_index=number,
+                    track_id=f"rec-{disc}-{number}",
+                )
+            )
+            items.append(
+                Item(
+                    artist="Artist",
+                    albumartist="Artist",
+                    album="Album",
+                    title=title,
+                    length=200 + number + (3 if disc == 2 else 0),
+                    track=number,
+                    disc=disc,
+                    disctotal=2,
+                    mb_trackid=f"rec-{disc}-{number}",
+                )
+            )
+    config.clear()
+    config.read(user=False, defaults=True)
+    path = tmp_path / "overlay.yaml"
+    path.write_text(IMPORT_OVERLAY)
+    config.set_file(path)
+    cached_classproperty.cache.clear()
+    pairs, extra_items, extra_tracks = assign_items(items, tracks)
+    assert not extra_items and not extra_tracks
+    assert all(item.disc == track.medium for item, track in pairs)

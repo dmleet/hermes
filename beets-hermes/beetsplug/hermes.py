@@ -195,8 +195,13 @@ def config_problems() -> list[str]:
 # tagged with another country's release id of the same tracks scored 82.1% on the id
 # alone. Against a given release an id can only cost: a match adds nothing. What still
 # decides the match: the artist, every track's title, length and index (per disc or per
-# release), and `max_rec` on missing or unmatched tracks. Manual imports do not use this
-# file and keep the preferences and weights, which is where they order candidates.
+# release), and `max_rec` on missing or unmatched tracks. The disc number and track id
+# keep a token weight rather than none: beets also uses these weights to assign files to
+# tracks, and at zero a two-disc edition with the same titles on both discs (stereo and
+# mono, say) had every file put on the other disc. At 0.01 they break that tie and cost
+# a correct import well under a point. Only a pinned import uses this file (`_command`):
+# without a release id beets searches, and these fields are what order its candidates.
+# Manual imports do not use it either and keep the preferences and weights.
 IMPORT_OVERLAY = """\
 # Written by hermes-agent at start; do not edit. Hermes imports run with `beet -c` this
 # file: the release id is already chosen, so candidate preferences only cost confidence,
@@ -208,7 +213,7 @@ match:
   distance_weights:
     album: 0.0
     mediums: 0.0
-    medium: 0.0
+    medium: 0.01
     year: 0.0
     label: 0.0
     catalognum: 0.0
@@ -216,7 +221,7 @@ match:
     media: 0.0
     albumdisambig: 0.0
     album_id: 0.0
-    track_id: 0.0
+    track_id: 0.01
 """
 
 
@@ -347,16 +352,11 @@ class JobStore:
     def _command(self, job: dict[str, Any]) -> list[str]:
         # -I (noincremental): the user's config has `incremental: yes`, which would make a
         # retried import of the same path a silent no-op.
-        cmd = [
-            *self.beet_command,
-            "-c",
-            str(self.overlay),
-            "import",
-            "-q",
-            "-I",
-            "--set",
-            f"hermes_acquisition={job['acquisition_id']}",
-        ]
+        # The overlay only with a release id: it drops the fields that order candidates.
+        cmd = [*self.beet_command]
+        if job["search_id"]:
+            cmd += ["-c", str(self.overlay)]
+        cmd += ["import", "-q", "-I", "--set", f"hermes_acquisition={job['acquisition_id']}"]
         if job["search_id"]:
             cmd += ["--search-id", job["search_id"]]
         # "--" so a path can never be read as an option, whatever it starts with.
@@ -368,7 +368,10 @@ class JobStore:
             job = self._jobs[job_id]
             job.update(status="running", started_at=_now())
         self._save()
-        refusal = release_group_refusal(job["path"], job.get("release_group_id"))
+        try:
+            refusal = release_group_refusal(job["path"], job.get("release_group_id"))
+        except Exception as exc:  # noqa: BLE001 - an escape would kill this worker thread
+            refusal = f"could not read the files' MusicBrainz tags: {type(exc).__name__}: {exc}"
         if refusal:
             with self._lock:
                 job.update(status="finished", refused=True, error=refusal, finished_at=_now())

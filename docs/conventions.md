@@ -99,6 +99,14 @@ add a regression test in `tests/integration/test_review_fixes.py`.
   fail the artist check.
 - Add odd real titles to the corpus (`tests/fixtures/titles/`) rather than special-casing
   them in the parser. `uv run hermes parse-title "<title>"` shows how a title is read.
+- A matching miss or a wrong accept becomes a row in `tests/fixtures/matching/pairs.yaml`
+  before it becomes a fix: the target as MusicBrainz names it, the listing as the tracker
+  titles it, the verdict, and the query sequence where it matters. Real rows carry the
+  acquisition number; invented ones use "Artist"/"Album". A verdict the matcher cannot
+  reach yet stays in the corpus with `gap:` (a strict expected failure), so the gap is on
+  record and a fix has to remove the mark. The threshold the corpus judges by is the
+  combined score (half artist, half title): with the artist matching, a title similarity
+  of 0.7 is enough, which is what the gaps on tracker-only subtitles come down to.
 
 ## Discovery
 
@@ -226,7 +234,9 @@ add a regression test in `tests/integration/test_review_fixes.py`.
   payload over hand-writing one.
 - `tests/fixtures/titles/` is the title-parser corpus: `gazelle.txt` (captured, 804 titles)
   is the reference for the Gazelle family, `gazelle-handwritten.txt` is a hand-written set in
-  the Gazelle definition's format, `pandacd.txt` is captured.
+  the Gazelle definition's format, `pandacd.txt` is captured. `tests/fixtures/matching/pairs.yaml`
+  is the matching corpus (target, listing, verdict, queries), real rows taken from
+  acquisitions a human approved or imported.
 - A fixture captured from a private tracker carries no site URL and nothing tied to an
   account: download links are redacted, torrent-page links point at `tracker.example`, and
   the indexer is named "Gazelle". Tracker names in prose are "tracker A" and "tracker B".

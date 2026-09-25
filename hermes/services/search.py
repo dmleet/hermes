@@ -32,8 +32,37 @@ VARIOUS_ARTISTS_MBID = "89ad4ac3-39f7-470e-963a-56509c546377"
 # 2026-09-24: 163 rows for "CAN" at 500, newest first), so there the fallback sees a
 # small catalogue whole and a large one's newest uploads.
 ARTIST_SEARCH_LIMIT = 500
+SEARCH_LIMIT = 100
+# What the event says when a step's query found nothing and the next one is tried.
+STEP_MESSAGE = {
+    "head": "searching the title before its subtitle",
+    "artist": "searching the artist alone",
+}
 
 SEARCHABLE = {S.RESOLVED, S.NO_MATCH, S.FAILED, S.CANDIDATES_READY}
+
+
+def search_queries(
+    artist: str, title: str, *, various_artists: bool = False
+) -> list[tuple[str, str]]:
+    """The queries a search tries, in order, each with its step: the artist and title
+    whole; for a title with a subtitle, soundtrack label or parenthesised alternative,
+    the artist and the title's head, which is what a listing that drops the tail can
+    answer ("CAN Anthology" for "Anthology: 25 Years"); then the artist alone, a
+    catalogue for matching to pick from, never for Various Artists. A Sphinx index
+    requires every query word, so each step only widens; a step that repeats an earlier
+    query is left out."""
+    steps = [("full", search_form(f"{artist} {title}"))]
+    head = title_head(title)
+    if head:
+        steps.append(("head", search_form(f"{artist} {head}")))
+    if not various_artists:
+        steps.append(("artist", search_form(artist)))
+    out: list[tuple[str, str]] = []
+    for kind, query in steps:
+        if query and all(query != seen for _, seen in out):
+            out.append((kind, query))
+    return out
 
 
 def _to_row(acq: Acquisition, c: RankedCandidate) -> Candidate:
@@ -151,7 +180,10 @@ async def run_search(
         raise ValueError("cannot search an acquisition without a resolved target")
     if acq.state not in SEARCHABLE:
         raise ValueError(f"cannot search from state {acq.state}")
-    query = search_form(f"{target.artist_name} {target.title}")
+    steps = search_queries(
+        target.artist_name, target.title, various_artists=is_various_artists(target)
+    )
+    query = steps[0][1]
     transition(
         session, acq, S.SEARCHING, f"searching Prowlarr for {query!r}", data={"query": query}
     )
@@ -193,40 +225,20 @@ async def run_search(
                 )
                 session.commit()
                 return acq
-            head = title_head(target.title)
-            head_query = search_form(f"{target.artist_name} {head}") if head else ""
-            if head_query and head_query != query:
-                # A subtitle or soundtrack label is what a listing drops ("Anthology"
-                # for "Anthology: 25 Years"), and every query word is required, so the
-                # head is the query that can find it; matching splits the title the
-                # same way.
-                session.add(
-                    Event(
-                        acquisition=acq,
-                        message=f"nothing for {query!r}; searching the title before its subtitle",
-                        data={"query": head_query},
-                    )
+        for kind, next_query in steps[1:]:
+            if releases:
+                break
+            session.add(
+                Event(
+                    acquisition=acq,
+                    message=f"nothing for {query!r}; {STEP_MESSAGE[kind]}",
+                    data={"query": next_query},
                 )
-                session.commit()
-                query = head_query
-                releases = await prowlarr.search(query, indexer_ids=indexer_ids)
-        if not releases:
-            artist_query = search_form(target.artist_name)
-            if artist_query and artist_query != query and not is_various_artists(target):
-                # The title is what uploaders spell differently ("Vol." for "Volume", a
-                # dropped accent); the artist's catalogue is small and matching decides.
-                session.add(
-                    Event(
-                        acquisition=acq,
-                        message=f"nothing for {query!r}; searching the artist alone",
-                        data={"query": artist_query},
-                    )
-                )
-                session.commit()
-                query = artist_query
-                releases = await prowlarr.search(
-                    query, indexer_ids=indexer_ids, limit=ARTIST_SEARCH_LIMIT
-                )
+            )
+            session.commit()
+            query = next_query
+            limit = ARTIST_SEARCH_LIMIT if kind == "artist" else SEARCH_LIMIT
+            releases = await prowlarr.search(query, indexer_ids=indexer_ids, limit=limit)
     except httpx.HTTPError as exc:
         transition(
             session,

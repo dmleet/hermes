@@ -1,0 +1,451 @@
+# The matching corpus: a target as MusicBrainz names it against a listing as a tracker
+# titles it, and the verdict the matcher must reach (tests/unit/test_matching_pairs.py).
+#
+# Rows marked with an acquisition number are real: the target is what the request
+# resolved to, the listing a row Prowlarr returned, the verdict what a human confirmed by
+# approving or importing. Invented rows use "Artist" and "Album" and stand for one
+# mechanism each. Titles are public tracker metadata; no row names a tracker or an account.
+#
+# Fields: artist, title, year (the target); listing (the tracker's title); expect
+# (accept | reject, against policy.quality.match_threshold); why (the mechanism, for the
+# reader); queries (optional: the Prowlarr queries the search tries, in order); gap
+# (optional: a verdict the matcher does not reach yet, kept as an expected failure so a
+# fix turns it green and a regression is loud); query_gap (the same, for the queries). The corpus judges matching alone: a
+# listing ranking would still drop for its type, format or media is a matching verdict
+# here all the same.
+
+# --- real acquisitions -------------------------------------------------------------
+
+- artist: CAN
+  title: "Anthology: 25 Years"
+  year: 1994
+  listing: "Can - Anthology (1994) [Anthology] [Remaster 2007] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: accept
+  why: "#74: the listing drops the subtitle; the head query is what finds it"
+  queries: ["CAN Anthology 25 Years", "CAN Anthology", "CAN"]
+
+- artist: CAN
+  title: "Anthology: 25 Years"
+  year: 1994
+  listing: "Can - Anthology 1968-93 (1993) [Anthology] [Remastered 2011] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "#74: the sibling compilation a year earlier; scores 0.846, a thin margin"
+
+- artist: Mercury Rev
+  title: "Deserter’s Songs"
+  year: 1998
+  listing: "Mercury Rev - Deserter’s Songs (1998) [Album] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: accept
+  why: "#72: a typographic apostrophe; the query carries the pieces"
+  queries: ["Mercury Rev Deserter s Songs", "Mercury Rev"]
+
+- artist: Air
+  title: Moon Safari
+  year: 1998
+  listing: "AIR - Moon Safari (1998) [Album] [Silent Remaster 1998] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: accept
+  why: "#39: the artist in capitals, an edition block"
+
+- artist: Air
+  title: Moon Safari
+  year: 1998
+  listing: "AIR - Blue Moon Safari (2025) [Remix] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: reject
+  why: "#39: a remix album with the title inside its own"
+
+- artist: Air
+  title: Moon Safari
+  year: 1998
+  listing: "AIR - Moon Safari - The Athens Concert (2026) [Live album] [Record Store Day 2026] [FLAC Lossless / Vinyl]"
+  expect: reject
+  why: "#39: a live record with a subtitle the target lacks"
+
+- artist: Pearl Jam
+  title: Vitalogy
+  year: 1994
+  listing: "Pearl Jam - Vs. & Vitalogy (2011) [Anthology] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: reject
+  why: "#30: a two-album box named after both"
+
+- artist: Bloc Party
+  title: Silent Alarm
+  year: 2004
+  listing: "Bloc Party - Silent Alarm (2005) [Album] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: accept
+  why: "#69: the year off by one (a UK release in February, a US one the year before)"
+
+- artist: Bloc Party
+  title: Silent Alarm
+  year: 2004
+  listing: "Bloc Party - Silent Alarm Live (2019) [Live album] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: reject
+  why: "#69: a live record; the year alone rejects it"
+
+- artist: Bloc Party
+  title: Silent Alarm
+  year: 2004
+  listing: "Bloc Party - Silent Alarm Remixed (2005) [Remix] [Japan / with Two More Years EP 2005] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: reject
+  why: "#69: one word appended to a long title; ranking dropped it for its type only"
+  gap: "a trailing word on a long title keeps whole-string similarity above the threshold"
+
+- artist: Incubus
+  title: Morning View
+  year: 2001
+  listing: "Incubus - Morning View XXIII (2024) [Album] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: reject
+  why: "#55: an anniversary re-recording; the year rejects it"
+
+- artist: Nine Inch Nails
+  title: The Downward Spiral
+  year: 1994
+  listing: "Nine Inch Nails performed by IXI - The Downward Spiral: Reimagined for Piano (2022) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "#43: a cover credited 'performed by'; the artist matches, the subtitle and year do not"
+
+- artist: Arcade Fire
+  title: The Suburbs
+  year: 2010
+  listing: "Arcade Fire - The Suburbs / Month of May (2010) [Single] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "#61: a double A-side single the same year"
+
+- artist: Stone Temple Pilots
+  title: Purple
+  year: 1994
+  listing: "Stone Temple Pilots - Core & Purple (1996) [Anthology] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: reject
+  why: "#65: a two-album set"
+
+- artist: Modest Mouse
+  title: This Is a Long Drive for Someone with Nothing to Think About
+  year: 1996
+  listing: "Modest Mouse - This Is a Long Drive for Someone With Nothing to Think About (1996) [Album] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: accept
+  why: "#66: capitalisation differs"
+
+- artist: Billie Eilish
+  title: "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?"
+  year: 2019
+  listing: "Billie Eilish - When We All Fall Asleep, Where Do We Go? (2019) [Album] [FLAC 24bit Lossless / WEB]"
+  expect: accept
+  why: "#4: MusicBrainz keeps the cover's capitals"
+  queries: ["Billie Eilish WHEN WE ALL FALL ASLEEP WHERE DO WE GO", "Billie Eilish"]
+
+- artist: Caravan Palace
+  title: "<|°_°|>"
+  year: 2015
+  listing: "Caravan Palace - <|°_°|> (2015) [Album] [FLAC 24bit Lossless / WEB]"
+  expect: accept
+  why: "#62: a title made of punctuation is compared raw"
+
+- artist: Caravan Palace
+  title: "<|°_°|>"
+  year: 2015
+  listing: "Caravan Palace - Caravan Palace (2008) [Album] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: reject
+  why: "#62: the self-titled debut from the artist-only fallback"
+
+- artist: Low Roar
+  title: "0"
+  year: 2014
+  listing: "Low Roar - 0 (2014) [Album] [FLAC 24bit Lossless / WEB]"
+  expect: accept
+  why: "#32: a one-character title"
+
+- artist: Steven Wilson
+  title: Hand. Cannot. Erase.
+  year: 2015
+  listing: "Steven Wilson - Hand. Cannot. Erase. (2015) [Album] [FLAC 24bit Lossless / WEB]"
+  expect: accept
+  why: "#45: full stops inside the title"
+  queries: ["Steven Wilson Hand Cannot Erase", "Steven Wilson"]
+
+- artist: Hermanos Gutiérrez
+  title: Sonido cósmico
+  year: 2024
+  listing: "Hermanos Gutiérrez - Sonido cósmico (2024) [Album] [FLAC 24bit Lossless / WEB]"
+  expect: accept
+  why: "#68: accents on both sides; the query keeps them"
+  queries: ["Hermanos Gutiérrez Sonido cósmico", "Hermanos Gutiérrez"]
+
+- artist: José González
+  title: Veneer
+  year: 2003
+  listing: "José González - Veneer (2003) [Album] [US Edition 2005] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: accept
+  why: "#24: an edition two years on, the head year still the album's"
+
+- artist: bôa
+  title: The Race of a Thousand Camels
+  year: 1998
+  listing: "bôa (1) - The Race of a Thousand Camels (1998) [Album] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: accept
+  why: "#13: the tracker disambiguates a short artist name with '(1)'; artist 0.75, score 0.875, a thin margin"
+
+- artist: Brian Eno
+  title: "Ambient 1: Music for Airports"
+  year: 1978
+  listing: "Brian Eno - Ambient 1: Music for Airports (1978) [Album] [Remaster 2004] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: accept
+  why: "#5: both carry the subtitle"
+  queries: ["Brian Eno Ambient 1 Music for Airports", "Brian Eno Ambient 1", "Brian Eno"]
+
+- artist: Brian Eno
+  title: "Ambient 1: Music for Airports"
+  year: 1978
+  listing: "Brian Eno - Ambient 2: The Plateaux of Mirror (1980) [Album] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: reject
+  why: "#5: the next in the series; the number and the year both reject it"
+
+- artist: Brian Eno
+  title: "Ambient 1: Music for Airports"
+  year: 1978
+  listing: "Brian Eno - Music for Airports (1978) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "#5: a listing that keeps only the subtitle"
+
+- artist: Gorillaz
+  title: The Mountain
+  year: 2026
+  listing: "Gorillaz - पर्वत (The Mountain) (2026) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "#31: a native-script title with the English one in parentheses"
+
+- artist: Sigur Rós
+  title: Ágætis byrjun
+  year: 1999
+  listing: "Sigur Rós - Ágætis byrjun (1999) [Album] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: accept
+  why: "#59: accents; the query keeps them because the stripped spelling finds nothing"
+  queries: ["Sigur Rós Ágætis byrjun", "Sigur Rós"]
+
+- artist: Sigur Rós
+  title: Ágætis byrjun
+  year: 1999
+  listing: "Sigur Ros - Agaetis byrjun (1999) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "an uploader who dropped the accents"
+
+- artist: Belle and Sebastian
+  title: Tigermilk
+  year: 1996
+  listing: "Belle & Sebastian - Tigermilk (1996) [Album] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: accept
+  why: "the tracker spells '&', MusicBrainz 'and'; the query carries neither"
+  queries: ["Belle Sebastian Tigermilk", "Belle Sebastian"]
+
+- artist: Nick Cave & The Bad Seeds
+  title: Ghosteen
+  year: 2019
+  listing: "Nick Cave and the Bad Seeds - Ghosteen (2019) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "the other way round: MusicBrainz spells '&'"
+  queries: ["Nick Cave Bad Seeds Ghosteen", "Nick Cave Bad Seeds"]
+
+# --- mechanisms ---------------------------------------------------------------------
+
+- artist: Artist
+  title: "Interstellar: Original Motion Picture Soundtrack"
+  year: 2014
+  listing: "Artist - Interstellar (2014) [Soundtrack] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "a soundtrack label the tracker drops"
+  queries: ["Artist Interstellar Original Motion Picture Soundtrack", "Artist Interstellar", "Artist"]
+
+- artist: Artist
+  title: "Interstellar: Original Motion Picture Soundtrack"
+  year: 2014
+  listing: "Artist - Interstellar Overdrive (2014) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a different title that shares the head's word"
+  gap: "title 0.78 alone rejects, but the artist half of the score lifts it over the threshold"
+
+- artist: Artist
+  title: Dummy
+  year: 1994
+  listing: "Artist - Dummy (Original Soundtrack) (1994) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "a soundtrack label only the tracker adds"
+
+- artist: Artist
+  title: "Seven Days Walking: Day One"
+  year: 2019
+  listing: "Artist - Seven Days Walking: Day Two (2019) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "subtitles that differ in a number word"
+  queries: ["Artist Seven Days Walking Day One", "Artist Seven Days Walking", "Artist"]
+
+- artist: Artist
+  title: "Seven Days Walking: Day One"
+  year: 2019
+  listing: "Artist - Seven Days Walking: Day One (2019) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "the same subtitle"
+
+- artist: Artist
+  title: Phantomime (Volume 1)
+  year: 2019
+  listing: "Artist - Phantomime (Volume 2) (2019) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "parenthesised volumes that differ"
+
+- artist: Artist
+  title: Phantomime (Volume II)
+  year: 2019
+  listing: "Artist - Phantomime (Volume 2) (2019) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "the same volume, one side in Roman numerals"
+  gap: "the tail's number check reads 'ii' and '2' as different numbers"
+
+- artist: Artist
+  title: "Title, Pt. 1"
+  year: 2019
+  listing: "Artist - Title, Pt. 2 (2019) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a part number outside any tail"
+  gap: "numbers are compared only inside a subtitle or parenthesis"
+
+- artist: Artist
+  title: "Title, Part 1"
+  year: 2019
+  listing: "Artist - Title, Pt. 1 (2019) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "'Part' against 'Pt.'"
+
+- artist: Artist
+  title: Album
+  year: 1969
+  listing: "Artist - Album II (1969) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a sequel the same year (Led Zeppelin's first two are both 1969)"
+  gap: "numbers are compared only inside a subtitle or parenthesis"
+
+- artist: Artist
+  title: Album II
+  year: 2019
+  listing: "Artist - Album 2 (2019) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "a Roman numeral in the title itself; whole-string similarity carries it"
+
+- artist: Artist
+  title: "Album, Volume 1"
+  year: 2019
+  listing: "Artist - Album Vol. 2 (2019) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "volumes that differ, not set off by a colon"
+  gap: "numbers are compared only inside a subtitle or parenthesis"
+
+- artist: Artist
+  title: "Album, Volume 1"
+  year: 2019
+  listing: "Artist - Album Vol. 1 (2019) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "'Volume' against 'Vol.'"
+
+- artist: Artist
+  title: Rival Dealer
+  year: 2013
+  listing: "Artist - Rival Dealer: Remixes (2013) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a subtitle only the tracker has"
+  gap: "the 0.8 cap on a tracker-only subtitle sits above the 0.7 a matching artist needs"
+
+- artist: Artist
+  title: Homogenic
+  year: 1997
+  listing: "Artist - Homogenic - Live (1997) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a dash subtitle only the tracker has"
+  gap: "the 0.8 cap on a tracker-only subtitle sits above the 0.7 a matching artist needs"
+
+- artist: Artist
+  title: Album
+  year: 2019
+  listing: "Artist - Album (Instrumentals) (2019) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a variant in parentheses that is not an alternative title"
+  gap: "any parenthesis on the listing reads as an alternative title"
+
+- artist: Artist
+  title: Album
+  year: 2019
+  listing: "Artist - Album (Deluxe Edition) (2019) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "an edition suffix is stripped"
+
+- artist: Artist
+  title: Album
+  year: 2019
+  listing: "Artist - Album (Disc 1) (2019) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "a disc marker in parentheses"
+
+- artist: Artist
+  title: Album
+  year: 2019
+  listing: "Artist feat. Guest - Album (2019) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "a featured artist in the credit"
+
+- artist: Artist
+  title: Album
+  year: 2019
+  listing: "Artist - Album (2015) [Album] [Remaster 2019] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "a different head year with a remaster year present"
+
+- artist: Artist
+  title: Album
+  year: 2019
+  listing: "Artist - Album (2015) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a different head year and no remaster year: a different album with the same name"
+
+- artist: Artist
+  title: Album
+  year: 2019
+  listing: "Artist - Album (2020) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "a year off by one"
+
+- artist: Artist
+  title: A
+  year: 2019
+  listing: "Artist - B (2019) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "one-letter titles that differ"
+  queries: ["Artist A", "Artist"]
+  query_gap: "'A' is a noise word, so the first query is the artist alone"
+
+- artist: Artist
+  title: Artist
+  year: 2019
+  listing: "Artist - Artist (2019) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "a self-titled album"
+  queries: ["Artist Artist", "Artist"]
+
+- artist: The Band
+  title: The Album
+  year: 2019
+  listing: "The Band - Album (2019) [Album] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "a leading article dropped by the uploader"
+  queries: ["Band Album", "Band"]
+
+- artist: Various Artists
+  title: Compilation Name
+  year: 2019
+  listing: "Various Artists - Compilation Name (2019) [Compilation] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "a compilation; no artist-only fallback"
+  queries: ["Various Artists Compilation Name"]
+
+- artist: Various Artists
+  title: Compilation Name
+  year: 2019
+  listing: "VA - Compilation Name (2019) [Compilation] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "'VA' for Various Artists"
+  gap: "the artist check has no alias for 'VA'"

@@ -12,7 +12,7 @@
 # (.github/dependabot.yml) opens a PR when linuxserver publishes a new tag, and the images
 # workflow runs the plugin's tests inside the resulting image before pushing it. The pushed
 # image is tagged with the beets version it carries (`beet version`), not with Hermes's.
-FROM lscr.io/linuxserver/beets:2.14.0@sha256:bbd09e2b19a0903f3f916c26e9ae5c30004913b293228b422154c0f9fecb2cd9
+FROM lscr.io/linuxserver/beets:2.14.1@sha256:99582f104d04241b46a4a7071d424d0529800f9e3d04baa36db47b5e8cda6e96
 
 # The cluster runs the container as this uid/gid directly (runAsUser), bypassing the
 # linuxserver init that would normally remap its `abc` user from PUID/PGID. Remap at build

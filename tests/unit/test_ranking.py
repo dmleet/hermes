@@ -2,10 +2,12 @@ from __future__ import annotations
 
 from hermes.config import QualityPolicy
 from hermes.integrations.prowlarr import ReleaseResult
+from hermes.services.matching import VARIOUS_ARTIST_SIMILARITY
 from hermes.services.ranking import (
     ENCODING_WEIGHT,
     FREELEECH_TIEBREAK,
     LOG_CUE_BONUS,
+    MATCH_WEIGHT,
     MEDIA_WEIGHT,
     SEEDERS_TIEBREAK,
     SIZE_TIEBREAK_PER_BYTE,
@@ -337,3 +339,28 @@ def test_unknown_media_is_neutral_not_rejected() -> None:
     pandacd = _r("Radiohead - OK Computer [1997] [FLAC Lossless]")
     (c,) = _rank(None, pandacd)
     assert c.accepted and c.rank == 1 and c.parsed.media is None
+
+
+def test_artist_credit_outranks_various_artists_but_not_quality() -> None:
+    """A tracker may file one artist's anthology under Various Artists (acquisition 82).
+    That listing is accepted, but the same release credited to the artist ranks ahead of
+    it whatever the seeders; the difference stays under one media or encoding step, so a
+    better copy filed under VA still wins."""
+    policy = QualityPolicy()
+    target = dict(artist="Artist", title="The Artist Anthology", year=2001)
+    credited = _r("Artist - The Artist Anthology (2001) [Anthology] [FLAC Lossless / WEB]")
+    various = _r(
+        "Various Artists - The Artist Anthology (2001) [Anthology] [FLAC Lossless / WEB]",
+        seeders=500,
+    )
+    ranked = evaluate([various, credited], policy=policy, **target)
+    assert [c.release.guid for c in ranked if c.accepted] == [credited.guid, various.guid]
+    assert "Various Artists" in " ".join(ranked[1].match.notes)
+
+    penalty = MATCH_WEIGHT * (1.0 - (VARIOUS_ARTIST_SIMILARITY + 1.0) / 2)
+    assert penalty < MEDIA_WEIGHT / len(policy.media_preference)
+    assert penalty < ENCODING_WEIGHT / len(policy.encoding_preference)
+    various_web = _r("VA - The Artist Anthology (2001) [Anthology] [FLAC Lossless / WEB]")
+    credited_cd = _r("Artist - The Artist Anthology (2001) [Anthology] [FLAC Lossless / CD]")
+    ranked = evaluate([credited_cd, various_web], policy=policy, **target)
+    assert [c.release.guid for c in ranked if c.accepted] == [various_web.guid, credited_cd.guid]

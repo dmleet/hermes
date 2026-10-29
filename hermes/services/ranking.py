@@ -284,7 +284,11 @@ def evaluate(
     out: list[RankedCandidate] = []
     for r in releases:
         parsed = parse_title(r.title)
-        c = RankedCandidate(r, parsed, match(parsed, artist=artist, title=title, year=year))
+        c = RankedCandidate(
+            r,
+            parsed,
+            match(parsed, artist=artist, title=title, year=year, target_types=target_types),
+        )
         c.estimate = estimate_rate(r, parsed, duration_ms, track_count)
         c.rejected_reason = rejection(c, policy, target_types)
         c.score = rank_score(c, policy) if c.accepted else 0.0

@@ -30,7 +30,7 @@
 {% if continued_as %}<p class="hint">Continued as <a href="/acquisitions/{{ continued_as }}">#{{ continued_as }}</a>.</p>{% endif %}
 
 {% if acq.state == "NO_MATCH" %}
-<p class="hint">Nothing acceptable on the tracker right now. Search again later, or cancel. (A weekly re-search arrives with the ListenBrainz milestone.)</p>
+<p class="hint">Nothing acceptable on the tracker right now. Search again later, or cancel. Hermes also searches again on its own once search.retry_days have passed (a week by default).</p>
 {% elif acq.state == "STALLED" %}
 <p class="hint">The download stopped making progress. The next ranked candidate is waiting for your go-ahead.</p>
 {% elif failed_unresolved and can_retry_request %}

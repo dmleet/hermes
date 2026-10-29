@@ -102,6 +102,10 @@ add a regression test in `tests/integration/test_review_fixes.py`.
   The artist can lower a score, never lift a weak title over the threshold.
 - `artist_variants` accepts "performed by" and "feat." tails so a credited guest does not
   fail the artist check.
+- A Various Artists ("VA") listing counts as 0.9 artist for a single-artist target only
+  with an agreeing year and either the artist named in its title or a Compilation/Soundtrack
+  target with a non-generic title (`matching._various_stands_in`). 0.9 keeps acceptance to
+  the title and ranks it behind the artist's own credit, by less than one quality step.
 - Add odd real titles to the corpus (`tests/fixtures/titles/`) rather than special-casing
   them in the parser. `uv run hermes parse-title "<title>"` shows how a title is read.
 - A matching miss or a wrong accept becomes a row in `tests/fixtures/matching/pairs.yaml`

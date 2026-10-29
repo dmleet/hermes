@@ -23,7 +23,18 @@ from hermes.services.title_parser import parse_title
 
 PAIRS = Path(__file__).resolve().parents[1] / "fixtures" / "matching" / "pairs.yaml"
 THRESHOLD = Policy().quality.match_threshold
-FIELDS = {"artist", "title", "year", "listing", "expect", "why", "queries", "gap", "query_gap"}
+FIELDS = {
+    "artist",
+    "title",
+    "year",
+    "listing",
+    "expect",
+    "why",
+    "queries",
+    "gap",
+    "query_gap",
+    "types",
+}
 
 
 def _load() -> list[dict[str, Any]]:
@@ -64,6 +75,7 @@ def test_verdict(row: dict[str, Any]) -> None:
         artist=str(row["artist"]),
         title=str(row["title"]),
         year=int(row["year"]),
+        target_types=set(row.get("types") or []),
     )
     accepted = m.score >= THRESHOLD
     assert accepted == (row["expect"] == "accept"), (row.get("why"), m.as_dict())

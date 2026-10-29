@@ -10,7 +10,9 @@
 # (accept | reject, against policy.quality.match_threshold); why (the mechanism, for the
 # reader); queries (optional: the Prowlarr queries the search tries, in order); gap
 # (optional: a verdict the matcher does not reach yet, kept as an expected failure so a
-# fix turns it green and a regression is loud); query_gap (the same, for the queries). The corpus judges matching alone: a
+# fix turns it green and a regression is loud); query_gap (the same, for the queries);
+# types (optional: the target's MusicBrainz primary and secondary types, which decide
+# whether a Various Artists listing may stand for one artist's album). The corpus judges matching alone: a
 # listing ranking would still drop for its type, format or media is a matching verdict
 # here all the same.
 
@@ -30,6 +32,14 @@
   listing: "Can - Anthology 1968-93 (1993) [Anthology] [Remastered 2011] [FLAC Lossless / WEB]"
   expect: reject
   why: "#74: the sibling compilation a year earlier; its title carries years the target lacks"
+
+- artist: Gram Parsons
+  title: "Sacred Hearts & Fallen Angels: The Gram Parsons Anthology"
+  year: 2001
+  types: [Album, Compilation]
+  listing: "Various Artists - Sacred Hearts & Fallen Angels: The Gram Parsons Anthology (2001) [Anthology] [FLAC Lossless / CD / Log (100%) / Cue]"
+  expect: accept
+  why: "#82: an anthology of the artist's bands, filed under Various Artists; the artist is named in the title"
 
 - artist: Mercury Rev
   title: "Deserter’s Songs"
@@ -523,4 +533,41 @@
   listing: "VA - Compilation Name (2019) [Compilation] [FLAC Lossless / WEB]"
   expect: accept
   why: "'VA' for Various Artists"
-  gap: "the artist check has no alias for 'VA'"
+
+- artist: Artist
+  title: Compilation Name
+  year: 2019
+  types: [Album, Compilation]
+  listing: "Various Artists - Compilation Name (2019) [Compilation] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "one artist's compilation filed under Various Artists"
+
+- artist: Artist
+  title: Compilation Name
+  year: 2019
+  listing: "Various Artists - Compilation Name (2019) [Album] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a studio album target: a Various Artists listing of the same name is another record"
+
+- artist: Artist
+  title: Compilation Name
+  year: 2019
+  types: [Album, Compilation]
+  listing: "Various Artists - Compilation Name (2015) [Compilation] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a Various Artists listing must carry a year that agrees"
+
+- artist: Artist
+  title: Greatest Hits
+  year: 2019
+  types: [Album, Compilation]
+  listing: "Various Artists - Greatest Hits (2019) [Compilation] [FLAC Lossless / WEB]"
+  expect: reject
+  why: "a generic title under Various Artists names any compilation"
+
+- artist: Artist
+  title: The Artist Anthology
+  year: 2019
+  listing: "VA - The Artist Anthology (2019) [Anthology] [FLAC Lossless / WEB]"
+  expect: accept
+  why: "the artist named in a Various Artists listing's title, whatever the target's types"

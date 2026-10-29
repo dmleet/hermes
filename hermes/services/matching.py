@@ -78,6 +78,24 @@ def artist_variants(artist: str) -> list[str]:
     return [artist] if head == artist or not head else [artist, head]
 
 
+# How a listing credits a compilation, normalised. A tracker may file a single artist's
+# anthology under Various Artists when its tracks come from several of the artist's bands
+# (e.g. "Various Artists - Sacred Hearts & Fallen Angels: The Gram Parsons Anthology").
+_VARIOUS = frozenset({"various artists", "various", "va", "v a"})
+# A Various Artists listing that qualifies for a single-artist target counts as this much
+# artist: at or below a title of 0.9 the score is the title's, so acceptance is as if the
+# artist were ignored, but an exact title scores 0.95 and ranks about 0.1 behind the same
+# listing credited to the artist -- less than a media or encoding step, so a better copy
+# filed under VA still wins.
+VARIOUS_ARTIST_SIMILARITY = 0.9
+# The release types a tracker commonly files under Various Artists.
+_VARIOUS_TYPES = frozenset({"Compilation", "Soundtrack"})
+
+
+def is_various(artist: str) -> bool:
+    return normalize(artist) in _VARIOUS
+
+
 _WORD_NUMBERS = {
     "one": 1, "two": 2, "three": 3, "four": 4, "five": 5,
     "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10,
@@ -240,7 +258,31 @@ def title_similarity(target: str, album: str) -> tuple[float, str | None]:
     return best, note
 
 
-def match(parsed: ParsedTitle, *, artist: str, title: str, year: int | None) -> MatchResult:
+def _various_stands_in(
+    parsed: ParsedTitle, artist: str, title: str, year: int | None, target_types: set[str]
+) -> bool:
+    """May a Various Artists listing stand for a single artist's album? Only with a year
+    that agrees, and either the artist named in the listing's title (a "The Artist
+    Anthology"), or a compilation or soundtrack target whose title is not generic: a VA
+    "Greatest Hits (2001)" is not every artist's "Greatest Hits (2001)"."""
+    if not (parsed.year and year and abs(parsed.year - year) <= 1):
+        return False
+    name = normalize(artist)
+    if name and f" {name} " in f" {normalize(parsed.album or '')} ":
+        return True
+    return bool(target_types & _VARIOUS_TYPES) and not _generic(title)
+
+
+def match(
+    parsed: ParsedTitle,
+    *,
+    artist: str,
+    title: str,
+    year: int | None,
+    target_types: set[str] | None = None,
+) -> MatchResult:
+    """``target_types`` is the target's MusicBrainz primary and secondary types, which
+    decide whether a Various Artists listing may stand for a single artist's album."""
     notes: list[str] = []
     if not parsed.artist or not parsed.album:
         return MatchResult(0.0, 0.0, 0.0, None, ["title did not parse"])
@@ -250,6 +292,14 @@ def match(parsed: ParsedTitle, *, artist: str, title: str, year: int | None) -> 
     )
     if a_sim > a_plain:
         notes.append("matched the artist before a 'performed by' or 'feat.' tail")
+    if is_various(parsed.artist):
+        if is_various(artist):
+            a_sim = 1.0  # "VA" for "Various Artists"
+        elif a_sim < VARIOUS_ARTIST_SIMILARITY and _various_stands_in(
+            parsed, artist, title, year, target_types or set()
+        ):
+            a_sim = VARIOUS_ARTIST_SIMILARITY
+            notes.append("listed under Various Artists; ranked behind the artist's own credit")
     t_plain = similarity(title, parsed.album)
     t_sim, note = title_similarity(title, parsed.album)
     if note and (t_sim != t_plain or "edition" in note):

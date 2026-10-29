@@ -45,6 +45,10 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      # The Python of the Hermes image (Dockerfile), not the runner's newest: a release
+      # beets' native dependencies have no wheels for yet fails the plugin's checks.
+      UV_PYTHON: "3.13"
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
